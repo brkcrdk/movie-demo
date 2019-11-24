@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Dispatch } from "react";
 import { apiKey, apiUrl } from "../../apiKey";
+
 import {
   DETAIL_ERROR,
   DETAIL_FETCH,
