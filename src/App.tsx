@@ -1,8 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useEffect } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { useDispatch } from "react-redux";
+import { fetchDetails } from "./store/Detail/action";
 const App: React.FC = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchDetails());
+  }, [dispatch]);
   return (
     <div className="App">
       <header className="App-header">
@@ -21,6 +26,6 @@ const App: React.FC = () => {
       </header>
     </div>
   );
-}
+};
 
 export default App;
