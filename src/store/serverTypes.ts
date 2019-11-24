@@ -30,4 +30,18 @@ export interface IDetail {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  credits: {
+    cast: Cast[];
+  };
+}
+
+interface Cast {
+  cast_id: number;
+  character: string;
+  credit_id: string;
+  gender: number;
+  id: number;
+  name: string;
+  order: number;
+  profile_path: string;
 }
