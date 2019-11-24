@@ -12,7 +12,7 @@ const initialState: DetailState = {
   error: null
 };
 
-const DetailReducer = (state = initialState, action: DetailActions) => {
+const detailReducer = (state = initialState, action: DetailActions) => {
   switch (action.type) {
     case DETAIL_FETCH:
       return { ...state, isLoading: true };
@@ -32,3 +32,5 @@ const DetailReducer = (state = initialState, action: DetailActions) => {
       return state;
   }
 };
+
+export default detailReducer;
