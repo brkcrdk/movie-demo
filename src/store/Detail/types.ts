@@ -1,6 +1,6 @@
-import { Detail } from "../serverTypes";
+import { IDetail } from "../serverTypes";
 export interface DetailState {
-  movie: Detail[];
+  movie: IDetail[];
   isLoading: boolean;
   error: null;
 }
@@ -14,7 +14,7 @@ interface DetailFetch {
 }
 interface DetailSuccess {
   type: typeof DETAIL_SUCCESS;
-  payload: Detail[];
+  payload: IDetail[];
 }
 interface DetailError {
   type: typeof DETAIL_ERROR;

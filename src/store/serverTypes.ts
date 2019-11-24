@@ -1,4 +1,4 @@
-export interface Detail {
+export interface IDetail {
   adult: boolean;
   backdrop_path: string;
   belongs_to_collection: {} | null;

@@ -8,9 +8,9 @@ import {
   DetailActions
 } from "./types";
 
-export const fetchDetails = () => {
+export const fetchDetails = (id: number) => {
   const request = axios.get(
-    `${apiUrl}/movie/475557?append_to_response=credits&api_key=${apiKey}`
+    `${apiUrl}/movie/${id}?append_to_response=credits&api_key=${apiKey}`
   );
 
   return (dispatch: Dispatch<DetailActions>) => {
