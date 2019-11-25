@@ -1,4 +1,4 @@
-import { MovieInfo, MovieList } from "../serverTypes";
+import { MovieList } from "../serverTypes";
 
 export interface MoviesState {
   movies: MovieList[];

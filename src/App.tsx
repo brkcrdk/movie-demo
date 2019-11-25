@@ -1,27 +1,21 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDetails } from "./store/Detail/action";
-import { IDetail } from "./store/serverTypes";
+import { MovieList } from "./store/serverTypes";
+import { fetchMovies } from "./store/Movies/actions";
 import Table from "./Components/Table/Table";
-interface DetailProps {
-  detail: {
-    movie: IDetail;
+interface MoviesProps {
+  moviesStore: {
+    movies: MovieList;
   };
 }
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchDetails(475550));
+    dispatch(fetchMovies("popular"));
   }, [dispatch]);
-  const movie = useSelector((state: DetailProps) => state.detail.movie);
-
-  const renderActors =
-    movie.credits !== undefined
-      ? movie.credits.cast.map((cast, index) => (
-          <li key={index}>{cast.name}</li>
-        ))
-      : "";
+  const results = useSelector((p: MoviesProps) => p.moviesStore.movies.results);
+  console.log(results);
   return (
     <div className="App">
       <Table />
