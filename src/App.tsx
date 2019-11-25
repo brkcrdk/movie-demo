@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDetails } from "./store/Detail/action";
 import { IDetail } from "./store/serverTypes";
-
+import Table from "./Components/Table/Table";
 interface DetailProps {
   detail: {
     movie: IDetail;
@@ -25,12 +24,7 @@ const App: React.FC = () => {
       : "";
   return (
     <div className="App">
-      <header className="App-header">
-        <h3>Details</h3>
-        <p>{movie.original_title}</p>
-        <h4>Main Actors</h4>
-        <ul>{renderActors}</ul>
-      </header>
+      <Table />
     </div>
   );
 };
