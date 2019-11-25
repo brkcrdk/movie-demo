@@ -14,11 +14,15 @@ const App: React.FC = () => {
   useEffect(() => {
     dispatch(fetchMovies("popular"));
   }, [dispatch]);
-  const results = useSelector((p: MoviesProps) => p.moviesStore.movies.results);
-  console.log(results);
+  const data = useSelector((p: MoviesProps) => p.moviesStore.movies);
+
   return (
     <div className="App">
-      <Table />
+      <Table
+        movies={data.results}
+        activePage={data.page}
+        totalPages={data.total_pages}
+      />
     </div>
   );
 };
