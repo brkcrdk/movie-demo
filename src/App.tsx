@@ -1,48 +1,20 @@
-import React, { useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { MovieList } from "./store/serverTypes";
-import { fetchMovies } from "./store/Movies/actions";
-
-import Table from "./Components/Table/Table";
-
-interface MoviesProps {
-  moviesStore: {
-    movies: MovieList;
-  };
-}
+import NowPlaying from "./Components/Pages/NowPlaying/NowPlaying";
+import Popular from "./Components/Pages/Popular/Popular";
+import TopRated from "./Components/Pages/TopRated/TopRated";
+import Upcoming from "./Components/Pages/Upcoming/Upcoming";
+import Discover from "./Components/Pages/Discover/Discover";
 
 const App: React.FC = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchMovies("top_rated"));
-  }, [dispatch]);
-
-  const data = useSelector((p: MoviesProps) => p.moviesStore.movies);
-
-  const handleTop = useCallback(() => {
-    dispatch(fetchMovies("top_rated"));
-  }, [dispatch]);
-  const handleUp = useCallback(() => {
-    dispatch(fetchMovies("upcoming"));
-  }, [dispatch]);
-  const handlePopular = useCallback(() => {
-    dispatch(fetchMovies("popular"));
-  }, [dispatch]);
-
   return (
     <div className="App">
       <Router>
-        <Route />
-        {/* <button onClick={handleTop}>Top Rated</button>
-        <button onClick={handlePopular}>Popular</button>
-        <button onClick={handleUp}>Upcoming</button>
-        <Table
-          movies={data.results}
-          activePage={data.page}
-          totalPages={data.total_pages}
-        /> */}
+        <Route path="/" exact component={NowPlaying} />
+        <Route path="/movies/popular" component={Popular} />
+        <Route path="/movies/top_rated" component={TopRated} />
+        <Route path="/movies/upcoming" component={Upcoming} />
+        <Route path="/discover" component={Discover} />
       </Router>
     </div>
   );
