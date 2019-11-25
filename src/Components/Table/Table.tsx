@@ -7,7 +7,7 @@ interface Props {
   totalPages: number;
 }
 
-const Table: React.FC<Props> = () => {
+const Table: React.FC<Props> = ({ movies }) => {
   return (
     <table style={{ width: "100%" }}>
       <tbody>
