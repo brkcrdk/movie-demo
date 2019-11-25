@@ -12,7 +12,7 @@ interface MoviesProps {
 const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchMovies("popular"));
+    dispatch(fetchMovies("top_rated"));
   }, [dispatch]);
   const data = useSelector((p: MoviesProps) => p.moviesStore.movies);
 
