@@ -1,4 +1,5 @@
 import React from "react";
+import { IDetail } from "../../store/serverTypes";
 
 interface Props {}
 
@@ -11,11 +12,7 @@ const Table: React.FC<Props> = () => {
         <th>Short Description</th>
         <th>Time</th>
         <th>IMDB Average</th>
-      </tr>
-      <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
+        <th>Votes</th>
       </tr>
     </table>
   );
