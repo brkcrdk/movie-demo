@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import NowPlaying from "./Components/Pages/NowPlaying/NowPlaying";
-import Popular from "./Components/Pages/Popular/Popular";
-import TopRated from "./Components/Pages/TopRated/TopRated";
-import Upcoming from "./Components/Pages/Upcoming/Upcoming";
+import NowPlaying from "./Components/Pages/Movies/NowPlaying/NowPlaying";
+import Popular from "./Components/Pages/Movies/Popular/Popular";
+import TopRated from "./Components/Pages/Movies/TopRated/TopRated";
+import Upcoming from "./Components/Pages/Movies/Upcoming/Upcoming";
 import Discover from "./Components/Pages/Discover/Discover";
 
 const App: React.FC = () => {
