@@ -35,7 +35,7 @@ export interface IDetail {
   };
 }
 
-interface Cast {
+export interface Cast {
   cast_id: number;
   character: string;
   credit_id: string;
@@ -44,4 +44,9 @@ interface Cast {
   name: string;
   order: number;
   profile_path: string;
+}
+
+export interface Genre {
+  id: number;
+  name: string;
 }
