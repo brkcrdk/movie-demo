@@ -9,9 +9,9 @@ import {
   MoviesActions
 } from "./types";
 
-export const fetchMovies = (option: string) => {
+export const fetchMovies = (option: string, page: number = 1) => {
   const request = axios.get(
-    `${apiUrl}/movie/${option}?language=en-US&page=1&api_key=${apiKey}`
+    `${apiUrl}/movie/${option}?language=en-US&page=${page}&api_key=${apiKey}`
   );
 
   return (dispatch: Dispatch<MoviesActions>) => {

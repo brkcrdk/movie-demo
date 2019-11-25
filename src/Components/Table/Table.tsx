@@ -6,10 +6,9 @@ interface Props {
   movies: MovieInfo[];
   activePage: number;
   totalPages: number;
-  section: string;
 }
 
-const Table: React.FC<Props> = ({ movies, totalPages, section }) => {
+const Table: React.FC<Props> = ({ movies, totalPages }) => {
   const renderTables =
     movies !== undefined
       ? movies.map((item, key) => (

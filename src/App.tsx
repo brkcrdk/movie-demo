@@ -10,11 +10,12 @@ interface MoviesProps {
 }
 
 const App: React.FC = () => {
-  const [section, setSection] = useState("top_rated");
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchMovies("top_rated"));
   }, [dispatch]);
+
   const data = useSelector((p: MoviesProps) => p.moviesStore.movies);
 
   const handleTop = useCallback(() => {
@@ -26,13 +27,13 @@ const App: React.FC = () => {
   const handlePopular = useCallback(() => {
     dispatch(fetchMovies("popular"));
   }, [dispatch]);
+
   return (
     <div className="App">
       <button onClick={handleTop}>Top Rated</button>
       <button onClick={handlePopular}>Popular</button>
       <button onClick={handleUp}>Upcoming</button>
       <Table
-        section={section}
         movies={data.results}
         activePage={data.page}
         totalPages={data.total_pages}
