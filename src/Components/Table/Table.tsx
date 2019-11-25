@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useDispatch } from "react-redux";
 import { MovieInfo } from "../../store/serverTypes";
 
 interface Props {
   movies: MovieInfo[];
   activePage: number;
   totalPages: number;
+  section: string;
 }
 
-const Table: React.FC<Props> = ({ movies, totalPages }) => {
+const Table: React.FC<Props> = ({ movies, totalPages, section }) => {
   const renderTables =
     movies !== undefined
       ? movies.map((item, key) => (
@@ -45,7 +47,13 @@ const Table: React.FC<Props> = ({ movies, totalPages }) => {
       </table>
       <div style={{ display: "flex", flexWrap: "wrap", overflow: "hidden" }}>
         {pageNumbers.map((number, i) => (
-          <a style={{ margin: "0.3em" }} href="?#">
+          <a
+            style={{ margin: "0.3em" }}
+            href="?#"
+            onClick={() => {
+              alert(number);
+            }}
+          >
             {number}
           </a>
         ))}

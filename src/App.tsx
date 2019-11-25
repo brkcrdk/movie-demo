@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MovieList } from "./store/serverTypes";
 import { fetchMovies } from "./store/Movies/actions";
@@ -10,6 +10,7 @@ interface MoviesProps {
 }
 
 const App: React.FC = () => {
+  const [section, setSection] = useState("top_rated");
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMovies("top_rated"));
@@ -31,6 +32,7 @@ const App: React.FC = () => {
       <button onClick={handlePopular}>Popular</button>
       <button onClick={handleUp}>Upcoming</button>
       <Table
+        section={section}
         movies={data.results}
         activePage={data.page}
         totalPages={data.total_pages}
