@@ -1,7 +1,9 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { MovieList } from "./store/serverTypes";
 import { fetchMovies } from "./store/Movies/actions";
+
 import Table from "./Components/Table/Table";
 
 interface MoviesProps {
@@ -31,14 +33,17 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <button onClick={handleTop}>Top Rated</button>
-      <button onClick={handlePopular}>Popular</button>
-      <button onClick={handleUp}>Upcoming</button>
-      <Table
-        movies={data.results}
-        activePage={data.page}
-        totalPages={data.total_pages}
-      />
+      <Router>
+        <Route />
+        {/* <button onClick={handleTop}>Top Rated</button>
+        <button onClick={handlePopular}>Popular</button>
+        <button onClick={handleUp}>Upcoming</button>
+        <Table
+          movies={data.results}
+          activePage={data.page}
+          totalPages={data.total_pages}
+        /> */}
+      </Router>
     </div>
   );
 };
