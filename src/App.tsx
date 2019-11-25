@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MovieList } from "./store/serverTypes";
 import { fetchMovies } from "./store/Movies/actions";
 import Table from "./Components/Table/Table";
+
 interface MoviesProps {
   moviesStore: {
     movies: MovieList;
