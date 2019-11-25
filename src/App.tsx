@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MovieList } from "./store/serverTypes";
 import { fetchMovies } from "./store/Movies/actions";
@@ -16,8 +16,20 @@ const App: React.FC = () => {
   }, [dispatch]);
   const data = useSelector((p: MoviesProps) => p.moviesStore.movies);
 
+  const handleTop = useCallback(() => {
+    dispatch(fetchMovies("top_rated"));
+  }, [dispatch]);
+  const handleUp = useCallback(() => {
+    dispatch(fetchMovies("upcoming"));
+  }, [dispatch]);
+  const handlePopular = useCallback(() => {
+    dispatch(fetchMovies("popular"));
+  }, [dispatch]);
   return (
     <div className="App">
+      <button onClick={handleTop}>Top Rated</button>
+      <button onClick={handlePopular}>Popular</button>
+      <button onClick={handleUp}>Upcoming</button>
       <Table
         movies={data.results}
         activePage={data.page}

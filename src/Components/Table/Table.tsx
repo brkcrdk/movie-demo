@@ -7,7 +7,7 @@ interface Props {
   totalPages: number;
 }
 
-const Table: React.FC<Props> = ({ movies }) => {
+const Table: React.FC<Props> = ({ movies, totalPages }) => {
   const renderTables =
     movies !== undefined
       ? movies.map((item, key) => (
@@ -21,6 +21,13 @@ const Table: React.FC<Props> = ({ movies }) => {
           </tr>
         ))
       : "";
+
+  const pageNumbers: number[] = [];
+  if (totalPages !== undefined) {
+    for (let i = 1; i < totalPages; i++) {
+      pageNumbers.push(i);
+    }
+  }
   return (
     <div>
       <table style={{ width: "100%" }}>
@@ -36,6 +43,13 @@ const Table: React.FC<Props> = ({ movies }) => {
           {renderTables}
         </tbody>
       </table>
+      <div style={{ display: "flex", flexWrap: "wrap", overflow: "hidden" }}>
+        {pageNumbers.map((number, i) => (
+          <a style={{ margin: "0.3em" }} href="?#">
+            {number}
+          </a>
+        ))}
+      </div>
     </div>
   );
 };
