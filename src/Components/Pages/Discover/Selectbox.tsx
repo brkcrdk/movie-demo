@@ -20,19 +20,11 @@ const Selectbox: React.FC<Props> = () => {
     (state: GenreProps) => state.genreStore.genre.genres
   );
   //   const [selected, setSelected] = useState<Array<number>>([]);
-  let;
   const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      const value = parseFloat(e.target.value);
-      console.log(selected);
-      if (selected.indexOf(value) === -1) {
-        // setSelected(selected.concat(value));
-      }
-      //   dispatch(fetchDiscover());
-    },
-    [dispatch, selected]
+    (e: React.ChangeEvent<HTMLSelectElement>) => {},
+    [dispatch]
   );
-  console.log(selected);
+
   return (
     <div>
       <select onChange={handleChange}>
