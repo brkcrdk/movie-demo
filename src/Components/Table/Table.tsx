@@ -46,6 +46,7 @@ const Table: React.FC<Props> = ({ movies, totalPages }) => {
       <div style={{ display: "flex", flexWrap: "wrap", overflow: "hidden" }}>
         {pageNumbers.map((number, i) => (
           <a
+            key={i}
             style={{ margin: "0.3em" }}
             href="?#"
             onClick={() => {
