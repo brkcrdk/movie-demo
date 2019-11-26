@@ -1,12 +1,19 @@
 import React, { useCallback } from "react";
 import { fetchDiscover } from "../../store/Discover/action";
 import { fetchMovies } from "../../store/Movies/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 interface Props {
   totalPages: number;
   section: string;
 }
-
+interface FilterState {
+  discoverFilter: {
+    tags: {
+      name: string;
+      id: number;
+    }[];
+  };
+}
 const Pagination: React.FC<Props> = ({ totalPages, section }) => {
   const pageNumbers: number[] = [];
   if (totalPages !== undefined) {
@@ -14,17 +21,18 @@ const Pagination: React.FC<Props> = ({ totalPages, section }) => {
       pageNumbers.push(i);
     }
   }
+  const filter = useSelector((state: FilterState) => state.discoverFilter.tags);
   const dispatch = useDispatch();
   const handleClick = useCallback(
     (page: number) => {
-      console.log(section);
       if (section === "discover") {
-        dispatch(fetchDiscover(page));
+        const genreIds = filter.map(genre => genre.id);
+        dispatch(fetchDiscover(page, ...genreIds));
       } else {
         dispatch(fetchMovies(section, page));
       }
     },
-    [dispatch]
+    [dispatch, filter, section]
   );
   return (
     <div

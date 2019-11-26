@@ -10,7 +10,7 @@ import {
 
 export const fetchDiscover = (page: number = 1, ...genres: number[]) => {
   const request = axios.get(
-    `${apiUrl}/discover/movie?with_genres=${genres}&page=1&api_key=${apiKey}`
+    `${apiUrl}/discover/movie?with_genres=${genres}&page=${page}&api_key=${apiKey}`
   );
 
   return (dispatch: Dispatch<DiscoverActions>) => {
