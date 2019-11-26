@@ -56,6 +56,7 @@ const Selectbox: React.FC<Props> = () => {
   const handleToggle = () => {
     setToggle(!toggle);
   };
+
   function useOutsideAlerter(ref: any) {
     function handleClickOutside(event: any) {
       if (ref.current && !ref.current.contains(event.target)) {
@@ -69,6 +70,7 @@ const Selectbox: React.FC<Props> = () => {
       };
     });
   }
+
   useOutsideAlerter(btnRef);
 
   const dispatch = useDispatch();
@@ -107,18 +109,6 @@ const Selectbox: React.FC<Props> = () => {
             ))
           : "Loading.."}
       </DropdownContent>
-      {/* <select onChange={handleChange}>
-        <option disabled defaultValue="">
-          Choose Genre
-        </option>
-        {genres !== undefined
-          ? genres.map((genre, key) => (
-              <option key={key} value={genre.id} id={genre.name}>
-                {genre.name}
-              </option>
-            ))
-          : ""}
-      </select> */}
     </Dropdown>
   );
 };
