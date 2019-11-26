@@ -10,11 +10,22 @@ interface Props {
 
 const Filters: React.FC<Props> = ({ filter }) => {
   const dispatch = useDispatch();
-  const handleRemove = useCallback(() => {}, [dispatch]);
-  const renderFilters = filter.map(filter => (
-    <div>
+  const handleRemove = useCallback(
+    (name: string, id: number) => {
+      dispatch(removeTag([{ name: name, id: id }]));
+    },
+    [dispatch]
+  );
+  const renderFilters = filter.map((filter, i) => (
+    <div key={i}>
       {filter.name}
-      <button>X</button>
+      <button
+        onClick={() => {
+          handleRemove(filter.name, filter.id);
+        }}
+      >
+        X
+      </button>
     </div>
   ));
   return <div>{filter.length > 0 ? renderFilters : ""}</div>;
