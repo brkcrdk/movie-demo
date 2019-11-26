@@ -15,15 +15,30 @@ const Pagination: React.FC<Props> = ({ totalPages }) => {
       pageNumbers.push(i);
     }
   }
-  const handleClick = () => {};
+  const dispatch = useDispatch();
+  const handleClick = useCallback((page: number) => {}, [dispatch]);
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", overflow: "hidden" }}>
-      {pageNumbers.map((number, i) => (
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        overflow: "hidden"
+      }}
+    >
+      {pageNumbers.map((page, i) => (
         <button
           key={i}
-          style={{ border: "none", background: "transparent", margin: "0.3em" }}
+          style={{
+            border: "none",
+            background: "transparent",
+            margin: "0.3em",
+            cursor: "pointer"
+          }}
+          onClick={() => {
+            handleClick(page);
+          }}
         >
-          {number}
+          {page}
         </button>
       ))}
     </div>
