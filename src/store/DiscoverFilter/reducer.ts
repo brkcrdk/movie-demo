@@ -15,7 +15,14 @@ const filterReducer = (state = initialState, action: DiscoverTagActions) => {
         return { ...state, tags: state.tags.concat(action.payload) };
       }
     case REMOVE_TAG:
-      console.log(action.payload);
+      if (
+        state.tags.filter(item => item.id === action.payload[0].id).length > 0
+      ) {
+        return {
+          ...state,
+          tags: state.tags.filter(item => item.id !== action.payload[0].id)
+        };
+      }
       return state;
     default:
       return state;
