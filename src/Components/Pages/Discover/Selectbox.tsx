@@ -2,6 +2,7 @@ import React, { useEffect, useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchGenres } from "../../../store/Genres/action";
 import { fetchDiscover } from "../../../store/Discover/action";
+import { addTag } from "../../../store/DiscoverFilter/action";
 import { Genre } from "../../../store/serverTypes";
 interface Props {}
 interface GenreProps {
@@ -21,7 +22,10 @@ const Selectbox: React.FC<Props> = () => {
   );
   //   const [selected, setSelected] = useState<Array<number>>([]);
   const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {},
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const value = parseFloat(e.target.value);
+      dispatch(addTag([{ name: e.target.id, id: value }]));
+    },
     [dispatch]
   );
 
@@ -30,7 +34,7 @@ const Selectbox: React.FC<Props> = () => {
       <select onChange={handleChange}>
         {genres !== undefined
           ? genres.map((genre, key) => (
-              <option key={key} value={genre.id}>
+              <option key={key} value={genre.id} id={genre.name}>
                 {genre.name}
               </option>
             ))

@@ -6,7 +6,10 @@ const initialState: FilterState = {
 
 const filterReducer = (state = initialState, action: DiscoverTagActions) => {
   switch (action.type) {
+    case ADD_TAG:
+      return { ...state, tags: state.tags.concat(action.payload) };
     default:
       return state;
   }
 };
+export default filterReducer;
