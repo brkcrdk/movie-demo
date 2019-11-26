@@ -23,8 +23,9 @@ const Selectbox: React.FC<Props> = () => {
   //   const [selected, setSelected] = useState<Array<number>>([]);
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
-      const value = parseFloat(e.target.value);
-      dispatch(addTag([{ name: e.target.id, id: value }]));
+      const id = parseFloat(e.target.value);
+      const name = e.target.options[e.target.selectedIndex].innerHTML;
+      dispatch(addTag([{ name: name, id: id }]));
     },
     [dispatch]
   );
