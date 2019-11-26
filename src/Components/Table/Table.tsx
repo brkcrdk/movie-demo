@@ -1,6 +1,6 @@
 import React from "react";
 import { MovieInfo } from "../../store/serverTypes";
-
+import Pagination from "./Pagination";
 interface Props {
   movies: MovieInfo[];
   activePage: number;
@@ -22,12 +22,6 @@ const Table: React.FC<Props> = ({ movies, totalPages }) => {
         ))
       : "";
 
-  const pageNumbers: number[] = [];
-  if (totalPages !== undefined) {
-    for (let i = 1; i < totalPages; i++) {
-      pageNumbers.push(i);
-    }
-  }
   return (
     <div>
       <table style={{ width: "100%" }}>
@@ -43,20 +37,7 @@ const Table: React.FC<Props> = ({ movies, totalPages }) => {
           {renderTables}
         </tbody>
       </table>
-      <div style={{ display: "flex", flexWrap: "wrap", overflow: "hidden" }}>
-        {pageNumbers.map((number, i) => (
-          <a
-            key={i}
-            style={{ margin: "0.3em" }}
-            href="?#"
-            onClick={() => {
-              alert(number);
-            }}
-          >
-            {number}
-          </a>
-        ))}
-      </div>
+      <Pagination totalPages={totalPages} />
     </div>
   );
 };
