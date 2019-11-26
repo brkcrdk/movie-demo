@@ -28,7 +28,7 @@ const Discover: React.FC<Props> = () => {
   );
   useEffect(() => {
     const ids = filters.map(item => item.id);
-    dispatch(fetchDiscover(...ids));
+    dispatch(fetchDiscover(1, ...ids));
   }, [dispatch, filters]);
 
   const isLoading = useSelector(
