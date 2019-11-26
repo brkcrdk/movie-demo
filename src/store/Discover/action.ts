@@ -8,7 +8,7 @@ import {
   DiscoverActions
 } from "./types";
 
-export const fetchDiscover = (...genres: number[]) => {
+export const fetchDiscover = (page: number = 1, ...genres: number[]) => {
   console.log(genres);
   const request = axios.get(
     `${apiUrl}/discover/movie?with_genres=${genres}&page=1&api_key=${apiKey}`
