@@ -28,7 +28,7 @@ const Filters: React.FC<Props> = ({ filter }) => {
       </button>
     </div>
   ));
-  return <div>{filter.length > 0 ? renderFilters : ""}</div>;
+  return <div>{filter.length > 0 ? renderFilters : "Choose Genre"}</div>;
 };
 
 export default Filters;

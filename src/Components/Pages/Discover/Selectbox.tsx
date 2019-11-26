@@ -4,6 +4,7 @@ import { fetchGenres } from "../../../store/Genres/action";
 import { addTag } from "../../../store/DiscoverFilter/action";
 import { Genre } from "../../../store/serverTypes";
 import { Link } from "react-router-dom";
+import Filters from "./Filters";
 import styled from "styled-components";
 interface Props {}
 interface GenreProps {
@@ -13,7 +14,14 @@ interface GenreProps {
     };
   };
 }
-
+interface FilterProps {
+  discoverFilter: {
+    tags: {
+      name: string;
+      id: number;
+    }[];
+  };
+}
 interface DropdownContent {
   toggle: boolean;
 }
@@ -79,10 +87,14 @@ const Selectbox: React.FC<Props> = () => {
     },
     [dispatch]
   );
-
+  const filters = useSelector(
+    (state: FilterProps) => state.discoverFilter.tags
+  );
   return (
     <Dropdown ref={btnRef}>
-      <DropdownHeader onClick={handleToggle}>Choose Genre</DropdownHeader>
+      <DropdownHeader onClick={handleToggle}>
+        <Filters filter={filters} />
+      </DropdownHeader>
       <DropdownContent toggle={toggle}>
         <DropdownItem to="/">Burak</DropdownItem>
         <DropdownItem to="/">Burak</DropdownItem>

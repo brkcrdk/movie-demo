@@ -33,7 +33,7 @@ const Discover: React.FC<Props> = () => {
 
   return (
     <div>
-      <Filters filter={filters} />
+      {/* <Filters filter={filters} /> */}
       <Table
         movies={movies.results}
         activePage={movies.page}
