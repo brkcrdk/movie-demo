@@ -8,7 +8,7 @@ interface Props {
   section: string;
 }
 
-const Pagination: React.FC<Props> = ({ totalPages }) => {
+const Pagination: React.FC<Props> = ({ totalPages, section }) => {
   const pageNumbers: number[] = [];
   if (totalPages !== undefined) {
     for (let i = 1; i < totalPages; i++) {
@@ -16,7 +16,16 @@ const Pagination: React.FC<Props> = ({ totalPages }) => {
     }
   }
   const dispatch = useDispatch();
-  const handleClick = useCallback((page: number) => {}, [dispatch]);
+  const handleClick = useCallback(
+    (page: number) => {
+      if (section === "discover") {
+        dispatch(fetchDiscover(page));
+      } else {
+        dispatch(fetchMovies(section, page));
+      }
+    },
+    [dispatch]
+  );
   return (
     <div
       style={{
