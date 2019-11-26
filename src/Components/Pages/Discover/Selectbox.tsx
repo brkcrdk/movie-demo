@@ -27,7 +27,7 @@ const DropdownHeader = styled.button`
   padding: 0.5em 2em 0.5em 0.5em;
 `;
 const DropdownContent = styled.div`
-  display: ${(p: DropdownContent) => (p.toggle ? "block" : "none")};
+  display: ${(p: DropdownContent) => (p.toggle ? "grid" : "none")};
   position: absolute;
   background-color: #f1f1f1;
   max-height: 5em;
@@ -42,7 +42,7 @@ const DropdownItem = styled(Link)`
 
 const Selectbox: React.FC<Props> = () => {
   const [toggle, setToggle] = useState(false);
-  const btnRef = useRef<HTMLButtonElement>(null);
+  const btnRef = useRef<HTMLDivElement>(null);
   const handleToggle = () => {
     setToggle(!toggle);
   };
@@ -79,12 +79,15 @@ const Selectbox: React.FC<Props> = () => {
   );
 
   return (
-    <Dropdown>
-      <DropdownHeader ref={btnRef} onClick={handleToggle}>
-        Choose Genre
-      </DropdownHeader>
+    <Dropdown ref={btnRef}>
+      <DropdownHeader onClick={handleToggle}>Choose Genre</DropdownHeader>
       <DropdownContent toggle={toggle}>
-        <DropdownItem to="/">Burak</DropdownItem>
+        <Link to="/">Burak</Link>
+        <Link to="/">Burak</Link>
+        <Link to="/">Burak</Link>
+        <Link to="/">Burak</Link>
+        <Link to="/">Burak</Link>
+        <Link to="/">Burak</Link>
       </DropdownContent>
       {/* <select onChange={handleChange}>
         <option disabled defaultValue="">
