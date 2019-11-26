@@ -9,16 +9,33 @@ interface DiscoverState {
     movies: MovieList;
   };
 }
+interface FilterState {
+  discoverFilter: {
+    tags: {
+      name: string;
+      id: number;
+    }[];
+  };
+}
 const Discover: React.FC<Props> = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchDiscover());
-  }, [dispatch]);
   const movies = useSelector(
     (state: DiscoverState) => state.discoverStore.movies
   );
+  const filters = useSelector(
+    (state: FilterState) => state.discoverFilter.tags
+  );
+  useEffect(() => {
+    const ids = filters.map(item => item.id);
+    dispatch(fetchDiscover(...ids));
+    console.log(ids);
+  }, [dispatch, filters]);
+
   return (
     <div>
+      {filters.map((item, key) => (
+        <p key={key}>{item.name}</p>
+      ))}
       <Table
         movies={movies.results}
         activePage={movies.page}
