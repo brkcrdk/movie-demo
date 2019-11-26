@@ -1,7 +1,6 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchGenres } from "../../../store/Genres/action";
-import { fetchDiscover } from "../../../store/Discover/action";
 import { addTag } from "../../../store/DiscoverFilter/action";
 import { Genre } from "../../../store/serverTypes";
 interface Props {}
@@ -20,7 +19,6 @@ const Selectbox: React.FC<Props> = () => {
   const genres = useSelector(
     (state: GenreProps) => state.genreStore.genre.genres
   );
-  //   const [selected, setSelected] = useState<Array<number>>([]);
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       const id = parseFloat(e.target.value);

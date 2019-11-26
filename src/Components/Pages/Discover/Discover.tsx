@@ -18,11 +18,13 @@ const Discover: React.FC<Props> = () => {
     (state: DiscoverState) => state.discoverStore.movies
   );
   return (
-    <Table
-      movies={movies.results}
-      activePage={movies.page}
-      totalPages={movies.total_pages}
-    />
+    <div>
+      <Table
+        movies={movies.results}
+        activePage={movies.page}
+        totalPages={movies.total_pages}
+      />
+    </div>
   );
 };
 
