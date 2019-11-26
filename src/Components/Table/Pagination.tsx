@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 interface Props {
   totalPages: number;
+  section: string;
 }
 
 const Pagination: React.FC<Props> = ({ totalPages }) => {
@@ -14,19 +15,16 @@ const Pagination: React.FC<Props> = ({ totalPages }) => {
       pageNumbers.push(i);
     }
   }
+  const handleClick = () => {};
   return (
     <div style={{ display: "flex", flexWrap: "wrap", overflow: "hidden" }}>
       {pageNumbers.map((number, i) => (
-        <a
+        <button
           key={i}
-          style={{ margin: "0.3em" }}
-          href="?#"
-          onClick={() => {
-            alert(number);
-          }}
+          style={{ border: "none", background: "transparent", margin: "0.3em" }}
         >
           {number}
-        </a>
+        </button>
       ))}
     </div>
   );

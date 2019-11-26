@@ -40,6 +40,7 @@ const Discover: React.FC<Props> = () => {
         movies={movies.results}
         activePage={movies.page}
         totalPages={movies.total_pages}
+        section=""
       />
     </div>
   );
