@@ -27,7 +27,7 @@ const DropdownHeader = styled.button`
   padding: 0.5em 2em 0.5em 0.5em;
 `;
 const DropdownContent = styled.div`
-  visibility: ${(p: DropdownContent) => (p.toggle ? "grid" : "none")};
+  display: ${(p: DropdownContent) => (p.toggle ? "grid" : "none")};
   position: absolute;
   background-color: #f1f1f1;
   max-height: ${(p: DropdownContent) => (p.toggle ? "10em" : "0")};
@@ -84,18 +84,6 @@ const Selectbox: React.FC<Props> = () => {
     <Dropdown ref={btnRef}>
       <DropdownHeader onClick={handleToggle}>Choose Genre</DropdownHeader>
       <DropdownContent toggle={toggle}>
-        <p>Burak</p>
-        <p>Burak</p>
-        <p>Burak</p>
-        <p>Burak</p>
-        <p>Burak</p>
-        <p>Burak</p>
-        <p>Burak</p>
-        <p>Burak</p>
-        <p>Burak</p>
-        <p>Burak</p>
-        <p>Burak</p>
-        {/* <DropdownItem to="/">Burak</DropdownItem>
         <DropdownItem to="/">Burak</DropdownItem>
         <DropdownItem to="/">Burak</DropdownItem>
         <DropdownItem to="/">Burak</DropdownItem>
@@ -104,7 +92,8 @@ const Selectbox: React.FC<Props> = () => {
         <DropdownItem to="/">Burak</DropdownItem>
         <DropdownItem to="/">Burak</DropdownItem>
         <DropdownItem to="/">Burak</DropdownItem>
-        <DropdownItem to="/">Burak</DropdownItem> */}
+        <DropdownItem to="/">Burak</DropdownItem>
+        <DropdownItem to="/">Burak</DropdownItem>
       </DropdownContent>
       {/* <select onChange={handleChange}>
         <option disabled defaultValue="">
