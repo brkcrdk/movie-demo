@@ -31,8 +31,8 @@ const Selectbox: React.FC<Props> = () => {
   return (
     <div>
       <select onChange={handleChange}>
-        <option selected disabled>
-          Choose genre
+        <option disabled defaultValue="ssss">
+          Choose Genre
         </option>
         {genres !== undefined
           ? genres.map((genre, key) => (
