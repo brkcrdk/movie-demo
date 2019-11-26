@@ -7,6 +7,7 @@ interface Props {}
 interface DiscoverState {
   discoverStore: {
     movies: MovieList;
+    isLoading: boolean;
   };
 }
 interface FilterState {
@@ -30,6 +31,9 @@ const Discover: React.FC<Props> = () => {
     dispatch(fetchDiscover(...ids));
   }, [dispatch, filters]);
 
+  const isLoading = useSelector(
+    (state: DiscoverState) => state.discoverStore.isLoading
+  );
   return (
     <div>
       {filters.map((item, key) => (

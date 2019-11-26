@@ -16,19 +16,22 @@ const Table: React.FC<Props> = ({
   activePage
 }) => {
   const renderTables =
-    movies !== undefined
-      ? movies.map((item, key) => (
-          <tr key={key}>
-            <th>{item.title}</th>
-            <th>{item.release_date}</th>
-            <th>{item.overview}</th>
-            <th>{item.popularity}</th>
-            <th>{item.vote_average}</th>
-            <th>{item.vote_count}</th>
-          </tr>
-        ))
-      : "";
-
+    movies !== undefined ? (
+      movies.map((item, key) => (
+        <tr key={key}>
+          <th>{item.title}</th>
+          <th>{item.release_date}</th>
+          <th>{item.overview}</th>
+          <th>{item.popularity}</th>
+          <th>{item.vote_average}</th>
+          <th>{item.vote_count}</th>
+        </tr>
+      ))
+    ) : (
+      <tr>
+        <th>Loading..</th>
+      </tr>
+    );
   return (
     <div>
       {activePage}
