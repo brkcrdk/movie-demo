@@ -28,7 +28,6 @@ const Discover: React.FC<Props> = () => {
   useEffect(() => {
     const ids = filters.map(item => item.id);
     dispatch(fetchDiscover(...ids));
-    console.log(ids);
   }, [dispatch, filters]);
 
   return (
@@ -40,7 +39,7 @@ const Discover: React.FC<Props> = () => {
         movies={movies.results}
         activePage={movies.page}
         totalPages={movies.total_pages}
-        section=""
+        section="discover"
       />
     </div>
   );

@@ -2,7 +2,6 @@ import React, { useCallback } from "react";
 import { fetchDiscover } from "../../store/Discover/action";
 import { fetchMovies } from "../../store/Movies/actions";
 import { useDispatch } from "react-redux";
-
 interface Props {
   totalPages: number;
   section: string;
@@ -18,6 +17,7 @@ const Pagination: React.FC<Props> = ({ totalPages, section }) => {
   const dispatch = useDispatch();
   const handleClick = useCallback(
     (page: number) => {
+      console.log(section);
       if (section === "discover") {
         dispatch(fetchDiscover(page));
       } else {

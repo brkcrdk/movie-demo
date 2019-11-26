@@ -9,7 +9,12 @@ interface Props {
   totalPages: number;
 }
 
-const Table: React.FC<Props> = ({ movies, totalPages, section }) => {
+const Table: React.FC<Props> = ({
+  movies,
+  totalPages,
+  section,
+  activePage
+}) => {
   const renderTables =
     movies !== undefined
       ? movies.map((item, key) => (
@@ -26,6 +31,7 @@ const Table: React.FC<Props> = ({ movies, totalPages, section }) => {
 
   return (
     <div>
+      {activePage}
       <table style={{ width: "100%" }}>
         <tbody>
           <tr>
