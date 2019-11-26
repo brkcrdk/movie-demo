@@ -7,7 +7,13 @@ const initialState: FilterState = {
 const filterReducer = (state = initialState, action: DiscoverTagActions) => {
   switch (action.type) {
     case ADD_TAG:
-      return { ...state, tags: state.tags.concat(action.payload) };
+      if (
+        state.tags.filter(item => item.id === action.payload[0].id).length > 0
+      ) {
+        return state;
+      } else {
+        return { ...state, tags: state.tags.concat(action.payload) };
+      }
     default:
       return state;
   }
