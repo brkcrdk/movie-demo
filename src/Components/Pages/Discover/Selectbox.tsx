@@ -80,9 +80,7 @@ const Selectbox: React.FC<Props> = () => {
     (state: GenreProps) => state.genreStore.genre.genres
   );
   const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLSelectElement>) => {
-      const id = parseFloat(e.target.value);
-      const name = e.target.options[e.target.selectedIndex].innerHTML;
+    (name: string, id: number) => {
       dispatch(addTag([{ name: name, id: id }]));
     },
     [dispatch]
@@ -96,16 +94,18 @@ const Selectbox: React.FC<Props> = () => {
         <Filters filter={filters} />
       </DropdownHeader>
       <DropdownContent toggle={toggle}>
-        <DropdownItem to="/">Burak</DropdownItem>
-        <DropdownItem to="/">Burak</DropdownItem>
-        <DropdownItem to="/">Burak</DropdownItem>
-        <DropdownItem to="/">Burak</DropdownItem>
-        <DropdownItem to="/">Burak</DropdownItem>
-        <DropdownItem to="/">Burak</DropdownItem>
-        <DropdownItem to="/">Burak</DropdownItem>
-        <DropdownItem to="/">Burak</DropdownItem>
-        <DropdownItem to="/">Burak</DropdownItem>
-        <DropdownItem to="/">Burak</DropdownItem>
+        {genres !== undefined
+          ? genres.map((genre, key) => (
+              <DropdownItem
+                to="/"
+                onClick={() => {
+                  handleChange(genre.name, genre.id);
+                }}
+              >
+                {genre.name}
+              </DropdownItem>
+            ))
+          : "Loading.."}
       </DropdownContent>
       {/* <select onChange={handleChange}>
         <option disabled defaultValue="">
