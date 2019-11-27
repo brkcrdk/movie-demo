@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { fetchDiscover } from "../../store/Discover/action";
 import { fetchMovies } from "../../store/Movies/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,6 +21,9 @@ const Pagination: React.FC<Props> = ({ totalPages, section }) => {
       pageNumbers.push(i);
     }
   }
+  const [upperBound, setUpperBound] = useState(0);
+  const [lowerBound, setLowerBound] = useState(5);
+  const [pageBound] = useState(5);
   const filter = useSelector((state: FilterState) => state.discoverFilter.tags);
   const dispatch = useDispatch();
   const handleClick = useCallback(

@@ -28,8 +28,12 @@ interface DropdownContent {
 const Dropdown = styled.div`
   position: relative;
   display: inline-block;
+  width: 15em;
 `;
 const DropdownHeader = styled.button`
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
   background-color: transparent;
   border: 0.3px solid grey;
   padding: 0.5em 2em 0.5em 0.5em;
@@ -41,7 +45,7 @@ const DropdownContent = styled.div`
   position: absolute;
   background-color: #f1f1f1;
   max-height: ${(p: DropdownContent) => (p.toggle ? "10em" : "0")};
-  transition: max-height 1s;
+  transition: max-height 0.5s ease-in-out;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;

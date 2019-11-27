@@ -17,7 +17,10 @@ const Filters: React.FC<Props> = ({ filter }) => {
     [dispatch]
   );
   const renderFilters = filter.map((filter, i) => (
-    <div key={i}>
+    <div
+      key={i}
+      style={{ display: "flex", flexWrap: "wrap", overflow: "hidden" }}
+    >
       {filter.name}
       <button
         onClick={() => {
