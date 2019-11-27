@@ -65,7 +65,7 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
   };
 
   const renderPageNumbers = pageNumbers
-    .filter((number, index) => {
+    .filter(number => {
       return number > lowerBound && number < upperBound + 1;
     })
     .map((number, index) => (

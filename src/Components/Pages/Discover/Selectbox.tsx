@@ -105,6 +105,7 @@ const Selectbox: React.FC<Props> = () => {
         {genres !== undefined
           ? genres.map((genre, key) => (
               <DropdownItem
+                key={key}
                 to="/"
                 onClick={() => {
                   handleChange(genre.name, genre.id);
