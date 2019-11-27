@@ -1,6 +1,6 @@
 import React from "react";
 import { MovieInfo } from "../../store/serverTypes";
-import Pagination from "./Pagination";
+import Pagination from "./Pagination/Pagination";
 
 interface Props {
   section: string;

@@ -1,12 +1,14 @@
 import React, { useCallback, useState } from "react";
-import { fetchDiscover } from "../../store/Discover/action";
-import { fetchMovies } from "../../store/Movies/actions";
+import { fetchDiscover } from "../../../store/Discover/action";
+import { fetchMovies } from "../../../store/Movies/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { Container, Next, Prev } from "./Style";
 interface Props {
   totalPages: number;
   section: string;
   activePage: number;
 }
+
 interface FilterState {
   discoverFilter: {
     tags: {
@@ -23,7 +25,7 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
   const [lowerBound, setLowerBound] = useState(0);
   const [upperBound, setUpperBound] = useState(10);
   const [pageBound] = useState(10);
-
+  const [disabled, setDisabled] = useState(false);
   if (totalPages !== undefined) {
     for (let i = 1; i < totalPages; i++) {
       pageNumbers.push(i);
@@ -82,18 +84,17 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
       handlePageNumber(activePage - 1);
     }
   };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        overflow: "hidden"
-      }}
-    >
-      <button onClick={handlePrev}>Prev</button>
+    <Container>
+      <Prev onClick={handlePrev} disabled={activePage === 1}>
+        Prev
+      </Prev>
       {renderPageNumbers}
-      <button onClick={handleNext}>Next</button>
-    </div>
+      <Next onClick={handleNext} disabled={activePage === totalPages}>
+        Next
+      </Next>
+    </Container>
   );
 };
 
