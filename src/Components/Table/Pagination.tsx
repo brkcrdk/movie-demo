@@ -15,9 +15,12 @@ interface FilterState {
   };
 }
 const Pagination: React.FC<Props> = ({ totalPages, section }) => {
+  const filter = useSelector((state: FilterState) => state.discoverFilter.tags);
+  const dispatch = useDispatch();
+
   const pageNumbers: number[] = [];
-  const [upperBound, setUpperBound] = useState(0);
-  const [lowerBound, setLowerBound] = useState(10);
+  const [lowerBound, setLowerBound] = useState(0);
+  const [upperBound, setUpperBound] = useState(10);
   const [pageBound] = useState(10);
 
   if (totalPages !== undefined) {
@@ -25,9 +28,10 @@ const Pagination: React.FC<Props> = ({ totalPages, section }) => {
       pageNumbers.push(i);
     }
   }
+
   const renderPageNumbers = pageNumbers
     .filter((number, index) => {
-      return number > upperBound && number < lowerBound + 1;
+      return number > lowerBound && number < upperBound + 1;
     })
     .map((number, index) => (
       <button
@@ -46,9 +50,6 @@ const Pagination: React.FC<Props> = ({ totalPages, section }) => {
       </button>
     ));
 
-  const filter = useSelector((state: FilterState) => state.discoverFilter.tags);
-  const dispatch = useDispatch();
-
   const handleClick = useCallback(
     (page: number) => {
       if (section === "discover") {
@@ -57,10 +58,14 @@ const Pagination: React.FC<Props> = ({ totalPages, section }) => {
       } else {
         dispatch(fetchMovies(section, page));
       }
+
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
     [dispatch, filter, section]
   );
+
+  const handleNext = () => {};
+  const handlePrev = () => {};
   return (
     <div
       style={{
@@ -70,22 +75,6 @@ const Pagination: React.FC<Props> = ({ totalPages, section }) => {
       }}
     >
       {renderPageNumbers}
-      {/* {pageNumbers.map((page, i) => (
-        <button
-          key={i}
-          style={{
-            border: "none",
-            background: "transparent",
-            margin: "0.3em",
-            cursor: "pointer"
-          }}
-          onClick={() => {
-            handleClick(page);
-          }}
-        >
-          {page}
-        </button>
-      ))} */}
     </div>
   );
 };
