@@ -36,7 +36,7 @@ const DropdownHeader = styled.button`
   width: 100%;
   background-color: transparent;
   border: 0.3px solid grey;
-  padding: 0.5em 2em 0.5em 0.5em;
+  padding: 1em 0.5em;
 `;
 
 const DropdownContent = styled.div`

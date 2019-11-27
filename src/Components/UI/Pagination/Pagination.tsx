@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { fetchDiscover } from "../../../store/Discover/action";
 import { fetchMovies } from "../../../store/Movies/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Next, Prev, Number } from "./Style";
+import { Container, Next, Prev, Number } from "./PaginationStyle";
 interface Props {
   totalPages: number;
   section: string;
