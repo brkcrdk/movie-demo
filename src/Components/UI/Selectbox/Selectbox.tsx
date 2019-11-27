@@ -6,6 +6,7 @@ import { Genre } from "../../../store/serverTypes";
 import { Link } from "react-router-dom";
 import Filters from "../Filters/Filters";
 import styled from "styled-components";
+import { device } from "../../../utils";
 interface Props {}
 interface GenreProps {
   genreStore: {
@@ -28,7 +29,12 @@ interface DropdownContent {
 const Dropdown = styled.div`
   position: relative;
   display: inline-block;
-  width: 15em;
+  @media ${device.mobileS} {
+    width: 10em;
+  }
+  @media ${device.mobileTablet} {
+    width: 15em;
+  }
 `;
 const DropdownHeader = styled.button`
   display: flex;
