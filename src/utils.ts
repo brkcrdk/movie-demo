@@ -12,7 +12,7 @@ export const colours = {
   primaryText: "#4A3838",
   secondaryText: "#FFAAAD",
   pink: "#D12148",
-  boxShadow: "1px 5px 1em rgba(136, 136, 136, 0.5)",
+  boxShadow: "1px 5px 0.5em rgba(136, 136, 136, 0.5)",
   smallShadow: "1px 1px 0.4em rgba(136, 136, 136, 0.5)",
   darkerBoxShadow: "1px 5px 1em rgba(0, 0, 0, 0.5)",
   scroll: `::-webkit-scrollbar {

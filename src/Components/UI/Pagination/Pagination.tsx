@@ -24,7 +24,7 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
   const pageNumbers: number[] = [];
   const [lowerBound, setLowerBound] = useState(0);
   const [upperBound, setUpperBound] = useState(10);
-  const [pageBound] = useState(10);
+  const [pageBound] = useState(5);
   const [disabled, setDisabled] = useState(false);
   if (totalPages !== undefined) {
     for (let i = 1; i < totalPages; i++) {

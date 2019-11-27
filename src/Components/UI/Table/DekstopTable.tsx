@@ -10,7 +10,7 @@ const Container = styled.div`
   @media ${device.mobileS} {
     display: none;
   }
-  @media ${device.tablet} {
+  @media ${device.mobileTablet} {
     display: block;
   }
 `;
