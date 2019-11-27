@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDiscover } from "../../../store/Discover/action";
 import { MovieList } from "../../../store/serverTypes";
-import Table from "../../Table/Table";
+import Table from "../../UI/Table/Table";
 interface Props {}
 interface DiscoverState {
   discoverStore: {

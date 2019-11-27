@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies } from "../../../../store/Movies/actions";
-import { MovieList } from "../../../../store/serverTypes";
-import Table from "../../../Table/Table";
+import { fetchMovies } from "../../../store/Movies/actions";
+import { MovieList } from "../../../store/serverTypes";
+import Table from "../../UI/Table/Table";
 interface Props {}
 interface MoviesState {
   moviesStore: {

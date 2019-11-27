@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import NowPlaying from "./Components/Pages/Movies/NowPlaying/NowPlaying";
-import Popular from "./Components/Pages/Movies/Popular/Popular";
-import TopRated from "./Components/Pages/Movies/TopRated/TopRated";
-import Upcoming from "./Components/Pages/Movies/Upcoming/Upcoming";
-import Discover from "./Components/Pages/Discover/Discover";
-import Selectbox from "./Components/Pages/Discover/Selectbox";
+import NowPlaying from "./Components/Pages/NowPlaying/NowPlaying";
+import Popular from "./Components/Pages/Popular/Popular";
+import TopRated from "./Components/Pages/TopRated/TopRated";
+import Upcoming from "./Components/Pages/Upcoming/Upcoming";
+import Discover from "./Components/Pages/Main/Discover";
+import Selectbox from "./Components/UI/Selectbox/Selectbox";
 const App: React.FC = () => {
   return (
     <div className="App">
