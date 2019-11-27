@@ -48,7 +48,11 @@ const Table: React.FC<Props> = ({
           {renderTables}
         </tbody>
       </table>
-      <Pagination section={section} totalPages={totalPages} />
+      <Pagination
+        section={section}
+        totalPages={totalPages}
+        activePage={activePage}
+      />
     </div>
   );
 };

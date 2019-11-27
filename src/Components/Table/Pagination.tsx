@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 interface Props {
   totalPages: number;
   section: string;
+  activePage: number;
 }
 interface FilterState {
   discoverFilter: {
@@ -14,7 +15,7 @@ interface FilterState {
     }[];
   };
 }
-const Pagination: React.FC<Props> = ({ totalPages, section }) => {
+const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
   const filter = useSelector((state: FilterState) => state.discoverFilter.tags);
   const dispatch = useDispatch();
 
@@ -43,14 +44,14 @@ const Pagination: React.FC<Props> = ({ totalPages, section }) => {
           cursor: "pointer"
         }}
         onClick={() => {
-          handleClick(number);
+          handlePageNumber(number);
         }}
       >
         {number}
       </button>
     ));
 
-  const handleClick = useCallback(
+  const handlePageNumber = useCallback(
     (page: number) => {
       if (section === "discover") {
         const genreIds = filter.map(genre => genre.id);
@@ -58,14 +59,29 @@ const Pagination: React.FC<Props> = ({ totalPages, section }) => {
       } else {
         dispatch(fetchMovies(section, page));
       }
-
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
     [dispatch, filter, section]
   );
 
-  const handleNext = () => {};
-  const handlePrev = () => {};
+  const handleNext = () => {
+    if (activePage + 1 > upperBound) {
+      setUpperBound(upperBound + pageBound);
+      setLowerBound(lowerBound + pageBound);
+    }
+    if (activePage !== pageNumbers.length) {
+      handlePageNumber(activePage + 1);
+    }
+  };
+  const handlePrev = () => {
+    if ((activePage - 1) % pageBound === 0) {
+      setUpperBound(upperBound - pageBound);
+      setLowerBound(lowerBound - pageBound);
+    }
+    if (activePage > 1) {
+      handlePageNumber(activePage - 1);
+    }
+  };
   return (
     <div
       style={{
@@ -74,7 +90,9 @@ const Pagination: React.FC<Props> = ({ totalPages, section }) => {
         overflow: "hidden"
       }}
     >
+      <button onClick={handlePrev}>Prev</button>
       {renderPageNumbers}
+      <button onClick={handleNext}>Next</button>
     </div>
   );
 };
