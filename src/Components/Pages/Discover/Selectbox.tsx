@@ -34,16 +34,18 @@ const DropdownHeader = styled.button`
   border: 0.3px solid grey;
   padding: 0.5em 2em 0.5em 0.5em;
 `;
+
 const DropdownContent = styled.div`
-  display: ${(p: DropdownContent) => (p.toggle ? "grid" : "none")};
+  visibility: ${(p: DropdownContent) => (p.toggle ? "visible" : "hidden")};
+  display: grid;
   position: absolute;
   background-color: #f1f1f1;
   max-height: ${(p: DropdownContent) => (p.toggle ? "10em" : "0")};
+  transition: max-height 1s;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 100%;
   z-index: 1;
-  transition: 0.5s;
 `;
 const DropdownItem = styled(Link)`
   &&& {
