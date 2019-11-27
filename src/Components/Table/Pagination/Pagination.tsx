@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import { fetchDiscover } from "../../../store/Discover/action";
 import { fetchMovies } from "../../../store/Movies/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Next, Prev } from "./Style";
+import { Container, Next, Prev, Number } from "./Style";
 interface Props {
   totalPages: number;
   section: string;
@@ -31,27 +31,6 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
       pageNumbers.push(i);
     }
   }
-
-  const renderPageNumbers = pageNumbers
-    .filter((number, index) => {
-      return number > lowerBound && number < upperBound + 1;
-    })
-    .map((number, index) => (
-      <button
-        key={index}
-        style={{
-          border: "none",
-          background: "transparent",
-          margin: "0.3em",
-          cursor: "pointer"
-        }}
-        onClick={() => {
-          handlePageNumber(number);
-        }}
-      >
-        {number}
-      </button>
-    ));
 
   const handlePageNumber = useCallback(
     (page: number) => {
@@ -85,14 +64,29 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
     }
   };
 
+  const renderPageNumbers = pageNumbers
+    .filter((number, index) => {
+      return number > lowerBound && number < upperBound + 1;
+    })
+    .map((number, index) => (
+      <Number
+        key={index}
+        onClick={() => {
+          handlePageNumber(number);
+        }}
+      >
+        {number}
+      </Number>
+    ));
+
   return (
     <Container>
       <Prev onClick={handlePrev} disabled={activePage === 1}>
-        Prev
+        &#60;
       </Prev>
       {renderPageNumbers}
       <Next onClick={handleNext} disabled={activePage === totalPages}>
-        Next
+        &#62;
       </Next>
     </Container>
   );

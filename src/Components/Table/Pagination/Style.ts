@@ -7,10 +7,12 @@ export const Container = styled.div`
   padding: 1em;
 `;
 
-export const Number = styled.button``;
-// interface NextPrev {
-//   activePage: number;
-//   totalPages: number;
-// }
+export const Number = styled.button`
+  border: none;
+  background: transparent;
+  margin: 0.3em;
+  cursor: pointer;
+`;
+
 export const Next = styled.button``;
 export const Prev = styled.button``;
