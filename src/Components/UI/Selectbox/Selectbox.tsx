@@ -32,7 +32,7 @@ const Dropdown = styled.div`
 `;
 const DropdownHeader = styled.button`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
   background-color: transparent;
   border: 0.3px solid grey;
@@ -99,7 +99,7 @@ const Selectbox: React.FC<Props> = () => {
   return (
     <Dropdown ref={btnRef}>
       <DropdownHeader onClick={handleToggle}>
-        <Filters filter={filters} />
+        <Filters filter={filters} /> >
       </DropdownHeader>
       <DropdownContent toggle={toggle}>
         {genres !== undefined
