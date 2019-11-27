@@ -105,7 +105,7 @@ const Selectbox: React.FC<Props> = () => {
   return (
     <Dropdown ref={btnRef}>
       <DropdownHeader onClick={handleToggle}>
-        <Filters filter={filters} /> >
+        <span>Choose Genre</span> >
       </DropdownHeader>
       <DropdownContent toggle={toggle}>
         {genres !== undefined

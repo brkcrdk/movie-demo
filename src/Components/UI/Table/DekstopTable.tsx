@@ -2,6 +2,7 @@ import React from "react";
 import { device } from "../../../utils";
 import styled from "styled-components";
 import { MovieInfo } from "../../../store/serverTypes";
+import Filters from "../Filters/Filters";
 interface Props {
   movies: MovieInfo[];
 }
@@ -34,6 +35,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
     );
   return (
     <Container>
+      <Filters />
       <table style={{ width: "100%" }}>
         <tbody>
           <tr>

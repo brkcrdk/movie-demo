@@ -1,21 +1,13 @@
 import styled from "styled-components";
 import { device } from "../../../utils";
 export const Container = styled.div`
+  display: flex;
   overflow: hidden;
-
-  @media ${device.mobileS} {
-    display: grid;
-  }
-  @media ${device.mobileTablet} {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  margin: 0.5em;
 `;
 export const TagWrapper = styled.div`
   padding: 0.5em;
   margin: 0 0.3em;
-  justify-content: flex-start;
-  align-items: center;
   border: 1px solid lightgrey;
 `;
 export const TagName = styled.span`
