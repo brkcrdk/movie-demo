@@ -11,7 +11,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Router>
-        <Selectbox />
+        {/* <Selectbox /> */}
         <Pages />
         <Route path="/" exact component={Discover} />
         <Route path="/movies/popular" component={Popular} />
