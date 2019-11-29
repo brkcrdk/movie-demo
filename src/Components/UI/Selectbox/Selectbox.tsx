@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchGenres } from "../../../store/Genres/action";
 import { addTag } from "../../../store/DiscoverFilter/action";
 import { Genre } from "../../../store/serverTypes";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { device } from "../../../utils";
+
 interface Props {}
+
 interface GenreProps {
   genreStore: {
     genre: {
@@ -14,14 +15,7 @@ interface GenreProps {
     };
   };
 }
-interface FilterProps {
-  discoverFilter: {
-    tags: {
-      name: string;
-      id: number;
-    }[];
-  };
-}
+
 interface DropdownContent {
   toggle: boolean;
 }
@@ -56,10 +50,7 @@ const DropdownContent = styled.div`
   width: 100%;
   z-index: 1;
 `;
-const DropdownItem = styled(Link)`
-  &&& {
-  }
-`;
+const DropdownItem = styled.a``;
 
 const Selectbox: React.FC<Props> = () => {
   const [toggle, setToggle] = useState(false);
@@ -98,9 +89,7 @@ const Selectbox: React.FC<Props> = () => {
     },
     [dispatch]
   );
-  const filters = useSelector(
-    (state: FilterProps) => state.discoverFilter.tags
-  );
+
   return (
     <Dropdown ref={btnRef}>
       <DropdownHeader onClick={handleToggle}>
@@ -111,7 +100,6 @@ const Selectbox: React.FC<Props> = () => {
           ? genres.map((genre, key) => (
               <DropdownItem
                 key={key}
-                to="/"
                 onClick={() => {
                   handleChange(genre.name, genre.id);
                 }}
