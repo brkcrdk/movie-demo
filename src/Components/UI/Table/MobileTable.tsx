@@ -43,7 +43,7 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
   const renderTables =
     movies &&
     movies.map((movie, key) => (
-      <TableWrapper>
+      <TableWrapper key={key}>
         <TableRow>
           <TableHeader>Movie Title</TableHeader>
           <TableInfo>{movie.title}</TableInfo>

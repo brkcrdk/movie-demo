@@ -23,16 +23,17 @@ const SortBtn: React.FC<Props> = ({ name, sort_option, activePage }) => {
   const tags = useSelector(
     (state: DiscoverFilter) => state.discoverFilter.tags
   );
-  console.log(tags);
   const dispatch = useDispatch();
+
   const handleClick = useCallback(() => {
     const ids = tags.map(item => item.id);
-
     dispatch(fetchDiscover(activePage, `sort_by=${sort_option}`, ...ids));
-  }, [dispatch, activePage, sort_option, tags]);
+    setToggle(!toggle);
+  }, [dispatch, activePage, sort_option, tags, toggle]);
+  console.log(toggle);
   return (
     <Link to="/" onClick={handleClick}>
-      {name}
+      {name} ~ {toggle ? "yukarı" : "aşşa"}
     </Link>
   );
 };

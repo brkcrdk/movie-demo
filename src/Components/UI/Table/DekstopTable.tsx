@@ -43,11 +43,16 @@ const DekstopTable: React.FC<Props> = ({ movies, activePage }) => {
         sort_option="popularity.asc"
         activePage={activePage}
       />
-      <SortBtn
+      {/* <SortBtn
         name="Popularity(Desc)"
         sort_option="popularity.desc"
         activePage={activePage}
       />
+      <SortBtn
+        name="Release Date"
+        sort_option="primary_release_date"
+        activePage={activePage}
+      /> */}
 
       <table style={{ width: "100%" }}>
         <tbody>
