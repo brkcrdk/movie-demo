@@ -40,7 +40,7 @@ const DekstopTable: React.FC<Props> = ({ movies, activePage }) => {
       <Filters />
       <SortBtn
         name="Popularity(Asc)"
-        sort_option="popularity.asc"
+        sort="popularity"
         activePage={activePage}
       />
       {/* <SortBtn

@@ -5,7 +5,7 @@ import { fetchDiscover } from "../../../store/Discover/action";
 
 interface Props {
   name: string;
-  sort_option: string;
+  sort: string;
   activePage: number;
 }
 
@@ -18,7 +18,7 @@ interface DiscoverFilter {
   };
 }
 
-const SortBtn: React.FC<Props> = ({ name, sort_option, activePage }) => {
+const SortBtn: React.FC<Props> = ({ name, sort, activePage }) => {
   const [toggle, setToggle] = useState(false);
   const tags = useSelector(
     (state: DiscoverFilter) => state.discoverFilter.tags
@@ -27,13 +27,20 @@ const SortBtn: React.FC<Props> = ({ name, sort_option, activePage }) => {
 
   const handleClick = useCallback(() => {
     const ids = tags.map(item => item.id);
-    dispatch(fetchDiscover(activePage, `sort_by=${sort_option}`, ...ids));
+
+    dispatch(
+      fetchDiscover(
+        activePage,
+        `sort_by=${sort}.${toggle ? "asc" : "desc"}`,
+        ...ids
+      )
+    );
     setToggle(!toggle);
-  }, [dispatch, activePage, sort_option, tags, toggle]);
-  console.log(toggle);
+  }, [dispatch, activePage, sort, tags, toggle]);
+
   return (
     <Link to="/" onClick={handleClick}>
-      {name} ~ {toggle ? "yukarı" : "aşşa"}
+      {name}
     </Link>
   );
 };
