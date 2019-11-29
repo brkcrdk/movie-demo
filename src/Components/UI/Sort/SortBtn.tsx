@@ -24,10 +24,8 @@ const SortBtn: React.FC<Props> = ({ name, sort, activePage }) => {
     (state: DiscoverFilter) => state.discoverFilter.tags
   );
   const dispatch = useDispatch();
-
   const handleClick = useCallback(() => {
     const ids = tags.map(item => item.id);
-
     dispatch(
       fetchDiscover(
         activePage,

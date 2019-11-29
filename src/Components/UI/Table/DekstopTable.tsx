@@ -38,31 +38,42 @@ const DekstopTable: React.FC<Props> = ({ movies, activePage }) => {
   return (
     <Container>
       <Filters />
-      <SortBtn
-        name="Popularity(Asc)"
-        sort="popularity"
-        activePage={activePage}
-      />
-      {/* <SortBtn
-        name="Popularity(Desc)"
-        sort_option="popularity.desc"
-        activePage={activePage}
-      />
-      <SortBtn
-        name="Release Date"
-        sort_option="primary_release_date"
-        activePage={activePage}
-      /> */}
 
       <table style={{ width: "100%" }}>
         <tbody>
           <tr>
-            <th>Movie Title</th>
-            <th>Release Date</th>
+            <th>
+              <SortBtn
+                name="Movie Title"
+                sort="original_title"
+                activePage={activePage}
+              />
+            </th>
+            <th>
+              <SortBtn
+                name="Release Date"
+                sort="primary_release_date"
+                activePage={activePage}
+              />
+            </th>
             <th>Short Description</th>
-            <th>Popularity</th>
-            <th>IMDB Average</th>
-            <th>Votes</th>
+            <th>
+              <SortBtn
+                name="Popularity"
+                sort="popularity"
+                activePage={activePage}
+              />
+            </th>
+            <th>
+              <SortBtn
+                name="IMDB Average"
+                sort="vote_average"
+                activePage={activePage}
+              />
+            </th>
+            <th>
+              <SortBtn name="Votes" sort="vote_count" activePage={activePage} />
+            </th>
           </tr>
           {renderTables}
         </tbody>
