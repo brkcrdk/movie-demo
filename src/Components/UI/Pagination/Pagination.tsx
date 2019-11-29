@@ -15,12 +15,10 @@ interface FilterState {
       name: string;
       id: number;
     }[];
-    sortBy: string;
   };
 }
 const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
   const filter = useSelector((state: FilterState) => state.discoverFilter.tags);
-  const sort = useSelector((state: FilterState) => state.discoverFilter.sortBy);
   const dispatch = useDispatch();
 
   const pageNumbers: number[] = [];
@@ -38,13 +36,13 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
     (page: number) => {
       if (section === "discover") {
         const genreIds = filter.map(genre => genre.id);
-        dispatch(fetchDiscover(page, sort, ...genreIds));
+        dispatch(fetchDiscover(page, "", ...genreIds));
       } else {
         dispatch(fetchMovies(section, page));
       }
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
-    [dispatch, filter, section, sort]
+    [dispatch, filter, section]
   );
 
   const handleNext = () => {

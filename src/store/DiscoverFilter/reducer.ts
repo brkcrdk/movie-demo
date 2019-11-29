@@ -7,8 +7,7 @@ import {
 } from "./types";
 
 const initialState: FilterState = {
-  tags: [],
-  sortBy: ""
+  tags: []
 };
 
 const filterReducer = (state = initialState, action: DiscoverTagActions) => {
@@ -31,8 +30,6 @@ const filterReducer = (state = initialState, action: DiscoverTagActions) => {
         };
       }
       return state;
-    case SORT_BY:
-      return { ...state, sort: action.payload };
     default:
       return state;
   }

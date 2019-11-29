@@ -15,7 +15,6 @@ interface FilterState {
       name: string;
       id: number;
     }[];
-    sortBy: string;
   };
 }
 const Discover: React.FC<Props> = () => {
@@ -26,11 +25,10 @@ const Discover: React.FC<Props> = () => {
   const filters = useSelector(
     (state: FilterState) => state.discoverFilter.tags
   );
-  const sort = useSelector((state: FilterState) => state.discoverFilter.sortBy);
   useEffect(() => {
     const ids = filters.map(item => item.id);
-    dispatch(fetchDiscover(1, sort, ...ids));
-  }, [dispatch, filters, sort]);
+    dispatch(fetchDiscover(1, "", ...ids));
+  }, [dispatch, filters]);
 
   return (
     <div>

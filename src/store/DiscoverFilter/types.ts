@@ -2,7 +2,6 @@ import { Genre } from "../serverTypes";
 
 export interface FilterState {
   tags: Genre[];
-  sortBy: string;
 }
 
 export const ADD_TAG = "ADD_TAG";
@@ -18,8 +17,4 @@ interface RemoveTag {
   type: typeof REMOVE_TAG;
   payload: Genre[];
 }
-interface SortBy {
-  type: typeof SORT_BY;
-  payload: string;
-}
-export type DiscoverTagActions = AddTag | RemoveTag | SortBy;
+export type DiscoverTagActions = AddTag | RemoveTag;
