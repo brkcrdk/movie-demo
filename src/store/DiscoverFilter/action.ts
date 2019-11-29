@@ -1,6 +1,5 @@
 import { ADD_TAG, REMOVE_TAG } from "./types";
 
-
 export const addTag = (tags: { name: string; id: number }[]) => {
   return {
     type: ADD_TAG,
