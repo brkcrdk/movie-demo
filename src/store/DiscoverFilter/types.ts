@@ -8,6 +8,7 @@ export interface FilterState {
 export const ADD_TAG = "ADD_TAG";
 export const REMOVE_TAG = "REMOVE_TAG";
 export const SORT_BY = "SORT_BY";
+
 interface AddTag {
   type: typeof ADD_TAG;
   payload: Genre[];
