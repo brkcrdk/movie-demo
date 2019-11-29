@@ -10,7 +10,6 @@ interface FiltersProps {
       name: string;
       id: number;
     }[];
-    sortBy: string;
   };
 }
 const Filters: React.FC<Props> = () => {
@@ -24,10 +23,7 @@ const Filters: React.FC<Props> = () => {
   const filter = useSelector(
     (state: FiltersProps) => state.discoverFilter.tags
   );
-  const sort = useSelector(
-    (state: FiltersProps) => state.discoverFilter.sortBy
-  );
-  console.log(sort);
+ 
   const renderFilters = filter.map((filter, i) => (
     <TagWrapper key={i}>
       <TagName>{filter.name}</TagName>
