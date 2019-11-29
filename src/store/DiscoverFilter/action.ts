@@ -1,5 +1,5 @@
-import { ADD_TAG, REMOVE_TAG, DiscoverTagActions } from "./types";
-import { Genre } from "../serverTypes";
+import { ADD_TAG, REMOVE_TAG } from "./types";
+
 
 export const addTag = (tags: { name: string; id: number }[]) => {
   return {
