@@ -30,7 +30,7 @@ const Discover: React.FC<Props> = () => {
   useEffect(() => {
     const ids = filters.map(item => item.id);
     dispatch(fetchDiscover(1, sort, ...ids));
-  }, [dispatch, filters]);
+  }, [dispatch, filters, sort]);
 
   return (
     <div>

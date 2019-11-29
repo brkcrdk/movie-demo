@@ -4,7 +4,6 @@ import { fetchGenres } from "../../../store/Genres/action";
 import { addTag } from "../../../store/DiscoverFilter/action";
 import { Genre } from "../../../store/serverTypes";
 import { Link } from "react-router-dom";
-import Filters from "../Filters/Filters";
 import styled from "styled-components";
 import { device } from "../../../utils";
 interface Props {}

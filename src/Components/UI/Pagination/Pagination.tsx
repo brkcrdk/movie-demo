@@ -44,7 +44,7 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
       }
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
-    [dispatch, filter, section]
+    [dispatch, filter, section, sort]
   );
 
   const handleNext = () => {
