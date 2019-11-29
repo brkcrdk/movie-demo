@@ -1,7 +1,14 @@
-import { ADD_TAG, REMOVE_TAG, DiscoverTagActions, FilterState } from "./types";
+import {
+  ADD_TAG,
+  REMOVE_TAG,
+  DiscoverTagActions,
+  FilterState,
+  SORT_BY
+} from "./types";
 
 const initialState: FilterState = {
-  tags: []
+  tags: [],
+  sort: ""
 };
 
 const filterReducer = (state = initialState, action: DiscoverTagActions) => {
@@ -24,6 +31,8 @@ const filterReducer = (state = initialState, action: DiscoverTagActions) => {
         };
       }
       return state;
+    case SORT_BY:
+      return { ...state, sort: action.payload };
     default:
       return state;
   }

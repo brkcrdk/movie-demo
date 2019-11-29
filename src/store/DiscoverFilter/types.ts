@@ -2,6 +2,7 @@ import { Genre } from "../serverTypes";
 
 export interface FilterState {
   tags: Genre[];
+  sort: "";
 }
 
 export const ADD_TAG = "ADD_TAG";
@@ -20,4 +21,4 @@ interface SortBy {
   type: typeof SORT_BY;
   payload: string;
 }
-export type DiscoverTagActions = AddTag | RemoveTag;
+export type DiscoverTagActions = AddTag | RemoveTag | SortBy;
