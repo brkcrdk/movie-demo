@@ -2,7 +2,7 @@ import { Genre } from "../serverTypes";
 
 export interface FilterState {
   tags: Genre[];
-  sort: "";
+  sortBy: string;
 }
 
 export const ADD_TAG = "ADD_TAG";

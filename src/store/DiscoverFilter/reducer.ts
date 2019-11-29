@@ -8,7 +8,7 @@ import {
 
 const initialState: FilterState = {
   tags: [],
-  sort: ""
+  sortBy: ""
 };
 
 const filterReducer = (state = initialState, action: DiscoverTagActions) => {
