@@ -8,6 +8,8 @@ interface Props {
 }
 
 const SortBtn: React.FC<Props> = ({ name, sort_option }) => {
+  const dispatch = useDispatch();
+  const handleClick = useCallback(() => {}, []);
   return <Link to="/">{name}</Link>;
 };
 
