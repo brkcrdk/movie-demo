@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDiscover } from "../../../store/Discover/action";
@@ -19,6 +19,7 @@ interface DiscoverFilter {
 }
 
 const SortBtn: React.FC<Props> = ({ name, sort_option, activePage }) => {
+  const [toggle, setToggle] = useState(false);
   const tags = useSelector(
     (state: DiscoverFilter) => state.discoverFilter.tags
   );
