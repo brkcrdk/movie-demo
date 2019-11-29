@@ -70,12 +70,7 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
         </TableRow>
       </TableWrapper>
     ));
-  return (
-    <Container>
-      <Filters />
-      {renderTables}
-    </Container>
-  );
+  return <Container>{renderTables}</Container>;
 };
 
 export default MobileTable;

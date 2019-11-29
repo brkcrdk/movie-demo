@@ -1,15 +1,18 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { fetchGenres } from "../../../store/Genres/action";
 import { addTag } from "../../../store/DiscoverFilter/action";
+import { Genre } from "../../../store/serverTypes";
 import styled from "styled-components";
 import { device } from "../../../utils";
-
-interface Props {
-  options: {
-    name: string;
-    id: number;
-  }[];
+import Filters from "../Filters/Filters";
+interface Props {}
+interface GenreProps {
+  genreStore: {
+    genre: {
+      genres: Genre[];
+    };
+  };
 }
 
 interface DropdownContent {
@@ -48,7 +51,7 @@ const DropdownContent = styled.div`
 `;
 const DropdownItem = styled.a``;
 
-const Selectbox: React.FC<Props> = ({ options }) => {
+const Selectbox: React.FC<Props> = () => {
   const [toggle, setToggle] = useState(false);
   const btnRef = useRef<HTMLDivElement>(null);
   const handleToggle = () => {
@@ -76,6 +79,9 @@ const Selectbox: React.FC<Props> = ({ options }) => {
     dispatch(fetchGenres());
   }, [dispatch]);
 
+  const genres = useSelector(
+    (state: GenreProps) => state.genreStore.genre.genres
+  );
   const handleChange = useCallback(
     (name: string, id: number) => {
       dispatch(addTag([{ name: name, id: id }]));
@@ -86,18 +92,18 @@ const Selectbox: React.FC<Props> = ({ options }) => {
   return (
     <Dropdown ref={btnRef}>
       <DropdownHeader onClick={handleToggle}>
-        <span>Choose Genre</span> >
+        <Filters /> >
       </DropdownHeader>
       <DropdownContent toggle={toggle}>
-        {options !== undefined
-          ? options.map((option, key) => (
+        {genres !== undefined
+          ? genres.map((genre, key) => (
               <DropdownItem
                 key={key}
                 onClick={() => {
-                  handleChange(option.name, option.id);
+                  handleChange(genre.name, genre.id);
                 }}
               >
-                {option.name}
+                {genre.name}
               </DropdownItem>
             ))
           : "Loading.."}

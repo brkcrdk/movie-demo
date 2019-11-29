@@ -37,8 +37,6 @@ const DekstopTable: React.FC<Props> = ({ movies, activePage }) => {
     );
   return (
     <Container>
-      <Filters />
-
       <table style={{ width: "100%" }}>
         <tbody>
           <tr>

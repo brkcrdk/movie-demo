@@ -12,15 +12,21 @@ interface GenreProps {
     };
   };
 }
+
 const Filters: React.FC<Props> = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchGenres);
+    dispatch(fetchGenres());
   }, []);
   const genres = useSelector(
     (state: GenreProps) => state.genreStore.genre.genres
   );
-  return <Selectbox options={genres} />;
+
+  return (
+    <div>
+      <Selectbox />
+    </div>
+  );
 };
 
 export default Filters;
