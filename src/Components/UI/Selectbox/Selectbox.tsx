@@ -1,19 +1,15 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchGenres } from "../../../store/Genres/action";
 import { addTag } from "../../../store/DiscoverFilter/action";
-import { Genre } from "../../../store/serverTypes";
 import styled from "styled-components";
 import { device } from "../../../utils";
 
-interface Props {}
-
-interface GenreProps {
-  genreStore: {
-    genre: {
-      genres: Genre[];
-    };
-  };
+interface Props {
+  options: {
+    name: string;
+    id: number;
+  }[];
 }
 
 interface DropdownContent {
@@ -52,7 +48,7 @@ const DropdownContent = styled.div`
 `;
 const DropdownItem = styled.a``;
 
-const Selectbox: React.FC<Props> = () => {
+const Selectbox: React.FC<Props> = ({ options }) => {
   const [toggle, setToggle] = useState(false);
   const btnRef = useRef<HTMLDivElement>(null);
   const handleToggle = () => {
@@ -80,9 +76,6 @@ const Selectbox: React.FC<Props> = () => {
     dispatch(fetchGenres());
   }, [dispatch]);
 
-  const genres = useSelector(
-    (state: GenreProps) => state.genreStore.genre.genres
-  );
   const handleChange = useCallback(
     (name: string, id: number) => {
       dispatch(addTag([{ name: name, id: id }]));
@@ -96,15 +89,15 @@ const Selectbox: React.FC<Props> = () => {
         <span>Choose Genre</span> >
       </DropdownHeader>
       <DropdownContent toggle={toggle}>
-        {genres !== undefined
-          ? genres.map((genre, key) => (
+        {options !== undefined
+          ? options.map((option, key) => (
               <DropdownItem
                 key={key}
                 onClick={() => {
-                  handleChange(genre.name, genre.id);
+                  handleChange(option.name, option.id);
                 }}
               >
-                {genre.name}
+                {option.name}
               </DropdownItem>
             ))
           : "Loading.."}
