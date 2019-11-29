@@ -5,6 +5,7 @@ import { MovieInfo } from "../../../store/serverTypes";
 import Filters from "../Filters/Filters";
 interface Props {
   movies: MovieInfo[];
+  activePage: number;
 }
 
 const Container = styled.div`

@@ -6,6 +6,7 @@ import Filters from "../Filters/Filters";
 import SortBtn from "./SortBtn";
 interface Props {
   movies: MovieInfo[];
+  activePage: number;
 }
 
 const Container = styled.div`
@@ -16,7 +17,7 @@ const Container = styled.div`
     display: block;
   }
 `;
-const DekstopTable: React.FC<Props> = ({ movies }) => {
+const DekstopTable: React.FC<Props> = ({ movies, activePage }) => {
   const renderTables =
     movies !== undefined ? (
       movies.map((item, key) => (
@@ -37,7 +38,17 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
   return (
     <Container>
       <Filters />
-      <SortBtn name="Popularity(Asc)" sort_option="popularity.asc" />
+      <SortBtn
+        name="Popularity(Asc)"
+        sort_option="popularity.asc"
+        activePage={activePage}
+      />
+      <SortBtn
+        name="Popularity(Desc)"
+        sort_option="popularity.desc"
+        activePage={activePage}
+      />
+
       <table style={{ width: "100%" }}>
         <tbody>
           <tr>
