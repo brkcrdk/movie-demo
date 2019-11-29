@@ -50,7 +50,10 @@ export interface Genre {
   id: number;
   name: string;
 }
-
+export interface Keywords {
+  id: number;
+  name: string;
+}
 export interface MovieInfo {
   popularity: number;
   vote_count: number;
