@@ -3,6 +3,7 @@ import { device } from "../../../utils";
 import styled from "styled-components";
 import { MovieInfo } from "../../../store/serverTypes";
 import Filters from "../Filters/Filters";
+import SortBtn from "./SortBtn";
 interface Props {
   movies: MovieInfo[];
 }
@@ -36,6 +37,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
   return (
     <Container>
       <Filters />
+      <SortBtn name="Popularity(Asc)" sort_option="popularity.asc" />
       <table style={{ width: "100%" }}>
         <tbody>
           <tr>
