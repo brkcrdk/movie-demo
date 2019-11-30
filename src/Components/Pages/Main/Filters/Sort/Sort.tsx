@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDiscover } from "../../../../../store/Discover/action";
+import { sortOptions } from "./sortOptions";
 import Selectbox from "../../../../UI/Selectbox";
 
 interface Props {
@@ -44,6 +45,7 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
     <div>
       <Selectbox options={years} label="Year" />
       <Selectbox options={voteAverage} label="IMDB Avg." />
+      <Selectbox options={sortOptions} label="Sort By" />
     </div>
   );
 };
