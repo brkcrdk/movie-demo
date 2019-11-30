@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { fetchGenres } from "../../../store/Genres/action";
-import Selectbox from "./Filters/Genres/Genres";
+import Genres from "./Filters/Genres/Genres";
 import { useDispatch } from "react-redux";
 interface Props {}
 
@@ -12,7 +12,7 @@ const Filters: React.FC<Props> = () => {
 
   return (
     <div>
-      <Selectbox />
+      <Genres />
     </div>
   );
 };
