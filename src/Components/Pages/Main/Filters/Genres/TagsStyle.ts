@@ -13,7 +13,7 @@ export const TagWrapper = styled.div`
 export const TagName = styled.span`
   padding-right: 0.3em;
 `;
-export const TagButton = styled.button`
+export const TagButton = styled.span`
   border: none;
   border-left: 1px solid lightgrey;
   font-weight: 300;
