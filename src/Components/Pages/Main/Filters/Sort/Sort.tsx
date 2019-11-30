@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDiscover } from "../../../../../store/Discover/action";
 import { sortOptions, years, voteAvg } from "./sortOptions";
@@ -29,7 +29,6 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
   useEffect(() => {
     const ids = tags.map(item => item.id);
     const sortUrl = `sort_by=${sort}&primary_release_year=${year}&vote_average.gte=${average}`;
-    console.log(sortUrl);
     dispatch(fetchDiscover(activePage, sortUrl, ...ids));
   }, [dispatch, activePage, year, average, sort, tags]);
 

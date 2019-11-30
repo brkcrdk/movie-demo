@@ -1,10 +1,4 @@
-import {
-  ADD_TAG,
-  REMOVE_TAG,
-  DiscoverTagActions,
-  FilterState,
-  SORT_BY
-} from "./types";
+import { ADD_TAG, REMOVE_TAG, DiscoverTagActions, FilterState } from "./types";
 
 const initialState: FilterState = {
   tags: []
