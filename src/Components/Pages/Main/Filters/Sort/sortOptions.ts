@@ -1,3 +1,17 @@
+export const years = () => {
+  const years = [];
+  for (let i = 1900; i < 2021; i++) {
+    years.unshift({ value: i.toString(), text: i.toString() });
+  }
+  return years;
+};
+export const voteAvg = () => {
+  const voteAverage = [];
+  for (let i = 0; i < 11; i++) {
+    voteAverage.push({ value: i, text: i });
+  }
+  return voteAverage;
+};
 export const sortOptions = [
   {
     value: "popularity.asc",

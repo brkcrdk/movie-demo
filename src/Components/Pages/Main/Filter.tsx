@@ -11,7 +11,7 @@ const Filters: React.FC<Props> = ({ activePage }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGenres());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
