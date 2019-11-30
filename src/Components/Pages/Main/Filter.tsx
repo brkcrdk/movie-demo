@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { fetchGenres } from "../../../store/Genres/action";
-import Selectbox from "../../UI/Genres/Genres";
+import Selectbox from "./Filters/Genres/Genres";
 import { useDispatch } from "react-redux";
 interface Props {}
 

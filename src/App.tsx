@@ -5,7 +5,7 @@ import Popular from "./Components/Pages/Popular/Popular";
 import TopRated from "./Components/Pages/TopRated/TopRated";
 import Upcoming from "./Components/Pages/Upcoming/Upcoming";
 import Discover from "./Components/Pages/Main/Discover";
-import Selectbox from "./Components/UI/Genres/Genres";
+import Selectbox from "./Components/Pages/Main/Filters/Genres/Genres";
 import Pages from "./Components/UI/PageBtns/Pages";
 const App: React.FC = () => {
   return (

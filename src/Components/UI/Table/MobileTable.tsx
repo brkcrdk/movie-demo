@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { device, colours } from "../../../utils";
 import { MovieInfo } from "../../../store/serverTypes";
-import Filters from "../Genres/Filters/Filters";
 interface Props {
   movies: MovieInfo[];
   activePage: number;

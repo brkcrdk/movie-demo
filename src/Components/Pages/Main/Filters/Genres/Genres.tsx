@@ -1,11 +1,11 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchGenres } from "../../../store/Genres/action";
-import { addTag } from "../../../store/DiscoverFilter/action";
-import { Genre } from "../../../store/serverTypes";
+import { fetchGenres } from "../../../../../store/Genres/action";
+import { addTag } from "../../../../../store/DiscoverFilter/action";
+import { Genre } from "../../../../../store/serverTypes";
 import styled from "styled-components";
-import { device } from "../../../utils";
-import Filters from "./Filters/Filters";
+import { device } from "../../../../../utils";
+import GenreTags from "./GenreTags";
 interface Props {}
 interface GenreProps {
   genreStore: {
@@ -92,7 +92,7 @@ const Selectbox: React.FC<Props> = () => {
   return (
     <Dropdown ref={btnRef}>
       <DropdownHeader onClick={handleToggle}>
-        <Filters /> >
+        <GenreTags /> >
       </DropdownHeader>
       <DropdownContent toggle={toggle}>
         {genres !== undefined
