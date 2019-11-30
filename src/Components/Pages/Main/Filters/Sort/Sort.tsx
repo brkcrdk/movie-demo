@@ -35,12 +35,21 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
   const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setYear(e.target.options[e.target.selectedIndex].value);
   };
-
+  const handleAverage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setAverage(e.target.options[e.target.selectedIndex].value);
+  };
+  const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSort(e.target.options[e.target.selectedIndex].value);
+  };
   return (
     <div>
       <Selectbox options={years()} label="Year" onChange={handleYear} />
-      <Selectbox options={voteAvg()} label="IMDB Avg." />
-      <Selectbox options={sortOptions} label="Sort By" />
+      <Selectbox
+        options={voteAvg()}
+        label="IMDB Avg."
+        onChange={handleAverage}
+      />
+      <Selectbox options={sortOptions} label="Sort By" onChange={handleSort} />
     </div>
   );
 };
