@@ -2,7 +2,6 @@ import React from "react";
 import { device } from "../../../utils";
 import styled from "styled-components";
 import { MovieInfo } from "../../../store/serverTypes";
-import SortBtn from "../Sort/SortBtn";
 interface Props {
   movies: MovieInfo[];
   activePage: number;
@@ -39,38 +38,12 @@ const DekstopTable: React.FC<Props> = ({ movies, activePage }) => {
       <table style={{ width: "100%" }}>
         <tbody>
           <tr>
-            <th>
-              <SortBtn
-                name="Movie Title"
-                sort="original_title"
-                activePage={activePage}
-              />
-            </th>
-            <th>
-              <SortBtn
-                name="Release Date"
-                sort="primary_release_date"
-                activePage={activePage}
-              />
-            </th>
+            <th>Movie title</th>
+            <th>Release Date</th>
             <th>Short Description</th>
-            <th>
-              <SortBtn
-                name="Popularity"
-                sort="popularity"
-                activePage={activePage}
-              />
-            </th>
-            <th>
-              <SortBtn
-                name="IMDB Average"
-                sort="vote_average"
-                activePage={activePage}
-              />
-            </th>
-            <th>
-              <SortBtn name="Votes" sort="vote_count" activePage={activePage} />
-            </th>
+            <th>Popularity</th>
+            <th>IMDB Average</th>
+            <th>Votes </th>
           </tr>
           {renderTables}
         </tbody>

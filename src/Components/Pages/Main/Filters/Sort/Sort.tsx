@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDiscover } from "../../../store/Discover/action";
+import { fetchDiscover } from "../../../../../store/Discover/action";
 
 interface Props {
   name: string;
