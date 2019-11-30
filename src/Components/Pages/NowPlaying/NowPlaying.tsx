@@ -15,6 +15,7 @@ const NowPlaying: React.FC<Props> = () => {
     dispatch(fetchMovies("now_playing"));
   }, [dispatch]);
   const movies = useSelector((state: MoviesState) => state.moviesStore.movies);
+
   return (
     <Table
       movies={movies.results}
