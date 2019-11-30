@@ -26,7 +26,8 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
   const dispatch = useDispatch();
   const handleClick = useCallback(() => {
     const ids = tags.map(item => item.id);
-    dispatch(fetchDiscover(activePage, ``, ...ids));
+    const sortUrl = `sort_by=${sort}&primary_release_date=${year}&vote_average.gte=${average}`;
+    dispatch(fetchDiscover(activePage, sortUrl, ...ids));
   }, [dispatch, activePage, sort, tags]);
 
   return (
