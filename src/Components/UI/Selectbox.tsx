@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-  options: { value: string; text: string }[];
+  options: { value: string | number; text: string | number }[];
   label: string;
   defaultValue?: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;

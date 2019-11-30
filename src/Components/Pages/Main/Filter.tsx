@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { fetchGenres } from "../../../store/Genres/action";
-import Genres from "./Filters/Genres/Genres";
 import { useDispatch } from "react-redux";
-interface Props {}
+import Genres from "./Filters/Genres/Genres";
+import Sort from "../Main/Filters/Sort/Sort";
+interface Props {
+  activePage: number;
+}
 
-const Filters: React.FC<Props> = () => {
+const Filters: React.FC<Props> = ({ activePage }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGenres());
@@ -13,6 +16,7 @@ const Filters: React.FC<Props> = () => {
   return (
     <div>
       <Genres />
+      <Sort activePage={activePage} />
     </div>
   );
 };

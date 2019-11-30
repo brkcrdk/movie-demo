@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchDiscover } from "../../../store/Discover/action";
 import { MovieList } from "../../../store/serverTypes";
 import Table from "../../UI/Table/Table";
-import Filters from "./Filter";
+import Filter from "./Filter";
 interface Props {}
 interface DiscoverState {
   discoverStore: {
@@ -33,7 +33,7 @@ const Discover: React.FC<Props> = () => {
 
   return (
     <div>
-      <Filters />
+      <Filter activePage={movies.page} />
       <Table
         movies={movies.results}
         activePage={movies.page}
