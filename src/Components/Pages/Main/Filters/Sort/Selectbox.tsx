@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-  options: (string | number)[];
+  options: { value: string; text: string }[];
   label: string;
   defaultValue?: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -17,7 +17,12 @@ const Selectbox: React.FC<Props> = ({
     <div>
       <label>{label}</label>
       <hr />
-      <select></select>
+      <select onChange={onChange}>
+        <option value="">{defaultValue}</option>
+        {options.map((option, index) => (
+          <option value={option.value}>{option.text}</option>
+        ))}
+      </select>
     </div>
   );
 };
