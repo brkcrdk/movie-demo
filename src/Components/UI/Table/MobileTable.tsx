@@ -40,35 +40,36 @@ const Splitter = styled.hr`
 
 const MobileTable: React.FC<Props> = ({ movies }) => {
   const renderTables =
-    movies &&
-    movies.map((movie, key) => (
-      <TableWrapper key={key}>
-        <TableRow>
-          <TableHeader>Movie Title</TableHeader>
-          <TableInfo>{movie.title}</TableInfo>
-        </TableRow>
-        <Splitter />
-        <TableRow>
-          <TableHeader>Release Date</TableHeader>
-          <TableInfo>{movie.release_date}</TableInfo>
-        </TableRow>
-        <Splitter />
-        <TableRow>
-          <TableHeader>Popularity</TableHeader>
-          <TableInfo>{movie.popularity}</TableInfo>
-        </TableRow>
-        <Splitter />
-        <TableRow>
-          <TableHeader>IMDB Average</TableHeader>
-          <TableInfo>{movie.vote_average}</TableInfo>
-        </TableRow>
-        <Splitter />
-        <TableRow>
-          <TableHeader>Votes</TableHeader>
-          <TableInfo>{movie.vote_count}</TableInfo>
-        </TableRow>
-      </TableWrapper>
-    ));
+    movies !== undefined
+      ? movies.map((movie, key) => (
+          <TableWrapper key={key}>
+            <TableRow>
+              <TableHeader>Movie Title</TableHeader>
+              <TableInfo>{movie.title}</TableInfo>
+            </TableRow>
+            <Splitter />
+            <TableRow>
+              <TableHeader>Release Date</TableHeader>
+              <TableInfo>{movie.release_date}</TableInfo>
+            </TableRow>
+            <Splitter />
+            <TableRow>
+              <TableHeader>Popularity</TableHeader>
+              <TableInfo>{movie.popularity}</TableInfo>
+            </TableRow>
+            <Splitter />
+            <TableRow>
+              <TableHeader>IMDB Average</TableHeader>
+              <TableInfo>{movie.vote_average}</TableInfo>
+            </TableRow>
+            <Splitter />
+            <TableRow>
+              <TableHeader>Votes</TableHeader>
+              <TableInfo>{movie.vote_count}</TableInfo>
+            </TableRow>
+          </TableWrapper>
+        ))
+      : "Loading..";
   return <Container>{renderTables}</Container>;
 };
 

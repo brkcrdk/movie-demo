@@ -18,9 +18,9 @@ interface DiscoverFilter {
 }
 
 const SortBtn: React.FC<Props> = ({ activePage }) => {
-  const [year, setYear] = useState(1900);
-  const [average, setAverage] = useState(0);
-  const [sort, setSort] = useState("popularity.desc");
+  const [year, setYear] = useState("2017");
+  const [average, setAverage] = useState("0");
+  const [sort, setSort] = useState("primariy_release_date.asc");
   const tags = useSelector(
     (state: DiscoverFilter) => state.discoverFilter.tags
   );
@@ -32,9 +32,13 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
     dispatch(fetchDiscover(activePage, sortUrl, ...ids));
   }, [dispatch, activePage, year, average, sort, tags]);
 
+  const handleYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setYear(e.target.options[e.target.selectedIndex].value);
+  };
+
   return (
     <div>
-      <Selectbox options={years()} label="Year" />
+      <Selectbox options={years()} label="Year" onChange={handleYear} />
       <Selectbox options={voteAvg()} label="IMDB Avg." />
       <Selectbox options={sortOptions} label="Sort By" />
     </div>
