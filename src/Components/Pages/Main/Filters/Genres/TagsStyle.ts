@@ -3,10 +3,10 @@ import { device } from "../../../../../utils";
 export const Container = styled.div`
   display: flex;
   overflow: hidden;
-  margin: 0.5em;
+  /* margin: 0.5em; */
 `;
 export const TagWrapper = styled.div`
-  padding: 0.5em;
+  /* padding: 0 0.3em; */
   margin: 0 0.3em;
   border: 1px solid lightgrey;
 `;
