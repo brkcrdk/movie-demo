@@ -22,11 +22,11 @@ export const sortOptions = [
     text: "Popularity(Desc)"
   },
   {
-    value: "primariy_release_date.asc",
+    value: "primary_release_date.asc",
     text: "Release Date(Asc)"
   },
   {
-    value: "primariy_release_date.desc",
+    value: "primary_release_date.desc",
     text: "Release Date(Desc)"
   },
   {

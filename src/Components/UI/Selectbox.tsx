@@ -17,8 +17,8 @@ const Selectbox: React.FC<Props> = ({
     <div>
       <label>{label}</label>
       <hr />
-      <select onChange={onChange}>
-        <option value=" " disabled selected>
+      <select onChange={onChange} defaultValue=" ">
+        <option value=" " disabled>
           {defaultValue}
         </option>
         {options.map((option, index) => (
