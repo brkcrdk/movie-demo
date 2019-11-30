@@ -5,7 +5,7 @@ import { addTag } from "../../../store/DiscoverFilter/action";
 import { Genre } from "../../../store/serverTypes";
 import styled from "styled-components";
 import { device } from "../../../utils";
-import Filters from "../Filters/Filters";
+import Filters from "./Filters/Filters";
 interface Props {}
 interface GenreProps {
   genreStore: {

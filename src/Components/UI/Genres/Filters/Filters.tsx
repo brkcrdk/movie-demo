@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeTag } from "../../../store/DiscoverFilter/action";
+import { removeTag } from "../../../../store/DiscoverFilter/action";
 import { Container, TagWrapper, TagButton, TagName } from "./FilterStyle";
 
 interface Props {}
@@ -23,7 +23,7 @@ const Filters: React.FC<Props> = () => {
   const filter = useSelector(
     (state: FiltersProps) => state.discoverFilter.tags
   );
- 
+
   const renderFilters = filter.map((filter, i) => (
     <TagWrapper key={i}>
       <TagName>{filter.name}</TagName>
@@ -36,7 +36,9 @@ const Filters: React.FC<Props> = () => {
       </TagButton>
     </TagWrapper>
   ));
-  return <Container>{filter.length > 0 ? renderFilters : ""}</Container>;
+  return (
+    <Container>{filter.length > 0 ? renderFilters : "Choose Genre"}</Container>
+  );
 };
 
 export default Filters;

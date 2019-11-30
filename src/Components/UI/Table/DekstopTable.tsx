@@ -2,7 +2,7 @@ import React from "react";
 import { device } from "../../../utils";
 import styled from "styled-components";
 import { MovieInfo } from "../../../store/serverTypes";
-import Filters from "../Filters/Filters";
+import Filters from "../Genres/Filters/Filters";
 import SortBtn from "../Sort/SortBtn";
 interface Props {
   movies: MovieInfo[];
