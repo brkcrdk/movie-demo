@@ -12,8 +12,11 @@ interface ContainerProps {
 }
 const Container = styled.div`
   height: 100%;
-  border: 1px solid red;
   width: ${(p: ContainerProps) => (p.toggle ? "70%" : "0")};
+  overflow-x: hidden;
+  position: fixed;
+  z-index: 1;
+  transition: 0.5s;
 `;
 const Sidebar: React.FC<Props> = () => {
   const toggle = useSelector((state: ToggleStore) => state.toggle.sidebar);

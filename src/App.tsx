@@ -6,11 +6,13 @@ import TopRated from "./Components/Pages/TopRated/TopRated";
 import Upcoming from "./Components/Pages/Upcoming/Upcoming";
 import Discover from "./Components/Pages/Main/Discover";
 import Navbar from "./Components/Pages/Navbar/Navbar";
+import Sidebar from "./Components/Pages/Navbar/Sidebar";
 const App: React.FC = () => {
   return (
     <div className="App">
       <Router>
         <Navbar />
+        <Sidebar />
         <Route path="/" exact component={Discover} />
         <Route path="/movies/popular" component={Popular} />
         <Route path="/movies/top_rated" component={TopRated} />

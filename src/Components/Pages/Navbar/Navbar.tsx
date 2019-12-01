@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Search from "../Search/Search";
 import Pages from "./Pages";
 import styled from "styled-components";
 import { device } from "../../../utils";
-import Sidebar from "./Sidebar";
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "../../../store/Toggles/action";
 interface Props {}
 const Container = styled.div``;
 const Desktop = styled.div`
@@ -29,6 +30,10 @@ const Mobile = styled.div`
   }
 `;
 const Navbar: React.FC<Props> = () => {
+  const dispatch = useDispatch();
+  const handleSidebar = useCallback(() => {
+    dispatch(toggleSidebar());
+  }, [dispatch]);
   return (
     <Container>
       <Desktop>
@@ -36,7 +41,7 @@ const Navbar: React.FC<Props> = () => {
         <Search />
       </Desktop>
       <Mobile>
-        <button>X</button>
+        <button onClick={handleSidebar}>X</button>
         <button>Search</button>
       </Mobile>
     </Container>
