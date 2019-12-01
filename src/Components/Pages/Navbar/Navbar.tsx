@@ -5,9 +5,10 @@ import styled from "styled-components";
 interface Props {}
 
 const Container = styled.div`
-  border: 1px solid red;
+  margin: 2em;
   display: grid;
   grid-template-columns: 10fr 2fr;
+
   &:first-child {
     text-align: center;
     align-items: center;
