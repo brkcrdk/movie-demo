@@ -6,24 +6,24 @@ import { device } from "../../../utils";
 import { useDispatch } from "react-redux";
 import { toggleSidebar } from "../../../store/Toggles/action";
 interface Props {}
-const Container = styled.div``;
+const Container = styled.div`
+  margin: 2em;
+`;
 const Desktop = styled.div`
-  margin: 2em 0;
-  justify-content: space-around;
-  align-items: center;
-  &:last-child {
-    justify-content: right;
-  }
   @media ${device.mobileS} {
     display: none;
   }
   @media ${device.tablet} {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 `;
 const Mobile = styled.div`
   @media ${device.mobileS} {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   @media ${device.tablet} {
     display: none;
