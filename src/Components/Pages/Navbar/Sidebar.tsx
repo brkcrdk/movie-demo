@@ -12,7 +12,8 @@ interface ContainerProps {
 }
 const Container = styled.div`
   height: 100%;
-  width: ${(p: ContainerProps) => (p.toggle ? "70%" : "0")};
+  width: ${(p: ContainerProps) => (p.toggle ? "10em" : "0")};
+  border: 1px solid red;
   overflow-x: hidden;
   position: fixed;
   z-index: 1;
