@@ -7,12 +7,12 @@ import Upcoming from "./Components/Pages/Upcoming/Upcoming";
 import Discover from "./Components/Pages/Main/Discover";
 import Pages from "./Components/UI/PageBtns/Pages";
 import Search from "./Components/Pages/Search/Search";
+import Navbar from "./Components/Pages/Navbar/Navbar";
 const App: React.FC = () => {
   return (
     <div className="App">
       <Router>
-        <Pages />
-        <Search />
+        <Navbar />
         <Route path="/" exact component={Discover} />
         <Route path="/movies/popular" component={Popular} />
         <Route path="/movies/top_rated" component={TopRated} />

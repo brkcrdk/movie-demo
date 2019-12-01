@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 interface Props {
   route: string;
   innerText: string;
@@ -8,9 +8,13 @@ interface Props {
 const PageButton: React.FC<Props> = ({ route, innerText }) => {
   const renderLink =
     route === "/" ? (
-      <Link to="/">{innerText}</Link>
+      <NavLink activeStyle={{ color: "red" }} exact to="/">
+        {innerText}
+      </NavLink>
     ) : (
-      <Link to={`/movies${route}`}>{innerText}</Link>
+      <NavLink activeStyle={{ color: "red" }} exact to={`/movies${route}`}>
+        {innerText}
+      </NavLink>
     );
   return renderLink;
 };
