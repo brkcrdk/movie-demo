@@ -1,8 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { colours, fonts } from "../../../utils";
-import { transform } from "@babel/core";
+import { colours, fonts, device } from "../../../utils";
 interface Props {
   route: string;
   innerText: string;
@@ -27,7 +26,9 @@ const Button = styled(NavLink)`
       border-bottom-right-radius: ${borderRadius};
     }
     &:not(:last-child) {
-      border-right: none;
+      @media ${device.tablet} {
+        border-right: none;
+      }
     }
   }
 `;

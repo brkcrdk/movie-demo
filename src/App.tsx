@@ -12,9 +12,9 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Router>
-        <Navbar />
         <Sidebar />
         <Dimmer>
+          <Navbar />
           <Route path="/" exact component={Discover} />
           <Route path="/movies/popular" component={Popular} />
           <Route path="/movies/top_rated" component={TopRated} />

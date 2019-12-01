@@ -1,10 +1,18 @@
 import React from "react";
 import Button from "../../UI/PageBtns/Button";
 import styled from "styled-components";
+import { device } from "../../../utils";
 interface Props {}
 
 const Container = styled.div`
-  display: flex;
+  @media ${device.mobileS} {
+    display: grid;
+    margin: 0.3em;
+    width: 90%;
+  }
+  @media ${device.tablet} {
+    display: flex;
+  }
 `;
 
 const Pages: React.FC<Props> = () => {
