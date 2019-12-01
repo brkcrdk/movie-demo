@@ -17,19 +17,6 @@ const Button = styled(NavLink)`
     border: 1px solid ${colours.pink};
     outline: none;
     font-family: ${fonts.aBeeZee};
-    &:first-child {
-      border-top-left-radius: ${borderRadius};
-      border-bottom-left-radius: ${borderRadius};
-    }
-    &:last-child {
-      border-top-right-radius: ${borderRadius};
-      border-bottom-right-radius: ${borderRadius};
-    }
-    &:not(:last-child) {
-      @media ${device.tablet} {
-        border-right: none;
-      }
-    }
   }
 `;
 
