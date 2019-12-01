@@ -6,15 +6,11 @@ import { device } from "../../../utils";
 interface Props {}
 const Container = styled.div`
   margin: 2em 0;
-
-  &:first-child {
-    text-align: center;
-    align-items: center;
-  }
-  @media ${device.mobileS} {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  &:last-child {
+    justify-content: right;
   }
 `;
 
@@ -22,7 +18,7 @@ const Navbar: React.FC<Props> = () => {
   return (
     <Container>
       <Pages />
-      {/* <Search /> */}
+      <Search />
     </Container>
   );
 };

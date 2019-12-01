@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { colours, fonts } from "../../../utils";
+import { transform } from "@babel/core";
 interface Props {
   route: string;
   innerText: string;
@@ -16,7 +17,7 @@ const Button = styled(NavLink)`
     padding: 0.5em;
     border: 1px solid ${colours.pink};
     outline: none;
-    font-family:${fonts.aBeeZee}
+    font-family: ${fonts.aBeeZee};
     &:first-child {
       border-top-left-radius: ${borderRadius};
       border-bottom-left-radius: ${borderRadius};
@@ -35,7 +36,8 @@ const PageButton: React.FC<Props> = ({ route, innerText }) => {
   const activeLink = {
     color: "white",
     backgroundColor: `${colours.pink}`,
-    transition: "0.2s"
+    transition: "0.2s",
+    transform: "scale(1.05)"
   };
 
   const renderLink =
