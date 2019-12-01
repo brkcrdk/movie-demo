@@ -1,9 +1,9 @@
 import React from "react";
-
+import MoviePage from "../../UI/MoviePage";
 interface Props {}
 
 const Popular: React.FC<Props> = () => {
-  return <div>Popular goes here</div>;
+  return <MoviePage name="popular" />;
 };
 
 export default Popular;
