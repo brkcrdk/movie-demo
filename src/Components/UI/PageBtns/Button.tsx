@@ -6,7 +6,7 @@ interface Props {
 }
 
 const PageButton: React.FC<Props> = ({ route, innerText }) => {
-  return <Link to={`/movies/${route}`}>{innerText}</Link>;
+  return <Link to={route === "/" ? "/" : `movies${route}`}>{innerText}</Link>;
 };
 
 export default PageButton;
