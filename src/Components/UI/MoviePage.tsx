@@ -15,7 +15,7 @@ const MoviePage: React.FC<Props> = ({ name }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMovies(name));
-  }, [dispatch]);
+  }, [dispatch, name]);
   const movies = useSelector((state: MoviesState) => state.moviesStore.movies);
 
   return (
