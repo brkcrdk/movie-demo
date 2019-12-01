@@ -5,20 +5,22 @@ import { apiUrl, apiKey } from "../../../config";
 interface Props {}
 
 const Search: React.FC<Props> = () => {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState<string>("");
   const [result, setResult] = useState<Array<MovieInfo>>();
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
   useEffect(() => {
-    axios
-      .get(`${apiUrl}/search/movie?query=${input}&api_key=${apiKey}`)
-      .then(({ data }) => {
-        setResult(data.result);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    if (input) {
+      axios
+        .get(`${apiUrl}/search/movie?query=${input}&api_key=${apiKey}`)
+        .then(({ data }) => {
+          setResult(data.results);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   }, [input]);
   console.log(input);
   console.log(result);
