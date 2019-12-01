@@ -22,12 +22,13 @@ const Search: React.FC<Props> = () => {
         });
     }
   }, [input]);
-  console.log(input);
-  console.log(result);
+
   return (
     <div>
       <input value={input} onChange={handleInput} placeholder="Search.." />
-      <ul></ul>
+      <ul>
+        {result && result.map((item, key) => <li key={key}>{item.title}</li>)}
+      </ul>
     </div>
   );
 };
