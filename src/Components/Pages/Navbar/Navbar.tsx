@@ -1,16 +1,19 @@
 import React from "react";
 import Search from "../Search/Search";
-import Pages from "../../UI/PageBtns/Pages";
+import Pages from "./Pages";
 import styled from "styled-components";
+import { device } from "../../../utils";
 interface Props {}
-
 const Container = styled.div`
-  margin: 2em;
-  display: grid;
-  grid-template-columns: 10fr 2fr;
+  margin: 2em 0;
 
   &:first-child {
     text-align: center;
+    align-items: center;
+  }
+  @media ${device.mobileS} {
+    display: flex;
+    justify-content: center;
     align-items: center;
   }
 `;
@@ -19,7 +22,7 @@ const Navbar: React.FC<Props> = () => {
   return (
     <Container>
       <Pages />
-      <Search />
+      {/* <Search /> */}
     </Container>
   );
 };

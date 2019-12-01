@@ -5,8 +5,6 @@ import Popular from "./Components/Pages/Popular/Popular";
 import TopRated from "./Components/Pages/TopRated/TopRated";
 import Upcoming from "./Components/Pages/Upcoming/Upcoming";
 import Discover from "./Components/Pages/Main/Discover";
-import Pages from "./Components/UI/PageBtns/Pages";
-import Search from "./Components/Pages/Search/Search";
 import Navbar from "./Components/Pages/Navbar/Navbar";
 const App: React.FC = () => {
   return (
