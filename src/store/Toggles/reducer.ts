@@ -10,7 +10,7 @@ const initialState: ToggleState = {
   sidebar: false
 };
 
-const togglReducer = (state = initialState, action: ToggleActions) => {
+const toggleReducer = (state = initialState, action: ToggleActions) => {
   switch (action.type) {
     case SEARCH_TOGGLE:
       return { ...state, search: !state.search };
@@ -20,3 +20,5 @@ const togglReducer = (state = initialState, action: ToggleActions) => {
       return state;
   }
 };
+
+export default toggleReducer;
