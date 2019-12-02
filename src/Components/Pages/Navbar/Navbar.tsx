@@ -23,6 +23,9 @@ const Container = styled.div`
   overflow-x: hidden;
   box-shadow: ${(p: ContainerProps) =>
     p.scroll ? `${colours.boxShadow}` : ""};
+  @media ${device.widescreen} {
+    width: inherit;
+  }
 `;
 const Desktop = styled.div`
   @media ${device.mobileS} {
@@ -33,6 +36,10 @@ const Desktop = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  @media ${device.widescreen} {
+    display: flex;
+    min-width: 89em;
   }
 `;
 const Mobile = styled.div`
