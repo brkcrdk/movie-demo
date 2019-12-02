@@ -2,7 +2,7 @@ import React from "react";
 import { MovieInfo } from "../../../store/serverTypes";
 import Pagination from "../Pagination/Pagination";
 
-import MobileTable from "./MobileTable";
+import MobileTable from "./Mobile/MobileTable";
 import DekstopTable from "./Desktop/DekstopTable";
 
 interface Props {
