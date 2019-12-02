@@ -26,27 +26,27 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
             <InfoContainer>
               <Row>
                 <Header>Movie Title</Header>
-                <Info>{movie.title}</Info>
+                <Info>: {movie.title}</Info>
               </Row>
               <Splitter />
               <Row>
                 <Header>Release Date</Header>
-                <Info>{movie.release_date}</Info>
+                <Info>: {movie.release_date}</Info>
               </Row>
               <Splitter />
               <Row>
                 <Header>Popularity</Header>
-                <Info>{movie.popularity}</Info>
+                <Info>: {movie.popularity}</Info>
               </Row>
               <Splitter />
               <Row>
                 <Header>IMDB Average</Header>
-                <Info>{movie.vote_average}</Info>
+                <Info>: {movie.vote_average}</Info>
               </Row>
               <Splitter />
               <Row>
                 <Header>Votes</Header>
-                <Info>{movie.vote_count}</Info>
+                <Info>: {movie.vote_count}</Info>
               </Row>
             </InfoContainer>
           </Wrapper>

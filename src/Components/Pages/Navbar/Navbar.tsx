@@ -44,6 +44,7 @@ const Desktop = styled.div`
 `;
 const Mobile = styled.div`
   @media ${device.mobileS} {
+    padding: 1em 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
