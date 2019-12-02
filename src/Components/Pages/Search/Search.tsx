@@ -11,13 +11,13 @@ interface ToggleStore {
     search: boolean;
   };
 }
-interface ContainerProps{
+interface ContainerProps {
   toggle: boolean;
 }
 const Container = styled.div`
-@media ${device.mobileS}{
-  transform:${(p:ContainerProps)=>p.toggle?""}
-}`;
+  transform: ${(p: ContainerProps) =>
+    p.toggle ? "translateX(0)" : "translateX(100%)"};
+`;
 
 const Search: React.FC<Props> = () => {
   const toggle = useSelector((state: ToggleStore) => state.toggle.search);
@@ -45,7 +45,7 @@ const Search: React.FC<Props> = () => {
       <ul>
         {result && result.map((item, key) => <li key={key}>{item.title}</li>)}
       </ul>
-    </Container toggle={toggle}>
+    </Container>
   );
 };
 
