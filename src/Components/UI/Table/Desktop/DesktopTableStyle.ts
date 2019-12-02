@@ -15,7 +15,7 @@ export const Table = styled.table`
   padding: 0 1em;
   border: 1px solid lightgray;
 `;
-export const Row = styled.tr`
-  border-bottom: 1px solid red;
-`;
+export const Head = styled.thead``;
+export const Body = styled.tbody``;
+export const Row = styled.tr``;
 export const Col = styled.th``;
