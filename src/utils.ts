@@ -31,13 +31,14 @@ export const colours = {
 
 //MEDIA QUERIES
 const size = {
-  mobileS: "320px",
-  mobileM: "375px",
-  mobileL: "425px",
-  mobileTablet: "576px",
-  tablet: "768px",
-  desktop: "992px",
-  desktopL: "1200px"
+  mobileS: "20em",
+  mobileM: "23.5em",
+  mobileL: "26.6em",
+  mobileTablet: "36em",
+  tablet: "48em",
+  desktop: "62em",
+  desktopL: "75em",
+  widescreen: "90.07em"
 };
 export const device = {
   mobileS: `(min-width: ${size.mobileS})`,
@@ -46,5 +47,6 @@ export const device = {
   mobileTablet: `(min-width: ${size.mobileTablet})`,
   tablet: `(min-width: ${size.tablet})`,
   desktop: `(min-width: ${size.desktop})`,
-  desktopL: `(min-width: ${size.desktopL})`
+  desktopL: `(min-width: ${size.desktopL})`,
+  widescreen: `(min-width:${size.widescreen})`
 };

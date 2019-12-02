@@ -44,10 +44,17 @@ const Desktop = styled.div`
   @media ${device.tablet} {
     display: grid;
     position: relative;
+    top: 1em;
     width: 100%;
     input {
       padding: 1em 0.5em;
       width: 15em;
+      @media ${device.desktop} {
+        width: 20em;
+      }
+      @media ${device.desktopL} {
+        width: 25em;
+      }
     }
   }
 `;

@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import styled from "styled-components";
+import { device } from "./utils";
 import NowPlaying from "./Components/Pages/NowPlaying/NowPlaying";
 import Popular from "./Components/Pages/Popular/Popular";
 import TopRated from "./Components/Pages/TopRated/TopRated";
@@ -8,9 +10,15 @@ import Discover from "./Components/Pages/Main/Discover";
 import Navbar from "./Components/Pages/Navbar/Navbar";
 import Sidebar from "./Components/Pages/Navbar/Sidebar";
 import Dimmer from "./Components/UI/Dimmer";
+
+const Container = styled.div`
+  overflow-x: hidden;
+  max-width: 1441px;
+  margin: 0 auto;
+`;
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <Container>
       <Router>
         <Sidebar />
         <Dimmer>
@@ -22,7 +30,7 @@ const App: React.FC = () => {
           <Route path="/movies/now_playing" component={NowPlaying} />
         </Dimmer>
       </Router>
-    </div>
+    </Container>
   );
 };
 
