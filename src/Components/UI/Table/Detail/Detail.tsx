@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Expandable, Content } from "./DetailStyle";
-interface Props {
-  expand: boolean;
-}
+interface Props {}
 
-const Detail: React.FC<Props> = ({ expand }) => {
+const Detail: React.FC<Props> = () => {
+  const [toggle, setToggle] = useState(false);
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
   return (
     <Expandable>
-      <Content expand={expand}>goes here..</Content>
+      <Content expand={toggle}>goes here..</Content>
     </Expandable>
   );
 };

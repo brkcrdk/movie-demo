@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { MovieInfo } from "../../../../store/serverTypes";
 import {
   Container,
@@ -17,7 +17,6 @@ interface Props {
 }
 
 const DekstopTable: React.FC<Props> = ({ movies }) => {
-  const [toggle, setToggle] = useState(false);
   const renderTables =
     movies !== undefined ? (
       movies.map((item, key) => (
@@ -34,7 +33,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
           <Col>{item.vote_average}</Col>
           <Col>{item.vote_count}</Col>
           <Description>{item.overview}</Description>
-          <Detail expand={toggle} />
+          <Detail />
         </Row>
       ))
     ) : (
