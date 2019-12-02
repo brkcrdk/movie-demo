@@ -64,6 +64,9 @@ export const Description = styled.th`
 export const Title = styled.div`
   display: flex;
   align-items: center;
+  input {
+    margin-right: 1em;
+  }
   img {
     border-radius: 50%;
     object-fit: cover;
@@ -73,8 +76,8 @@ export const Title = styled.div`
       height: 2em;
     }
     @media ${device.desktop} {
-      width: em;
-      height: em;
+      width: 3em;
+      height: 3em;
     }
   }
   span {
