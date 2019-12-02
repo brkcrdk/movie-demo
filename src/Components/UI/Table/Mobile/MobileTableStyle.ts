@@ -46,9 +46,16 @@ export const ImageContainer = styled.div`
   }
 `;
 export const InfoContainer = styled.div`
+  display: grid;
   align-items: center;
-  margin-top: 1em;
-  padding: 0.5em 1em;
+  @media ${device.mobileS} {
+    grid-gap: 0;
+    padding: 1em 0;
+  }
+  @media ${device.mobileTablet} {
+    grid-gap: 0;
+    padding: 2em 1em;
+  }
 `;
 export const Header = styled.p`
   padding-left: 2em;
