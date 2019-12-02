@@ -8,7 +8,10 @@ interface Props {
 const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   return (
     <Expandable>
-      <Content expand={activeIndex === index}>goes here..</Content>
+      <Content expand={activeIndex === index}>
+        <div>Slayt</div>
+        <div>Actors</div>
+      </Content>
     </Expandable>
   );
 };

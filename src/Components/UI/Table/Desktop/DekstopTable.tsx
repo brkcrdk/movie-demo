@@ -30,28 +30,30 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
   const renderTables =
     movies !== undefined ? (
       movies.map((item, key) => (
-        <Row
-          key={key}
-          onClick={() => {
-            handleToggle(key);
-          }}
-        >
-          <Col>
-            <Title>
-              <input type="radio" />
-              <img src={`${imgUrl}/w500${item.poster_path}`} />
-              <span>{item.title}</span>
-            </Title>
-          </Col>
-          <Col>{item.release_date}</Col>
-          <Col>{item.popularity}</Col>
-          <Col>{item.vote_average}</Col>
-          <Col>{item.vote_count}</Col>
-          <Description toggle={activeIndex === key}>
-            {item.overview}
-          </Description>
+        <>
+          <Row
+            key={key}
+            onClick={() => {
+              handleToggle(key);
+            }}
+          >
+            <Col>
+              <Title>
+                <input type="radio" />
+                <img src={`${imgUrl}/w500${item.poster_path}`} />
+                <span>{item.title}</span>
+              </Title>
+            </Col>
+            <Col>{item.release_date}</Col>
+            <Col>{item.popularity}</Col>
+            <Col>{item.vote_average}</Col>
+            <Col>{item.vote_count}</Col>
+            <Description toggle={activeIndex === key}>
+              {item.overview}
+            </Description>
+          </Row>
           <Detail activeIndex={activeIndex} index={key} />
-        </Row>
+        </>
       ))
     ) : (
       <Row>
