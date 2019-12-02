@@ -4,7 +4,7 @@ import Pages from "./Pages";
 import styled from "styled-components";
 import { device } from "../../../utils";
 import { useDispatch } from "react-redux";
-import { toggleSidebar } from "../../../store/Toggles/action";
+import { toggleSidebar, toggleSearch } from "../../../store/Toggles/action";
 interface Props {}
 const Container = styled.div`
   margin: 2em;
@@ -34,6 +34,9 @@ const Navbar: React.FC<Props> = () => {
   const handleSidebar = useCallback(() => {
     dispatch(toggleSidebar());
   }, [dispatch]);
+  const handleSearch = useCallback(() => {
+    dispatch(toggleSearch());
+  }, [dispatch]);
   return (
     <Container>
       <Desktop>
@@ -42,7 +45,8 @@ const Navbar: React.FC<Props> = () => {
       </Desktop>
       <Mobile>
         <button onClick={handleSidebar}>X</button>
-        <button>Search</button>
+        <Search />
+        <button onClick={handleSearch}>Search</button>
       </Mobile>
     </Container>
   );

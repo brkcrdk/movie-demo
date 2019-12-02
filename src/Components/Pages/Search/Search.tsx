@@ -6,18 +6,45 @@ import { apiUrl, apiKey } from "../../../config";
 import styled from "styled-components";
 import { device } from "../../../utils";
 interface Props {}
+
 interface ToggleStore {
   toggle: {
     search: boolean;
   };
 }
-interface ContainerProps {
+interface MobileProps {
   toggle: boolean;
 }
-const Container = styled.div`
-  transform: ${(p: ContainerProps) =>
-    p.toggle ? "translateX(0)" : "translateX(100%)"};
+
+const Mobile = styled.div`
+  transform: ${(p: MobileProps) =>
+    p.toggle ? "translateX(0)" : "translateX(150%)"};
+  transition: transform 0.5s ease-in-out;
+  position: fixed;
+  top: 4em;
+  left: 0;
+  border: 1px solid red;
+  width: 98%;
+  input {
+    width: 99%;
+    text-align: center;
+  }
+  @media ${device.mobileS} {
+    display: grid;
+  }
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
+const Desktop = styled.div`
+  @media ${device.mobileS} {
+    display: none;
+  }
+  @media ${device.tablet} {
+    display: block;
+  }
+`;
+const Container = styled.div``;
 
 const Search: React.FC<Props> = () => {
   const toggle = useSelector((state: ToggleStore) => state.toggle.search);
@@ -40,11 +67,19 @@ const Search: React.FC<Props> = () => {
   }, [input]);
 
   return (
-    <Container toggle={toggle}>
-      <input value={input} onChange={handleInput} placeholder="Search.." />
-      <ul>
-        {result && result.map((item, key) => <li key={key}>{item.title}</li>)}
-      </ul>
+    <Container>
+      <Mobile toggle={toggle}>
+        <input value={input} onChange={handleInput} placeholder="Search.." />
+        <ul>
+          {result && result.map((item, key) => <li key={key}>{item.title}</li>)}
+        </ul>
+      </Mobile>
+      <Desktop>
+        <input value={input} onChange={handleInput} placeholder="Search.." />
+        <ul>
+          {result && result.map((item, key) => <li key={key}>{item.title}</li>)}
+        </ul>
+      </Desktop>
     </Container>
   );
 };
