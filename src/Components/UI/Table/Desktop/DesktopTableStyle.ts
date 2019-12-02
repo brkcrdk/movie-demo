@@ -12,6 +12,7 @@ export const Container = styled.div`
 
 export const Table = styled.table`
   border-collapse: collapse;
+  overflow: hidden;
 `;
 export const Head = styled.thead`
   border-bottom: 1px solid lightgray;
