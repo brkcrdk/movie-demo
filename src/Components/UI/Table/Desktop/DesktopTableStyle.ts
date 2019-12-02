@@ -6,16 +6,23 @@ export const Container = styled.div`
     display: none;
   }
   @media ${device.mobileTablet} {
-    display: block;
+    display: inline-block;
   }
 `;
 
 export const Table = styled.table`
-  width: 100%;
-  padding: 0 1em;
-  border: 1px solid lightgray;
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
 `;
-export const Head = styled.thead``;
+export const Head = styled.thead`
+  border-bottom: 1px solid lightgray;
+`;
 export const Body = styled.tbody``;
-export const Row = styled.tr``;
+export const Row = styled.tr`
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 6fr;
+  grid-gap: 0.5em;
+  align-items: center;
+`;
 export const Col = styled.th``;

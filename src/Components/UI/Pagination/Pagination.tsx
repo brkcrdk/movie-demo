@@ -7,6 +7,7 @@ interface Props {
   totalPages: number;
   section: string;
   activePage: number;
+  ref: React.RefObject<HTMLDivElement>;
 }
 
 interface FilterState {
@@ -17,7 +18,12 @@ interface FilterState {
     }[];
   };
 }
-const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
+const Pagination: React.FC<Props> = ({
+  totalPages,
+  section,
+  activePage,
+  ref
+}) => {
   const filter = useSelector((state: FilterState) => state.discoverFilter.tags);
   const dispatch = useDispatch();
 
@@ -39,7 +45,11 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
       } else {
         dispatch(fetchMovies(section, page));
       }
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (ref && ref.current) {
+        // ref.current.scrollTo({ top: 0, behavior: "smooth" });
+        ref.current.scrollTo(0, 0);
+      }
+      // window.scrollTo({ top: 0, behavior: "smooth" });
     },
     [dispatch, filter, section]
   );

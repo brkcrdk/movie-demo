@@ -13,6 +13,8 @@ import Dimmer from "./Components/UI/Dimmer";
 
 const Container = styled.div`
   max-width: 91em;
+  max-height: 100vh;
+  overflow: hidden;
   margin: 0 auto;
 `;
 const App: React.FC = () => {

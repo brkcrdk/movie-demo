@@ -9,31 +9,31 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
   const renderTables =
     movies !== undefined ? (
       movies.map((item, key) => (
-        <tr key={key}>
-          <th>{item.title}</th>
-          <th>{item.release_date}</th>
-          <th>{item.popularity}</th>
-          <th>{item.vote_average}</th>
-          <th>{item.vote_count}</th>
-          <th>{item.overview}</th>
-        </tr>
+        <Row key={key}>
+          <Col>{item.title}</Col>
+          <Col>{item.release_date}</Col>
+          <Col>{item.popularity}</Col>
+          <Col>{item.vote_average}</Col>
+          <Col>{item.vote_count}</Col>
+          <Col>{item.overview}</Col>
+        </Row>
       ))
     ) : (
-      <tr>
-        <th>Loading..</th>
-      </tr>
+      <Row>
+        <Col>Loading..</Col>
+      </Row>
     );
   return (
     <Container>
       <Table>
         <Head>
           <Row>
-            <th>Movie title</th>
-            <th>Release Date</th>
-            <th>Popularity</th>
-            <th>IMDB Average</th>
-            <th>Votes </th>
-            <th>Short Description</th>
+            <Col>Movie title</Col>
+            <Col>Release Date</Col>
+            <Col>Popularity</Col>
+            <Col>IMDB Average</Col>
+            <Col>Votes </Col>
+            <Col>Short Description</Col>
           </Row>
         </Head>
         <Body>{renderTables}</Body>

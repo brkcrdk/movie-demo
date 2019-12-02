@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { MovieInfo } from "../../../store/serverTypes";
 import Pagination from "../Pagination/Pagination";
 
@@ -18,11 +18,13 @@ const Table: React.FC<Props> = ({
   section,
   activePage
 }) => {
+  const tableRef = useRef<HTMLDivElement>(null);
   return (
-    <div>
+    <div ref={tableRef} style={{ height: "75vh", overflow: "auto" }}>
       <MobileTable movies={movies} />
       <DekstopTable movies={movies} />
       <Pagination
+        ref={tableRef}
         section={section}
         totalPages={totalPages}
         activePage={activePage}
