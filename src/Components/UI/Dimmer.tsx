@@ -16,7 +16,7 @@ export const DimContainer = styled.div`
   margin-left: ${(p: DimProps) => (p.toggle ? "10em" : "0")};
   transition: 0.5s;
   height: 100vh;
-  padding-top: 8em;
+  padding-top: 7em;
 `;
 const Dimmer: React.FC<Props> = ({ children }) => {
   const toggle = useSelector((state: Store) => state.toggle.sidebar);

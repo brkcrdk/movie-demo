@@ -42,7 +42,13 @@ const Desktop = styled.div`
     display: none;
   }
   @media ${device.tablet} {
-    display: flex;
+    display: grid;
+    position: relative;
+    width: 100%;
+    input {
+      padding: 1em 0.5em;
+      width: 15em;
+    }
   }
 `;
 const Container = styled.div``;
