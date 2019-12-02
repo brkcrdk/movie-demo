@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { device, fonts } from "../../../../utils";
 
+interface DescriptionProps {
+  toggle: boolean;
+}
+
 export const Container = styled.div`
   @media ${device.mobileS} {
     display: none;
@@ -55,6 +59,7 @@ export const Col = styled.th``;
 export const Description = styled.th`
   overflow: hidden;
   text-overflow: ellipsis;
+  visibility: ${(p: DescriptionProps) => (p.toggle ? "hidden" : "visible")};
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

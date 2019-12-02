@@ -47,7 +47,9 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
           <Col>{item.popularity}</Col>
           <Col>{item.vote_average}</Col>
           <Col>{item.vote_count}</Col>
-          <Description>{item.overview}</Description>
+          <Description toggle={activeIndex === key}>
+            {item.overview}
+          </Description>
           <Detail activeIndex={activeIndex} index={key} />
         </Row>
       ))
