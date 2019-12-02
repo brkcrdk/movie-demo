@@ -6,8 +6,9 @@ interface ContentProps {
 
 export const Expandable = styled.tr``;
 export const Content = styled.div`
-  max-height: ${(p: ContentProps) => (p.expand ? "10%" : "0")};
-  visibility: ${(p: ContentProps) => (p.expand ? "visible" : "hidden")};
+  height: ${(p: ContentProps) => (p.expand ? "10em" : "0")};
+  opacity: ${(p: ContentProps) => (p.expand ? "1" : "0")};
   display: grid;
   grid-template-columns: repeat(2, 6fr);
+  transition: 0.5s;
 `;
