@@ -7,7 +7,11 @@ import { useDispatch } from "react-redux";
 import { toggleSidebar, toggleSearch } from "../../../store/Toggles/action";
 interface Props {}
 const Container = styled.div`
-  margin: 2em;
+  position: fixed;
+  padding: 2em 0;
+  top: 0;
+  background-color: white;
+  width: 100%;
 `;
 const Desktop = styled.div`
   @media ${device.mobileS} {
@@ -15,14 +19,14 @@ const Desktop = styled.div`
   }
   @media ${device.tablet} {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
 `;
 const Mobile = styled.div`
   @media ${device.mobileS} {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
   @media ${device.tablet} {

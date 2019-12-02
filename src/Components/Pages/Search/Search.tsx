@@ -41,7 +41,7 @@ const Desktop = styled.div`
     display: none;
   }
   @media ${device.tablet} {
-    display: block;
+    display: flex;
   }
 `;
 const Container = styled.div``;
