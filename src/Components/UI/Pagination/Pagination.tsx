@@ -17,12 +17,7 @@ interface FilterState {
     }[];
   };
 }
-const Pagination: React.FC<Props> = ({
-  totalPages,
-  section,
-  activePage,
-  ref
-}) => {
+const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
   const filter = useSelector((state: FilterState) => state.discoverFilter.tags);
   const dispatch = useDispatch();
 

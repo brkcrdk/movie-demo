@@ -19,7 +19,7 @@ const Table: React.FC<Props> = ({
   activePage
 }) => {
   return (
-    <div style={{ height: "75vh", overflow: "auto" }}>
+    <div>
       <MobileTable movies={movies} />
       <DekstopTable movies={movies} />
       <Pagination
