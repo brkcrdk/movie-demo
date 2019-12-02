@@ -7,8 +7,10 @@ import {
   Col,
   Body,
   Head,
-  Description
+  Description,
+  Title
 } from "./DesktopTableStyle";
+import { imgUrl } from "../../../../config";
 interface Props {
   movies: MovieInfo[];
 }
@@ -18,7 +20,13 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
     movies !== undefined ? (
       movies.map((item, key) => (
         <Row key={key}>
-          <Col>{item.title}</Col>
+          <Col>
+            <Title>
+              <input type="radio" />
+              <img src={`${imgUrl}/w500${item.poster_path}`} />
+              <span>{item.title}</span>
+            </Title>
+          </Col>
           <Col>{item.release_date}</Col>
           <Col>{item.popularity}</Col>
           <Col>{item.vote_average}</Col>

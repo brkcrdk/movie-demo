@@ -18,6 +18,12 @@ const Button = styled(NavLink)`
     outline: none;
     font-family: ${fonts.MontserratAlternates};
     font-weight: 600;
+    @media ${device.tablet} {
+      font-size: 0.8em;
+    }
+    @media ${device.desktop} {
+      font-size: 1em;
+    }
   }
 `;
 

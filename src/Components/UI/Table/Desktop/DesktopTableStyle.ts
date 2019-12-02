@@ -14,6 +14,12 @@ export const Table = styled.table`
   border-collapse: collapse;
   overflow: hidden;
   font-family: ${fonts.aBeeZee};
+  @media ${device.tablet} {
+    font-size: 0.8em;
+  }
+  @media ${device.desktop} {
+    font-size: 1em;
+  }
 `;
 export const Head = styled.thead`
   border-bottom: 1px solid lightgray;
@@ -38,8 +44,8 @@ export const Body = styled.tbody`
   }
 `;
 export const Row = styled.tr`
-  display: grid;
   margin-top: 1em;
+  display: grid;
   grid-template-columns: 2fr 2fr 1fr 1fr 1fr 5fr;
   align-items: center;
   padding: 0 1em;
@@ -54,4 +60,24 @@ export const Description = styled.th`
   -webkit-box-orient: vertical;
   padding-right: 1em;
   line-height: 1.5em;
+`;
+export const Title = styled.div`
+  display: flex;
+  align-items: center;
+  img {
+    border-radius: 50%;
+    object-fit: cover;
+
+    @media ${device.tablet} {
+      width: 2em;
+      height: 2em;
+    }
+    @media ${device.desktop} {
+      width: em;
+      height: em;
+    }
+  }
+  span {
+    padding-left: 1em;
+  }
 `;
