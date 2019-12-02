@@ -11,7 +11,7 @@ const Container = styled.div`
     display: block;
     padding: 0.5em;
   }
-  @media ${device.mobileTablet} {
+  @media ${device.tablet} {
     display: none;
   }
 `;

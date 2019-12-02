@@ -16,7 +16,8 @@ const Button = styled(NavLink)`
     padding: 0.5em;
     border: 1px solid ${colours.pink};
     outline: none;
-    font-family: ${fonts.aBeeZee};
+    font-family: ${fonts.MontserratAlternates};
+    font-weight: 600;
   }
 `;
 
