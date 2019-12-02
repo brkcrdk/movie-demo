@@ -23,6 +23,11 @@ export const Wrapper = styled.div`
   @media ${device.mobileTablet} {
     grid-template-columns: 4fr 8fr;
   }
+  button {
+    position: absolute;
+    right: 1em;
+    margin-top: 1em;
+  }
 `;
 export const ImageContainer = styled.div`
   display: flex;

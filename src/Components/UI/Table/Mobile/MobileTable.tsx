@@ -20,6 +20,7 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
     movies !== undefined
       ? movies.map((movie, key) => (
           <Wrapper key={key}>
+            <button>Like</button>
             <ImageContainer>
               <img src={`${imgUrl}/w500/${movie.poster_path}`} />
             </ImageContainer>
