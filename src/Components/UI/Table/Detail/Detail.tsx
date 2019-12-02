@@ -6,8 +6,8 @@ interface Props {
 
 const Detail: React.FC<Props> = ({ expand }) => {
   return (
-    <Expandable expand={expand}>
-      <Content>goes here..</Content>
+    <Expandable>
+      <Content expand={expand}>goes here..</Content>
     </Expandable>
   );
 };
