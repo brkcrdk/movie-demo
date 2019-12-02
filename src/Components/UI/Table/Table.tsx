@@ -3,7 +3,7 @@ import { MovieInfo } from "../../../store/serverTypes";
 import Pagination from "../Pagination/Pagination";
 
 import MobileTable from "./MobileTable";
-import DekstopTable from "./DekstopTable";
+import DekstopTable from "./Desktop/DekstopTable";
 
 interface Props {
   section: string;

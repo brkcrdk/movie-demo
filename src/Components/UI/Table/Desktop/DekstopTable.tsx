@@ -1,10 +1,9 @@
 import React from "react";
-import { device } from "../../../utils";
+import { device } from "../../../../utils";
 import styled from "styled-components";
-import { MovieInfo } from "../../../store/serverTypes";
+import { MovieInfo } from "../../../../store/serverTypes";
 interface Props {
   movies: MovieInfo[];
-  activePage: number;
 }
 
 const Container = styled.div`
@@ -15,7 +14,7 @@ const Container = styled.div`
     display: block;
   }
 `;
-const DekstopTable: React.FC<Props> = ({ movies, activePage }) => {
+const DekstopTable: React.FC<Props> = ({ movies }) => {
   const renderTables =
     movies !== undefined ? (
       movies.map((item, key) => (

@@ -13,7 +13,7 @@ interface ContainerProps {
 
 const Container = styled.div`
   position: fixed;
-  padding-top: 2em;
+  padding-top: 1em;
   padding-bottom: 1em;
   top: 0;
   background-color: white;
