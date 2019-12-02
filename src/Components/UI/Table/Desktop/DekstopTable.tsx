@@ -12,44 +12,47 @@ import {
 } from "./DesktopTableStyle";
 import Detail from "../Detail/Detail";
 import { imgUrl } from "../../../../config";
+import { useDispatch } from "react-redux";
+import { fetchDetails } from "../../../../store/Detail/action";
 interface Props {
   movies: MovieInfo[];
 }
 
 const DekstopTable: React.FC<Props> = ({ movies }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
-
-  const handleToggle = (index: number) => {
+  const dispatch = useDispatch();
+  const handleToggle = (index: number, id: number) => {
     if (activeIndex === index) {
       setActiveIndex(-1);
     } else {
       setActiveIndex(index);
     }
+    dispatch(fetchDetails(id));
   };
 
   const renderTables =
     movies !== undefined ? (
-      movies.map((item, key) => (
+      movies.map((movie, key) => (
         <>
           <Row
             key={key}
             onClick={() => {
-              handleToggle(key);
+              handleToggle(key, movie.id);
             }}
           >
             <Col>
               <Title>
                 <input type="radio" />
-                <img src={`${imgUrl}/w500${item.poster_path}`} />
-                <span>{item.title}</span>
+                <img src={`${imgUrl}/w500${movie.poster_path}`} />
+                <span>{movie.title}</span>
               </Title>
             </Col>
-            <Col>{item.release_date}</Col>
-            <Col>{item.popularity}</Col>
-            <Col>{item.vote_average}</Col>
-            <Col>{item.vote_count}</Col>
+            <Col>{movie.release_date}</Col>
+            <Col>{movie.popularity}</Col>
+            <Col>{movie.vote_average}</Col>
+            <Col>{movie.vote_count}</Col>
             <Description toggle={activeIndex === key}>
-              {item.overview}
+              {movie.overview}
             </Description>
           </Row>
           <Detail activeIndex={activeIndex} index={key} />

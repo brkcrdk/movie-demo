@@ -11,7 +11,7 @@ import {
 
 export const fetchDetails = (id: number) => {
   const request = axios.get(
-    `${apiUrl}/movie/${id}?append_to_response=credits&api_key=${apiKey}`
+    `${apiUrl}/movie/${id}?append_to_response=credits,images&api_key=${apiKey}`
   );
 
   return (dispatch: Dispatch<DetailActions>) => {
