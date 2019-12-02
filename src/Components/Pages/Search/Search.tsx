@@ -21,12 +21,11 @@ const Mobile = styled.div`
     p.toggle ? "translateX(0)" : "translateX(150%)"};
   transition: transform 0.5s ease-in-out;
   position: fixed;
-  top: 4em;
-  left: 0;
-  border: 1px solid red;
+  top: 5em;
+  left: 0.5em;
   width: 98%;
   input {
-    width: 99%;
+    width: 100%;
     text-align: center;
   }
   @media ${device.mobileS} {
