@@ -12,7 +12,6 @@ import Sidebar from "./Components/Pages/Navbar/Sidebar";
 import Dimmer from "./Components/UI/Dimmer";
 
 const Container = styled.div`
-  overflow-x: hidden;
   max-width: 91em;
   margin: 0 auto;
 `;

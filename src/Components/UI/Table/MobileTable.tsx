@@ -4,7 +4,6 @@ import { device, colours } from "../../../utils";
 import { MovieInfo } from "../../../store/serverTypes";
 interface Props {
   movies: MovieInfo[];
-  activePage: number;
 }
 
 const Container = styled.div`

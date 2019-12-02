@@ -20,8 +20,8 @@ const Table: React.FC<Props> = ({
 }) => {
   return (
     <div>
-      <MobileTable movies={movies} activePage={activePage} />
-      <DekstopTable movies={movies} activePage={activePage} />
+      <MobileTable movies={movies} />
+      <DekstopTable movies={movies} />
       <Pagination
         section={section}
         totalPages={totalPages}
