@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MovieInfo } from "../../../../store/serverTypes";
 import {
   Container,
@@ -17,10 +17,25 @@ interface Props {
 }
 
 const DekstopTable: React.FC<Props> = ({ movies }) => {
+  const [activeIndex, setActiveIndex] = useState(-1);
+
+  const handleToggle = (index: number) => {
+    if (activeIndex === index) {
+      setActiveIndex(-1);
+    } else {
+      setActiveIndex(index);
+    }
+  };
+
   const renderTables =
     movies !== undefined ? (
       movies.map((item, key) => (
-        <Row key={key}>
+        <Row
+          key={key}
+          onClick={() => {
+            handleToggle(key);
+          }}
+        >
           <Col>
             <Title>
               <input type="radio" />
@@ -33,7 +48,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
           <Col>{item.vote_average}</Col>
           <Col>{item.vote_count}</Col>
           <Description>{item.overview}</Description>
-          <Detail />
+          <Detail activeIndex={activeIndex} index={key} />
         </Row>
       ))
     ) : (

@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { Expandable, Content } from "./DetailStyle";
-interface Props {}
+interface Props {
+  activeIndex: number;
+  index: number;
+}
 
-const Detail: React.FC<Props> = () => {
-  const [toggle, setToggle] = useState(false);
-  const handleToggle = () => {
-    setToggle(!toggle);
-  };
+const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   return (
     <Expandable>
-      <Content expand={toggle}>goes here..</Content>
+      <Content expand={activeIndex === index}>goes here..</Content>
     </Expandable>
   );
 };
