@@ -1,6 +1,14 @@
 import React from "react";
 import { MovieInfo } from "../../../../store/serverTypes";
-import { Container, Table, Row, Col, Body, Head } from "./DesktopTableStyle";
+import {
+  Container,
+  Table,
+  Row,
+  Col,
+  Body,
+  Head,
+  Description
+} from "./DesktopTableStyle";
 interface Props {
   movies: MovieInfo[];
 }
@@ -15,7 +23,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
           <Col>{item.popularity}</Col>
           <Col>{item.vote_average}</Col>
           <Col>{item.vote_count}</Col>
-          <Col>{item.overview}</Col>
+          <Description>{item.overview}</Description>
         </Row>
       ))
     ) : (
