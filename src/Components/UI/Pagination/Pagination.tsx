@@ -7,7 +7,6 @@ interface Props {
   totalPages: number;
   section: string;
   activePage: number;
-  ref: React.RefObject<HTMLDivElement>;
 }
 
 interface FilterState {
@@ -45,11 +44,8 @@ const Pagination: React.FC<Props> = ({
       } else {
         dispatch(fetchMovies(section, page));
       }
-      if (ref && ref.current) {
-        // ref.current.scrollTo({ top: 0, behavior: "smooth" });
-        ref.current.scrollTo(0, 0);
-      }
-      // window.scrollTo({ top: 0, behavior: "smooth" });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
     },
     [dispatch, filter, section]
   );
