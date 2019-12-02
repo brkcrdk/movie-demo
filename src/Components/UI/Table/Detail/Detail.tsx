@@ -1,5 +1,4 @@
 import React from "react";
-import Slider from "react-slick";
 import { Expandable, Content } from "./DetailStyle";
 import { useSelector } from "react-redux";
 import { IDetail } from "../../../../store/serverTypes";
@@ -16,13 +15,22 @@ interface StoreProps {
 }
 const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   const movie = useSelector((state: StoreProps) => state.detailStore.movie);
+  const isLoading = useSelector(
+    (state: StoreProps) => state.detailStore.isLoading
+  );
 
-  console.log(movie);
-
+  const renderImages = movie.images;
+  // ? movie.images.posters.map((item, key) => (
+  //     <img
+  //       style={{ width: "5em", height: "5em" }}
+  //       src={`${imgUrl}/w500${item.file_path}`}
+  //     />
+  //   ))
+  // : "";
   return (
     <Expandable>
       <Content expand={activeIndex === index}>
-        <div>Slayt</div>
+        {/* <div>{isLoading ? "Loading.." : renderImages}</div> */}
         <div>Actors</div>
       </Content>
     </Expandable>

@@ -14,4 +14,7 @@ export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 6fr);
   transition: 0.5s;
+  img {
+    display: ${(p: ContentProps) => (p.expand ? "" : "none")};
+  }
 `;
