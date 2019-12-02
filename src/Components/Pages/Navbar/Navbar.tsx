@@ -63,7 +63,6 @@ const Navbar: React.FC<Props> = () => {
   const handleSearch = useCallback(() => {
     dispatch(toggleSearch());
   }, [dispatch]);
-  console.log(scroll);
   return (
     <Container scroll={scroll}>
       <Desktop>
