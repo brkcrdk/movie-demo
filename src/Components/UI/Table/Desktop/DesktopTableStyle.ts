@@ -38,7 +38,6 @@ export const Wrapper = styled.div`
   position: relative;
   &:hover {
     background-color: lightgray;
-    transform: scale(1.005);
   }
   input {
     border: 1px solid red;

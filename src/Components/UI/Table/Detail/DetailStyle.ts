@@ -19,12 +19,14 @@ export const Content = styled.div`
   grid-template-columns: repeat(2, 6fr);
 `;
 
-export const Slayt = styled.div``;
+export const Slayt = styled.div`
+  display: flex;
+`;
 
 interface SlideProps {
   toggle: boolean;
 }
 export const Slide = styled.img`
   display: ${(p: SlideProps) => (p.toggle ? "flex" : "none")};
-  width: 2em;
+  width: 100%;
 `;
