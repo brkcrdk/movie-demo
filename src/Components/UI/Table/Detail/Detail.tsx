@@ -20,8 +20,6 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
     (state: StoreProps) => state.detailStore.isLoading
   );
 
-  const renderImages = movie.images;
-
   return (
     <Expandable expand={activeIndex === index}>
       <Content>

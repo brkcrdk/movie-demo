@@ -4,7 +4,7 @@ interface ExpandableProps {
   expand: boolean;
 }
 
-export const Expandable = styled.div`
+export const Expandable = styled.td`
   border: 1px solid red;
   width: 100%;
   height: ${(p: ExpandableProps) => (p.expand ? "10em" : "0")};
