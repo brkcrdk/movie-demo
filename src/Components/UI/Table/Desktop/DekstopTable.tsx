@@ -12,15 +12,23 @@ import {
 } from "./DesktopTableStyle";
 import Detail from "../Detail/Detail";
 import { imgUrl } from "../../../../config";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
 interface Props {
   movies: MovieInfo[];
 }
-
+interface StateProps {
+  detailStore: {
+    isLoading: boolean;
+  };
+}
 const DekstopTable: React.FC<Props> = ({ movies }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const dispatch = useDispatch();
+  const isLoading = useSelector(
+    (state: StateProps) => state.detailStore.isLoading
+  );
+
   const handleToggle = (index: number, id: number) => {
     if (activeIndex === index) {
       setActiveIndex(-1);
@@ -43,7 +51,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
         >
           <Col>
             <Title>
-              <img src={`${imgUrl}/w500${movie.poster_path}`} />
+              <img src={`${imgUrl}/w92${movie.poster_path}`} />
               <span>{movie.title}</span>
             </Title>
           </Col>
