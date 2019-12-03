@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { MovieInfo } from "../../../../store/serverTypes";
 import {
   Container,
-  Table,
+  Header,
+  Content,
   Row,
   Col,
-  Body,
-  Head,
-  ColHeader,
-  Description,
-  Title
+  Title,
+  Overview
 } from "./DesktopTableStyle";
 import Detail from "../Detail/Detail";
 import { imgUrl } from "../../../../config";
@@ -32,51 +30,34 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
   };
 
   const renderTables =
-    movies !== undefined ? (
-      movies.map((movie, key) => (
-        <Row
-          key={key}
-          onClick={() => {
-            handleToggle(key, movie.id);
-          }}
-        >
-          <Col>
-            <Title>
-              <input type="radio" />
-              <img src={`${imgUrl}/w500${movie.poster_path}`} />
-              <span>{movie.title}</span>
-            </Title>
-          </Col>
-          <Col>{movie.release_date}</Col>
-          <Col>{movie.popularity}</Col>
-          <Col>{movie.vote_average}</Col>
-          <Col>{movie.vote_count}</Col>
-          <Description toggle={activeIndex === key}>
-            {movie.overview}
-          </Description>
-          <Detail activeIndex={activeIndex} index={key} />
-        </Row>
-      ))
-    ) : (
-      <Row>
-        <Col>Loading..</Col>
+    movies &&
+    movies.map((movie, key) => (
+      <Row key={key}>
+        <input type="radio" />
+        <Col>
+          <Title>
+            <img src={`${imgUrl}/w500${movie.poster_path}`} />
+            <span>{movie.title}</span>
+          </Title>
+        </Col>
+        <Col>{movie.release_date}</Col>
+        <Col>{movie.popularity}</Col>
+        <Col>{movie.vote_average}</Col>
+        <Col>{movie.vote_count}</Col>
+        <Overview>{movie.overview}</Overview>
       </Row>
-    );
+    ));
   return (
     <Container>
-      <Table>
-        <Head>
-          <Row>
-            <ColHeader>Movie title</ColHeader>
-            <ColHeader>Release Date</ColHeader>
-            <ColHeader>Popularity</ColHeader>
-            <ColHeader>IMDB Average</ColHeader>
-            <ColHeader>Votes </ColHeader>
-            <ColHeader>Short Description</ColHeader>
-          </Row>
-        </Head>
-        <Body>{renderTables}</Body>
-      </Table>
+      <Header>
+        <h4>Movie Title</h4>
+        <h4>Release Date</h4>
+        <h4>Popularity</h4>
+        <h4>IMDB Average</h4>
+        <h4>Votes</h4>
+        <h4>Overview</h4>
+      </Header>
+      <Content>{renderTables}</Content>
     </Container>
   );
 };

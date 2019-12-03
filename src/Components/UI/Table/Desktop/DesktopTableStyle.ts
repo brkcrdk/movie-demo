@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import { device, fonts } from "../../../../utils";
-
-interface DescriptionProps {
-  toggle: boolean;
-}
+import { device, fonts, colours } from "../../../../utils";
 
 export const Container = styled.div`
+  width: 100%;
+  font-family: ${fonts.aBeeZee};
+
   @media ${device.mobileS} {
     display: none;
   }
@@ -14,83 +13,61 @@ export const Container = styled.div`
   }
 `;
 
-export const Table = styled.table`
-  border-collapse: collapse;
-  overflow: hidden;
-  font-family: ${fonts.aBeeZee};
-  @media ${device.tablet} {
-    font-size: 0.8em;
-  }
-  @media ${device.desktop} {
-    font-size: 1em;
-  }
-`;
-export const Head = styled.thead`
-  border-bottom: 1px solid lightgray;
-  padding-bottom: 1em;
+export const Header = styled.div`
+  margin-top: -1.1em;
   width: 100%;
-  max-width: 93em;
   position: fixed;
-  top: 6.9em;
-  z-index: 1;
+  display: grid;
+  grid-gap: 0.5em;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr 5fr;
+  align-items: center;
   background-color: white;
+  z-index: 1;
+  border-bottom: 1px solid ${colours.pink};
+  text-align: center;
 `;
-export const Body = styled.tbody`
-  tr {
-    &:hover {
-      background-color: lightgray;
-      transform: scale(1.005);
-      cursor: pointer;
-    }
-  }
-  tr:first-child {
-    margin-top: 4em;
-  }
-`;
-export const ContentRow = styled.tr``;
 
-export const Row = styled.tr`
-  margin-top: 1em;
+export const Content = styled.div`
+  width: 100%;
+  padding-top: 4em;
+`;
+
+export const Row = styled.ul`
   display: grid;
   grid-template-columns: 2fr 2fr 1fr 1fr 1fr 5fr;
   align-items: center;
-  padding: 0 1em;
+  grid-gap: 0.5em;
+  text-align: center;
+  list-style: none;
+  position: relative;
+
+  input {
+    border: 1px solid red;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* top: 1em; */
+    left: 1em;
+  }
 `;
-export const ColHeader = styled.th``;
+export const Col = styled.li``;
 
-export const Col = styled.td``;
-
-export const Description = styled.td`
+export const Title = styled.div`
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  align-items: center;
+  img {
+    object-fit: cover;
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+  }
+`;
+export const Overview = styled.li`
   overflow: hidden;
   text-overflow: ellipsis;
-  visibility: ${(p: DescriptionProps) => (p.toggle ? "hidden" : "visible")};
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  padding-right: 1em;
-  line-height: 1.5em;
-`;
-
-export const Title = styled.div`
-  display: flex;
-  align-items: center;
-  input {
-    margin-right: 1em;
-  }
-  img {
-    border-radius: 50%;
-    object-fit: cover;
-
-    @media ${device.tablet} {
-      width: 2em;
-      height: 2em;
-    }
-    @media ${device.desktop} {
-      width: 3em;
-      height: 3em;
-    }
-  }
-  span {
-    padding-left: 1em;
-  }
 `;
