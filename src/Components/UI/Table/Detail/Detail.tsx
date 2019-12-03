@@ -21,7 +21,10 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   );
 
   const renderImages = movie.images && (
-    <Carousel isLoading={isLoading} images={movie.images} />
+    <>
+      <Carousel isLoading={isLoading} images={movie.images} />
+      <p>{movie.overview}</p>
+    </>
   );
 
   return (

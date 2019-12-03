@@ -40,29 +40,39 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
 
   const renderTables =
     movies &&
-    movies.map((movie, key) => (
-      <Wrapper key={key}>
-        <input type="radio" />
-        <Row
-          onClick={() => {
-            handleToggle(key, movie.id);
-          }}
-        >
-          <Col>
-            <Title>
-              <img src={`${imgUrl}/w92${movie.poster_path}`} />
-              <span>{movie.title}</span>
-            </Title>
-          </Col>
-          <Col>{movie.release_date}</Col>
-          <Col>{movie.popularity}</Col>
-          <Col>{movie.vote_average}</Col>
-          <Col>{movie.vote_count}</Col>
-          <Overview>{movie.overview}</Overview>
-        </Row>
-        <Detail activeIndex={activeIndex} index={key} />
-      </Wrapper>
-    ));
+    movies.map((movie, key) => {
+      const shortOverview = movie.overview
+        .split(" ")
+        .filter((x, i) => {
+          return i < 10;
+        })
+        .map(item => {
+          return `${item} `;
+        });
+      return (
+        <Wrapper key={key}>
+          <input type="radio" />
+          <Row
+            onClick={() => {
+              handleToggle(key, movie.id);
+            }}
+          >
+            <Col>
+              <Title>
+                <img src={`${imgUrl}/w92${movie.poster_path}`} />
+                <span>{movie.title}</span>
+              </Title>
+            </Col>
+            <Col>{movie.release_date}</Col>
+            <Col>{movie.popularity}</Col>
+            <Col>{movie.vote_average}</Col>
+            <Col>{movie.vote_count}</Col>
+            <Overview>{shortOverview}...</Overview>
+          </Row>
+          <Detail activeIndex={activeIndex} index={key} />
+        </Wrapper>
+      );
+    });
   return (
     <Container>
       <Header>

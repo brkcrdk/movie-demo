@@ -10,7 +10,7 @@ export const Expandable = styled.div`
   transition: max-height 0.5s;
   #content {
     width: 100%;
-    display: ${(p: ExpandableProps) => (p.expand ? "flex" : "none")};
+    display: ${(p: ExpandableProps) => (p.expand ? "grid" : "none")};
   }
 `;
 export const Content = styled.div`
@@ -20,7 +20,8 @@ export const Content = styled.div`
 `;
 
 export const Slayt = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 6fr);
 `;
 
 interface SlideProps {

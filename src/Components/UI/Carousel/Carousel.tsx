@@ -45,9 +45,9 @@ const Carousel: React.FC<Props> = ({ images, isLoading }) => {
   return (
     <Container>
       <Slayt>
-        <button onClick={handlePrev}>Prev</button>
+        <button onClick={handlePrev}>&#x3c;</button>
         {isLoading ? "loading" : renderImages}
-        <button onClick={handleNext}>Next</button>
+        <button onClick={handleNext}>&#x3e;</button>
       </Slayt>
     </Container>
   );
