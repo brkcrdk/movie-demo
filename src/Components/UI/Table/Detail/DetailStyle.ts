@@ -20,8 +20,8 @@ export const Content = styled.div`
 `;
 
 export const Slayt = styled.div`
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  /* display: grid;
+  grid-template-columns: repeat(12, 1fr); */
   img {
     width: 2em;
   }
