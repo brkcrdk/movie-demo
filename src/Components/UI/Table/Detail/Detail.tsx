@@ -3,6 +3,7 @@ import { Expandable, Content, Slayt } from "./DetailStyle";
 import { useSelector } from "react-redux";
 import { IDetail } from "../../../../store/serverTypes";
 import { imgUrl } from "../../../../config";
+
 interface Props {
   activeIndex: number;
   index: number;
@@ -28,7 +29,7 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
 
   return (
     <Expandable expand={activeIndex === index}>
-      <Content>
+      <Content id="content">
         <Slayt>{isLoading ? "loading" : renderImages}</Slayt>
         <div>Actors</div>
       </Content>

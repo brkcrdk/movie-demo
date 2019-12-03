@@ -8,7 +8,7 @@ export const Expandable = styled.div`
   width: 100%;
   height: ${(p: ExpandableProps) => (p.expand ? "10em" : "0")};
   transition: 0.5s;
-  div {
+  #content {
     width: 100%;
     display: ${(p: ExpandableProps) => (p.expand ? "flex" : "none")};
   }
