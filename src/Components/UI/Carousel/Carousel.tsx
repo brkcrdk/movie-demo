@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { ImageProps } from "../../../store/serverTypes";
 import { imgUrl } from "../../../config";
-
+import { Container, Slayt, Slide } from "./CarouselStyle";
 interface Props {
   images: {
     backdrops: ImageProps[];
@@ -10,17 +9,6 @@ interface Props {
   };
   isLoading: boolean;
 }
-const Container = styled.div``;
-const Slayt = styled.div`
-  display: flex;
-`;
-interface SlideProps {
-  toggle: boolean;
-}
-const Slide = styled.img`
-  display: ${(p: SlideProps) => (p.toggle ? "flex" : "none")};
-  width: 100%;
-`;
 
 const Carousel: React.FC<Props> = ({ images, isLoading }) => {
   const [active, setActive] = useState(0);
