@@ -3,7 +3,7 @@ import { Expandable, Content, Slayt } from "./DetailStyle";
 import { useSelector } from "react-redux";
 import { IDetail } from "../../../../store/serverTypes";
 import Carousel from "../../Carousel/Carousel";
-
+import Actors from "../../Actors/Actors";
 interface Props {
   activeIndex: number;
   index: number;
@@ -31,7 +31,9 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
     <Expandable expand={activeIndex === index}>
       <Content id="content">
         <Slayt>{renderImages}</Slayt>
-        <div>Actors</div>
+        <div>
+          <Actors />
+        </div>
       </Content>
     </Expandable>
   );
