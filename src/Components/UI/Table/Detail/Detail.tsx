@@ -1,5 +1,5 @@
 import React from "react";
-import { Expandable, Content } from "./DetailStyle";
+import { Expandable, Content, Slayt } from "./DetailStyle";
 import { useSelector } from "react-redux";
 import { IDetail } from "../../../../store/serverTypes";
 import { imgUrl } from "../../../../config";
@@ -20,10 +20,16 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
     (state: StoreProps) => state.detailStore.isLoading
   );
 
+  const renderImages =
+    movie.images &&
+    movie.images.backdrops.map((image, key) => (
+      <img src={`${imgUrl}/w300${image.file_path}`} />
+    ));
+
   return (
     <Expandable expand={activeIndex === index}>
       <Content>
-        <div>Slayt</div>
+        <Slayt>{isLoading ? "loading" : renderImages}</Slayt>
         <div>Actors</div>
       </Content>
     </Expandable>

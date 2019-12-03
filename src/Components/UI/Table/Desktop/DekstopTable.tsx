@@ -41,10 +41,9 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
   const renderTables =
     movies &&
     movies.map((movie, key) => (
-      <Wrapper>
+      <Wrapper key={key}>
         <input type="radio" />
         <Row
-          key={key}
           onClick={() => {
             handleToggle(key, movie.id);
           }}

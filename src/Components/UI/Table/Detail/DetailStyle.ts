@@ -18,3 +18,11 @@ export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 6fr);
 `;
+
+export const Slayt = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  img {
+    width: 2em;
+  }
+`;
