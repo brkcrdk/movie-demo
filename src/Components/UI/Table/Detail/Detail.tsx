@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Expandable, Content, Slayt, Slide } from "./DetailStyle";
+import React from "react";
+import { Expandable, Content, Slayt } from "./DetailStyle";
 import { useSelector } from "react-redux";
 import { IDetail } from "../../../../store/serverTypes";
-import { imgUrl } from "../../../../config";
 import Carousel from "../../Carousel/Carousel";
 
 interface Props {
