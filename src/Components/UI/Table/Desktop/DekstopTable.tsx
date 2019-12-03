@@ -7,7 +7,8 @@ import {
   Row,
   Col,
   Title,
-  Overview
+  Overview,
+  Wrapper
 } from "./DesktopTableStyle";
 import Detail from "../Detail/Detail";
 import { imgUrl } from "../../../../config";
@@ -32,20 +33,28 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
   const renderTables =
     movies &&
     movies.map((movie, key) => (
-      <Row key={key}>
+      <Wrapper>
         <input type="radio" />
-        <Col>
-          <Title>
-            <img src={`${imgUrl}/w500${movie.poster_path}`} />
-            <span>{movie.title}</span>
-          </Title>
-        </Col>
-        <Col>{movie.release_date}</Col>
-        <Col>{movie.popularity}</Col>
-        <Col>{movie.vote_average}</Col>
-        <Col>{movie.vote_count}</Col>
-        <Overview>{movie.overview}</Overview>
-      </Row>
+        <Row
+          key={key}
+          onClick={() => {
+            handleToggle(key, movie.id);
+          }}
+        >
+          <Col>
+            <Title>
+              <img src={`${imgUrl}/w500${movie.poster_path}`} />
+              <span>{movie.title}</span>
+            </Title>
+          </Col>
+          <Col>{movie.release_date}</Col>
+          <Col>{movie.popularity}</Col>
+          <Col>{movie.vote_average}</Col>
+          <Col>{movie.vote_count}</Col>
+          <Overview>{movie.overview}</Overview>
+        </Row>
+        <Detail activeIndex={activeIndex} index={key} />
+      </Wrapper>
     ));
   return (
     <Container>

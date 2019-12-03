@@ -32,6 +32,23 @@ export const Content = styled.div`
   padding-top: 4em;
 `;
 
+export const Wrapper = styled.div`
+  padding: 1px;
+  position: relative;
+  &:hover {
+    background-color: lightgray;
+    transform: scale(1.005);
+  }
+  input {
+    border: 1px solid red;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 2.5em;
+    left: 1em;
+  }
+`;
 export const Row = styled.ul`
   display: grid;
   grid-template-columns: 2fr 2fr 1fr 1fr 1fr 5fr;
@@ -39,17 +56,7 @@ export const Row = styled.ul`
   grid-gap: 0.5em;
   text-align: center;
   list-style: none;
-  position: relative;
-
-  input {
-    border: 1px solid red;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* top: 1em; */
-    left: 1em;
-  }
+  cursor: pointer;
 `;
 export const Col = styled.li``;
 
