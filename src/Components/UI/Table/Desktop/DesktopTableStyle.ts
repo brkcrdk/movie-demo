@@ -47,6 +47,8 @@ export const Body = styled.tbody`
     margin-top: 4em;
   }
 `;
+export const ContentRow = styled.tr``;
+
 export const Row = styled.tr`
   margin-top: 1em;
   display: grid;
@@ -54,11 +56,9 @@ export const Row = styled.tr`
   align-items: center;
   padding: 0 1em;
 `;
-
 export const ColHeader = styled.th``;
 
 export const Col = styled.td``;
-export const DetailCol = styled.td``;
 
 export const Description = styled.td`
   overflow: hidden;

@@ -8,7 +8,6 @@ import {
   Body,
   Head,
   ColHeader,
-  DetailCol,
   Description,
   Title
 } from "./DesktopTableStyle";
@@ -55,9 +54,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
           <Description toggle={activeIndex === key}>
             {movie.overview}
           </Description>
-          <DetailCol colSpan={3}>
-            <Detail activeIndex={activeIndex} index={key} />
-          </DetailCol>
+          <Detail activeIndex={activeIndex} index={key} />
         </Row>
       ))
     ) : (
