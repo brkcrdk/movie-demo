@@ -11,8 +11,9 @@ export const Slayt = styled.div`
   position: relative;
   button {
     position: absolute;
-    background-color: none;
+    background-color: transparent;
     border: none;
+    outline: none;
     &:first-child {
       left: -1.5em;
     }

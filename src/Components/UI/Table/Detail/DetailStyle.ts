@@ -8,6 +8,8 @@ export const Expandable = styled.div`
   width: 100%;
   max-height: ${(p: ExpandableProps) => (p.expand ? "100%" : "0")};
   transition: max-height 0.5s;
+  border-bottom: 1px solid lightgray;
+
   #content {
     width: 100%;
     display: ${(p: ExpandableProps) => (p.expand ? "grid" : "none")};
@@ -21,13 +23,6 @@ export const Content = styled.div`
 
 export const Slayt = styled.div`
   display: grid;
+  align-items: center;
   grid-template-columns: repeat(2, 6fr);
-`;
-
-interface SlideProps {
-  toggle: boolean;
-}
-export const Slide = styled.img`
-  display: ${(p: SlideProps) => (p.toggle ? "flex" : "none")};
-  width: 100%;
 `;
