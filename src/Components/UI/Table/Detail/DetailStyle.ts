@@ -1,20 +1,19 @@
 import styled from "styled-components";
 
-interface ContentProps {
+interface ExpandableProps {
   expand: boolean;
 }
 
 export const Expandable = styled.tr`
   width: 100%;
+  height: ${(p: ExpandableProps) => (p.expand ? "10em" : "0")};
+  div {
+    display: ${(p: ExpandableProps) => (p.expand ? "flex" : "none")};
+  }
 `;
 export const Content = styled.div`
   padding: 0 2em;
-  height: ${(p: ContentProps) => (p.expand ? "10em" : "0")};
-  opacity: ${(p: ContentProps) => (p.expand ? "1" : "0")};
   display: grid;
   grid-template-columns: repeat(2, 6fr);
   transition: 0.5s;
-  img {
-    display: ${(p: ContentProps) => (p.expand ? "" : "none")};
-  }
 `;

@@ -13,6 +13,7 @@ interface StoreProps {
     isLoading: boolean;
   };
 }
+//TODO: React-Slick sil
 const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   const movie = useSelector((state: StoreProps) => state.detailStore.movie);
   const isLoading = useSelector(
@@ -28,8 +29,8 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   //   ))
   // : "";
   return (
-    <Expandable>
-      <Content expand={activeIndex === index}>
+    <Expandable expand={activeIndex === index}>
+      <Content>
         {/* <div>{isLoading ? "Loading.." : renderImages}</div> */}
         <div>Actors</div>
       </Content>
