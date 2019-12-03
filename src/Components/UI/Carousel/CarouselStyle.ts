@@ -12,6 +12,7 @@ export const Slayt = styled.div`
   button {
     position: absolute;
     background-color: transparent;
+    cursor: pointer;
     border: none;
     outline: none;
     &:first-child {
