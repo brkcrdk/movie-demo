@@ -54,9 +54,13 @@ export const Row = styled.tr`
   align-items: center;
   padding: 0 1em;
 `;
-export const Col = styled.th``;
 
-export const Description = styled.th`
+export const ColHeader = styled.th``;
+
+export const Col = styled.td``;
+export const DetailCol = styled.td``;
+
+export const Description = styled.td`
   overflow: hidden;
   text-overflow: ellipsis;
   visibility: ${(p: DescriptionProps) => (p.toggle ? "hidden" : "visible")};
@@ -66,6 +70,7 @@ export const Description = styled.th`
   padding-right: 1em;
   line-height: 1.5em;
 `;
+
 export const Title = styled.div`
   display: flex;
   align-items: center;

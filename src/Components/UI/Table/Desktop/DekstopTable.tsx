@@ -7,6 +7,8 @@ import {
   Col,
   Body,
   Head,
+  ColHeader,
+  DetailCol,
   Description,
   Title
 } from "./DesktopTableStyle";
@@ -33,30 +35,30 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
   const renderTables =
     movies !== undefined ? (
       movies.map((movie, key) => (
-        <>
-          <Row
-            key={key}
-            onClick={() => {
-              handleToggle(key, movie.id);
-            }}
-          >
-            <Col>
-              <Title>
-                <input type="radio" />
-                <img src={`${imgUrl}/w500${movie.poster_path}`} />
-                <span>{movie.title}</span>
-              </Title>
-            </Col>
-            <Col>{movie.release_date}</Col>
-            <Col>{movie.popularity}</Col>
-            <Col>{movie.vote_average}</Col>
-            <Col>{movie.vote_count}</Col>
-            <Description toggle={activeIndex === key}>
-              {movie.overview}
-            </Description>
-          </Row>
-          <Detail activeIndex={activeIndex} index={key} />
-        </>
+        <Row
+          key={key}
+          onClick={() => {
+            handleToggle(key, movie.id);
+          }}
+        >
+          <Col>
+            <Title>
+              <input type="radio" />
+              <img src={`${imgUrl}/w500${movie.poster_path}`} />
+              <span>{movie.title}</span>
+            </Title>
+          </Col>
+          <Col>{movie.release_date}</Col>
+          <Col>{movie.popularity}</Col>
+          <Col>{movie.vote_average}</Col>
+          <Col>{movie.vote_count}</Col>
+          <Description toggle={activeIndex === key}>
+            {movie.overview}
+          </Description>
+          <DetailCol colSpan={3}>
+            <Detail activeIndex={activeIndex} index={key} />
+          </DetailCol>
+        </Row>
       ))
     ) : (
       <Row>
@@ -68,12 +70,12 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
       <Table>
         <Head>
           <Row>
-            <Col>Movie title</Col>
-            <Col>Release Date</Col>
-            <Col>Popularity</Col>
-            <Col>IMDB Average</Col>
-            <Col>Votes </Col>
-            <Col>Short Description</Col>
+            <ColHeader>Movie title</ColHeader>
+            <ColHeader>Release Date</ColHeader>
+            <ColHeader>Popularity</ColHeader>
+            <ColHeader>IMDB Average</ColHeader>
+            <ColHeader>Votes </ColHeader>
+            <ColHeader>Short Description</ColHeader>
           </Row>
         </Head>
         <Body>{renderTables}</Body>

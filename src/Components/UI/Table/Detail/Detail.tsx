@@ -21,17 +21,11 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   );
 
   const renderImages = movie.images;
-  // ? movie.images.posters.map((item, key) => (
-  //     <img
-  //       style={{ width: "5em", height: "5em" }}
-  //       src={`${imgUrl}/w500${item.file_path}`}
-  //     />
-  //   ))
-  // : "";
+
   return (
     <Expandable expand={activeIndex === index}>
       <Content>
-        {/* <div>{isLoading ? "Loading.." : renderImages}</div> */}
+        <div>Slayt</div>
         <div>Actors</div>
       </Content>
     </Expandable>
