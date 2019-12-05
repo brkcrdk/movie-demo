@@ -4,12 +4,22 @@ interface Props {}
 //TODO: Add tabs to here..
 const Actors: React.FC<Props> = () => {
   const [active, setActive] = useState(0);
+  const handleClick = (index: number) => {
+    if (active !== index) setActive(index);
+  };
+
   const numbers = [1, 2, 3, 4];
   return (
     <div>
       <Tabs>
         {numbers.map((number, key) => (
-          <Tab active={active === key} key={key}>{`Tab ${number}`}</Tab>
+          <Tab
+            active={active === key}
+            key={key}
+            onClick={() => {
+              handleClick(key);
+            }}
+          >{`Tab ${number}`}</Tab>
         ))}
       </Tabs>
 
