@@ -15,17 +15,6 @@ const Actors: React.FC<Props> = ({ credits }) => {
     return index < 5;
   });
 
-  // const fetchDetail = useCallback((actorId: number) => {
-  //   axios
-  //     .get(`${apiUrl}/person/${actorId}?api_key=${apiKey}&language=en-US`)
-  //     .then(({ data }) => {
-  //       setActorBio(data);
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }, []);
-
   const handleTab = (index: number, actorId: number) => {
     if (active !== index) setActive(index);
   };

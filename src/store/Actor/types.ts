@@ -21,3 +21,5 @@ interface ActorError {
   type: typeof ACTOR_ERROR;
   error: null;
 }
+
+export type ActorActions = ActorFetch | ActorSuccess | ActorError;
