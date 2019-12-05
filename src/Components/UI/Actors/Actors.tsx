@@ -3,16 +3,13 @@ import { Tab, Tabs, Content } from "./ActorStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { Cast, ActorBio } from "../../../store/serverTypes";
 import { fetchActor } from "../../../store/Actor/action";
+import ActorInfo from "./ActorInfo";
 interface Props {
   credits: {
     cast: Cast[];
   };
 }
-interface ActorProps {
-  actorStore: {
-    actor: ActorBio;
-  };
-}
+
 const Actors: React.FC<Props> = ({ credits }) => {
   const [active, setActive] = useState(0);
   const actors = credits.cast.filter((actor, index) => {
@@ -29,7 +26,6 @@ const Actors: React.FC<Props> = ({ credits }) => {
   useEffect(() => {
     dispatch(fetchActor(first));
   }, [first, dispatch]);
-  const actor = useSelector((state: ActorProps) => state.actorStore.actor);
   return (
     <div>
       {actors.map((actor, id) => (
@@ -42,7 +38,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
           {actor.name}
         </li>
       ))}
-      {actor && actor.name}
+      <ActorInfo />
     </div>
   );
 };
