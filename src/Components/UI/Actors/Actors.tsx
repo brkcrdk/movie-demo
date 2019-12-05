@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
 import { Tab, Tabs, Content } from "./ActorStyle";
 import { Cast, ActorBio } from "../../../store/serverTypes";
 import { fetchActor } from "../../../store/Actor/action";
@@ -12,6 +12,7 @@ interface Props {
 interface ActorStore {
   actorStore: {
     actor: ActorBio;
+    isLoading: boolean;
   };
 }
 const Actors: React.FC<Props> = ({ credits }) => {
@@ -28,7 +29,9 @@ const Actors: React.FC<Props> = ({ credits }) => {
     dispatch(fetchActor(actorId));
   };
   const actorBio = useSelector((state: ActorStore) => state.actorStore.actor);
-
+  const isLoading = useSelector(
+    (state: ActorStore) => state.actorStore.isLoading
+  );
   const renderBio = actorBio && (
     <div>
       <span>{actorBio.biography}</span>
@@ -59,7 +62,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
             src={`${imgUrl}/w185${actor.profile_path}`}
             style={{ width: "3em", height: "3em" }}
           />
-          {renderBio}
+          {isLoading ? <p>Loading..</p> : renderBio}
         </Content>
       ))}
     </div>
