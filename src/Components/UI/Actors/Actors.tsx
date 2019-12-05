@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Tab, Tabs, Content } from "./ActorStyle";
-import { Cast, ActorBio } from "../../../store/serverTypes";
-import { imgUrl, apiUrl, apiKey } from "../../../config";
-import axios from "axios";
+import { Cast } from "../../../store/serverTypes";
+import { imgUrl } from "../../../config";
 interface Props {
   credits: {
     cast: Cast[];
@@ -10,7 +9,6 @@ interface Props {
 }
 const Actors: React.FC<Props> = ({ credits }) => {
   const [active, setActive] = useState(0);
-  // const [actorBio, setActorBio] = useState<ActorBio>();
   const actors = credits.cast.filter((actor, index) => {
     return index < 5;
   });
