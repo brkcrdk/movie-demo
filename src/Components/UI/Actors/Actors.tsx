@@ -56,14 +56,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
       </Tabs>
 
       {actors.map((actor, key) => (
-        <Content active={active === key} key={key}>
-          {actor.name}
-          <img
-            src={`${imgUrl}/w185${actor.profile_path}`}
-            style={{ width: "3em", height: "3em" }}
-          />
-          {isLoading ? <p>Loading..</p> : renderBio}
-        </Content>
+        <Content active={active === key} key={key}></Content>
       ))}
     </div>
   );
