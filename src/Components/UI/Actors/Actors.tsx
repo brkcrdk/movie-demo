@@ -14,11 +14,26 @@ const Actors: React.FC<Props> = ({ credits }) => {
   const actors = credits.cast.filter((actor, index) => {
     return index < 5;
   });
+  const dispatch = useDispatch();
+  const handleActor = useCallback(
+    (id: number) => {
+      dispatch(fetchActor(id));
+    },
+    [dispatch]
+  );
   return (
     <div>
       {actors.map((actor, id) => (
-        <li key={id}>{actor.name}</li>
+        <li
+          key={id}
+          onClick={() => {
+            handleActor(actor.id);
+          }}
+        >
+          {actor.name}
+        </li>
       ))}
+      {}
     </div>
   );
 };
