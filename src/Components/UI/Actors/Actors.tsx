@@ -11,7 +11,7 @@ interface Props {
 }
 interface ActorStore {
   actorStore: {
-    actor: ActorBio[];
+    actor: ActorBio;
   };
 }
 const Actors: React.FC<Props> = ({ credits }) => {
@@ -22,19 +22,20 @@ const Actors: React.FC<Props> = ({ credits }) => {
   const actors = credits.cast.filter((actor, index) => {
     return index < 5;
   });
-  useEffect(() => {
-    const firstActor = actors[0].id;
-    dispatch(fetchActor(firstActor));
-  }, [dispatch, actors]);
 
-  const handleTab = useCallback(
-    (index: number, actorId: number) => {
-      if (active !== index) setActive(index);
-      dispatch(fetchActor(actorId));
-    },
-    [dispatch]
-  );
+  const handleTab = (index: number, actorId: number) => {
+    if (active !== index) setActive(index);
+    dispatch(fetchActor(actorId));
+  };
   const actorBio = useSelector((state: ActorStore) => state.actorStore.actor);
+
+  const renderBio = actorBio && (
+    <div>
+      <span>{actorBio.biography}</span>
+      <span>{actorBio.popularity}</span>
+    </div>
+  );
+
   return (
     <div>
       <Tabs>
@@ -58,6 +59,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
             src={`${imgUrl}/w185${actor.profile_path}`}
             style={{ width: "3em", height: "3em" }}
           />
+          {renderBio}
         </Content>
       ))}
     </div>

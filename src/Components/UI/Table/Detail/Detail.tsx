@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Expandable, Content, Slayt } from "./DetailStyle";
-import { useSelector } from "react-redux";
-import { IDetail } from "../../../../store/serverTypes";
+import { useSelector, useDispatch } from "react-redux";
+import { IDetail, ActorBio } from "../../../../store/serverTypes";
+import { fetchActor } from "../../../../store/Actor/action";
 import Carousel from "../../Carousel/Carousel";
 import Actors from "../../Actors/Actors";
 interface Props {
@@ -19,7 +20,12 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   const isLoading = useSelector(
     (state: StoreProps) => state.detailStore.isLoading
   );
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (movie.credits) {
+      dispatch(fetchActor(movie.credits.cast[0].id));
+    }
+  }, [dispatch, movie]);
   const renderImages = movie.images && (
     <>
       <Carousel isLoading={isLoading} images={movie.images} />
