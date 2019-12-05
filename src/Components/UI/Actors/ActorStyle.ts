@@ -12,6 +12,7 @@ export const Tabs = styled.div`
   font-family: Open Sans;
   height: 3em;
   width: 100%;
+  margin-right: 3em;
 `;
 
 export const Tab = styled.button`
@@ -24,15 +25,11 @@ export const Tab = styled.button`
   font-size: 1.1em;
   border: ${(p: TabProps) => (p.active ? "1px solid #ccc" : "")};
   border-bottom: ${(p: TabProps) => (p.active ? "none" : "")};
-  background-color: ${(p: TabProps) => (p.active ? "lightgray" : "red")};
   height: ${(p: TabProps) => (p.active ? "3em" : "2.6em; top:.4em")};
   transition: background-color 0.5s ease-in-out;
   :hover {
     background-color: white;
     outline: none;
-  }
-  > i {
-    padding-left: 1em;
   }
 `;
 interface ContentProps {
@@ -43,8 +40,8 @@ export const Content = styled.div`
   width: 100%;
   height: 100%;
   transition: transform 300ms ease-in-out;
-  animation: fade-in 2s;
-  @keyframes fade-in {
+  animation: content 2s;
+  @keyframes content {
     from {
       opacity: 0;
     }
