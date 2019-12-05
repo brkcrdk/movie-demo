@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Tab, Tabs, Content } from "./ActorStyle";
 import { Cast, ActorBio } from "../../../store/serverTypes";
 import { imgUrl, apiUrl, apiKey } from "../../../config";
@@ -10,29 +10,24 @@ interface Props {
 }
 const Actors: React.FC<Props> = ({ credits }) => {
   const [active, setActive] = useState(0);
-  const [actorBio, setActorBio] = useState<ActorBio>();
+  // const [actorBio, setActorBio] = useState<ActorBio>();
   const actors = credits.cast.filter((actor, index) => {
     return index < 5;
   });
 
-  useEffect(() => {
-    const firstActor = actors[0].id;
-    fetchDetail(firstActor);
-  }, [actors]);
+  // const fetchDetail = useCallback((actorId: number) => {
+  //   axios
+  //     .get(`${apiUrl}/person/${actorId}?api_key=${apiKey}&language=en-US`)
+  //     .then(({ data }) => {
+  //       setActorBio(data);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // }, []);
 
   const handleTab = (index: number, actorId: number) => {
     if (active !== index) setActive(index);
-    fetchDetail(actorId);
-  };
-  const fetchDetail = (actorId: number) => {
-    axios
-      .get(`${apiUrl}/person/${actorId}?api_key=${apiKey}&language=en-US`)
-      .then(({ data }) => {
-        setActorBio(data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
   };
 
   return (
