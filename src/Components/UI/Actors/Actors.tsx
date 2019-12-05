@@ -9,12 +9,12 @@ const Actors: React.FC<Props> = () => {
     <div>
       <Tabs>
         {numbers.map((number, key) => (
-          <Tab active={active === key} key={key}>{`Tab ${key}`}</Tab>
+          <Tab active={active === key} key={key}>{`Tab ${number}`}</Tab>
         ))}
       </Tabs>
 
       {numbers.map((number, key) => (
-        <Content active={active === key}>Actor {key}</Content>
+        <Content active={active === key}>Actor {number}</Content>
       ))}
     </div>
   );
