@@ -16,22 +16,14 @@ const Actors: React.FC<Props> = ({ credits }) => {
     return index < 5;
   });
   const dispatch = useDispatch();
-  const handleTab = useCallback(
-    (id: number) => {
-      // if (active !== index) setActive(index);
-      dispatch(fetchActor(id));
-    },
-    [dispatch]
-  );
+  const handleTab = useCallback(() => {
+    setActive(actors[0].id);
+  }, []);
 
   return (
     <div>
       {actors.map((actor, id) => (
-        <li
-          onClick={() => {
-            handleTab(actor.id);
-          }}
-        >
+        <li key={id} onClick={handleTab}>
           {actor.name}
         </li>
       ))}
