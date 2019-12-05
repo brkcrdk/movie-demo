@@ -8,6 +8,8 @@ interface ActorProps {
     actor: ActorBio;
   };
 }
+
+//TODO: Add extra loading here to prevent state bug
 const ActorInfo: React.FC<Props> = () => {
   const actor = useSelector((state: ActorProps) => state.actorStore.actor);
   const renderActor = actor && actor.popularity;
