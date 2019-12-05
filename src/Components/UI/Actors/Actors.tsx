@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Tab, Tabs, Content } from "./ActorStyle";
-import { Cast } from "../../../store/serverTypes";
+import { Cast, ActorBio } from "../../../store/serverTypes";
 import { imgUrl, apiUrl, apiKey } from "../../../config";
 import axios from "axios";
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 }
 const Actors: React.FC<Props> = ({ credits }) => {
   const [active, setActive] = useState(0);
-  const [actorBio, setActorBio] = useState();
+  const [actorBio, setActorBio] = useState<ActorBio>();
   const actors = credits.cast.filter((actor, index) => {
     return index < 5;
   });
@@ -24,7 +24,6 @@ const Actors: React.FC<Props> = ({ credits }) => {
     if (active !== index) setActive(index);
     fetchDetail(actorId);
   };
-  console.log(actorBio);
   const fetchDetail = (actorId: number) => {
     axios
       .get(`${apiUrl}/person/${actorId}?api_key=${apiKey}&language=en-US`)
@@ -35,6 +34,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
         console.log(error);
       });
   };
+
   return (
     <div>
       <Tabs>
