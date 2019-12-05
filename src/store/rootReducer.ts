@@ -6,8 +6,10 @@ import moviesReducer from "./Movies/reducer";
 import discoverReducer from "./Discover/reducer";
 import filterReducer from "./DiscoverFilter/reducer";
 import toggleReducer from "./Toggles/reducer";
+import actorReducer from "./Actor//reducer";
 const rootReducer = combineReducers({
   detailStore: detailReducer,
+  actorStore: actorReducer,
   genreStore: genreReducer,
   moviesStore: moviesReducer,
   discoverStore: discoverReducer,
