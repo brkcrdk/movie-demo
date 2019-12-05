@@ -92,3 +92,5 @@ export interface ImageProps {
   vote_count: number;
   width: number;
 }
+
+export interface ActorBio {}

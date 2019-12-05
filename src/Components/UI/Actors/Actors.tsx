@@ -1,30 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Tab, Tabs, Content } from "./ActorStyle";
-interface Props {}
-//TODO: Add tabs to here..
-const Actors: React.FC<Props> = () => {
-  const [active, setActive] = useState(0);
-  const handleTab = (index: number) => {
-    if (active !== index) setActive(index);
+import { Cast } from "../../../store/serverTypes";
+import { imgUrl, apiUrl, apiKey } from "../../../config";
+import axios from "axios";
+interface Props {
+  credits: {
+    cast: Cast[];
   };
+}
+const Actors: React.FC<Props> = ({ credits }) => {
+  const [active, setActive] = useState(0);
+  const [actorBio, setActorBio] = useState();
+  const actors = credits.cast.filter((actor, index) => {
+    return index < 5;
+  });
 
-  const numbers = [1, 2, 3, 4];
+  useEffect(() => {
+    const firstActor = actors[0].id;
+    fetchDetail(firstActor);
+  }, [actors]);
+
+  const handleTab = (index: number, actorId: number) => {
+    if (active !== index) setActive(index);
+    fetchDetail(actorId);
+  };
+  console.log(actorBio);
+  const fetchDetail = (actorId: number) => {
+    axios
+      .get(`${apiUrl}/person/${actorId}?api_key=${apiKey}&language=en-US`)
+      .then(({ data }) => {
+        setActorBio(data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <Tabs>
-        {numbers.map((number, key) => (
+        {actors.map((actor, key) => (
           <Tab
             active={active === key}
             key={key}
             onClick={() => {
-              handleTab(key);
+              handleTab(key, actor.id);
             }}
-          >{`Tab ${number}`}</Tab>
+          >
+            {actor.name}
+          </Tab>
         ))}
       </Tabs>
 
-      {numbers.map((number, key) => (
-        <Content active={active === key}>Actor {number}</Content>
+      {actors.map((actor, key) => (
+        <Content active={active === key} key={key}>
+          {actor.name}
+          <img
+            src={`${imgUrl}/w185${actor.profile_path}`}
+            style={{ width: "3em", height: "3em" }}
+          />
+        </Content>
       ))}
     </div>
   );
