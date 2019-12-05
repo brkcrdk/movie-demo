@@ -25,6 +25,10 @@ const Actors: React.FC<Props> = ({ credits }) => {
     },
     [dispatch]
   );
+  const first = actors[0].id;
+  useEffect(() => {
+    dispatch(fetchActor(first));
+  }, [first, dispatch]);
   const actor = useSelector((state: ActorProps) => state.actorStore.actor);
   return (
     <div>
