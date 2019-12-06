@@ -16,12 +16,15 @@ export const Expandable = styled.div`
     transition: max-height 0.5s;
   }
 `;
-export const Content = styled.div``;
+export const Content = styled.div`
+  position: relative;
+`;
 
 export const Slayt = styled.div`
   display: grid;
   align-items: center;
   grid-template-columns: repeat(2, 6fr);
+
   p {
     margin: 0 0.5em;
   }

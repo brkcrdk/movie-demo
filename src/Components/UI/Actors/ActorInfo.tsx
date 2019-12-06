@@ -11,7 +11,6 @@ interface ActorProps {
 }
 
 const Container = styled.div`
-  border: 1px solid black;
   display: flex;
   align-items: center;
 `;
@@ -22,8 +21,6 @@ const ImgContainer = styled.div`
 `;
 const InfoContainer = styled.div`
   display: grid !important;
-
-  border: 1px solid red;
   span {
     padding: 1em 2em;
     overflow: hidden;
@@ -31,6 +28,11 @@ const InfoContainer = styled.div`
     display: -webkit-box;
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
+  }
+  p {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
   }
 `;
 const ActorInfo: React.FC<Props> = () => {
