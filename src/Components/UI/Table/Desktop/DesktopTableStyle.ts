@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import { device, fonts, colours } from "../../../../utils";
 
-interface WrapperProps {
-  toggle: boolean;
-}
-
 export const Container = styled.div`
   width: 100%;
   font-family: ${fonts.aBeeZee};
@@ -40,6 +36,7 @@ export const Content = styled.div`
 export const Wrapper = styled.div`
   padding: 1px;
   position: relative;
+
   input {
     border: 1px solid red;
     position: absolute;

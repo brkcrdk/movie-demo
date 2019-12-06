@@ -6,9 +6,7 @@ interface InfoProps {
 export const Container = styled.div``;
 export const Content = styled.ul``;
 export const InfoContainer = styled.div`
-  max-height: ${(p: InfoProps) => (p.active ? "100%" : "0")};
   display: ${(p: InfoProps) => (p.active ? "" : "none")};
-  transition: max-height 0.5s;
 `;
 export const List = styled.li`
   display: flex;
