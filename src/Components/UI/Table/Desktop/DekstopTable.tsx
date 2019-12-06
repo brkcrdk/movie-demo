@@ -23,7 +23,6 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const dispatch = useDispatch();
 
-  //TODO: Make this useCallback
   const handleToggle = (index: number, id: number) => {
     if (activeIndex === index) {
       setActiveIndex(-1);

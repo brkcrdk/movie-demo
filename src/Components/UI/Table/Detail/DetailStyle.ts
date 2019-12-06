@@ -30,10 +30,13 @@ export const Slayt = styled.div`
   @media ${device.desktop} {
     grid-template-columns: ${(p: SlaytProps) =>
       p.toggle ? "12fr" : "repeat(2,6fr)"};
+    ${(p: SlaytProps) => (p.toggle ? "min-height:30em" : "")}
   }
   p {
     ${(p: SlaytProps) =>
-      p.toggle ? "margin-top:-10em" : "margin-top:0;margin:0 0.5em"};
+      p.toggle
+        ? "margin-top:-10em;padding:0 3em;"
+        : "margin-top:0;margin:0 0.5em"};
   }
 `;
 export const ActorSection = styled.div``;

@@ -22,7 +22,7 @@ interface Props {
 const Actors: React.FC<Props> = ({ credits }) => {
   const [active, setActive] = useState(-1);
   const actors = credits.cast.filter((actor, i) => {
-    return i < 5;
+    return i < 4;
   });
   const dispatch = useDispatch();
   const handleActor = useCallback(
