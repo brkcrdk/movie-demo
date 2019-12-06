@@ -3,16 +3,14 @@ import { ActorBio } from "../../../store/serverTypes";
 import { useSelector } from "react-redux";
 import { imgUrl } from "../../../config";
 
-interface Props {
-  loading: boolean;
-}
+interface Props {}
 interface ActorProps {
   actorStore: {
     actor: ActorBio;
   };
 }
 
-const ActorInfo: React.FC<Props> = ({ loading }) => {
+const ActorInfo: React.FC<Props> = () => {
   const actor = useSelector((state: ActorProps) => state.actorStore.actor);
   const renderActor = actor && (
     <div>
@@ -20,7 +18,7 @@ const ActorInfo: React.FC<Props> = ({ loading }) => {
       <span>{actor.biography}</span>
     </div>
   );
-  return <div>{loading ? "Loading.." : renderActor}</div>;
+  return <div>{renderActor}</div>;
 };
 
 export default ActorInfo;
