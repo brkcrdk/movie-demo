@@ -17,18 +17,10 @@ import { fetchDetails } from "../../../../store/Detail/action";
 interface Props {
   movies: MovieInfo[];
 }
-interface StateProps {
-  detailStore: {
-    isLoading: boolean;
-  };
-}
+
 const DekstopTable: React.FC<Props> = ({ movies }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const dispatch = useDispatch();
-  const isLoading = useSelector(
-    (state: StateProps) => state.detailStore.isLoading
-  );
-
   const handleToggle = (index: number, id: number) => {
     if (activeIndex === index) {
       setActiveIndex(-1);

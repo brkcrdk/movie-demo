@@ -18,12 +18,13 @@ const Actors: React.FC<Props> = ({ credits }) => {
   });
   const dispatch = useDispatch();
   const handleActor = useCallback(
-    (id: number) => {
+    (id: number, key: number) => {
+      setActive(key);
       setLoading(true);
       dispatch(fetchActor(id));
       setTimeout(() => {
         setLoading(false);
-      }, 2000);
+      }, 3000);
     },
     [dispatch]
   );
@@ -33,16 +34,19 @@ const Actors: React.FC<Props> = ({ credits }) => {
   }, [first, dispatch]);
   return (
     <div>
-      {actors.map((actor, id) => (
-        <li
-          key={id}
-          onClick={() => {
-            handleActor(actor.id);
-          }}
-        >
-          {actor.name}
-        </li>
-      ))}
+      <Tabs>
+        {actors.map((actor, key) => (
+          <Tab
+            active={active === key}
+            key={key}
+            onClick={() => {
+              handleActor(actor.id, key);
+            }}
+          >
+            {actor.name}
+          </Tab>
+        ))}
+      </Tabs>
       <ActorInfo loading={loading} />
     </div>
   );

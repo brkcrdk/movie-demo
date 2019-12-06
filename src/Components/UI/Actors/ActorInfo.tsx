@@ -14,7 +14,7 @@ interface ActorProps {
 const ActorInfo: React.FC<Props> = ({ loading }) => {
   const actor = useSelector((state: ActorProps) => state.actorStore.actor);
   const renderActor = actor && actor.popularity;
-  return <div>{loading ? "Loading" : renderActor}</div>;
+  return <div>{loading ? "Loading.." : renderActor}</div>;
 };
 
 export default ActorInfo;
