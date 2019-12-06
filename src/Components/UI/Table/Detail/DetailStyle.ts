@@ -31,6 +31,9 @@ export const Slayt = styled.div`
     grid-template-columns: ${(p: SlaytProps) =>
       p.toggle ? "12fr" : "repeat(2,6fr)"};
     ${(p: SlaytProps) => (p.toggle ? "min-height:30em" : "")}
+    div {
+      ${(p: SlaytProps) => (p.toggle ? "width:80%;margin:0 auto" : "")}
+    }
   }
   p {
     ${(p: SlaytProps) =>
