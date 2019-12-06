@@ -40,7 +40,6 @@ export const Content = styled.div`
 export const Wrapper = styled.div`
   padding: 1px;
   position: relative;
-  transition: 0.5s;
   &:hover {
     /* background-color: lightgray; */
   }

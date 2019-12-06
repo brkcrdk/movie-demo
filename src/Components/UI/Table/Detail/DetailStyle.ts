@@ -12,8 +12,6 @@ export const Expandable = styled.div`
     width: 100%;
     border-top: 1px solid red;
     padding: 0.5em;
-    max-height: ${(p: ExpandableProps) => (p.expand ? "100%" : "0")};
-    transition: max-height 0.5s;
   }
 `;
 export const Content = styled.div`

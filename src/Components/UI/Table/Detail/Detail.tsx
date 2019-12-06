@@ -30,14 +30,10 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   return (
     <Expandable expand={activeIndex === index}>
       <Content id="content">
-        {isLoading ? (
-          <p>Loading..</p>
-        ) : (
-          <>
-            <Slayt>{renderImages}</Slayt>
-            {renderActors}
-          </>
-        )}
+        <>
+          <Slayt>{renderImages}</Slayt>
+          {renderActors}
+        </>
       </Content>
     </Expandable>
   );
