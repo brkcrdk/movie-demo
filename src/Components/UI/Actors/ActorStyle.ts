@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { colours } from "../../../utils";
 interface ContentProps {
   active: boolean;
 }
@@ -22,4 +22,11 @@ export const List = styled.li`
     margin-right: 1em;
     object-fit: cover;
   }
+`;
+export const Splitter = styled.hr`
+  margin-top: 0.5em;
+  width: 100%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, ${colours.pink}, transparent);
 `;

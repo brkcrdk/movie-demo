@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from "react";
-import { Container, List, Content } from "./ActorStyle";
+import { Container, List, Content, Splitter } from "./ActorStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { Cast, ActorBio } from "../../../store/serverTypes";
 import { fetchActor } from "../../../store/Actor/action";
@@ -49,6 +49,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
           <div>
             <ActorInfo />
           </div>
+          <Splitter />
         </Content>
       ))}
     </Container>

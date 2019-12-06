@@ -13,19 +13,22 @@ interface ActorProps {
 const Container = styled.div`
   display: flex;
   align-items: center;
+`;
+const ImgContainer = styled.div`
+  img {
+    height: 10em;
+  }
+`;
+const InfoContainer = styled.div`
+  display: grid !important;
 
   span {
+    padding: 1em 2em;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
-  }
-`;
-const ImgContainer = styled.div`
-  border: 1px solid red;
-  img {
-    height: 10em;
   }
 `;
 const ActorInfo: React.FC<Props> = () => {
@@ -35,9 +38,10 @@ const ActorInfo: React.FC<Props> = () => {
       <ImgContainer>
         <img src={`${imgUrl}/w185${actor.profile_path}`} />
       </ImgContainer>
-      <div>
+      <InfoContainer>
         <span>{actor.biography}</span>
-      </div>
+        <p>Popularity: {actor.popularity}</p>
+      </InfoContainer>
     </Container>
   );
   return renderActor;
