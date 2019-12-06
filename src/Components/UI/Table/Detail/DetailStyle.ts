@@ -38,7 +38,7 @@ export const Slayt = styled.div`
   p {
     ${(p: SlaytProps) =>
       p.toggle
-        ? "margin-top:-10em;padding:0 3em;"
+        ? "margin-top:-8em;padding:0 3em;"
         : "margin-top:0;margin:0 0.5em"};
   }
 `;
