@@ -3,7 +3,9 @@ import { device } from "../../../../utils";
 interface ExpandableProps {
   expand: boolean;
 }
-
+interface SlaytProps {
+  toggle: boolean;
+}
 export const Expandable = styled.div`
   width: 100%;
 
@@ -26,10 +28,12 @@ export const Slayt = styled.div`
     grid-template-columns: 12fr;
   }
   @media ${device.desktop} {
-    grid-template-columns: repeat(2, 6fr);
+    grid-template-columns: ${(p: SlaytProps) =>
+      p.toggle ? "12fr" : "repeat(2,6fr)"};
   }
   p {
-    margin: 0 0.5em;
+    ${(p: SlaytProps) =>
+      p.toggle ? "margin-top:-10em" : "margin-top:0;margin:0 0.5em"};
   }
 `;
 export const ActorSection = styled.div``;

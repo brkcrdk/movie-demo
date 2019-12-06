@@ -9,6 +9,7 @@ import {
 import { useDispatch } from "react-redux";
 import { Cast } from "../../../store/serverTypes";
 import { fetchActor } from "../../../store/Actor/action";
+import { actorList } from "../../../store/Toggles/action";
 import ActorInfo from "./ActorInfo";
 import { imgUrl } from "../../../config";
 
@@ -28,8 +29,10 @@ const Actors: React.FC<Props> = ({ credits }) => {
     (id: number, index: number) => {
       if (active === index) {
         setActive(-1);
+        dispatch(actorList(-1));
       } else {
         setActive(index);
+        dispatch(actorList(index));
       }
       dispatch(fetchActor(id));
     },
