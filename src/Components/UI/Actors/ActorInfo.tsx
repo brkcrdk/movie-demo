@@ -12,6 +12,7 @@ interface ActorProps {
 
 const ActorInfo: React.FC<Props> = () => {
   const actor = useSelector((state: ActorProps) => state.actorStore.actor);
+
   const renderActor = actor && (
     <div>
       <img src={`${imgUrl}/w185${actor.profile_path}`} />

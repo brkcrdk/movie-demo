@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Cast } from "../../../store/serverTypes";
 import { fetchActor } from "../../../store/Actor/action";
 import ActorInfo from "./ActorInfo";
+import { imgUrl } from "../../../config";
 
 interface Props {
   credits: {

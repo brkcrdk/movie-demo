@@ -21,6 +21,7 @@ interface Props {
 const DekstopTable: React.FC<Props> = ({ movies }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const dispatch = useDispatch();
+
   const handleToggle = (index: number, id: number) => {
     if (activeIndex === index) {
       setActiveIndex(-1);
@@ -29,7 +30,6 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
     }
     dispatch(fetchDetails(id));
   };
-
   const renderTables =
     movies &&
     movies.map((movie, key) => {
