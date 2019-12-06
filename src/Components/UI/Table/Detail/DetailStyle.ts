@@ -23,6 +23,7 @@ export const Content = styled.div`
 export const Slayt = styled.div`
   display: grid;
   align-items: center;
+  grid-gap: 0.5em;
   @media ${device.tablet} {
     grid-template-columns: 12fr;
   }

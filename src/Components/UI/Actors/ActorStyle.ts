@@ -1,17 +1,14 @@
 import styled from "styled-components";
 import { colours } from "../../../utils";
-interface ContentProps {
+interface InfoProps {
   active: boolean;
 }
 export const Container = styled.div``;
-export const Content = styled.ul`
-  div {
-    display: ${(p: ContentProps) => (p.active ? "flex" : "none")};
-    height: ${(p: ContentProps) => (p.active ? "100%" : "0")};
-    transition: height 0.5s;
-    padding: 0;
-    margin: 0;
-  }
+export const Content = styled.ul``;
+export const InfoContainer = styled.div`
+  max-height: ${(p: InfoProps) => (p.active ? "100%" : "0")};
+  display: ${(p: InfoProps) => (p.active ? "" : "none")};
+  transition: max-height 0.5s;
 `;
 export const List = styled.li`
   display: flex;

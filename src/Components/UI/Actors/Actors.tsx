@@ -1,5 +1,11 @@
 import React, { useCallback, useState, useEffect } from "react";
-import { Container, List, Content, Splitter } from "./ActorStyle";
+import {
+  Container,
+  List,
+  Content,
+  Splitter,
+  InfoContainer
+} from "./ActorStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { Cast, ActorBio } from "../../../store/serverTypes";
 import { fetchActor } from "../../../store/Actor/action";
@@ -33,7 +39,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
   return (
     <Container>
       {actors.map((actor, key) => (
-        <Content active={active === key}>
+        <Content>
           <List
             key={key}
             onClick={() => {
@@ -46,9 +52,9 @@ const Actors: React.FC<Props> = ({ credits }) => {
             />
             {actor.name}
           </List>
-          <div>
+          <InfoContainer active={active === key}>
             <ActorInfo />
-          </div>
+          </InfoContainer>
           <Splitter />
         </Content>
       ))}
