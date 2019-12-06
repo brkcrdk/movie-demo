@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { device } from "../../../../utils";
 interface ExpandableProps {
   expand: boolean;
 }
@@ -23,8 +23,12 @@ export const Content = styled.div`
 export const Slayt = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(2, 6fr);
-
+  @media ${device.tablet} {
+    grid-template-columns: 12fr;
+  }
+  @media ${device.desktop} {
+    grid-template-columns: repeat(2, 6fr);
+  }
   p {
     margin: 0 0.5em;
   }

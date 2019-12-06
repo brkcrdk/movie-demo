@@ -30,6 +30,7 @@ const InfoContainer = styled.div`
     -webkit-box-orient: vertical;
   }
   p {
+    margin-left: 2em;
     width: 80%;
     display: flex;
     justify-content: flex-end;
