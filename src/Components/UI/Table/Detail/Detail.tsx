@@ -1,5 +1,5 @@
 import React from "react";
-import { Expandable, Content, Slayt } from "./DetailStyle";
+import { Expandable, Content, Slayt, ActorSection } from "./DetailStyle";
 import { useSelector } from "react-redux";
 import { IDetail } from "../../../../store/serverTypes";
 import Carousel from "../../Carousel/Carousel";
@@ -21,20 +21,18 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   );
 
   const renderImages = movie.images && (
-    <>
+    <Slayt>
       <Carousel isLoading={isLoading} images={movie.images} />
       <p>{movie.overview}</p>
-    </>
+    </Slayt>
   );
   const renderActors = movie.credits && <Actors credits={movie.credits} />;
 
   return (
     <Expandable expand={activeIndex === index}>
       <Content id="content">
-        <>
-          <Slayt>{renderImages}</Slayt>
-          {renderActors}
-        </>
+        {renderImages}
+        <ActorSection>{renderActors}</ActorSection>
       </Content>
     </Expandable>
   );

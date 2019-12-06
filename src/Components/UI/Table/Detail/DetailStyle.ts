@@ -6,6 +6,7 @@ interface ExpandableProps {
 
 export const Expandable = styled.div`
   width: 100%;
+
   #content {
     display: ${(p: ExpandableProps) => (p.expand ? "grid" : "none")};
     overflow: hidden;
@@ -15,9 +16,7 @@ export const Expandable = styled.div`
     padding: 0.5em;
   }
 `;
-export const Content = styled.div`
-  position: relative;
-`;
+export const Content = styled.div``;
 
 export const Slayt = styled.div`
   display: grid;
@@ -33,3 +32,4 @@ export const Slayt = styled.div`
     margin: 0 0.5em;
   }
 `;
+export const ActorSection = styled.div``;
