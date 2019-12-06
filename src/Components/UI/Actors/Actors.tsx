@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from "react";
 import { Tab, Tabs, Content } from "./ActorStyle";
-import { useDispatch, useSelector } from "react-redux";
-import { Cast, ActorBio } from "../../../store/serverTypes";
+import { useDispatch } from "react-redux";
+import { Cast } from "../../../store/serverTypes";
 import { fetchActor } from "../../../store/Actor/action";
 import ActorInfo from "./ActorInfo";
 interface Props {
