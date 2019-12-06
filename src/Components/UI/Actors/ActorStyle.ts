@@ -18,6 +18,7 @@ export const List = styled.li`
   justify-content: flex-start;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 0.5em;
   img {
     margin-right: 1em;
     object-fit: cover;
