@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from "react";
-import { Tab, Tabs, Content } from "./ActorStyle";
-import { useDispatch } from "react-redux";
-import { Cast } from "../../../store/serverTypes";
+import { Container, List, Content } from "./ActorStyle";
+import { useDispatch, useSelector } from "react-redux";
+import { Cast, ActorBio } from "../../../store/serverTypes";
 import { fetchActor } from "../../../store/Actor/action";
 import ActorInfo from "./ActorInfo";
 import { imgUrl } from "../../../config";
@@ -13,37 +13,48 @@ interface Props {
 }
 
 const Actors: React.FC<Props> = ({ credits }) => {
-  const [active, setActive] = useState(0);
-  const [actorBio, setActorBio] = useState(0);
+  const [active, setActive] = useState(-1);
   const actors = credits.cast.filter((actor, i) => {
     return i < 5;
   });
   const dispatch = useDispatch();
   const handleActor = useCallback(
     (id: number, index: number) => {
-      setActive(index);
+      if (active === index) {
+        setActive(-1);
+      } else {
+        setActive(index);
+      }
       dispatch(fetchActor(id));
     },
-    [dispatch]
+    [dispatch, active, setActive]
   );
-
+  // const handleActor = (id: number, index: number) => {
+  //   if (active === index) {
+  //     setActive(-1);
+  //   } else {
+  //     setActive(index);
+  //   }
+  //   dispatch(fetchActor(id));
+  // };
   return (
-    <div>
-      <Tabs>
-        {actors.map((actor, key) => (
-          <Tab
-            active={active === key}
-            key={key}
-            onClick={() => {
-              handleActor(actor.id, key);
-            }}
-          >
-            {actor.name}
-          </Tab>
-        ))}
-      </Tabs>
-      <ActorInfo />
-    </div>
+    <Container>
+      {actors.map((actor, key) => (
+        <Content
+          active={active === key}
+          onClick={() => {
+            handleActor(actor.id, key);
+          }}
+        >
+          <List key={key}>
+            {actor.name} Popularity: {}
+          </List>
+          <div>
+            <ActorInfo />
+          </div>
+        </Content>
+      ))}
+    </Container>
   );
 };
 
