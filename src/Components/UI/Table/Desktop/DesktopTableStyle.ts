@@ -36,7 +36,6 @@ export const Content = styled.div`
 export const Wrapper = styled.div`
   padding: 1px;
   position: relative;
-
   input {
     border: 1px solid red;
     position: absolute;
