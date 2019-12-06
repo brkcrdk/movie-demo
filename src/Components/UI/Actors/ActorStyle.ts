@@ -9,4 +9,11 @@ export const Content = styled.ul`
     display: ${(p: ContentProps) => (p.active ? "block" : "none")};
   }
 `;
-export const List = styled.li``;
+export const List = styled.li`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  img {
+    margin-right: 1em;
+  }
+`;

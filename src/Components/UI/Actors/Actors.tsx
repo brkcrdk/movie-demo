@@ -29,14 +29,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
     },
     [dispatch, active, setActive]
   );
-  // const handleActor = (id: number, index: number) => {
-  //   if (active === index) {
-  //     setActive(-1);
-  //   } else {
-  //     setActive(index);
-  //   }
-  //   dispatch(fetchActor(id));
-  // };
+
   return (
     <Container>
       {actors.map((actor, key) => (
@@ -47,7 +40,11 @@ const Actors: React.FC<Props> = ({ credits }) => {
           }}
         >
           <List key={key}>
-            {actor.name} Popularity: {}
+            <img
+              style={{ borderRadius: "50%", width: "2em", height: "2em" }}
+              src={`${imgUrl}/w185${actor.profile_path}`}
+            />
+            {actor.name}
           </List>
           <div>
             <ActorInfo />
