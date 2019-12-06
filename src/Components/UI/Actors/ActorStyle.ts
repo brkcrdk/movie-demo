@@ -6,7 +6,11 @@ interface ContentProps {
 export const Container = styled.div``;
 export const Content = styled.ul`
   div {
-    display: ${(p: ContentProps) => (p.active ? "block" : "none")};
+    display: ${(p: ContentProps) => (p.active ? "flex" : "none")};
+    height: ${(p: ContentProps) => (p.active ? "100%" : "0")};
+    transition: height 0.5s;
+    padding: 0;
+    margin: 0;
   }
 `;
 export const List = styled.li`
@@ -15,5 +19,6 @@ export const List = styled.li`
   align-items: center;
   img {
     margin-right: 1em;
+    object-fit: cover;
   }
 `;
