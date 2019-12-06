@@ -12,13 +12,18 @@ interface Props {
 
 const Actors: React.FC<Props> = ({ credits }) => {
   const [active, setActive] = useState(0);
+  const [loading, setLoading] = useState(false);
   const actors = credits.cast.filter((actor, index) => {
     return index < 5;
   });
   const dispatch = useDispatch();
   const handleActor = useCallback(
     (id: number) => {
+      setLoading(true);
       dispatch(fetchActor(id));
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
     },
     [dispatch]
   );
@@ -38,7 +43,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
           {actor.name}
         </li>
       ))}
-      <ActorInfo />
+      <ActorInfo loading={loading} />
     </div>
   );
 };

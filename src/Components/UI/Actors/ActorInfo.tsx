@@ -2,18 +2,19 @@ import React from "react";
 import { ActorBio } from "../../../store/serverTypes";
 import { useSelector } from "react-redux";
 
-interface Props {}
+interface Props {
+  loading: boolean;
+}
 interface ActorProps {
   actorStore: {
     actor: ActorBio;
   };
 }
 
-//TODO: Add extra loading here to prevent state bug
-const ActorInfo: React.FC<Props> = () => {
+const ActorInfo: React.FC<Props> = ({ loading }) => {
   const actor = useSelector((state: ActorProps) => state.actorStore.actor);
   const renderActor = actor && actor.popularity;
-  return <div>{renderActor}</div>;
+  return <div>{loading ? "Loading" : renderActor}</div>;
 };
 
 export default ActorInfo;
