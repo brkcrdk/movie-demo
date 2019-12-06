@@ -27,6 +27,7 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
     </>
   );
   const renderActors = movie.credits && <Actors credits={movie.credits} />;
+
   return (
     <Expandable expand={activeIndex === index}>
       <Content id="content">
