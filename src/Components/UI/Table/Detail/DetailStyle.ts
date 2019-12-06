@@ -26,6 +26,14 @@ export const Slayt = styled.div`
   grid-gap: 0.5em;
   @media ${device.tablet} {
     grid-template-columns: 12fr;
+    div {
+      width: 80%;
+      margin: 0 auto;
+    }
+    p {
+      margin-top: -12em;
+      padding: 0 3em;
+    }
   }
   @media ${device.desktop} {
     grid-template-columns: ${(p: SlaytProps) =>
