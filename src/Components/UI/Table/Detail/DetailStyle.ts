@@ -40,7 +40,8 @@ export const Slayt = styled.div`
       p.toggle ? "12fr" : "repeat(2,6fr)"};
     ${(p: SlaytProps) => (p.toggle ? "min-height:30em" : "")}
     div {
-      ${(p: SlaytProps) => (p.toggle ? "width:80%;margin:0 auto" : "")}
+      ${(p: SlaytProps) =>
+        p.toggle ? "width:80%;margin:0 auto" : "width:100%"}
     }
   }
   p {
