@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from "react";
 import {
   Container,
-  List,
+  Header,
   Content,
   Splitter,
   InfoContainer
@@ -40,7 +40,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
     <Container>
       {actors.map((actor, key) => (
         <Content>
-          <List
+          <Header
             key={key}
             onClick={() => {
               handleActor(actor.id, key);
@@ -51,7 +51,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
               src={`${imgUrl}/w185${actor.profile_path}`}
             />
             {actor.name}
-          </List>
+          </Header>
           <InfoContainer active={active === key}>
             <ActorInfo />
           </InfoContainer>

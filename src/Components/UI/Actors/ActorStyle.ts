@@ -8,7 +8,7 @@ export const Content = styled.ul``;
 export const InfoContainer = styled.div`
   display: ${(p: InfoProps) => (p.active ? "" : "none")};
 `;
-export const List = styled.li`
+export const Header = styled.li`
   display: flex;
   justify-content: flex-start;
   align-items: center;
