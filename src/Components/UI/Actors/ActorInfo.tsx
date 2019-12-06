@@ -13,9 +13,7 @@ interface ActorProps {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  img {
-    height: 50%;
-  }
+
   span {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -24,14 +22,19 @@ const Container = styled.div`
     -webkit-box-orient: vertical;
   }
 `;
-
+const ImgContainer = styled.div`
+  border: 1px solid red;
+  img {
+    height: 10em;
+  }
+`;
 const ActorInfo: React.FC<Props> = () => {
   const actor = useSelector((state: ActorProps) => state.actorStore.actor);
   const renderActor = actor && (
     <Container>
-      <div>
+      <ImgContainer>
         <img src={`${imgUrl}/w185${actor.profile_path}`} />
-      </div>
+      </ImgContainer>
       <div>
         <span>{actor.biography}</span>
       </div>
