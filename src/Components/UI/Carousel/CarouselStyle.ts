@@ -1,14 +1,27 @@
 import styled from "styled-components";
+import { device } from "../../../utils";
 interface SlideProps {
   toggle: boolean;
 }
 export const Container = styled.div`
-  margin: 0 1em 0 2em;
+  @media ${device.mobileS} {
+    margin: 0 2em;
+  }
+  @media ${device.tablet} {
+    margin: 0 1em 0 2em;
+  }
 `;
 export const Slayt = styled.div`
   display: flex;
   align-items: center;
+  justify-content:center;
   position: relative;
+  /* @media ${device.mobileS} {
+    justify-content:center;
+  }
+  @media ${device.tablet}{
+    jus
+  } */
   button {
     position: absolute;
     background-color: transparent;
@@ -26,5 +39,10 @@ export const Slayt = styled.div`
 
 export const Slide = styled.img`
   display: ${(p: SlideProps) => (p.toggle ? "flex" : "none")};
-  width: 100%;
+  @media ${device.mobileS} {
+    width: 80%;
+  }
+  @media ${device.tablet} {
+    width: 100%;
+  }
 `;

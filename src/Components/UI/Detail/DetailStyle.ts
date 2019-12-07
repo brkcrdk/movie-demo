@@ -32,7 +32,7 @@ export const Slayt = styled.div`
   }
   @media ${device.mobileS} {
     display: grid;
-    grid-template-columns: repeat(2, 6fr);
+    grid-template-columns: 12fr;
   }
   @media ${device.tablet} {
     grid-template-columns: 12fr;
