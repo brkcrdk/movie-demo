@@ -44,13 +44,13 @@ const Desktop = styled.div`
   @media ${device.tablet} {
     display: grid;
     position: relative;
-    top: 1em;
     width: 100%;
     div {
       background-color: red;
       z-index: 5;
       position: fixed;
       top: 8em;
+      padding-top: 1em;
     }
     input {
       padding: 1em 0.5em;
@@ -71,7 +71,14 @@ const Search: React.FC<Props> = () => {
   const [input, setInput] = useState<string>("");
   const [result, setResult] = useState<Array<MovieInfo>>();
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
+    if (e.target.value === "") {
+      setTimeout(() => {
+        setInput(" ");
+        setInput("");
+      }, 1000);
+    } else {
+      setInput(e.target.value);
+    }
   };
   useEffect(() => {
     if (input) {
@@ -100,10 +107,10 @@ const Search: React.FC<Props> = () => {
       <Desktop>
         <input value={input} onChange={handleInput} placeholder="Search.." />
         <div>
-          <ul>
+          <ol>
             {result &&
               result.map((item, key) => <li key={key}>{item.title}</li>)}
-          </ul>
+          </ol>
         </div>
       </Desktop>
     </Container>

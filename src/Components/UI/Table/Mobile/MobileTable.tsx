@@ -40,10 +40,9 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
   const renderTables =
     movies !== undefined
       ? movies.map((movie, key) => (
-          <Content>
+          <Content key={key}>
             <button>Like</button>
             <Wrapper
-              key={key}
               onClick={() => {
                 handleActive(key, movie.id);
               }}
@@ -75,7 +74,7 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
               </InfoContainer>
             </Wrapper>
             <Detail activeIndex={activeIndex} index={key} />
-            {/* <button onClick={handleClose}>x</button> */}
+            <button onClick={handleClose}>x</button>
           </Content>
         ))
       : "Loading..";
