@@ -14,7 +14,6 @@ import Detail from "../Detail/Detail";
 import { imgUrl } from "../../../../config";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
-import { actorList } from "../../../../store/Toggles/action";
 interface Props {
   movies: MovieInfo[];
 }
@@ -30,7 +29,6 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
       setActiveIndex(index);
     }
     dispatch(fetchDetails(id));
-    dispatch(actorList(-1));
   };
   const renderTables =
     movies &&
