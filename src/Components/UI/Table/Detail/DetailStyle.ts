@@ -19,18 +19,7 @@ export const Expandable = styled.div`
   }
 `;
 
-export const Content = styled.div`
-  animation-name: contentFade;
-  animation-duration: 0.5s;
-  @keyframes contentFade {
-    from {
-      transform: scale(1, 0.5);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-`;
+export const Content = styled.div``;
 
 export const Slayt = styled.div`
   display: grid;

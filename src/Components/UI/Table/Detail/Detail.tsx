@@ -13,17 +13,12 @@ interface StoreProps {
     movie: IDetail;
     isLoading: boolean;
   };
-  toggle: {
-    actorList: number;
-  };
 }
 const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   const movie = useSelector((state: StoreProps) => state.detailStore.movie);
   const isLoading = useSelector(
     (state: StoreProps) => state.detailStore.isLoading
   );
-  const active = useSelector((state: StoreProps) => state.toggle.actorList);
-  console.log(active);
   const renderImages = movie.images && (
     <Slayt>
       <Carousel isLoading={isLoading} images={movie.images} />

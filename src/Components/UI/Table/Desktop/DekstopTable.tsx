@@ -12,7 +12,7 @@ import {
 } from "./DesktopTableStyle";
 import Detail from "../Detail/Detail";
 import { imgUrl } from "../../../../config";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
 interface Props {
   movies: MovieInfo[];
@@ -30,6 +30,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
     }
     dispatch(fetchDetails(id));
   };
+
   const renderTables =
     movies &&
     movies.map((movie, key) => {
@@ -42,7 +43,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
           return `${item} `;
         });
       return (
-        <Wrapper key={key}>
+        <Wrapper key={key} toggle={activeIndex === key}>
           <input type="radio" />
           <Row
             onClick={() => {
