@@ -18,7 +18,21 @@ export const Expandable = styled.div`
     padding: 0.5em;
   }
 `;
-export const Content = styled.div``;
+
+export const Content = styled.div`
+  animation-name: contentFade;
+  animation-duration: 0.3s;
+  @keyframes contentFade {
+    from {
+      color: white;
+      transform: scale(1, 0);
+    }
+    to {
+      color: initial;
+      transform: scale(1);
+    }
+  }
+`;
 
 export const Slayt = styled.div`
   display: grid;
@@ -34,21 +48,6 @@ export const Slayt = styled.div`
       margin-top: -12em;
       padding: 0 3em;
     }
-  }
-  @media ${device.desktop} {
-    grid-template-columns: ${(p: SlaytProps) =>
-      p.toggle ? "12fr" : "repeat(2,6fr)"};
-    ${(p: SlaytProps) => (p.toggle ? "min-height:30em" : "")}
-    div {
-      ${(p: SlaytProps) =>
-        p.toggle ? "width:80%;margin:0 auto" : "width:100%"}
-    }
-  }
-  p {
-    ${(p: SlaytProps) =>
-      p.toggle
-        ? "margin-top:-8em;padding:0 3em;"
-        : "margin-top:0;margin:0 0.5em"};
   }
 `;
 export const ActorSection = styled.div``;
