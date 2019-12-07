@@ -75,7 +75,7 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
               </InfoContainer>
             </Wrapper>
             <Detail activeIndex={activeIndex} index={key} />
-            <button onClick={handleClose}>x</button>
+            {/* <button onClick={handleClose}>x</button> */}
           </Content>
         ))
       : "Loading..";

@@ -17,6 +17,9 @@ export const ImgContainer = styled.div`
     @media ${device.mobileS} {
       height: 5em;
     }
+    @media ${device.mobileM} {
+      height: 7em;
+    }
     @media ${device.tablet} {
       height: 10em;
     }
