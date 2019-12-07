@@ -13,10 +13,12 @@ export const Container = styled.div`
   border-top: 1px solid ${colours.secondaryText};
   padding: 0.5em;
 `;
-
+interface SlaytProps {
+  toggle: boolean;
+}
 export const Slayt = styled.div`
   display: grid;
-  grid-template-columns: 6fr 6fr;
+  grid-template-columns: ${(p: SlaytProps) => (p.toggle ? "12fr" : "6fr 6fr")};
   align-items: center;
   grid-gap: 0.5em;
 `;

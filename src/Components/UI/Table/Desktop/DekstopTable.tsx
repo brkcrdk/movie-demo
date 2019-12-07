@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { MovieInfo } from "../../../../store/serverTypes";
 import {
   Container,
@@ -13,6 +13,7 @@ import Overview from "./Overview";
 import Title from "./Title";
 import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
+import { toggleSlaytGrid } from "../../../../store/Toggles/action";
 
 interface Props {
   movies: MovieInfo[];
@@ -21,14 +22,19 @@ interface Props {
 const DekstopTable: React.FC<Props> = ({ movies }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const dispatch = useDispatch();
-  const handleToggle = (index: number, id: number) => {
-    if (activeIndex === index) {
-      setActiveIndex(-1);
-    } else {
-      setActiveIndex(index);
-    }
-    dispatch(fetchDetails(id));
-  };
+
+  const handleToggle = useCallback(
+    (index: number, id: number) => {
+      if (activeIndex === index) {
+        setActiveIndex(-1);
+      } else {
+        setActiveIndex(index);
+      }
+      dispatch(fetchDetails(id));
+      dispatch(toggleSlaytGrid(-1));
+    },
+    [dispatch, activeIndex]
+  );
 
   const renderTables =
     movies &&

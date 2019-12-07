@@ -14,13 +14,19 @@ interface StoreProps {
     isLoading: boolean;
   };
 }
+interface ToggleProps {
+  toggle: {
+    slaytGrid: number;
+  };
+}
 const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   const movie = useSelector((state: StoreProps) => state.detailStore.movie);
   const isLoading = useSelector(
     (state: StoreProps) => state.detailStore.isLoading
   );
+  const slaytGrid = useSelector((state: ToggleProps) => state.toggle.slaytGrid);
   const renderImages = movie.images && (
-    <Slayt>
+    <Slayt toggle={slaytGrid !== -1}>
       <Carousel isLoading={isLoading} images={movie.images} />
       <p>{movie.overview}</p>
     </Slayt>
