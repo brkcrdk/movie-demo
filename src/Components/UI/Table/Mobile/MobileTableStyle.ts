@@ -1,12 +1,20 @@
 import styled from "styled-components";
 import { device, colours, fonts } from "../../../../utils";
 export const Container = styled.div`
+  overflow: hidden;
   @media ${device.mobileS} {
     display: block;
     padding: 0.5em;
   }
   @media ${device.tablet} {
     display: none;
+  }
+`;
+export const Content = styled.div`
+  button {
+    position: absolute;
+    right: 2em;
+    margin-top: 1em;
   }
 `;
 export const Wrapper = styled.div`
@@ -23,11 +31,6 @@ export const Wrapper = styled.div`
   @media ${device.mobileTablet} {
     grid-template-columns: 4fr 8fr;
   }
-  button {
-    position: absolute;
-    right: 1em;
-    margin-top: 1em;
-  }
 `;
 export const ImageContainer = styled.div`
   display: flex;
@@ -37,12 +40,12 @@ export const ImageContainer = styled.div`
   img {
     border-radius: 0.2em;
     @media ${device.mobileS} {
-      width: 100%;
       height: 10em;
+      width: 50%;
       object-fit: cover;
     }
     @media ${device.mobileM} {
-      height: 15em;
+      height: 10em;
     }
     @media ${device.mobileTablet} {
       width: 100%;
@@ -73,8 +76,4 @@ export const Info = styled.p`
 export const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 6fr);
-`;
-
-export const Splitter = styled.hr`
-  border: 0.5px solid lightgrey;
 `;
