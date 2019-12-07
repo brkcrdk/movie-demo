@@ -30,7 +30,7 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
       }
       dispatch(fetchDetails(id));
     },
-    [dispatch]
+    [dispatch, activeIndex, setActiveIndex]
   );
 
   const renderTables =

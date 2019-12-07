@@ -9,10 +9,15 @@ export const Container = styled.div`
   width: 100%;
   display: ${(p: ExpandableProps) => (p.expand ? "grid" : "none")};
   overflow: hidden;
-  grid-template-columns: repeat(2, 6fr);
   width: 100%;
   border-top: 1px solid ${colours.secondaryText};
   padding: 0.5em;
+  @media ${device.mobileS} {
+    grid-template-columns: 12fr;
+  }
+  @media ${device.tablet} {
+    grid-template-columns: repeat(2, 6fr);
+  }
 `;
 interface SlaytProps {
   toggle: boolean;
@@ -24,6 +29,10 @@ export const Slayt = styled.div`
   text-align: center;
   p {
     padding: 0 1em;
+  }
+  @media ${device.mobileS} {
+    display: grid;
+    grid-template-columns: repeat(2, 6fr);
   }
   @media ${device.tablet} {
     grid-template-columns: 12fr;
