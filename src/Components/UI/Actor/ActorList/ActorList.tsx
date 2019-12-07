@@ -9,8 +9,9 @@ import {
 import { useDispatch } from "react-redux";
 import { Cast } from "../../../../store/serverTypes";
 import { fetchActor } from "../../../../store/Actor/action";
-import ActorInfo from "../ActorInfo/ActorInfo";
+import { toggleSlaytGrid } from "../../../../store/Toggles/action";
 import { imgUrl } from "../../../../config";
+import ActorInfo from "../ActorInfo/ActorInfo";
 
 interface Props {
   credits: {
@@ -29,8 +30,10 @@ const ActorList: React.FC<Props> = ({ credits }) => {
     (id: number, index: number) => {
       if (active === index) {
         setActive(-1);
+        dispatch(toggleSlaytGrid(-1));
       } else {
         setActive(index);
+        dispatch(toggleSlaytGrid(index));
       }
       dispatch(fetchActor(id));
     },
@@ -40,9 +43,8 @@ const ActorList: React.FC<Props> = ({ credits }) => {
   return (
     <Container>
       {actors.map((actor, key) => (
-        <Content toggle={active === key}>
+        <Content toggle={active === key} key={key}>
           <Header
-            key={key}
             onClick={() => {
               handleActor(actor.id, key);
             }}
