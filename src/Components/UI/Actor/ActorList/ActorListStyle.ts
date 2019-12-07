@@ -4,13 +4,7 @@ interface InfoProps {
   active: boolean;
 }
 export const Container = styled.div`
-  @media ${device.mobileS} {
-    margin: 0;
-    margin-left: -1em;
-  }
-  @media ${device.tablet} {
-    margin-left: 0;
-  }
+  margin: 0;
 `;
 interface ContentProps {
   toggle: boolean;
@@ -20,10 +14,11 @@ export const Content = styled.ul`
   transition: max-height 0.5s;
   overflow: hidden;
   @media ${device.mobileS} {
-    margin-left: -1em;
+    width: 80%;
   }
   @media ${device.tablet} {
     margin-left: 0;
+    width: 100%;
   }
 `;
 export const InfoContainer = styled.div`

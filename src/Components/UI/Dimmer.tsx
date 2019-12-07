@@ -18,12 +18,6 @@ export const DimContainer = styled.div`
   transition: 0.5s;
   height: 100vh;
   padding-top: 8em;
-  @media ${device.mobileS} {
-    overflow-x: hidden;
-  }
-  @media ${device.tablet} {
-    overflow: initial;
-  }
 `;
 const Dimmer: React.FC<Props> = ({ children }) => {
   const toggle = useSelector((state: Store) => state.toggle.sidebar);

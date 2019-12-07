@@ -84,15 +84,21 @@ const Search: React.FC<Props> = () => {
     <Container>
       <Mobile toggle={toggle}>
         <input value={input} onChange={handleInput} placeholder="Search.." />
-        <ul>
-          {result && result.map((item, key) => <li key={key}>{item.title}</li>)}
-        </ul>
+        <div>
+          <ul>
+            {result &&
+              result.map((item, key) => <li key={key}>{item.title}</li>)}
+          </ul>
+        </div>
       </Mobile>
       <Desktop>
         <input value={input} onChange={handleInput} placeholder="Search.." />
-        <ul>
-          {result && result.map((item, key) => <li key={key}>{item.title}</li>)}
-        </ul>
+        <div>
+          <ul>
+            {result &&
+              result.map((item, key) => <li key={key}>{item.title}</li>)}
+          </ul>
+        </div>
       </Desktop>
     </Container>
   );
