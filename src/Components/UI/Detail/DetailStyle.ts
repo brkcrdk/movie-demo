@@ -12,6 +12,7 @@ export const Container = styled.div`
   width: 100%;
   border-top: 1px solid ${colours.secondaryText};
   padding: 0.5em;
+  transition: 0.5s;
   @media ${device.mobileS} {
     grid-template-columns: 12fr;
   }

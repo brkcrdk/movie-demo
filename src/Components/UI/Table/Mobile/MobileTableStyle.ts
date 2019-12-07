@@ -11,20 +11,27 @@ export const Container = styled.div`
   }
 `;
 export const Content = styled.div`
+  box-shadow: ${colours.boxShadow};
+  border-radius: 0.3em;
+  border: 0.5px solid lightgrey;
+  overflow: hidden;
+  margin: 1em 0;
+  position: relative;
   button {
     position: absolute;
-    right: 2em;
-    margin-top: 1em;
+    &:first-child {
+      margin-top: 1em;
+      right: 2em;
+    }
+    &:last-child {
+      right: 1em;
+      bottom: 2em;
+    }
   }
 `;
 export const Wrapper = styled.div`
   font-family: ${fonts.aBeeZee};
   display: grid;
-  margin: 1em 0;
-  border-radius: 0.3em;
-  box-shadow: ${colours.boxShadow};
-  border: 0.5px solid lightgrey;
-  overflow: hidden;
   @media ${device.mobileS} {
     grid-template-columns: 12fr;
   }
