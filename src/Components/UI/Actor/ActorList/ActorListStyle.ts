@@ -4,7 +4,12 @@ interface InfoProps {
   active: boolean;
 }
 export const Container = styled.div`
-  margin-left: 2em;
+  @media ${device.mobileS} {
+    margin: 0;
+  }
+  @media ${device.tablet} {
+    margin-left: 2em;
+  }
 `;
 interface ContentProps {
   toggle: boolean;

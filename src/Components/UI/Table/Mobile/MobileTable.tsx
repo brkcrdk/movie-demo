@@ -13,6 +13,7 @@ import { MovieInfo } from "../../../../store/serverTypes";
 import Detail from "../../Detail/Detail";
 import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
+import { toggleSlaytGrid } from "../../../../store/Toggles/action";
 import { imgUrl } from "../../../../config";
 interface Props {
   movies: MovieInfo[];
@@ -29,6 +30,7 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
         setActiveIndex(index);
       }
       dispatch(fetchDetails(id));
+      dispatch(toggleSlaytGrid(-1));
     },
     [dispatch, activeIndex, setActiveIndex]
   );
