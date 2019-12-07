@@ -22,8 +22,7 @@ interface MobileProps {
 const Mobile = styled.div`
   @media ${device.mobileS} {
     display: grid;
-    position: relative;
-    button {
+    span {
       position: fixed;
       z-index: 1;
       right: 0.5em;
@@ -31,7 +30,7 @@ const Mobile = styled.div`
     }
     div {
       transform: ${(p: MobileProps) =>
-        p.toggle ? "translateX(0)" : "translateX(-150%)"};
+        p.toggle ? "translateY(0)" : "translateY(-150%)"};
       transition: 0.5s;
     }
   }
@@ -40,7 +39,6 @@ const Mobile = styled.div`
     display: none;
   }
 `;
-
 const Filters: React.FC<Props> = ({ activePage }) => {
   const [toggle, setToggle] = useState(false);
   const handleToggle = () => {
@@ -53,7 +51,7 @@ const Filters: React.FC<Props> = ({ activePage }) => {
       </Desktop>
       <Mobile toggle={toggle}>
         <Sort activePage={activePage} />
-        <button onClick={handleToggle}>Toggle</button>
+        <span onClick={handleToggle}>Toggle</span>
       </Mobile>
     </Container>
   );

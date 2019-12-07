@@ -22,9 +22,9 @@ interface DiscoverFilter {
 const Container = styled.div`
   width: 100%;
   background-color: white;
-  /* z-index: 1; */
   position: fixed;
   padding-bottom: 1em;
+  padding-top: 0.5em;
   div {
     margin: 0 1em;
   }
@@ -37,7 +37,8 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 2.05em;
+    margin-top: 0.9em;
+    z-index: 1;
   }
 `;
 
