@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MovieInfo } from "../../../store/serverTypes";
-import { apiUrl, apiKey } from "../../../config";
-
+import { apiUrl, apiKey, imgUrl } from "../../../config";
+import { ResultWrapper } from "./SearchStyle";
 import axios from "axios";
 interface Props {}
 
@@ -30,14 +30,23 @@ const SearchInput: React.FC<Props> = () => {
         });
     }
   }, [input]);
+
   return (
     <>
       <input value={input} onChange={handleInput} placeholder="Search.." />
-      <div>
+      <ResultWrapper isEmpty={input !== ""}>
         <ul>
-          {result && result.map((item, key) => <li key={key}>{item.title}</li>)}
+          {result &&
+            result.map((item, key) => (
+              <li key={key}>
+                <div>
+                  <img src={`${imgUrl}/w300${item.backdrop_path}`} />
+                  <span>{item.title}</span>
+                </div>
+              </li>
+            ))}
         </ul>
-      </div>
+      </ResultWrapper>
     </>
   );
 };
