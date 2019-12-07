@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import {
   Container,
   Header,
@@ -6,7 +6,7 @@ import {
   Splitter,
   InfoContainer
 } from "./ActorListStyle";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Cast } from "../../../../store/serverTypes";
 import { fetchActor } from "../../../../store/Actor/action";
 import { toggleSlaytGrid } from "../../../../store/Toggles/action";
@@ -18,9 +18,17 @@ interface Props {
     cast: Cast[];
   };
 }
-
+interface ToggleProps {
+  toggle: {
+    slaytGrid: number;
+  };
+}
 const ActorList: React.FC<Props> = ({ credits }) => {
-  const [active, setActive] = useState(-1);
+  const slaytGrid = useSelector((state: ToggleProps) => state.toggle.slaytGrid);
+  const [active, setActive] = useState(slaytGrid);
+  useEffect(() => {
+    setActive(slaytGrid);
+  }, [slaytGrid]);
 
   const actors = credits.cast.filter((actor, i) => {
     return i < 4;
