@@ -6,17 +6,13 @@ interface ExpandableProps {
 
 export const Expandable = styled.div`
   width: 100%;
-  #content {
-    display: ${(p: ExpandableProps) => (p.expand ? "grid" : "none")};
-    overflow: hidden;
-    grid-template-columns: repeat(2, 6fr);
-    width: 100%;
-    border-top: 1px solid ${colours.secondaryText};
-    padding: 0.5em;
-  }
+  display: ${(p: ExpandableProps) => (p.expand ? "grid" : "none")};
+  overflow: hidden;
+  grid-template-columns: repeat(2, 6fr);
+  width: 100%;
+  border-top: 1px solid ${colours.secondaryText};
+  padding: 0.5em;
 `;
-
-export const Content = styled.div``;
 
 export const Slayt = styled.div`
   display: grid;

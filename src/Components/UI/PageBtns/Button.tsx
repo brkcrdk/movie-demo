@@ -7,8 +7,6 @@ interface Props {
   innerText: string;
 }
 
-const borderRadius = `0.2em`;
-
 const Button = styled(NavLink)`
   &&& {
     text-decoration: none;

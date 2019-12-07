@@ -20,6 +20,7 @@ interface Props {
 
 const ActorList: React.FC<Props> = ({ credits }) => {
   const [active, setActive] = useState(-1);
+
   const actors = credits.cast.filter((actor, i) => {
     return i < 4;
   });
