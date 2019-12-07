@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { device } from "../../../../utils";
 export const Container = styled.div`
   align-items: center;
-  border: 1px solid red;
   @media ${device.mobileS} {
     display: grid;
     text-align: center;

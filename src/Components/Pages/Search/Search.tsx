@@ -46,6 +46,12 @@ const Desktop = styled.div`
     position: relative;
     top: 1em;
     width: 100%;
+    div {
+      background-color: red;
+      z-index: 5;
+      position: fixed;
+      top: 8em;
+    }
     input {
       padding: 1em 0.5em;
       width: 15em;

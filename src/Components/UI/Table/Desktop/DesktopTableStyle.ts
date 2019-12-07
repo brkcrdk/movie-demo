@@ -13,8 +13,9 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-  margin-top: -1.1em;
+  margin-top: -3.05em;
   width: 100%;
+  max-width: 91em;
   position: fixed;
   display: grid;
   grid-gap: 0.5em;
@@ -28,7 +29,7 @@ export const Header = styled.div`
 
 export const Content = styled.div`
   width: 100%;
-  padding-top: 4em;
+  padding-top: 3em;
   overflow: hidden;
 `;
 interface WrapperProps {
