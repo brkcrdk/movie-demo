@@ -23,6 +23,7 @@ export const Content = styled.div``;
 
 export const Slayt = styled.div`
   display: grid;
+  grid-template-columns: 5fr 7fr;
   align-items: center;
   grid-gap: 0.5em;
 `;

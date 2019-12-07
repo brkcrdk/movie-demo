@@ -39,7 +39,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
   return (
     <Container>
       {actors.map((actor, key) => (
-        <Content>
+        <Content toggle={active === key}>
           <Header
             key={key}
             onClick={() => {

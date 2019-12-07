@@ -4,7 +4,14 @@ interface InfoProps {
   active: boolean;
 }
 export const Container = styled.div``;
-export const Content = styled.ul``;
+interface ContentProps {
+  toggle: boolean;
+}
+export const Content = styled.ul`
+  max-height: ${(p: ContentProps) => (p.toggle ? "100vh" : "2em")};
+  transition: max-height 0.5s;
+  overflow: hidden;
+`;
 export const InfoContainer = styled.div`
   display: ${(p: InfoProps) => (p.active ? "" : "none")};
 `;
