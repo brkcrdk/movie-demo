@@ -1,8 +1,9 @@
 import React from "react";
+import { Container, ImgContainer, InfoContainer } from "./ActorInfoStyle";
 import { ActorBio } from "../../../../store/serverTypes";
 import { useSelector } from "react-redux";
 import { imgUrl } from "../../../../config";
-import styled from "styled-components";
+
 interface Props {}
 interface ActorProps {
   actorStore: {
@@ -10,32 +11,6 @@ interface ActorProps {
   };
 }
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-`;
-const ImgContainer = styled.div`
-  img {
-    height: 10em;
-  }
-`;
-const InfoContainer = styled.div`
-  display: grid !important;
-  span {
-    padding: 1em 2em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 8;
-    -webkit-box-orient: vertical;
-  }
-  p {
-    margin-left: 2em;
-    width: 80%;
-    display: flex;
-    justify-content: flex-end;
-  }
-`;
 const ActorInfo: React.FC<Props> = () => {
   const actor = useSelector((state: ActorProps) => state.actorStore.actor);
   const renderActor = actor && (
