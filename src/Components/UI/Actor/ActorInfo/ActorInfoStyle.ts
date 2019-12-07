@@ -1,12 +1,25 @@
 import styled from "styled-components";
-
+import { device } from "../../../../utils";
 export const Container = styled.div`
-  display: flex;
   align-items: center;
+
+  @media ${device.mobileS} {
+    display: grid;
+    text-align: center;
+  }
+  @media ${device.tablet} {
+    display: flex;
+    justify-content: center;
+  }
 `;
 export const ImgContainer = styled.div`
   img {
-    height: 10em;
+    @media ${device.mobileS} {
+      height: 5em;
+    }
+    @media ${device.tablet} {
+      height: 10em;
+    }
   }
 `;
 export const InfoContainer = styled.div`

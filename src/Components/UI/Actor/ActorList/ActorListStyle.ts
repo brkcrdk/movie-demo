@@ -6,9 +6,10 @@ interface InfoProps {
 export const Container = styled.div`
   @media ${device.mobileS} {
     margin: 0;
+    margin-left: -1em;
   }
   @media ${device.tablet} {
-    margin-left: 2em;
+    margin-left: 0;
   }
 `;
 interface ContentProps {
@@ -18,6 +19,12 @@ export const Content = styled.ul`
   max-height: ${(p: ContentProps) => (p.toggle ? "100vh" : "2em")};
   transition: max-height 0.5s;
   overflow: hidden;
+  @media ${device.mobileS} {
+    margin-left: -1em;
+  }
+  @media ${device.tablet} {
+    margin-left: 0;
+  }
 `;
 export const InfoContainer = styled.div`
   display: ${(p: InfoProps) => (p.active ? "" : "none")};

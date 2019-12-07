@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { device, colours, fonts } from "../../../../utils";
 export const Container = styled.div`
-  overflow: hidden;
   @media ${device.mobileS} {
     display: block;
     padding: 0.5em;
@@ -14,7 +13,6 @@ export const Content = styled.div`
   box-shadow: ${colours.boxShadow};
   border-radius: 0.3em;
   border: 0.5px solid lightgrey;
-  overflow: hidden;
   margin: 1em 0;
   position: relative;
   button {
@@ -73,7 +71,7 @@ export const InfoContainer = styled.div`
   }
 `;
 export const Header = styled.p`
-  padding-left: 2em;
+  padding-left: 1em;
   margin: 0.3em;
   font-weight: 800;
 `;

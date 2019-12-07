@@ -6,10 +6,9 @@ interface ExpandableProps {
 }
 
 export const Container = styled.div`
-  width: 100%;
   display: ${(p: ExpandableProps) => (p.expand ? "grid" : "none")};
-  overflow: hidden;
   width: 100%;
+  overflow: hidden;
   border-top: 1px solid ${colours.secondaryText};
   padding: 0.5em;
   transition: 0.5s;
