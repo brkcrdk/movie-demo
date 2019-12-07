@@ -3,9 +3,7 @@ import { device } from "../../../../utils";
 interface ExpandableProps {
   expand: boolean;
 }
-interface SlaytProps {
-  toggle: boolean;
-}
+
 export const Expandable = styled.div`
   width: 100%;
   #content {

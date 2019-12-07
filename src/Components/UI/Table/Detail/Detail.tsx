@@ -25,13 +25,17 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
       <p>{movie.overview}</p>
     </Slayt>
   );
-  const renderActors = movie.credits && <Actors credits={movie.credits} />;
+  const renderActors = movie.credits && (
+    <ActorSection>
+      <Actors credits={movie.credits} />
+    </ActorSection>
+  );
 
   return (
     <Expandable expand={activeIndex === index}>
       <Content id="content">
         {renderImages}
-        <ActorSection>{renderActors}</ActorSection>
+        {renderActors}
       </Content>
     </Expandable>
   );

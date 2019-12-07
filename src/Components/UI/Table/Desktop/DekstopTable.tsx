@@ -11,7 +11,6 @@ import {
 import Detail from "../Detail/Detail";
 import Overview from "./Overview";
 import Title from "./Title";
-import { imgUrl } from "../../../../config";
 import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
 
@@ -22,7 +21,6 @@ interface Props {
 const DekstopTable: React.FC<Props> = ({ movies }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const dispatch = useDispatch();
-
   const handleToggle = (index: number, id: number) => {
     if (activeIndex === index) {
       setActiveIndex(-1);
