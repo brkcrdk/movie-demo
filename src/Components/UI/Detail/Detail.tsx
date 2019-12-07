@@ -1,9 +1,9 @@
 import React from "react";
-import { Container, Slayt, ActorSection } from "./DetailStyle";
+import { Container, Slayt } from "./DetailStyle";
 import { useSelector } from "react-redux";
 import { IDetail } from "../../../store/serverTypes";
 import Carousel from "../Carousel/Carousel";
-import Actors from "../Actor/ActorList/ActorList";
+import ActorList from "../Actor/ActorList/ActorList";
 interface Props {
   activeIndex: number;
   index: number;
@@ -35,11 +35,7 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
       <p>{movie.overview}</p>
     </Slayt>
   );
-  const renderActors = movie.credits && (
-    <ActorSection>
-      <Actors credits={movie.credits} />
-    </ActorSection>
-  );
+  const renderActors = movie.credits && <ActorList credits={movie.credits} />;
 
   return (
     <Container expand={activeIndex === index}>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colours } from "../../../utils";
+import { colours, device } from "../../../utils";
 interface ExpandableProps {
   expand: boolean;
 }
@@ -18,8 +18,17 @@ interface SlaytProps {
 }
 export const Slayt = styled.div`
   display: grid;
-  grid-template-columns: ${(p: SlaytProps) => (p.toggle ? "12fr" : "6fr 6fr")};
   align-items: center;
   grid-gap: 0.5em;
+  text-align: center;
+  p {
+    padding: 0 1em;
+  }
+  @media ${device.tablet} {
+    grid-template-columns: 12fr;
+  }
+  @media ${device.desktop} {
+    grid-template-columns: ${(p: SlaytProps) =>
+      p.toggle ? "12fr" : "6fr 6fr"};
+  }
 `;
-export const ActorSection = styled.div``;
