@@ -46,10 +46,7 @@ const Actors: React.FC<Props> = ({ credits }) => {
               handleActor(actor.id, key);
             }}
           >
-            <img
-              style={{ borderRadius: "50%", width: "2em", height: "2em" }}
-              src={`${imgUrl}/w185${actor.profile_path}`}
-            />
+            <img src={`${imgUrl}/w185${actor.profile_path}`} />
             {actor.name}
           </Header>
           <InfoContainer active={active === key}>

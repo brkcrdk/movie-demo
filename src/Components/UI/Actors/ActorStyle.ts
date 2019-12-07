@@ -22,6 +22,9 @@ export const Header = styled.li`
   cursor: pointer;
   margin-bottom: 0.5em;
   img {
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
     margin-right: 1em;
     object-fit: cover;
   }
