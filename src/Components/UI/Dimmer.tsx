@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { device } from "../../utils";
 import { useSelector } from "react-redux";
 interface Store {
   toggle: {
@@ -17,7 +18,12 @@ export const DimContainer = styled.div`
   transition: 0.5s;
   height: 100vh;
   padding-top: 8em;
-  overflow-x: hidden;
+  @media ${device.mobileS} {
+    overflow-x: hidden;
+  }
+  @media ${device.tablet} {
+    overflow: initial;
+  }
 `;
 const Dimmer: React.FC<Props> = ({ children }) => {
   const toggle = useSelector((state: Store) => state.toggle.sidebar);
