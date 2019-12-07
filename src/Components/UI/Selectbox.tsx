@@ -17,7 +17,11 @@ const Selectbox: React.FC<Props> = ({
     <div>
       <label>{label}</label>
       <hr />
-      <select style={{ minWidth: "10em" }} onChange={onChange} defaultValue=" ">
+      <select
+        style={{ width: "100%", minWidth: "10em" }}
+        onChange={onChange}
+        defaultValue=" "
+      >
         <option value=" ">{defaultValue}</option>
         {options.map((option, index) => (
           <option key={index} value={option.value}>
