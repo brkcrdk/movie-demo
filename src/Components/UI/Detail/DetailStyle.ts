@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../../../utils";
+import { colours } from "../../../utils";
 interface ExpandableProps {
   expand: boolean;
 }
@@ -11,7 +11,7 @@ export const Expandable = styled.div`
     overflow: hidden;
     grid-template-columns: repeat(2, 6fr);
     width: 100%;
-    border-top: 1px solid red;
+    border-top: 1px solid ${colours.secondaryText};
     padding: 0.5em;
   }
 `;

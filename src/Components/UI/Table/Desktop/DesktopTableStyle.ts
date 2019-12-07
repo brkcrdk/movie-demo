@@ -40,7 +40,6 @@ export const Wrapper = styled.div`
   transition: max-height 0.5s;
   overflow: hidden;
   input {
-    border: 1px solid red;
     position: absolute;
     display: flex;
     justify-content: center;

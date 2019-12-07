@@ -1,7 +1,7 @@
 import React from "react";
-import { ActorBio } from "../../../store/serverTypes";
+import { ActorBio } from "../../../../store/serverTypes";
 import { useSelector } from "react-redux";
-import { imgUrl } from "../../../config";
+import { imgUrl } from "../../../../config";
 import styled from "styled-components";
 interface Props {}
 interface ActorProps {

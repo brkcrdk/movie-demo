@@ -1,9 +1,9 @@
 import React from "react";
 import { Expandable, Content, Slayt, ActorSection } from "./DetailStyle";
 import { useSelector } from "react-redux";
-import { IDetail } from "../../../../store/serverTypes";
-import Carousel from "../../Carousel/Carousel";
-import Actors from "../../Actors/Actors";
+import { IDetail } from "../../../store/serverTypes";
+import Carousel from "../Carousel/Carousel";
+import Actors from "../Actor/ActorList/ActorList";
 interface Props {
   activeIndex: number;
   index: number;
