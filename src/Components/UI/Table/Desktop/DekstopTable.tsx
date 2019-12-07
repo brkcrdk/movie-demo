@@ -7,10 +7,10 @@ import {
   Row,
   Col,
   Title,
-  Overview,
   Wrapper
 } from "./DesktopTableStyle";
 import Detail from "../Detail/Detail";
+import Overview from "./Overview";
 import { imgUrl } from "../../../../config";
 import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
@@ -34,14 +34,6 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
   const renderTables =
     movies &&
     movies.map((movie, key) => {
-      const shortOverview = movie.overview
-        .split(" ")
-        .filter((x, i) => {
-          return i < 10;
-        })
-        .map(item => {
-          return `${item} `;
-        });
       return (
         <Wrapper key={key} toggle={activeIndex === key}>
           <input type="radio" />
@@ -60,7 +52,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
             <Col>{movie.popularity}</Col>
             <Col>{movie.vote_average}</Col>
             <Col>{movie.vote_count}</Col>
-            <Overview>{shortOverview}...</Overview>
+            <Overview text={movie.overview} />
           </Row>
           <Detail activeIndex={activeIndex} index={key} />
         </Wrapper>

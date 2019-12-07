@@ -41,6 +41,7 @@ export const Wrapper = styled.div`
   max-height: ${(p: WrapperProps) => (p.toggle ? "100vh" : "5em")};
   transition: max-height 0.5s;
   overflow: hidden;
+
   input {
     border: 1px solid red;
     position: absolute;
@@ -73,10 +74,10 @@ export const Title = styled.div`
     border-radius: 50%;
   }
 `;
-export const Overview = styled.li`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-`;
+// export const Overview = styled.li`
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   display: -webkit-box;
+//   -webkit-line-clamp: 2;
+//   -webkit-box-orient: vertical;
+// `;

@@ -8,7 +8,6 @@ interface SlaytProps {
 }
 export const Expandable = styled.div`
   width: 100%;
-
   #content {
     display: ${(p: ExpandableProps) => (p.expand ? "grid" : "none")};
     overflow: hidden;
