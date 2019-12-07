@@ -7,12 +7,14 @@ interface Props {
     backdrops: ImageProps[];
     posters: ImageProps[];
   };
+  imgSize: string;
   isLoading: boolean;
 }
 
-const Carousel: React.FC<Props> = ({ images, isLoading }) => {
+const Carousel: React.FC<Props> = ({ images, isLoading, imgSize }) => {
   const [active, setActive] = useState(0);
   const [count, setCount] = useState(0);
+  const imgQuality = imgSize === "big" ? "w780" : "w300";
   useEffect(() => {
     if (images) {
       setCount(images.backdrops.length);
@@ -24,7 +26,7 @@ const Carousel: React.FC<Props> = ({ images, isLoading }) => {
     images.backdrops.map((image, key) => (
       <Slide
         key={key}
-        src={`${imgUrl}/w300${image.file_path}`}
+        src={`${imgUrl}/${imgQuality}${image.file_path}`}
         toggle={key === active}
       />
     ));

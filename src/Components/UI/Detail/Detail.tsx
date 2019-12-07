@@ -27,7 +27,11 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   const slaytGrid = useSelector((state: ToggleProps) => state.toggle.slaytGrid);
   const renderImages = movie.images && (
     <Slayt toggle={slaytGrid !== -1}>
-      <Carousel isLoading={isLoading} images={movie.images} />
+      <Carousel
+        isLoading={isLoading}
+        images={movie.images}
+        imgSize={slaytGrid !== -1 ? "big" : "small"}
+      />
       <p>{movie.overview}</p>
     </Slayt>
   );
