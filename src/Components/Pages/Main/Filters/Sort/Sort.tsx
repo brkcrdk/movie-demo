@@ -22,7 +22,7 @@ interface DiscoverFilter {
 const Container = styled.div`
   width: 100%;
   background-color: white;
-  z-index: 3;
+  /* z-index: 1; */
   position: fixed;
   padding-bottom: 1em;
   div {

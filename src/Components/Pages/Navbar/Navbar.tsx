@@ -20,8 +20,8 @@ const Container = styled.div`
   width: 100%;
   z-index: 1;
   overflow-x: hidden;
-  box-shadow: ${(p: ContainerProps) =>
-    p.scroll ? `${colours.boxShadow}` : ""};
+  /* box-shadow: ${(p: ContainerProps) =>
+    p.scroll ? `${colours.boxShadow}` : ""}; */
   @media ${device.mobileS} {
     border-bottom: 0.5px solid ${colours.secondaryText};
   }
