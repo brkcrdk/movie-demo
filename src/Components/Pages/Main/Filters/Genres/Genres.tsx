@@ -48,7 +48,11 @@ const DropdownContent = styled.div`
   width: 100%;
   z-index: 1;
 `;
-const DropdownItem = styled.a``;
+const DropdownItem = styled.a`
+  padding-left: 0.5em;
+  padding-top: 0.3em;
+  cursor: pointer;
+`;
 
 const Selectbox: React.FC<Props> = () => {
   const [toggle, setToggle] = useState(false);
