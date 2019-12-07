@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { MovieInfo } from "../../../store/serverTypes";
 import { useSelector } from "react-redux";
-import { apiUrl, apiKey } from "../../../config";
 import styled from "styled-components";
 import { device } from "../../../utils";
+import SearchInput from "./SearchInput";
 interface Props {}
 
 interface ToggleStore {
@@ -65,53 +63,15 @@ const Desktop = styled.div`
   }
 `;
 const Container = styled.div``;
-
 const Search: React.FC<Props> = () => {
   const toggle = useSelector((state: ToggleStore) => state.toggle.search);
-  const [input, setInput] = useState<string>("");
-  const [result, setResult] = useState<Array<MovieInfo>>();
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === "") {
-      setTimeout(() => {
-        setInput(" ");
-        setInput("");
-      }, 1000);
-    } else {
-      setInput(e.target.value);
-    }
-  };
-  useEffect(() => {
-    if (input) {
-      axios
-        .get(`${apiUrl}/search/movie?query=${input}&api_key=${apiKey}`)
-        .then(({ data }) => {
-          setResult(data.results);
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
-  }, [input]);
-
   return (
     <Container>
       <Mobile toggle={toggle}>
-        <input value={input} onChange={handleInput} placeholder="Search.." />
-        <div>
-          <ul>
-            {result &&
-              result.map((item, key) => <li key={key}>{item.title}</li>)}
-          </ul>
-        </div>
+        <SearchInput />
       </Mobile>
       <Desktop>
-        <input value={input} onChange={handleInput} placeholder="Search.." />
-        <div>
-          <ol>
-            {result &&
-              result.map((item, key) => <li key={key}>{item.title}</li>)}
-          </ol>
-        </div>
+        <SearchInput />
       </Desktop>
     </Container>
   );
