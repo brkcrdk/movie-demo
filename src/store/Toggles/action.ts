@@ -1,4 +1,4 @@
-import { SEARCH_TOGGLE, SIDEBAR_TOGGLE, ACTOR_LIST } from "./types";
+import { SEARCH_TOGGLE, SIDEBAR_TOGGLE } from "./types";
 
 export const toggleSidebar = () => {
   return {
@@ -8,11 +8,5 @@ export const toggleSidebar = () => {
 export const toggleSearch = () => {
   return {
     type: SEARCH_TOGGLE
-  };
-};
-export const actorList = (index: number) => {
-  return {
-    type: ACTOR_LIST,
-    payload: index
   };
 };

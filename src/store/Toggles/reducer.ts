@@ -2,14 +2,12 @@ import {
   ToggleActions,
   ToggleState,
   SEARCH_TOGGLE,
-  SIDEBAR_TOGGLE,
-  ACTOR_LIST
+  SIDEBAR_TOGGLE
 } from "./types";
 
 const initialState: ToggleState = {
   search: false,
-  sidebar: false,
-  actorList: -1
+  sidebar: false
 };
 
 const toggleReducer = (state = initialState, action: ToggleActions) => {
@@ -24,8 +22,7 @@ const toggleReducer = (state = initialState, action: ToggleActions) => {
         return { ...state, sidebar: !state.sidebar, search: false };
       }
       return { ...state, sidebar: !state.sidebar };
-    case ACTOR_LIST:
-      return { ...state, actorList: action.payload };
+
     default:
       return state;
   }
