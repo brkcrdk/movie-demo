@@ -4,7 +4,7 @@ interface ExpandableProps {
   expand: boolean;
 }
 
-export const Expandable = styled.div`
+export const Container = styled.div`
   width: 100%;
   display: ${(p: ExpandableProps) => (p.expand ? "grid" : "none")};
   overflow: hidden;

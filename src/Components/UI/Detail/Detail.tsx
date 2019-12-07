@@ -1,5 +1,5 @@
 import React from "react";
-import { Expandable, Slayt, ActorSection } from "./DetailStyle";
+import { Container, Slayt, ActorSection } from "./DetailStyle";
 import { useSelector } from "react-redux";
 import { IDetail } from "../../../store/serverTypes";
 import Carousel from "../Carousel/Carousel";
@@ -32,10 +32,10 @@ const Detail: React.FC<Props> = ({ activeIndex, index }) => {
   );
 
   return (
-    <Expandable expand={activeIndex === index}>
+    <Container expand={activeIndex === index}>
       {renderImages}
       {renderActors}
-    </Expandable>
+    </Container>
   );
 };
 

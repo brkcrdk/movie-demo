@@ -2,12 +2,14 @@ import {
   ToggleActions,
   ToggleState,
   SEARCH_TOGGLE,
-  SIDEBAR_TOGGLE
+  SIDEBAR_TOGGLE,
+  SLAYT_GRID
 } from "./types";
 
 const initialState: ToggleState = {
   search: false,
-  sidebar: false
+  sidebar: false,
+  slaytGrid: -1
 };
 
 const toggleReducer = (state = initialState, action: ToggleActions) => {
@@ -22,7 +24,8 @@ const toggleReducer = (state = initialState, action: ToggleActions) => {
         return { ...state, sidebar: !state.sidebar, search: false };
       }
       return { ...state, sidebar: !state.sidebar };
-
+    case SLAYT_GRID:
+      return { ...state, slaytGrid: action.payload };
     default:
       return state;
   }
