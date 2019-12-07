@@ -4,6 +4,8 @@ import { fetchDiscover } from "../../../../../store/Discover/action";
 import { sortOptions, years, voteAvg } from "./sortOptions";
 import Selectbox from "../../../../UI/Selectbox";
 import styled from "styled-components";
+import { device } from "../../../../../utils";
+import Genres from "../Genres/Genres";
 interface Props {
   activePage: number;
 }
@@ -18,9 +20,24 @@ interface DiscoverFilter {
 }
 
 const Container = styled.div`
-  display: flex;
+  width: 100%;
+  background-color: white;
+  z-index: 3;
+  position: fixed;
+  padding-bottom: 1em;
   div {
     margin: 0 1em;
+  }
+  @media ${device.mobileS} {
+    display: grid;
+    grid-template-columns: repeat(2, 6fr);
+    margin-top: -2.6em;
+  }
+  @media ${device.tablet} {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 2.05em;
   }
 `;
 
@@ -50,6 +67,7 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
   };
   return (
     <Container>
+      <Genres />
       <Selectbox options={years()} label="Year" onChange={handleYear} />
       <Selectbox
         options={voteAvg()}

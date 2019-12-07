@@ -34,7 +34,7 @@ interface ContentProps {
 export const Content = styled.div`
   width: 100%;
   padding-top: ${(p: ContentProps) =>
-    p.section === "discover" ? "5em" : "2em"};
+    p.section === "discover" ? "7em" : "2em"};
   overflow: hidden;
 `;
 interface WrapperProps {

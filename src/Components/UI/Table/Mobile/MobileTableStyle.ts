@@ -13,7 +13,7 @@ export const Content = styled.div`
   box-shadow: ${colours.boxShadow};
   border-radius: 0.3em;
   border: 0.5px solid lightgrey;
-  margin: 1em 0;
+  margin: 2em 0;
 `;
 export const Wrapper = styled.div`
   font-family: ${fonts.aBeeZee};
