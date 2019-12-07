@@ -6,14 +6,15 @@ import {
   Content,
   Row,
   Col,
-  Title,
   Wrapper
 } from "./DesktopTableStyle";
 import Detail from "../Detail/Detail";
 import Overview from "./Overview";
+import Title from "./Title";
 import { imgUrl } from "../../../../config";
 import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
+
 interface Props {
   movies: MovieInfo[];
 }
@@ -43,10 +44,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
             }}
           >
             <Col>
-              <Title>
-                <img src={`${imgUrl}/w92${movie.poster_path}`} />
-                <span>{movie.title}</span>
-              </Title>
+              <Title imgPath={movie.poster_path} movieName={movie.title} />
             </Col>
             <Col>{movie.release_date}</Col>
             <Col>{movie.popularity}</Col>

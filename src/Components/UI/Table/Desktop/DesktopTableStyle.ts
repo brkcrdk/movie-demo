@@ -62,22 +62,3 @@ export const Row = styled.ul`
   cursor: pointer;
 `;
 export const Col = styled.li``;
-
-export const Title = styled.div`
-  display: grid;
-  grid-template-columns: 3fr 9fr;
-  align-items: center;
-  img {
-    object-fit: cover;
-    width: 3em;
-    height: 3em;
-    border-radius: 50%;
-  }
-`;
-// export const Overview = styled.li`
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   display: -webkit-box;
-//   -webkit-line-clamp: 2;
-//   -webkit-box-orient: vertical;
-// `;
