@@ -18,11 +18,16 @@ const Container = styled.div`
   top: 0;
   background-color: white;
   width: 100%;
-  border-bottom: 0.5px solid ${colours.secondaryText};
   z-index: 1;
   overflow-x: hidden;
   box-shadow: ${(p: ContainerProps) =>
     p.scroll ? `${colours.boxShadow}` : ""};
+  @media ${device.mobileS} {
+    border-bottom: 0.5px solid ${colours.secondaryText};
+  }
+  @media ${device.tablet} {
+    border-bottom: none;
+  }
   @media ${device.widescreen} {
     width: inherit;
   }

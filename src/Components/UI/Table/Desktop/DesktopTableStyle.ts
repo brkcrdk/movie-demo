@@ -13,9 +13,9 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-  margin-top: -3.05em;
+  margin-top: -3.08em;
   width: 100%;
-  max-width: 91em;
+  max-width: 93em;
   position: fixed;
   display: grid;
   grid-gap: 0.5em;
@@ -24,6 +24,7 @@ export const Header = styled.div`
   background-color: white;
   z-index: 1;
   border-bottom: 1px solid ${colours.pink};
+  border-top: 1px solid ${colours.secondaryText};
   text-align: center;
 `;
 
