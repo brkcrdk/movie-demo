@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchDiscover } from "../../../../../store/Discover/action";
 import { sortOptions, years, voteAvg } from "./sortOptions";
 import Selectbox from "../../../../UI/Selectbox";
-
+import styled from "styled-components";
 interface Props {
   activePage: number;
 }
@@ -16,6 +16,13 @@ interface DiscoverFilter {
     }[];
   };
 }
+
+const Container = styled.div`
+  display: flex;
+  div {
+    margin: 0 1em;
+  }
+`;
 
 const SortBtn: React.FC<Props> = ({ activePage }) => {
   const [year, setYear] = useState("0");
@@ -42,7 +49,7 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
     setSort(e.target.options[e.target.selectedIndex].value);
   };
   return (
-    <div>
+    <Container>
       <Selectbox options={years()} label="Year" onChange={handleYear} />
       <Selectbox
         options={voteAvg()}
@@ -50,7 +57,7 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
         onChange={handleAverage}
       />
       <Selectbox options={sortOptions} label="Sort By" onChange={handleSort} />
-    </div>
+    </Container>
   );
 };
 

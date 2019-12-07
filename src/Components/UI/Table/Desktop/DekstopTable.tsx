@@ -17,9 +17,10 @@ import { toggleSlaytGrid } from "../../../../store/Toggles/action";
 
 interface Props {
   movies: MovieInfo[];
+  section: string;
 }
 
-const DekstopTable: React.FC<Props> = ({ movies }) => {
+const DekstopTable: React.FC<Props> = ({ movies, section }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const dispatch = useDispatch();
 
@@ -70,7 +71,7 @@ const DekstopTable: React.FC<Props> = ({ movies }) => {
         <h4>Votes</h4>
         <h4>Overview</h4>
       </Header>
-      <Content>{renderTables}</Content>
+      <Content section={section}>{renderTables}</Content>
     </Container>
   );
 };

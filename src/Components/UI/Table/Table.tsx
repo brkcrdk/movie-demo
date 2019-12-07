@@ -21,7 +21,7 @@ const Table: React.FC<Props> = ({
   return (
     <div>
       <MobileTable movies={movies} />
-      <DekstopTable movies={movies} />
+      <DekstopTable movies={movies} section={section} />
       <Pagination
         section={section}
         totalPages={totalPages}

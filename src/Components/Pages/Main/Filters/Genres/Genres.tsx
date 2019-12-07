@@ -20,7 +20,6 @@ interface DropdownContent {
 }
 const Dropdown = styled.div`
   position: relative;
-  display: inline-block;
   @media ${device.mobileS} {
     width: 10em;
   }

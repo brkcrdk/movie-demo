@@ -28,9 +28,13 @@ export const Header = styled.div`
   text-align: center;
 `;
 
+interface ContentProps {
+  section: string;
+}
 export const Content = styled.div`
   width: 100%;
-  padding-top: 3em;
+  padding-top: ${(p: ContentProps) =>
+    p.section === "discover" ? "5em" : "2em"};
   overflow: hidden;
 `;
 interface WrapperProps {
