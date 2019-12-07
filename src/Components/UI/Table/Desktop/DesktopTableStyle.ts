@@ -4,7 +4,6 @@ import { device, fonts, colours } from "../../../../utils";
 export const Container = styled.div`
   width: 100%;
   font-family: ${fonts.aBeeZee};
-
   @media ${device.mobileS} {
     display: none;
   }
@@ -36,12 +35,10 @@ interface WrapperProps {
   toggle: boolean;
 }
 export const Wrapper = styled.div`
-  padding: 1px;
   position: relative;
   max-height: ${(p: WrapperProps) => (p.toggle ? "100vh" : "5em")};
   transition: max-height 0.5s;
   overflow: hidden;
-
   input {
     border: 1px solid red;
     position: absolute;

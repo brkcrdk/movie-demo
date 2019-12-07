@@ -20,7 +20,7 @@ export const Content = styled.div``;
 
 export const Slayt = styled.div`
   display: grid;
-  grid-template-columns: 5fr 7fr;
+  grid-template-columns: 6fr 6fr;
   align-items: center;
   grid-gap: 0.5em;
 `;

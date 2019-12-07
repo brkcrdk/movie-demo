@@ -3,7 +3,9 @@ import { colours } from "../../../utils";
 interface InfoProps {
   active: boolean;
 }
-export const Container = styled.div``;
+export const Container = styled.div`
+  margin-left: 2em;
+`;
 interface ContentProps {
   toggle: boolean;
 }
@@ -25,7 +27,7 @@ export const Header = styled.li`
     border-radius: 50%;
     width: 2em;
     height: 2em;
-    margin-right: 1em;
+    margin-right: 2em;
     object-fit: cover;
   }
 `;

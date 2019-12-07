@@ -3,7 +3,7 @@ interface SlideProps {
   toggle: boolean;
 }
 export const Container = styled.div`
-  margin: 0 auto;
+  margin: 0 1em 0 2em;
 `;
 export const Slayt = styled.div`
   display: flex;
