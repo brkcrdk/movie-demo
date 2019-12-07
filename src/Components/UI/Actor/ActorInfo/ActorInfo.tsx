@@ -8,11 +8,16 @@ interface Props {}
 interface ActorProps {
   actorStore: {
     actor: ActorBio;
+    isLoading: boolean;
   };
 }
 
 const ActorInfo: React.FC<Props> = () => {
   const actor = useSelector((state: ActorProps) => state.actorStore.actor);
+  const isLoading = useSelector(
+    (state: ActorProps) => state.actorStore.isLoading
+  );
+  if (isLoading) return <p>Loading..</p>;
   const renderActor = actor && (
     <Container>
       <ImgContainer>
