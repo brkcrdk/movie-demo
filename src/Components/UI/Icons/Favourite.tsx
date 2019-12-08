@@ -36,11 +36,13 @@ const Favourite: React.FC<Props> = ({ movie }) => {
   }, [favourites, movie]);
 
   const handleFav = useCallback(() => {
-    if (toggle) {
-      dispatch(addFav(movie));
+    if (!toggle) {
+      console.log("add");
+      dispatch(addFav({ movie }));
       setToggle(true);
     } else {
-      dispatch(removeFav(movie));
+      console.log("del");
+      dispatch(removeFav({ movie }));
       setToggle(false);
     }
   }, [toggle, dispatch]);
