@@ -4,6 +4,7 @@ import Pages from "../Pages";
 import { Container, Desktop, Mobile } from "./NavbarStyle";
 import { useDispatch } from "react-redux";
 import { toggleSidebar, toggleSearch } from "../../../../store/Toggles/action";
+import { Bookmark } from "../../../UI/Icons/Icons";
 interface Props {}
 
 const Navbar: React.FC<Props> = () => {
@@ -19,11 +20,7 @@ const Navbar: React.FC<Props> = () => {
       <Desktop>
         <Pages />
         <Search />
-        <button
-          style={{ border: "none", background: "none", cursor: "pointer" }}
-        >
-          <i className="fas fa-bookmark" />
-        </button>
+        <Bookmark />
       </Desktop>
       <Mobile>
         <button
@@ -34,17 +31,8 @@ const Navbar: React.FC<Props> = () => {
         </button>
         <Search />
         <div>
-          <button
-            onClick={handleSearch}
-            style={{ border: "none", background: "none", cursor: "pointer" }}
-          >
-            <i className="fas fa-search" />
-          </button>
-          <button
-            style={{ border: "none", background: "none", cursor: "pointer" }}
-          >
-            <i className="fas fa-bookmark" />
-          </button>
+          {/* <SearchIcon onClick={handleSearch} /> */}
+          <Bookmark />
         </div>
       </Mobile>
     </Container>

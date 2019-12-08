@@ -16,6 +16,6 @@ const rootReducer = combineReducers({
   discoverStore: discoverReducer,
   discoverFilter: filterReducer,
   toggle: toggleReducer,
-  favMovies: favReducer
+  favourites: favReducer
 });
 export default rootReducer;
