@@ -1,7 +1,7 @@
-import { Genre } from "../serverTypes";
+import { IGenre } from "../serverTypes";
 
 export interface FilterState {
-  tags: Genre[];
+  tags: IGenre[];
 }
 
 export const ADD_TAG = "ADD_TAG";
@@ -10,11 +10,11 @@ export const SORT_BY = "SORT_BY";
 
 interface AddTag {
   type: typeof ADD_TAG;
-  payload: Genre[];
+  payload: IGenre[];
 }
 
 interface RemoveTag {
   type: typeof REMOVE_TAG;
-  payload: Genre[];
+  payload: IGenre[];
 }
 export type DiscoverTagActions = AddTag | RemoveTag;

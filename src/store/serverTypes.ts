@@ -50,7 +50,7 @@ export interface Cast {
   profile_path: string;
 }
 
-export interface Genre {
+export interface IGenre {
   id: number;
   name: string;
 }

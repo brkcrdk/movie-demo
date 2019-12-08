@@ -2,74 +2,25 @@ import React, { useEffect, useCallback, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchGenres } from "../../../../../../store/Genres/action";
 import { addTag } from "../../../../../../store/DiscoverFilter/action";
-import { Genre } from "../../../../../../store/serverTypes";
-import styled from "styled-components";
-import { device, colours } from "../../../../../../utils";
+import { IGenre } from "../../../../../../store/serverTypes";
+import {
+  Dropdown,
+  DropdownContent,
+  DropdownHeader,
+  Label,
+  Splitter,
+  DropdownItem
+} from "./GenreStyle";
+
 import GenreTags from "../Tags/GenreTags";
 interface Props {}
 interface GenreProps {
   genreStore: {
     genre: {
-      genres: Genre[];
+      genres: IGenre[];
     };
   };
 }
-
-interface DropdownContent {
-  toggle: boolean;
-}
-const Dropdown = styled.div`
-  position: relative;
-
-  @media ${device.mobileS} {
-    width: 100%;
-    margin-top: 1em;
-  }
-  @media ${device.mobileTablet} {
-    width: 15em;
-    margin-top: 0;
-  }
-`;
-const DropdownHeader = styled.button`
-  display: flex;
-  justify-content: space-between;
-  width: 96%;
-  background-color: transparent;
-  border: 0.3px solid grey;
-  padding: 0.5em;
-`;
-
-const DropdownContent = styled.div`
-  visibility: ${(p: DropdownContent) => (p.toggle ? "visible" : "hidden")};
-  display: grid;
-  align-items: center;
-  position: absolute;
-  max-height: ${(p: DropdownContent) => (p.toggle ? "50vh" : "0")};
-  transition: max-height 0.2s ease-in-out;
-  background-color: white;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  width: 96%;
-  z-index: 2;
-  border: 1px solid dodgerblue;
-`;
-const DropdownItem = styled.a`
-  padding-left: 0.5em;
-  padding-top: 0.3em;
-  cursor: pointer;
-  &:hover {
-    color: white;
-    background-color: dodgerblue;
-  }
-`;
-
-const Label = styled.label`
-  margin-bottom: 1em;
-`;
-
-const Splitter = styled.hr`
-  border: 0.5px solid ${colours.secondaryText};
-`;
 
 const Genre: React.FC<Props> = () => {
   const [toggle, setToggle] = useState(false);
@@ -93,7 +44,6 @@ const Genre: React.FC<Props> = () => {
   }
 
   useOutsideAlerter(btnRef);
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchGenres());
@@ -109,6 +59,19 @@ const Genre: React.FC<Props> = () => {
     [dispatch]
   );
 
+  const renderGenres =
+    genres &&
+    genres.map((genre, key) => (
+      <DropdownItem
+        key={key}
+        onClick={() => {
+          handleChange(genre.name, genre.id);
+        }}
+      >
+        {genre.name}
+      </DropdownItem>
+    ));
+
   return (
     <Dropdown ref={btnRef}>
       <Label>Genre:</Label>
@@ -117,7 +80,8 @@ const Genre: React.FC<Props> = () => {
         <GenreTags /> >
       </DropdownHeader>
       <DropdownContent toggle={toggle}>
-        {genres !== undefined
+        {renderGenres}
+        {/* {genres !== undefined
           ? genres.map((genre, key) => (
               <DropdownItem
                 key={key}
@@ -128,7 +92,7 @@ const Genre: React.FC<Props> = () => {
                 {genre.name}
               </DropdownItem>
             ))
-          : "Loading.."}
+          : "Loading.."} */}
       </DropdownContent>
     </Dropdown>
   );

@@ -1,7 +1,7 @@
-import { Genre } from "../serverTypes";
+import { IGenre } from "../serverTypes";
 
 export interface GenreState {
-  genre: Genre[];
+  genre: IGenre[];
   isLoading: boolean;
   error: null;
 }
@@ -16,7 +16,7 @@ interface GenreFetch {
 
 interface GenreSuccess {
   type: typeof GENRE_SUCCESS;
-  payload: Genre[];
+  payload: IGenre[];
 }
 
 interface GenreError {
