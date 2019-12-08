@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../../../utils";
+import { device, colours } from "../../../../utils";
 export const Container = styled.div`
   align-items: center;
   @media ${device.mobileS} {
@@ -39,5 +39,9 @@ export const InfoContainer = styled.div`
     width: 80%;
     display: flex;
     justify-content: flex-end;
+    i {
+      margin: 0 1em;
+      color: ${colours.pink};
+    }
   }
 `;

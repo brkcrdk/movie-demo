@@ -3,7 +3,6 @@ import { Container, ImgContainer, InfoContainer } from "./ActorInfoStyle";
 import { ActorBio } from "../../../../store/serverTypes";
 import { useSelector } from "react-redux";
 import { imgUrl } from "../../../../config";
-
 interface Props {}
 interface ActorProps {
   actorStore: {
@@ -25,7 +24,9 @@ const ActorInfo: React.FC<Props> = () => {
       </ImgContainer>
       <InfoContainer>
         <span>{actor.biography}</span>
-        <p>Popularity: {actor.popularity}</p>
+        <p>
+          <i className="fas fa-heart" /> {actor.popularity}
+        </p>
       </InfoContainer>
     </Container>
   );
