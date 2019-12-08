@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
-import { device } from "./utils";
 import NowPlaying from "./Components/Pages/NowPlaying/NowPlaying";
 import Popular from "./Components/Pages/Popular/Popular";
 import TopRated from "./Components/Pages/TopRated/TopRated";
@@ -11,11 +10,27 @@ import Navbar from "./Components/Pages/Navbar/Bar/Navbar";
 import Sidebar from "./Components/Pages/Navbar/Sidebar";
 import Dimmer from "./Components/UI/Dimmer";
 
+import { useDispatch } from "react-redux";
+import { addFav } from "./store/Favourite/action";
 const Container = styled.div`
   max-width: 91em;
   margin: 0 auto;
 `;
+
 const App: React.FC = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const local = { ...localStorage };
+    Object.keys(local).map(key => {
+      const item = localStorage.getItem(key);
+      if (item !== null) {
+        const movie = JSON.parse(item);
+        console.log(movie);
+        dispatch(addFav(movie));
+      }
+    });
+  }, [dispatch]);
+
   return (
     <Container>
       <Router>

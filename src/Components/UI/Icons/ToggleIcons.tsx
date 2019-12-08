@@ -27,9 +27,7 @@ const ToggleIcons: React.FC<Props> = ({
     <Button onClick={onClick}>
       <i
         style={style}
-        className={`fa${
-          iconStyle === "solid" ? "s" : "ToggleIcons"
-        } fa-${icon}`}
+        className={`fa${iconStyle === "solid" ? "s" : "r"} fa-${icon}`}
       />
     </Button>
   );
