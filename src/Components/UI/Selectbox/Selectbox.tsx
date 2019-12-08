@@ -1,23 +1,11 @@
 import React from "react";
-import styled from "styled-components";
-import { device } from "../../utils";
+import { Container, Select, Option, Splitter, Label } from "./SelectboxStyle";
 interface Props {
   options: { value: string | number; text: string | number }[];
   label: string;
   defaultValue?: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
-const Container = styled.div`
-  margin: 0 1em;
-`;
-const Select = styled.select`
-  width: 100%;
-  min-width: 10em;
-  @media ${device.desktop} {
-    width: 15em;
-  }
-`;
-
 const Selectbox: React.FC<Props> = ({
   label,
   options,
@@ -26,14 +14,14 @@ const Selectbox: React.FC<Props> = ({
 }) => {
   return (
     <Container>
-      <label>{label}</label>
-      <hr />
+      <Label>{label}</Label>
+      <Splitter />
       <Select onChange={onChange} defaultValue=" ">
-        <option value=" ">{defaultValue}</option>
+        <Option value=" ">{defaultValue}</Option>
         {options.map((option, index) => (
-          <option key={index} value={option.value}>
+          <Option key={index} value={option.value}>
             {option.text}
-          </option>
+          </Option>
         ))}
       </Select>
     </Container>

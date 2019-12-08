@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeTag } from "../../../../../store/DiscoverFilter/action";
+import { removeTag } from "../../../../../../store/DiscoverFilter/action";
 import { Container, TagWrapper, TagButton, TagName } from "./TagsStyle";
 
 interface Props {}

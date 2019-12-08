@@ -1,11 +1,11 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchGenres } from "../../../../../store/Genres/action";
-import { addTag } from "../../../../../store/DiscoverFilter/action";
-import { Genre } from "../../../../../store/serverTypes";
+import { fetchGenres } from "../../../../../../store/Genres/action";
+import { addTag } from "../../../../../../store/DiscoverFilter/action";
+import { Genre } from "../../../../../../store/serverTypes";
 import styled from "styled-components";
-import { device } from "../../../../../utils";
-import GenreTags from "./GenreTags";
+import { device, colours } from "../../../../../../utils";
+import GenreTags from "../Tags/GenreTags";
 interface Props {}
 interface GenreProps {
   genreStore: {
@@ -27,6 +27,7 @@ const Dropdown = styled.div`
   }
   @media ${device.mobileTablet} {
     width: 15em;
+    margin-top: 0;
   }
 `;
 const DropdownHeader = styled.button`
@@ -35,28 +36,42 @@ const DropdownHeader = styled.button`
   width: 96%;
   background-color: transparent;
   border: 0.3px solid grey;
-  padding: 1em 0.5em;
+  padding: 0.5em;
 `;
 
 const DropdownContent = styled.div`
   visibility: ${(p: DropdownContent) => (p.toggle ? "visible" : "hidden")};
   display: grid;
+  align-items: center;
   position: absolute;
-  background-color: #f1f1f1;
-  max-height: ${(p: DropdownContent) => (p.toggle ? "10em" : "0")};
-  transition: max-height 0.5s ease-in-out;
+  max-height: ${(p: DropdownContent) => (p.toggle ? "50vh" : "0")};
+  transition: max-height 0.2s ease-in-out;
+  background-color: white;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 96%;
-  z-index: 5;
+  z-index: 2;
+  border: 1px solid dodgerblue;
 `;
 const DropdownItem = styled.a`
   padding-left: 0.5em;
   padding-top: 0.3em;
   cursor: pointer;
+  &:hover {
+    color: white;
+    background-color: dodgerblue;
+  }
 `;
 
-const Selectbox: React.FC<Props> = () => {
+const Label = styled.label`
+  margin-bottom: 1em;
+`;
+
+const Splitter = styled.hr`
+  border: 0.5px solid ${colours.secondaryText};
+`;
+
+const Genre: React.FC<Props> = () => {
   const [toggle, setToggle] = useState(false);
   const btnRef = useRef<HTMLDivElement>(null);
   const handleToggle = () => {
@@ -96,6 +111,8 @@ const Selectbox: React.FC<Props> = () => {
 
   return (
     <Dropdown ref={btnRef}>
+      <Label>Genre:</Label>
+      <Splitter />
       <DropdownHeader onClick={handleToggle}>
         <GenreTags /> >
       </DropdownHeader>
@@ -117,4 +134,4 @@ const Selectbox: React.FC<Props> = () => {
   );
 };
 
-export default Selectbox;
+export default Genre;

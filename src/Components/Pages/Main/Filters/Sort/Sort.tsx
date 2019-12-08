@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchDiscover } from "../../../../../store/Discover/action";
 import { sortOptions, years, voteAvg } from "./sortOptions";
-import Selectbox from "../../../../UI/Selectbox";
+import Selectbox from "../../../../UI/Selectbox/Selectbox";
 import styled from "styled-components";
 import { device } from "../../../../../utils";
-import Genres from "../Genres/Genres";
+import Genres from "../Genres/Genre/Genre";
 interface Props {
   activePage: number;
 }
