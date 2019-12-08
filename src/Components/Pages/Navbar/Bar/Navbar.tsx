@@ -19,11 +19,15 @@ const Navbar: React.FC<Props> = () => {
       <Desktop>
         <Pages />
         <Search />
+        <button>F</button>
       </Desktop>
       <Mobile>
         <button onClick={handleSidebar}>X</button>
         <Search />
-        <button onClick={handleSearch}>Search</button>
+        <div>
+          <button onClick={handleSearch}>Search</button>
+          <button>F</button>
+        </div>
       </Mobile>
     </Container>
   );
