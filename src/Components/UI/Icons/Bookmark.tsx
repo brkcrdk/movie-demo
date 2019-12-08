@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { colours } from "../../../utils";
 import { useSelector } from "react-redux";
-import { MovieList } from "../../../store/serverTypes";
+import { MovieInfo } from "../../../store/serverTypes";
 interface Props {}
 
 interface FavStore {
   favourites: {
-    favMovies: { movie: MovieList }[];
+    favMovies: { movie: MovieInfo }[];
   };
 }
 const Button = styled.button`

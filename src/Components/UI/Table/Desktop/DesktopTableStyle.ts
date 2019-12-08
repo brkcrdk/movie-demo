@@ -45,7 +45,7 @@ export const Wrapper = styled.div`
   max-height: ${(p: WrapperProps) => (p.toggle ? "100vh" : "5em")};
   transition: max-height 0.5s;
   overflow: hidden;
-  button {
+  > button {
     position: absolute;
     display: flex;
     justify-content: center;
