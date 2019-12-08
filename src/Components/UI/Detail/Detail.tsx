@@ -7,6 +7,7 @@ import ActorList from "../Actor/ActorList/ActorList";
 interface Props {
   activeIndex: number;
   index: number;
+  isMobile?: boolean;
 }
 interface StoreProps {
   detailStore: {
@@ -19,18 +20,23 @@ interface ToggleProps {
     slaytGrid: number;
   };
 }
-const Detail: React.FC<Props> = ({ activeIndex, index }) => {
+const Detail: React.FC<Props> = ({ activeIndex, index, isMobile = false }) => {
   const movie = useSelector((state: StoreProps) => state.detailStore.movie);
   const isLoading = useSelector(
     (state: StoreProps) => state.detailStore.isLoading
   );
   const slaytGrid = useSelector((state: ToggleProps) => state.toggle.slaytGrid);
+  const imgSize = () => {
+    if (slaytGrid !== -1) return "big";
+    if (isMobile) return "big";
+    return "small";
+  };
   const renderImages = movie.images && (
     <Slayt toggle={slaytGrid !== -1}>
       <Carousel
         isLoading={isLoading}
         images={movie.images}
-        imgSize={slaytGrid !== -1 ? "big" : "small"}
+        imgSize={imgSize()}
       />
       <p>{movie.overview}</p>
     </Slayt>
