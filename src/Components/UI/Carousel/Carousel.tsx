@@ -47,9 +47,13 @@ const Carousel: React.FC<Props> = ({ images, isLoading, imgSize }) => {
   return (
     <Container>
       <Slayt>
-        <button onClick={handlePrev}>&#x3c;</button>
+        <button onClick={handlePrev}>
+          <i className="fas fa-chevron-left" />
+        </button>
         {isLoading ? "loading" : renderImages}
-        <button onClick={handleNext}>&#x3e;</button>
+        <button onClick={handleNext}>
+          <i className="fas fa-chevron-right" />
+        </button>
       </Slayt>
     </Container>
   );
