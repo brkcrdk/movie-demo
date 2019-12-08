@@ -5,7 +5,7 @@ import { MovieInfo } from "../../../store/serverTypes";
 import styled from "styled-components";
 import { colours } from "../../../utils";
 interface Props {
-  movieId: number;
+  movie: MovieInfo;
 }
 interface FavStore {
   favourites: {
@@ -20,24 +20,30 @@ const Button = styled.button`
   font-size: 1.2em;
   cursor: pointer;
 `;
-const Favourite: React.FC<Props> = ({ movieId }) => {
+const Favourite: React.FC<Props> = ({ movie }) => {
   const favourites = useSelector(
     (state: FavStore) => state.favourites.favMovies
   );
   const [toggle, setToggle] = useState(false);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     if (favourites.length > 0) {
       const ids = favourites.map(item => item.movie.id);
-      if (ids.indexOf(movieId) !== -1) {
+      if (ids.indexOf(movie.id) !== -1) {
         setToggle(true);
       }
     }
-  }, [favourites, movieId]);
+  }, [favourites, movie]);
 
   const handleFav = useCallback(() => {
-    setToggle(!toggle);
-  }, [toggle]);
+    if (toggle) {
+      dispatch(addFav(movie));
+      setToggle(true);
+    } else {
+      dispatch(removeFav(movie));
+      setToggle(false);
+    }
+  }, [toggle, dispatch]);
 
   return (
     <Button onClick={handleFav}>

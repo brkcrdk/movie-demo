@@ -43,7 +43,7 @@ const DekstopTable: React.FC<Props> = ({ movies, section }) => {
     movies.map((movie, key) => {
       return (
         <Wrapper key={key} toggle={activeIndex === key}>
-          <Favourite movieId={movie.id} />
+          <Favourite movie={movie} />
           <Row
             onClick={() => {
               handleToggle(key, movie.id);

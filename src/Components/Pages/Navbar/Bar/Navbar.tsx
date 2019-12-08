@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback } from "react";
 import Search from "../../Search/Search";
 import Pages from "../Pages";
 import { Container, Desktop, Mobile } from "./NavbarStyle";
