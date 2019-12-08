@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { device } from "../../utils";
 interface Props {
   options: { value: string | number; text: string | number }[];
   label: string;
@@ -11,7 +12,10 @@ const Container = styled.div`
 `;
 const Select = styled.select`
   width: 100%;
-  min-width: 15em;
+  min-width: 10em;
+  @media ${device.desktop} {
+    width: 15em;
+  }
 `;
 
 const Selectbox: React.FC<Props> = ({

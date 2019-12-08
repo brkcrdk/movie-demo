@@ -18,7 +18,7 @@ const Container = styled.div`
   top: 0;
   background-color: white;
   width: 100%;
-  z-index: 1;
+  z-index: 10;
   overflow-x: hidden;
   /* box-shadow: ${(p: ContainerProps) =>
     p.scroll ? `${colours.boxShadow}` : ""}; */
