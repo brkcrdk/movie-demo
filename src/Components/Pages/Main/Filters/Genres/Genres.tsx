@@ -20,8 +20,10 @@ interface DropdownContent {
 }
 const Dropdown = styled.div`
   position: relative;
+
   @media ${device.mobileS} {
-    width: 10em;
+    width: 100%;
+    margin-top: 1em;
   }
   @media ${device.mobileTablet} {
     width: 15em;
@@ -30,7 +32,7 @@ const Dropdown = styled.div`
 const DropdownHeader = styled.button`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 96%;
   background-color: transparent;
   border: 0.3px solid grey;
   padding: 1em 0.5em;
@@ -45,8 +47,8 @@ const DropdownContent = styled.div`
   transition: max-height 0.5s ease-in-out;
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 100%;
-  z-index: 1;
+  width: 96%;
+  z-index: 5;
 `;
 const DropdownItem = styled.a`
   padding-left: 0.5em;

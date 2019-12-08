@@ -14,14 +14,9 @@ export const Container = styled.div`
 export const Slayt = styled.div`
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   position: relative;
-  /* @media ${device.mobileS} {
-    justify-content:center;
-  }
-  @media ${device.tablet}{
-    jus
-  } */
+
   button {
     position: absolute;
     background-color: transparent;

@@ -24,19 +24,25 @@ const Container = styled.div`
   background-color: white;
   position: fixed;
   padding-bottom: 1em;
-  padding-top: 0.5em;
-  div {
-    margin: 0 1em;
-  }
+  padding-top: 1.5em;
+
   @media ${device.mobileS} {
     display: grid;
-    grid-template-columns: repeat(2, 6fr);
+    grid-template-columns: 12fr;
+    align-items: flex-start;
     margin-top: -2.6em;
+    z-index: 1;
+    #genreWrap {
+      margin-left: 1em;
+    }
+  }
+  @media ${device.mobileTablet} {
+    grid-template-columns: repeat(2, 6fr);
   }
   @media ${device.tablet} {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
     margin-top: 0.9em;
     z-index: 1;
   }
@@ -68,7 +74,6 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
   };
   return (
     <Container>
-      <Genres />
       <Selectbox options={years()} label="Year" onChange={handleYear} />
       <Selectbox
         options={voteAvg()}
@@ -76,6 +81,9 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
         onChange={handleAverage}
       />
       <Selectbox options={sortOptions} label="Sort By" onChange={handleSort} />
+      <div id="genreWrap">
+        <Genres />
+      </div>
     </Container>
   );
 };
