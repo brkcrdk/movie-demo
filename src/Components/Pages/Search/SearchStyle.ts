@@ -19,7 +19,7 @@ export const Mobile = styled.div`
     p.toggle ? "translateX(0)" : "translateX(150%)"};
   transition: transform 0.5s ease-in-out;
   position: fixed;
-  top: 5.3em;
+  top: 5.5em;
   left: 0;
   width: 100%;
   text-align: center;

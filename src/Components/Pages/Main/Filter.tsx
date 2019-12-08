@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Sort from "../Main/Filters/Sort/Sort";
 import styled from "styled-components";
 import { device } from "../../../utils";
+import { ToggleIcons } from "../../UI/Icons/Icons";
 interface Props {
   activePage: number;
 }
@@ -34,16 +35,16 @@ const Mobile = styled.div`
     display: none;
   }
 `;
-const Close = styled.span`
-  position: fixed;
-  z-index: 1;
-  right: 0.5em;
-  top: 6.5em;
-`;
 const Filters: React.FC<Props> = ({ activePage }) => {
   const [toggle, setToggle] = useState(false);
   const handleToggle = () => {
     setToggle(!toggle);
+  };
+  const filterIconStyle = {
+    position: "fixed",
+    zIndex: "1",
+    right: "1em",
+    top: "5.5em"
   };
   return (
     <Container>
@@ -52,9 +53,11 @@ const Filters: React.FC<Props> = ({ activePage }) => {
       </Desktop>
       <Mobile toggle={toggle}>
         <Sort activePage={activePage} />
-        <Close onClick={handleToggle}>
-          <i className="fas fa-filter" />
-        </Close>
+        <ToggleIcons
+          onClick={handleToggle}
+          icon="filter"
+          style={filterIconStyle}
+        />
       </Mobile>
     </Container>
   );

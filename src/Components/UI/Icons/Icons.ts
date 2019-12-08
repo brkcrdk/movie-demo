@@ -1,4 +1,4 @@
-import Toggles from "./Toggles";
+import ToggleIcons from "./ToggleIcons";
 import Bookmark from "./Bookmark";
 
-export { Toggles, Bookmark };
+export { ToggleIcons, Bookmark };
