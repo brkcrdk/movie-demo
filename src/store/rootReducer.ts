@@ -7,6 +7,7 @@ import discoverReducer from "./Discover/reducer";
 import filterReducer from "./DiscoverFilter/reducer";
 import toggleReducer from "./Toggles/reducer";
 import actorReducer from "./Actor//reducer";
+import favReducer from "./Favourite/reducer";
 const rootReducer = combineReducers({
   detailStore: detailReducer,
   actorStore: actorReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   moviesStore: moviesReducer,
   discoverStore: discoverReducer,
   discoverFilter: filterReducer,
-  toggle: toggleReducer
+  toggle: toggleReducer,
+  favMovies: favReducer
 });
 export default rootReducer;
