@@ -40,9 +40,9 @@ export const Desktop = styled.div`
 
 export const Mobile = styled.div`
   @media ${device.mobileS} {
-    padding: 1em 0;
+    padding: 1em;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
   }
   @media ${device.tablet} {

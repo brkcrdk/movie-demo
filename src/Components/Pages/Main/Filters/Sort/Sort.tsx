@@ -44,6 +44,9 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
   };
   return (
     <Container>
+      <GenreWrap>
+        <Genres />
+      </GenreWrap>
       <Selectbox options={years()} label="Year" onChange={handleYear} />
       <Selectbox
         options={voteAvg()}
@@ -51,9 +54,6 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
         onChange={handleAverage}
       />
       <Selectbox options={sortOptions} label="Sort By" onChange={handleSort} />
-      <GenreWrap>
-        <Genres />
-      </GenreWrap>
     </Container>
   );
 };

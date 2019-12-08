@@ -28,7 +28,7 @@ export const DropdownContent = styled.div`
   display: grid;
   align-items: center;
   position: absolute;
-  max-height: ${(p: DropdownContent) => (p.toggle ? "50vh" : "0")};
+  max-height: ${(p: DropdownContent) => (p.toggle ? "15em" : "0")};
   transition: max-height 0.2s ease-in-out;
   background-color: white;
   overflow-y: scroll;

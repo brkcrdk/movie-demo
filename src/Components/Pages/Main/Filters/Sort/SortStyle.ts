@@ -30,6 +30,8 @@ export const Container = styled.div`
 export const GenreWrap = styled.div`
   @media ${device.mobileS} {
     margin-left: 1em;
+    background-color: white;
+    z-index: 1;
   }
   @media ${device.tablet} {
     margin-left: 0;

@@ -52,7 +52,9 @@ const Filters: React.FC<Props> = ({ activePage }) => {
       </Desktop>
       <Mobile toggle={toggle}>
         <Sort activePage={activePage} />
-        <Close onClick={handleToggle}>Toggle</Close>
+        <Close onClick={handleToggle}>
+          <i className="fas fa-filter" />
+        </Close>
       </Mobile>
     </Container>
   );
