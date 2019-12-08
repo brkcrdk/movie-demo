@@ -45,13 +45,13 @@ export const Wrapper = styled.div`
   max-height: ${(p: WrapperProps) => (p.toggle ? "100vh" : "5em")};
   transition: max-height 0.5s;
   overflow: hidden;
-  input {
+  button {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 2.5em;
-    left: 1em;
+    top: 1.5em;
+    left: 0.4em;
   }
 `;
 export const Row = styled.ul`

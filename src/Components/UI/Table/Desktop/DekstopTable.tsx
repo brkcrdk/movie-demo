@@ -11,6 +11,7 @@ import {
 import Detail from "../../Detail/Detail";
 import Overview from "./Overview";
 import Title from "./Title";
+import { Favourite } from "../../../UI/Icons/Icons";
 import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
 import { toggleSlaytGrid } from "../../../../store/Toggles/action";
@@ -42,7 +43,7 @@ const DekstopTable: React.FC<Props> = ({ movies, section }) => {
     movies.map((movie, key) => {
       return (
         <Wrapper key={key} toggle={activeIndex === key}>
-          <input type="radio" />
+          <Favourite />
           <Row
             onClick={() => {
               handleToggle(key, movie.id);
