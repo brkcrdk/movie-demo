@@ -11,7 +11,6 @@ import {
   Splitter,
   DropdownItem
 } from "./GenreStyle";
-
 import GenreTags from "../Tags/GenreTags";
 interface Props {}
 interface GenreProps {
@@ -79,21 +78,7 @@ const Genre: React.FC<Props> = () => {
       <DropdownHeader onClick={handleToggle}>
         <GenreTags /> >
       </DropdownHeader>
-      <DropdownContent toggle={toggle}>
-        {renderGenres}
-        {/* {genres !== undefined
-          ? genres.map((genre, key) => (
-              <DropdownItem
-                key={key}
-                onClick={() => {
-                  handleChange(genre.name, genre.id);
-                }}
-              >
-                {genre.name}
-              </DropdownItem>
-            ))
-          : "Loading.."} */}
-      </DropdownContent>
+      <DropdownContent toggle={toggle}>{renderGenres}</DropdownContent>
     </Dropdown>
   );
 };

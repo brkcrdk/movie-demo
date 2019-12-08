@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { device, colours } from "../../../../../../utils";
+import { device, colours, fonts } from "../../../../../../utils";
 interface DropdownContent {
   toggle: boolean;
 }
 export const Dropdown = styled.div`
   position: relative;
-
+  font-family: ${fonts.aBeeZee};
   @media ${device.mobileS} {
     width: 100%;
     margin-top: 1em;
@@ -20,7 +20,7 @@ export const DropdownHeader = styled.button`
   justify-content: space-between;
   width: 96%;
   background-color: transparent;
-  border: 0.3px solid grey;
+  border: 0.3px solid lightgray;
   padding: 0.5em;
 `;
 export const DropdownContent = styled.div`
@@ -49,8 +49,11 @@ export const DropdownItem = styled.a`
 
 export const Label = styled.label`
   margin-bottom: 1em;
+  font-weight: 800;
 `;
 
 export const Splitter = styled.hr`
+  margin: 0.5em 0;
+  width: 95%;
   border: 0.5px solid ${colours.secondaryText};
 `;

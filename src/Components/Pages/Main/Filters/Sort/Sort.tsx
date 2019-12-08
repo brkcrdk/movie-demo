@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchDiscover } from "../../../../../store/Discover/action";
 import { sortOptions, years, voteAvg } from "./sortOptions";
 import Selectbox from "../../../../UI/Selectbox/Selectbox";
-import styled from "styled-components";
-import { device } from "../../../../../utils";
+import { Container, GenreWrap } from "./SortStyle";
 import Genres from "../Genres/Genre/Genre";
 interface Props {
   activePage: number;
@@ -18,35 +17,6 @@ interface DiscoverFilter {
     }[];
   };
 }
-
-const Container = styled.div`
-  width: 100%;
-  background-color: white;
-  position: fixed;
-  padding-bottom: 1em;
-  padding-top: 1.5em;
-
-  @media ${device.mobileS} {
-    display: grid;
-    grid-template-columns: 12fr;
-    align-items: flex-start;
-    margin-top: -2.6em;
-    z-index: 1;
-    #genreWrap {
-      margin-left: 1em;
-    }
-  }
-  @media ${device.mobileTablet} {
-    grid-template-columns: repeat(2, 6fr);
-  }
-  @media ${device.tablet} {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 0.9em;
-    z-index: 1;
-  }
-`;
 
 const SortBtn: React.FC<Props> = ({ activePage }) => {
   const [year, setYear] = useState("0");
@@ -81,9 +51,9 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
         onChange={handleAverage}
       />
       <Selectbox options={sortOptions} label="Sort By" onChange={handleSort} />
-      <div id="genreWrap">
+      <GenreWrap>
         <Genres />
-      </div>
+      </GenreWrap>
     </Container>
   );
 };
