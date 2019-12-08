@@ -7,7 +7,7 @@ import Popular from "./Components/Pages/Popular/Popular";
 import TopRated from "./Components/Pages/TopRated/TopRated";
 import Upcoming from "./Components/Pages/Upcoming/Upcoming";
 import Discover from "./Components/Pages/Main/Discover";
-import Navbar from "./Components/Pages/Navbar/Navbar";
+import Navbar from "./Components/Pages/Navbar/Bar/Navbar";
 import Sidebar from "./Components/Pages/Navbar/Sidebar";
 import Dimmer from "./Components/UI/Dimmer";
 
