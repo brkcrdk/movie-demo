@@ -20,7 +20,7 @@ const Button = styled.button`
   font-size: 1.2em;
   cursor: pointer;
 `;
-const Favourite: React.FC<Props> = () => {
+const Favourite: React.FC<Props> = ({ movieId }) => {
   const favourites = useSelector(
     (state: FavStore) => state.favourites.favMovies
   );
@@ -29,8 +29,11 @@ const Favourite: React.FC<Props> = () => {
   useEffect(() => {
     if (favourites.length > 0) {
       const ids = favourites.map(item => item.movie.id);
+      if (ids.indexOf(movieId) !== -1) {
+        setToggle(true);
+      }
     }
-  }, [favourites]);
+  }, [favourites, movieId]);
 
   const handleFav = useCallback(() => {
     setToggle(!toggle);

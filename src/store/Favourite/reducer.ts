@@ -16,6 +16,7 @@ const favReducer = (state = initialState, action: FavActions) => {
           };
         }
       }
+      return state;
     case REMOVE_FAV:
       if (state.favMovies.length >= 0) {
         const id = state.favMovies.map(item => item.movie.id);
@@ -28,6 +29,7 @@ const favReducer = (state = initialState, action: FavActions) => {
           };
         }
       }
+      return state;
     default:
       return state;
   }
