@@ -19,14 +19,32 @@ const Navbar: React.FC<Props> = () => {
       <Desktop>
         <Pages />
         <Search />
-        <button>F</button>
+        <button
+          style={{ border: "none", background: "none", cursor: "pointer" }}
+        >
+          <i className="fas fa-bookmark" />
+        </button>
       </Desktop>
       <Mobile>
-        <button onClick={handleSidebar}>X</button>
+        <button
+          onClick={handleSidebar}
+          style={{ border: "none", background: "none", cursor: "pointer" }}
+        >
+          <i className="fas fa-bars" />
+        </button>
         <Search />
         <div>
-          <button onClick={handleSearch}>Search</button>
-          <button>F</button>
+          <button
+            onClick={handleSearch}
+            style={{ border: "none", background: "none", cursor: "pointer" }}
+          >
+            <i className="fas fa-search" />
+          </button>
+          <button
+            style={{ border: "none", background: "none", cursor: "pointer" }}
+          >
+            <i className="fas fa-bookmark" />
+          </button>
         </div>
       </Mobile>
     </Container>
