@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device, colours } from "../../../../utils";
+import { device, colours, fonts } from "../../../../utils";
 
 export const Container = styled.div`
   position: fixed;
@@ -15,7 +15,6 @@ export const Container = styled.div`
     border-bottom: 0.5px solid ${colours.secondaryText};
   }
   @media ${device.tablet} {
-    /* border-bottom: none; */
     border-bottom: 1px solid ${colours.secondaryText};
   }
   @media ${device.widescreen} {
@@ -48,5 +47,24 @@ export const Mobile = styled.div`
   }
   @media ${device.tablet} {
     display: none;
+  }
+`;
+
+export const Icons = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const Section = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  span {
+    font-family: ${fonts.MontserratAlternates};
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: ${colours.pink};
   }
 `;

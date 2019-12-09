@@ -17,7 +17,8 @@ export const Content = styled.div`
   position: relative;
   > button:first-child {
     position: absolute;
-    right: 0;
+    right: 1em;
+    top: 1em;
   }
   > button:last-child {
     position: absolute;
