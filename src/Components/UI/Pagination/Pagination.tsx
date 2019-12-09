@@ -2,7 +2,8 @@ import React, { useCallback, useState } from "react";
 import { fetchDiscover } from "../../../store/Discover/action";
 import { fetchMovies } from "../../../store/Movies/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Next, Prev, Number } from "./PaginationStyle";
+import { Container, Number } from "./PaginationStyle";
+import { ToggleIcons } from "../../UI/Icons/Icons";
 interface Props {
   totalPages: number;
   section: string;
@@ -39,8 +40,6 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
       } else {
         dispatch(fetchMovies(section, page));
       }
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
     },
     [dispatch, filter, section]
   );
@@ -74,6 +73,7 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
         onClick={() => {
           handlePageNumber(number);
         }}
+        active={activePage === number}
       >
         {number}
       </Number>
@@ -81,13 +81,17 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
 
   return (
     <Container>
-      <Prev onClick={handlePrev} disabled={activePage === 1}>
-        &#60;
-      </Prev>
+      <ToggleIcons
+        icon="chevron-left"
+        onClick={handlePrev}
+        disabled={activePage === 1}
+      />
       {renderPageNumbers}
-      <Next onClick={handleNext} disabled={activePage === totalPages}>
-        &#62;
-      </Next>
+      <ToggleIcons
+        icon="chevron-right"
+        onClick={handleNext}
+        disabled={activePage === totalPages}
+      />
     </Container>
   );
 };

@@ -6,6 +6,7 @@ interface Props {
   icon: string;
   iconStyle?: string;
   style?: {};
+  disabled?: boolean;
 }
 
 const Button = styled.button`
@@ -21,10 +22,11 @@ const ToggleIcons: React.FC<Props> = ({
   onClick,
   icon,
   iconStyle = "solid",
-  style
+  style,
+  disabled = false
 }) => {
   return (
-    <Button onClick={onClick}>
+    <Button onClick={onClick} disabled={disabled}>
       <i
         style={style}
         className={`fa${iconStyle === "solid" ? "s" : "r"} fa-${icon}`}
