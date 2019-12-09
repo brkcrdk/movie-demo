@@ -10,7 +10,7 @@ export const Dropdown = styled.div`
     width: 100%;
     margin-top: 1em;
   }
-  @media ${device.mobileTablet} {
+  @media ${device.tablet} {
     width: 15em;
     margin-top: 0;
   }
