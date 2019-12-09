@@ -18,10 +18,19 @@ const Table: React.FC<Props> = ({
   activePage,
   isLoading
 }) => {
+  const filterNulls =
+    movies &&
+    movies.filter(movie => {
+      return movie.backdrop_path !== null && movie.poster_path !== null;
+    });
   return (
     <div>
-      <MobileTable movies={movies} isLoading={isLoading} />
-      <DekstopTable movies={movies} section={section} isLoading={isLoading} />
+      <MobileTable movies={filterNulls} isLoading={isLoading} />
+      <DekstopTable
+        movies={filterNulls}
+        section={section}
+        isLoading={isLoading}
+      />
       <Pagination
         section={section}
         totalPages={totalPages}
