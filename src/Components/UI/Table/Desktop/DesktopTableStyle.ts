@@ -23,16 +23,9 @@ export const Header = styled.div`
   background-color: white;
   z-index: 1;
   border-bottom: 1px solid ${colours.pink};
-  border-top: 1px solid ${colours.secondaryText};
   text-align: center;
   @media ${device.tablet} {
     margin-top: -3.1em;
-  }
-  @media ${device.desktop} {
-    margin-top: -3.08em;
-  }
-  @media ${device.desktopL} {
-    margin-top: -3em;
   }
 `;
 

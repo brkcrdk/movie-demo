@@ -15,7 +15,8 @@ export const Container = styled.div`
     border-bottom: 0.5px solid ${colours.secondaryText};
   }
   @media ${device.tablet} {
-    border-bottom: none;
+    /* border-bottom: none; */
+    border-bottom: 1px solid ${colours.secondaryText};
   }
   @media ${device.widescreen} {
     width: inherit;

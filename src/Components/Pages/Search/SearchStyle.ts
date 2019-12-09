@@ -64,24 +64,31 @@ export const ResultWrapper = styled.div`
   background-color: white;
   z-index: 3;
   position: fixed;
-  padding-top: 1em;
+  padding-top: 0.5em;
   border: 1px solid ${colours.secondaryText};
   @media ${device.mobileS} {
+    top: 2.9em;
+    width: 99%;
   }
   @media ${device.tablet} {
     top: 10em;
+    width: initial;
   }
-
+  @media ${device.desktopL} {
+    top: 9em;
+  }
   div {
     width: 100%;
     display: grid;
-    grid-template-columns: 5fr 7fr;
+    margin-left: -1em;
+    padding: 0;
+    grid-template-columns: 2fr 10fr;
     grid-gap: 0;
     align-items: center;
     text-align: left;
     cursor: pointer;
   }
   img {
-    height: 2em;
+    height: 1.5em;
   }
 `;
