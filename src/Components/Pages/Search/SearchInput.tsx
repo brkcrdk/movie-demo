@@ -31,21 +31,25 @@ const SearchInput: React.FC<Props> = () => {
     }
   }, [input]);
 
+  const renderResults =
+    result &&
+    result
+      .filter(result => {
+        return result.backdrop_path !== null;
+      })
+      .map((result, index) => (
+        <li key={index}>
+          <div>
+            <img src={`${imgUrl}/w300${result.backdrop_path}`} />
+            <span>{result.title}</span>
+          </div>
+        </li>
+      ));
   return (
     <>
       <input value={input} onChange={handleInput} placeholder="Search.." />
       <ResultWrapper isEmpty={input !== ""}>
-        <ul>
-          {result &&
-            result.map((item, key) => (
-              <li key={key}>
-                <div>
-                  <img src={`${imgUrl}/w300${item.backdrop_path}`} />
-                  <span>{item.title}</span>
-                </div>
-              </li>
-            ))}
-        </ul>
+        <ul>{renderResults}</ul>
       </ResultWrapper>
     </>
   );
