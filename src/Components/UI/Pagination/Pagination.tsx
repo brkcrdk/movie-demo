@@ -40,6 +40,7 @@ const Pagination: React.FC<Props> = ({ totalPages, section, activePage }) => {
       } else {
         dispatch(fetchMovies(section, page));
       }
+      window.scrollTo({ top: 0, behavior: "smooth" });
     },
     [dispatch, filter, section]
   );

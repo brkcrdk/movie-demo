@@ -8,6 +8,7 @@ const Spinner = styled.div`
   border-radius: 50%;
   width: 2em;
   height: 2em;
+  margin: 4em 0;
   animation: spin 2s linear infinite;
 
   @keyframes spin {
