@@ -34,9 +34,7 @@ const Discover: React.FC<Props> = () => {
     const ids = filters.map(item => item.id);
     dispatch(fetchDiscover(1, "", ...ids));
   }, [dispatch, filters]);
-  if (!movies) {
-    return <h1>Loading..</h1>;
-  }
+
   return (
     <div>
       <Filter activePage={movies.page} />
