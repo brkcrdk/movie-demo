@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { IDetail } from "../../../store/serverTypes";
 import Carousel from "../Carousel/Carousel";
 import ActorList from "../Actor/ActorList/ActorList";
+import Loader from "../../UI/Loader";
 interface Props {
   activeIndex: number;
   index: number;
@@ -32,7 +33,8 @@ const Detail: React.FC<Props> = ({ activeIndex, index, isMobile = false }) => {
     return "small";
   };
 
-  if (isLoading) return <h3>Loading...</h3>;
+  if (isLoading) return <Loader />;
+
   const renderImages = movie.images && (
     <Slayt toggle={slaytGrid !== -1}>
       <Carousel

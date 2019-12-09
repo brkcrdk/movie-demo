@@ -1,10 +1,9 @@
 import React from "react";
 import { MovieInfo } from "../../../store/serverTypes";
 import Pagination from "../Pagination/Pagination";
-
 import MobileTable from "./Mobile/MobileTable";
 import DekstopTable from "./Desktop/DekstopTable";
-
+import Loader from "../Loader";
 interface Props {
   section: string;
   movies: MovieInfo[];
@@ -20,7 +19,7 @@ const Table: React.FC<Props> = ({
   activePage,
   isLoading
 }) => {
-  if (isLoading) return <h4>Loading...</h4>;
+  if (isLoading) return <Loader />;
   return (
     <div>
       <MobileTable movies={movies} />

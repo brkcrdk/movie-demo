@@ -10,7 +10,6 @@ export const Container = styled.div`
   overflow: hidden;
   border-top: 1px solid ${colours.secondaryText};
   padding: 0.5em;
-  transition: 0.5s;
   @media ${device.mobileS} {
     grid-template-columns: 12fr;
     width: 96%;
