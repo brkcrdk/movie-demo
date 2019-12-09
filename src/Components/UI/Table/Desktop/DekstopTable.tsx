@@ -20,7 +20,6 @@ interface Props {
   movies: MovieInfo[];
   section: string;
 }
-
 const DekstopTable: React.FC<Props> = ({ movies, section }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const dispatch = useDispatch();
@@ -34,19 +33,23 @@ const DekstopTable: React.FC<Props> = ({ movies, section }) => {
       }
       dispatch(fetchDetails(id));
       dispatch(toggleSlaytGrid(-1));
+      const doc = document.getElementById(`div-${index}`);
+      if (doc) {
+        doc.scrollTop = doc.offsetTop;
+      }
     },
     [dispatch, activeIndex]
   );
 
   const renderTables =
     movies &&
-    movies.map((movie, key) => {
+    movies.map((movie, index) => {
       return (
-        <Wrapper key={key} toggle={activeIndex === key}>
+        <Wrapper key={index} toggle={activeIndex === index} id={`div-${index}`}>
           <Favourite movie={movie} />
           <Row
             onClick={() => {
-              handleToggle(key, movie.id);
+              handleToggle(index, movie.id);
             }}
           >
             <Col>
@@ -58,7 +61,7 @@ const DekstopTable: React.FC<Props> = ({ movies, section }) => {
             <Col>{movie.vote_count}</Col>
             <Overview text={movie.overview} />
           </Row>
-          <Detail activeIndex={activeIndex} index={key} />
+          <Detail activeIndex={activeIndex} index={index} />
         </Wrapper>
       );
     });

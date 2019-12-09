@@ -39,6 +39,7 @@ export const Content = styled.div`
 `;
 interface WrapperProps {
   toggle: boolean;
+  id?: string | number;
 }
 export const Wrapper = styled.div`
   position: relative;

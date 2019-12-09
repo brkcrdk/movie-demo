@@ -31,6 +31,8 @@ const Detail: React.FC<Props> = ({ activeIndex, index, isMobile = false }) => {
     if (isMobile) return "big";
     return "small";
   };
+
+  if (isLoading) return <h3>Loading...</h3>;
   const renderImages = movie.images && (
     <Slayt toggle={slaytGrid !== -1}>
       <Carousel
