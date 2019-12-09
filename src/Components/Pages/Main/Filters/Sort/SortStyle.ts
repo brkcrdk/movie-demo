@@ -3,6 +3,7 @@ import { device } from "../../../../../utils";
 
 export const Container = styled.div`
   width: 100%;
+  max-width: 93em;
   background-color: white;
   position: fixed;
   padding-bottom: 1em;
@@ -22,7 +23,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 0.9em;
+    margin-top: 0.8em;
     z-index: 1;
   }
 `;
