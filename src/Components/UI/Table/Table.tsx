@@ -10,14 +10,17 @@ interface Props {
   movies: MovieInfo[];
   activePage: number;
   totalPages: number;
+  isLoading: boolean;
 }
 
 const Table: React.FC<Props> = ({
   movies,
   totalPages,
   section,
-  activePage
+  activePage,
+  isLoading
 }) => {
+  if (isLoading) return <h4>Loading...</h4>;
   return (
     <div>
       <MobileTable movies={movies} />

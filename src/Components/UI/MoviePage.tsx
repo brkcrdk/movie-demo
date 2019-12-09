@@ -9,6 +9,7 @@ interface Props {
 interface MoviesState {
   moviesStore: {
     movies: MovieList;
+    isLoading: boolean;
   };
 }
 const MoviePage: React.FC<Props> = ({ name }) => {
@@ -17,13 +18,16 @@ const MoviePage: React.FC<Props> = ({ name }) => {
     dispatch(fetchMovies(name));
   }, [dispatch, name]);
   const movies = useSelector((state: MoviesState) => state.moviesStore.movies);
-
+  const isLoading = useSelector(
+    (state: MoviesState) => state.moviesStore.isLoading
+  );
   return (
     <Table
       movies={movies.results}
       activePage={movies.page}
       totalPages={movies.total_pages}
       section={name}
+      isLoading={isLoading}
     />
   );
 };

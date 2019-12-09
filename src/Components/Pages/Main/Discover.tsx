@@ -8,6 +8,7 @@ interface Props {}
 interface DiscoverState {
   discoverStore: {
     movies: MovieList;
+    isLoading: boolean;
   };
 }
 interface FilterState {
@@ -23,6 +24,9 @@ const Discover: React.FC<Props> = () => {
   const movies = useSelector(
     (state: DiscoverState) => state.discoverStore.movies
   );
+  const isLoading = useSelector(
+    (state: DiscoverState) => state.discoverStore.isLoading
+  );
   const filters = useSelector(
     (state: FilterState) => state.discoverFilter.tags
   );
@@ -37,6 +41,7 @@ const Discover: React.FC<Props> = () => {
     <div>
       <Filter activePage={movies.page} />
       <Table
+        isLoading={isLoading}
         movies={movies.results}
         activePage={movies.page}
         totalPages={movies.total_pages}

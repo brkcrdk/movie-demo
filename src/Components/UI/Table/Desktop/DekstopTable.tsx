@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { MovieInfo } from "../../../../store/serverTypes";
 import {
   Container,
