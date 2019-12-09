@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
 import { toggleSlaytGrid } from "../../../../store/Toggles/action";
 import { imgUrl } from "../../../../config";
+import { Favourite, ToggleIcons } from "../../../UI/Icons/Icons";
 interface Props {
   movies: MovieInfo[];
 }
@@ -38,50 +39,48 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
     setActiveIndex(-1);
   };
   const renderTables =
-    movies !== undefined
-      ? movies.map((movie, key) => (
-          <Content key={key}>
-            <button>
-              <i className="far fa-heart" />
-            </button>
-            <Wrapper
-              onClick={() => {
-                handleActive(key, movie.id);
-              }}
-            >
-              <ImageContainer>
-                <img src={`${imgUrl}/w500/${movie.poster_path}`} />
-              </ImageContainer>
-              <InfoContainer>
-                <Row>
-                  <Header>Movie Title</Header>
-                  <Info>: {movie.title}</Info>
-                </Row>
-                <Row>
-                  <Header>Release Date</Header>
-                  <Info>: {movie.release_date}</Info>
-                </Row>
-                <Row>
-                  <Header>Popularity</Header>
-                  <Info>: {movie.popularity}</Info>
-                </Row>
-                <Row>
-                  <Header>IMDB Average</Header>
-                  <Info>: {movie.vote_average}</Info>
-                </Row>
-                <Row>
-                  <Header>Votes</Header>
-                  <Info>: {movie.vote_count}</Info>
-                </Row>
-              </InfoContainer>
-            </Wrapper>
-            <Detail activeIndex={activeIndex} index={key} isMobile={true} />
-            <button onClick={handleClose}>
-              <i className="far fa-times-circle" />
-            </button>
-          </Content>
-        ))
-      : "Loading..";
+    movies &&
+    movies.map((movie, index) => (
+      <Content key={index}>
+        <Favourite movie={movie} />
+        <Wrapper
+          onClick={() => {
+            handleActive(index, movie.id);
+          }}
+        >
+          <ImageContainer>
+            <img src={`${imgUrl}/w500/${movie.poster_path}`} />
+          </ImageContainer>
+          <InfoContainer>
+            <Row>
+              <Header>Movie Title</Header>
+              <Info>: {movie.title}</Info>
+            </Row>
+            <Row>
+              <Header>Release Date</Header>
+              <Info>: {movie.release_date}</Info>
+            </Row>
+            <Row>
+              <Header>Popularity</Header>
+              <Info>: {movie.popularity}</Info>
+            </Row>
+            <Row>
+              <Header>IMDB Average</Header>
+              <Info>: {movie.vote_average}</Info>
+            </Row>
+            <Row>
+              <Header>Votes</Header>
+              <Info>: {movie.vote_count}</Info>
+            </Row>
+          </InfoContainer>
+        </Wrapper>
+        <Detail activeIndex={activeIndex} index={index} isMobile={true} />
+        <ToggleIcons
+          icon={activeIndex !== index ? "chevron-down" : "chevron-up"}
+          onClick={handleClose}
+        />
+      </Content>
+    ));
   return <Container>{renderTables}</Container>;
 };
 

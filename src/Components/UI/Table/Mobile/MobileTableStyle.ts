@@ -14,6 +14,16 @@ export const Content = styled.div`
   border-radius: 0.3em;
   border: 0.5px solid lightgrey;
   margin: 1em 0;
+  position: relative;
+  > button:first-child {
+    position: absolute;
+    right: 0;
+  }
+  > button:last-child {
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+  }
 `;
 export const Wrapper = styled.div`
   font-family: ${fonts.aBeeZee};
