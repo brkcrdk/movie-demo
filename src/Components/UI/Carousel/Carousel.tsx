@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ImageProps } from "../../../store/serverTypes";
 import { imgUrl } from "../../../config";
 import { Container, Slayt, Slide } from "./CarouselStyle";
+import { ToggleIcons } from "../../UI/Icons/Icons";
 interface Props {
   images: {
     backdrops: ImageProps[];
@@ -30,6 +31,7 @@ const Carousel: React.FC<Props> = ({ images, isLoading, imgSize }) => {
         toggle={key === active}
       />
     ));
+
   const handleNext = () => {
     if (active === count - 1) {
       setActive(0);
@@ -47,13 +49,9 @@ const Carousel: React.FC<Props> = ({ images, isLoading, imgSize }) => {
   return (
     <Container>
       <Slayt>
-        <button onClick={handlePrev}>
-          <i className="fas fa-chevron-left" />
-        </button>
+        <ToggleIcons icon="chevron-left" onClick={handlePrev} />
         {isLoading ? "loading" : renderImages}
-        <button onClick={handleNext}>
-          <i className="fas fa-chevron-right" />
-        </button>
+        <ToggleIcons icon="chevron-right" onClick={handleNext} />
       </Slayt>
     </Container>
   );
