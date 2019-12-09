@@ -16,11 +16,13 @@ import { fetchDetails } from "../../../../store/Detail/action";
 import { toggleSlaytGrid } from "../../../../store/Toggles/action";
 import { imgUrl } from "../../../../config";
 import { Favourite, ToggleIcons } from "../../../UI/Icons/Icons";
+import Loader from "../../../UI/Loader";
 interface Props {
   movies: MovieInfo[];
+  isLoading: boolean;
 }
 
-const MobileTable: React.FC<Props> = ({ movies }) => {
+const MobileTable: React.FC<Props> = ({ movies, isLoading }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const dispatch = useDispatch();
   const handleActive = useCallback(
@@ -81,7 +83,7 @@ const MobileTable: React.FC<Props> = ({ movies }) => {
         />
       </Content>
     ));
-  return <Container>{renderTables}</Container>;
+  return <Container>{isLoading ? <Loader /> : renderTables}</Container>;
 };
 
 export default MobileTable;

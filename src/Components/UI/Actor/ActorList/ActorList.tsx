@@ -30,9 +30,14 @@ const ActorList: React.FC<Props> = ({ credits }) => {
     setActive(slaytGrid);
   }, [slaytGrid]);
 
-  const actors = credits.cast.filter((actor, i) => {
-    return i < 4;
-  });
+  const actors = credits.cast
+    .filter(actor => {
+      return actor.profile_path !== null;
+    })
+    .filter((actor, index) => {
+      return index < 4;
+    });
+
   const dispatch = useDispatch();
   const handleActor = useCallback(
     (id: number, index: number) => {

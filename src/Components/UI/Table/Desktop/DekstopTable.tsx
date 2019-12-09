@@ -15,12 +15,14 @@ import { Favourite } from "../../../UI/Icons/Icons";
 import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
 import { toggleSlaytGrid } from "../../../../store/Toggles/action";
+import Loader from "../../Loader";
 
 interface Props {
   movies: MovieInfo[];
   section: string;
+  isLoading: boolean;
 }
-const DekstopTable: React.FC<Props> = ({ movies, section }) => {
+const DekstopTable: React.FC<Props> = ({ movies, section, isLoading }) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const dispatch = useDispatch();
 
@@ -40,7 +42,6 @@ const DekstopTable: React.FC<Props> = ({ movies, section }) => {
     },
     [dispatch, activeIndex]
   );
-
   const renderTables =
     movies &&
     movies.map((movie, index) => {
@@ -75,7 +76,9 @@ const DekstopTable: React.FC<Props> = ({ movies, section }) => {
         <h4>Votes</h4>
         <h4>Overview</h4>
       </Header>
-      <Content section={section}>{renderTables}</Content>
+      <Content section={section}>
+        {isLoading ? <Loader /> : renderTables}
+      </Content>
     </Container>
   );
 };
