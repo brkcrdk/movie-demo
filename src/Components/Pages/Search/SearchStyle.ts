@@ -64,9 +64,14 @@ export const ResultWrapper = styled.div`
   background-color: white;
   z-index: 3;
   position: fixed;
-  top: 8em;
   padding-top: 1em;
   border: 1px solid ${colours.secondaryText};
+  @media ${device.mobileS} {
+  }
+  @media ${device.tablet} {
+    top: 10em;
+  }
+
   div {
     width: 100%;
     display: grid;

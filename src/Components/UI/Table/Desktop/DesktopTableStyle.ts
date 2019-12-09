@@ -13,7 +13,6 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-  margin-top: -3.08em;
   width: 100%;
   max-width: 93em;
   position: fixed;
@@ -26,6 +25,15 @@ export const Header = styled.div`
   border-bottom: 1px solid ${colours.pink};
   border-top: 1px solid ${colours.secondaryText};
   text-align: center;
+  @media ${device.tablet} {
+    margin-top: -3.1em;
+  }
+  @media ${device.desktop} {
+    margin-top: -3.08em;
+  }
+  @media ${device.desktopL} {
+    margin-top: -3em;
+  }
 `;
 
 interface ContentProps {
