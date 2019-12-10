@@ -71,7 +71,7 @@ export const InfoContainer = styled.div`
   }
 `;
 interface DetailProps {
-  toggle: boolean;
+  toggle?: boolean;
 }
 export const DetailContainer = styled.div`
   max-height: ${(p: DetailProps) => (p.toggle ? "100%" : "0")};
