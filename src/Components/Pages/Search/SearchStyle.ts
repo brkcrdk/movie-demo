@@ -59,6 +59,7 @@ export const Desktop = styled.div`
 export const ResultWrapper = styled.div`
   visibility: ${(p: ResultWrapperProps) => (p.isEmpty ? "visible" : "hidden")};
   max-height: 70vh;
+  min-width: 25%;
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: white;
