@@ -6,19 +6,15 @@ export const Container = styled.div`
 `;
 export const TagWrapper = styled.div`
   margin: 0.3em;
+  padding: 0.5em;
   border: 1px solid lightgrey;
+  > button {
+    color: grey;
+    &:hover {
+      color: dodgerblue;
+    }
+  }
 `;
 export const TagName = styled.span`
   padding-right: 0.3em;
-`;
-export const TagButton = styled.span`
-  border: none;
-  border-left: 1px solid lightgrey;
-  font-weight: 300;
-  background-color: transparent;
-  cursor: pointer;
-  outline: none;
-  &:hover {
-    color: dodgerblue;
-  }
 `;

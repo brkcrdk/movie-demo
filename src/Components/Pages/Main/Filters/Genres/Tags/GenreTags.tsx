@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeTag } from "../../../../../../store/DiscoverFilter/action";
-import { Container, TagWrapper, TagButton, TagName } from "./TagsStyle";
-
+import { ToggleIcons } from "../../../../../UI/Icons/Icons";
+import { Container, TagWrapper, TagName } from "./TagsStyle";
 interface Props {}
 interface FiltersProps {
   discoverFilter: {
@@ -27,13 +27,12 @@ const Filters: React.FC<Props> = () => {
   const renderFilters = filter.map((filter, i) => (
     <TagWrapper key={i}>
       <TagName>{filter.name}</TagName>
-      <TagButton
+      <ToggleIcons
+        icon="times"
         onClick={() => {
           handleRemove(filter.name, filter.id);
         }}
-      >
-        X
-      </TagButton>
+      />
     </TagWrapper>
   ));
   return (
