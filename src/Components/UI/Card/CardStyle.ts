@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { colours, fonts, device } from "../../../utils";
 
 export const Container = styled.div`
-  width: 14em;
+  width: 90%;
+
   box-shadow: ${colours.darkerBoxShadow};
   position: relative;
   font-family: ${fonts.aBeeZee};

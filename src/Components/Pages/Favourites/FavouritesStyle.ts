@@ -5,25 +5,26 @@ export const Container = styled.div`
   margin-top: 1.5em;
 `;
 export const Wrapper = styled.div`
-  margin: 0 5em;
   justify-content: center;
   margin-bottom: 1em;
   display: grid;
+  grid-gap: 1em;
+  margin: 0 1em;
+
+  @media ${device.mobileS} {
+    margin-left: 2em;
+  }
+  @media ${device.mobileM} {
+    grid-template-columns: repeat(2, 6fr);
+  }
 
   @media ${device.mobileTablet} {
-    grid-template-columns: repeat(2, 6fr);
-    grid-gap: 1em;
-  }
-  @media ${device.tablet} {
     grid-template-columns: repeat(3, 4fr);
-    grid-gap: 1em;
   }
   @media ${device.desktop} {
     grid-template-columns: repeat(4, 3fr);
-    grid-gap: 1em;
   }
   @media ${device.desktopL} {
     grid-template-columns: repeat(5, 2.5fr);
-    grid-gap: 1em;
   }
 `;
