@@ -17,6 +17,8 @@ const Navbar: React.FC<Props> = () => {
     const pathName = location.pathname;
     if (pathName === "/") {
       setPath("discover");
+    } else if (pathName === "/favourites") {
+      setPath("favourite");
     } else {
       setPath(pathName.split("/")[2].replace("_", " "));
     }
