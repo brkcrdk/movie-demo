@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { imgUrl } from "../../../config";
 import { colours, fonts } from "../../../utils";
-import { ToggleIcons } from "../../UI/Icons/Icons";
 interface Props {
   posterPath: string;
   name: string;
