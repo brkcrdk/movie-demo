@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { imgUrl } from "../../../config";
 import { colours, fonts } from "../../../utils";
-
+import { ToggleIcons } from "../../UI/Icons/Icons";
 interface Props {
   posterPath: string;
   name: string;
@@ -25,7 +25,9 @@ const InfoContainer = styled.div`
   display: grid;
   > span {
     text-align: center;
-    padding: 0.5em 0;
+    margin: 0.5em 0;
+    font-weight: 700;
+    font-size: 1.1em;
   }
 `;
 const Bottom = styled.div`
@@ -34,6 +36,9 @@ const Bottom = styled.div`
   align-items: center;
   margin: 0;
   padding: 0.5em;
+  strong {
+    color: ${colours.pink};
+  }
 `;
 const Card: React.FC<Props> = ({ posterPath, name, voteAvg, releaseDate }) => {
   return (
@@ -42,7 +47,9 @@ const Card: React.FC<Props> = ({ posterPath, name, voteAvg, releaseDate }) => {
       <InfoContainer>
         <span>{name}</span>
         <Bottom>
-          <span>{voteAvg}/10</span>
+          <span>
+            <strong>{voteAvg}</strong>/10
+          </span>
           <span>{releaseDate}</span>
         </Bottom>
       </InfoContainer>
