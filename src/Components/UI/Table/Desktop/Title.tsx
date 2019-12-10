@@ -20,7 +20,7 @@ const Container = styled.div`
 const Title: React.FC<Props> = ({ imgPath, movieName }) => {
   return (
     <Container>
-      <img src={`${imgUrl}/w92${imgPath}`} />
+      <img src={`${imgUrl}/w92${imgPath}`} alt={`img-${movieName}`} />
       <span>{movieName}</span>
     </Container>
   );

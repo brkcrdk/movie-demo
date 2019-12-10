@@ -62,7 +62,10 @@ const ActorList: React.FC<Props> = ({ credits }) => {
               handleActor(actor.id, key);
             }}
           >
-            <img src={`${imgUrl}/w185${actor.profile_path}`} />
+            <img
+              src={`${imgUrl}/w185${actor.profile_path}`}
+              alt={`img-${actor.name}`}
+            />
             {actor.name}
           </Header>
           <InfoContainer active={active === key}>

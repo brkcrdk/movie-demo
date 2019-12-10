@@ -40,7 +40,10 @@ const SearchInput: React.FC<Props> = () => {
       .map((result, index) => (
         <li key={index}>
           <div>
-            <img src={`${imgUrl}/w300${result.backdrop_path}`} />
+            <img
+              src={`${imgUrl}/w300${result.backdrop_path}`}
+              alt={`img-${result.title}`}
+            />
             <span>{result.title}</span>
           </div>
         </li>

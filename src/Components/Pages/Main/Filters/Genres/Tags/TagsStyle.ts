@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { device } from "../../../../../../utils";
 export const Container = styled.div`
   display: flex;
   overflow: hidden;

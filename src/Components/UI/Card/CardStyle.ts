@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colours, fonts, device } from "../../../utils";
+import { colours, fonts } from "../../../utils";
 
 export const Container = styled.div`
   width: 90%;

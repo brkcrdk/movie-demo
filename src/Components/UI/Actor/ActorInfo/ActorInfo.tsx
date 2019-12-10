@@ -20,7 +20,10 @@ const ActorInfo: React.FC<Props> = () => {
   const renderActor = actor && (
     <Container>
       <ImgContainer>
-        <img src={`${imgUrl}/w185${actor.profile_path}`} />
+        <img
+          src={`${imgUrl}/w185${actor.profile_path}`}
+          alt={`img-${actor.name}`}
+        />
       </ImgContainer>
       <InfoContainer>
         <span>{actor.biography}</span>

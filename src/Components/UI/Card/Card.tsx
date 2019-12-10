@@ -21,7 +21,7 @@ const Card: React.FC<Props> = ({
   return (
     <Container>
       <ToggleIcons icon="times-circle" onClick={removeFunc} />
-      <img src={`${imgUrl}/w500/${posterPath}`} />
+      <img src={`${imgUrl}/w500/${posterPath}`} alt={`img-${name}`} />
       <InfoContainer>
         <span>{name}</span>
         <Bottom>

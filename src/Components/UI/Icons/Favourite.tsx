@@ -43,7 +43,7 @@ const Favourite: React.FC<Props> = ({ movie }) => {
       dispatch(removeFav({ movie }));
       setToggle(false);
     }
-  }, [toggle, dispatch]);
+  }, [toggle, dispatch, movie]);
 
   return (
     <Button onClick={handleFav}>

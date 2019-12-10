@@ -52,7 +52,10 @@ const MobileTable: React.FC<Props> = ({ movies, isLoading }) => {
           }}
         >
           <ImageContainer>
-            <img src={`${imgUrl}/w500/${movie.poster_path}`} />
+            <img
+              src={`${imgUrl}/w500/${movie.poster_path}`}
+              alt={`img-${movie.title}`}
+            />
           </ImageContainer>
           <InfoContainer>
             <Row>

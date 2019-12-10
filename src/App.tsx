@@ -25,9 +25,9 @@ const App: React.FC = () => {
       const item = localStorage.getItem(key);
       if (item !== null) {
         const movie = JSON.parse(item);
-        console.log(movie);
         dispatch(addFav(movie));
       }
+      return item;
     });
   }, [dispatch]);
 
