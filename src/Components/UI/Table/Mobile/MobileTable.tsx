@@ -7,6 +7,7 @@ import {
   Container,
   ImageContainer,
   InfoContainer,
+  DetailContainer,
   Content
 } from "./MobileTableStyle";
 import { MovieInfo } from "../../../../store/serverTypes";
@@ -76,7 +77,9 @@ const MobileTable: React.FC<Props> = ({ movies, isLoading }) => {
             </Row>
           </InfoContainer>
         </Wrapper>
-        <Detail activeIndex={activeIndex} index={index} isMobile={true} />
+        <DetailContainer toggle={activeIndex === index}>
+          <Detail activeIndex={activeIndex} index={index} isMobile={true} />
+        </DetailContainer>
         <ToggleIcons
           icon={activeIndex !== index ? "chevron-down" : "chevron-up"}
           onClick={handleClose}

@@ -9,6 +9,7 @@ export const Container = styled.div`
     display: none;
   }
 `;
+
 export const Content = styled.div`
   box-shadow: ${colours.boxShadow};
   border-radius: 0.3em;
@@ -69,6 +70,13 @@ export const InfoContainer = styled.div`
     padding: 2em 1em;
   }
 `;
+interface DetailProps {
+  toggle: boolean;
+}
+export const DetailContainer = styled.div`
+  max-height: ${(p: DetailProps) => (p.toggle ? "100%" : "0")};
+`;
+
 export const Header = styled.p`
   padding-left: 1em;
   margin: 0.3em;

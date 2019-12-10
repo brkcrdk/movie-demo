@@ -75,7 +75,7 @@ export const ResultWrapper = styled.div`
     width: initial;
   }
   @media ${device.desktopL} {
-    top: 9em;
+    top: 8.8em;
   }
   div {
     width: 100%;
