@@ -41,7 +41,7 @@ const Navbar: React.FC<Props> = () => {
         <ToggleIcons icon="bars" onClick={handleSidebar} />
         <Search />
         <Section>
-          <span>{path} Movies</span>
+          <span>{path}</span>
         </Section>
         <Icons>
           <ToggleIcons icon="search" onClick={handleSearch} />

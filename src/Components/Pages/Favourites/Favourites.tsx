@@ -42,7 +42,7 @@ const Favourites: React.FC<Props> = () => {
   return (
     <Container>
       <Wrapper>
-        {favMovies.length > 0 ? renderFavs : "No favourite movies"}
+        {favMovies.length > 0 ? renderFavs : "You have no favourite yet!"}
       </Wrapper>
     </Container>
   );
