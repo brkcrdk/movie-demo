@@ -8,12 +8,19 @@ interface Props {
   voteAvg: number;
   releaseDate: string;
   key?: number;
+  removeFunc?: () => void;
 }
 
-const Card: React.FC<Props> = ({ posterPath, name, voteAvg, releaseDate }) => {
+const Card: React.FC<Props> = ({
+  posterPath,
+  name,
+  voteAvg,
+  releaseDate,
+  removeFunc
+}) => {
   return (
     <Container>
-      <ToggleIcons icon="times-circle" />
+      <ToggleIcons icon="times-circle" onClick={removeFunc} />
       <img src={`${imgUrl}/w500/${posterPath}`} />
       <InfoContainer>
         <span>{name}</span>
