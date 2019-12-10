@@ -1,8 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Container, Wrapper } from "./FavouritesStyle";
 import { MovieInfo } from "../../../store/serverTypes";
 import Card from "../../UI/Card/Card";
-import styled from "styled-components";
+
 interface Props {}
 interface FavStore {
   favourites: {
@@ -10,19 +11,6 @@ interface FavStore {
   };
 }
 
-const Container = styled.div`
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Wrapper = styled.div`
-  margin: 0 5em;
-  margin-bottom: 1em;
-  display: grid;
-  grid-template-columns: repeat(5, 2fr);
-  grid-gap: 2em;
-`;
 const Favourites: React.FC<Props> = () => {
   const favMovies = useSelector(
     (state: FavStore) => state.favourites.favMovies
