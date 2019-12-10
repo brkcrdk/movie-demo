@@ -16,6 +16,10 @@ const Container = styled.div`
   box-shadow: ${colours.darkerBoxShadow};
   position: relative;
   font-family: ${fonts.aBeeZee};
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.05);
+  }
   > img {
     width: 100%;
   }
@@ -36,6 +40,22 @@ const Bottom = styled.div`
   align-items: center;
   margin: 0;
   padding: 0.5em;
+  > div {
+    display: grid;
+    > span:first-child {
+      color: ${colours.pink};
+      padding-bottom: 0.5em;
+    }
+    > span:last-child {
+      font-size: 0.9em;
+    }
+    > hr {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 0.5em;
+      padding: 0;
+    }
+  }
   strong {
     color: ${colours.pink};
   }
@@ -47,10 +67,18 @@ const Card: React.FC<Props> = ({ posterPath, name, voteAvg, releaseDate }) => {
       <InfoContainer>
         <span>{name}</span>
         <Bottom>
-          <span>
-            <strong>{voteAvg}</strong>/10
-          </span>
-          <span>{releaseDate}</span>
+          <div>
+            <span>Vote Avg:</span>
+            <hr />
+            <span>
+              <strong>{voteAvg}</strong>/10
+            </span>
+          </div>
+          <div>
+            <span>Release Date</span>
+            <hr />
+            <span>{releaseDate}</span>
+          </div>
         </Bottom>
       </InfoContainer>
     </Container>
