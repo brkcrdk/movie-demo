@@ -7,10 +7,10 @@ import {
   InfoContainer
 } from "./ActorListStyle";
 import { useDispatch, useSelector } from "react-redux";
-import { Cast } from "../../../../store/serverTypes";
-import { fetchActor } from "../../../../store/Actor/action";
-import { toggleSlaytGrid } from "../../../../store/Toggles/action";
-import { imgUrl } from "../../../../config";
+import { Cast } from "../../../../../store/serverTypes";
+import { fetchActor } from "../../../../../store/Actor/action";
+import { toggleSlaytGrid } from "../../../../../store/Toggles/action";
+import { imgUrl } from "../../../../../config";
 import ActorInfo from "../ActorInfo/ActorInfo";
 
 interface Props {

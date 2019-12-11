@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colours, device } from "../../../../utils";
+import { colours, device } from "../../../../../utils";
 interface InfoProps {
   active: boolean;
 }

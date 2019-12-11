@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device, colours } from "../../../../utils";
+import { device, colours } from "../../../../../utils";
 export const Container = styled.div`
   align-items: center;
   @media ${device.mobileS} {
