@@ -11,7 +11,7 @@ import {
   Content
 } from "./MobileTableStyle";
 import { MovieInfo } from "../../../../store/serverTypes";
-import Detail from "../../Detail/Detail";
+import Detail from "../Detail/Detail";
 import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
 import { toggleSlaytGrid } from "../../../../store/Toggles/action";

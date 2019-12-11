@@ -8,7 +8,7 @@ import {
   Col,
   Wrapper
 } from "./DesktopTableStyle";
-import Detail from "../../Detail/Detail";
+import Detail from "../Detail/Detail";
 import Overview from "./Overview";
 import Title from "./Title";
 import { Favourite } from "../../../UI/Icons/Icons";

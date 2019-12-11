@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Slayt } from "./DetailStyle";
 import { useSelector } from "react-redux";
-import { IDetail } from "../../../store/serverTypes";
-import Carousel from "../Carousel/Carousel";
+import { IDetail } from "../../../../store/serverTypes";
+import Carousel from "../../Carousel/Carousel";
 import ActorList from "../Actor/ActorList/ActorList";
-import Loader from "../../UI/Loader";
+import Loader from "../../Loader";
 interface Props {
   activeIndex: number;
   index: number;
