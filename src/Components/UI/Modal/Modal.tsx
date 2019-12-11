@@ -29,6 +29,7 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
       posterPath={movie.poster_path}
       voteAvg={movie.vote_average}
       runTime={movie.runtime}
+      popularity={movie.popularity}
     />
   );
   return (

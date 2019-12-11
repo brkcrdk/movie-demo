@@ -11,6 +11,7 @@ interface Props {
   adult: boolean;
   voteAvg: number;
   runTime: number;
+  popularity: number;
 }
 const Container = styled.div`
   display: flex;
@@ -46,11 +47,16 @@ const RuntimeAdult = styled.div`
     padding-left: 1em;
   }
 `;
-const Vote = styled.span`
+const VotePopularity = styled.div`
   font-size: 1.3em;
-  button {
-    color: orange;
-    font-size: 2em;
+  span {
+    padding: 0.5em;
+  }
+  span:last-child {
+    button {
+      color: orange;
+      font-size: 1.3em;
+    }
   }
 `;
 const Title = styled.p`
@@ -63,7 +69,8 @@ const Top: React.FC<Props> = ({
   movieTitle,
   adult,
   voteAvg,
-  runTime
+  runTime,
+  popularity
 }) => {
   return (
     <Container>
@@ -77,10 +84,16 @@ const Top: React.FC<Props> = ({
         <GenreWrapper>
           {genres && genres.map(genre => <span>{genre.name}</span>)}
         </GenreWrapper>
-        <Vote>
-          <ToggleIcons iconStyle="b" icon="imdb" />
-          {voteAvg}
-        </Vote>
+        <VotePopularity>
+          <span>
+            <ToggleIcons icon="heart" />
+            {popularity}
+          </span>
+          <span>
+            <ToggleIcons iconStyle="b" icon="imdb" />
+            {voteAvg}
+          </span>
+        </VotePopularity>
       </InfoWrapper>
     </Container>
   );
