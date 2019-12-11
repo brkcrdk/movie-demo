@@ -18,7 +18,6 @@ const Modal: React.FC<Props> = () => {
     <Container toggle={toggle}>
       <ModalContent>
         <Close onClick={handleToggle}>&times;</Close>
-
         <p>Modal Content</p>
       </ModalContent>
     </Container>
