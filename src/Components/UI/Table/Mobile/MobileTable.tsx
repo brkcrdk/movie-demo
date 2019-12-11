@@ -11,7 +11,7 @@ import {
   Content
 } from "./MobileTableStyle";
 import { MovieInfo } from "../../../../store/serverTypes";
-import Detail from "../Detail/Detail";
+import TableDetail from "../Detail/TableDetail";
 import { useDispatch } from "react-redux";
 import { fetchDetails } from "../../../../store/Detail/action";
 import { toggleSlaytGrid } from "../../../../store/Toggles/action";
@@ -81,7 +81,11 @@ const MobileTable: React.FC<Props> = ({ movies, isLoading }) => {
           </InfoContainer>
         </Wrapper>
         <DetailContainer toggle={activeIndex === index}>
-          <Detail activeIndex={activeIndex} index={index} isMobile={true} />
+          <TableDetail
+            activeIndex={activeIndex}
+            index={index}
+            isMobile={true}
+          />
         </DetailContainer>
         <ToggleIcons
           icon={activeIndex !== index ? "chevron-down" : "chevron-up"}

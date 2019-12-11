@@ -8,7 +8,7 @@ import {
   Col,
   Wrapper
 } from "./DesktopTableStyle";
-import Detail from "../Detail/Detail";
+import TableDetail from "../Detail/TableDetail";
 import Overview from "./Overview";
 import Title from "./Title";
 import { Favourite } from "../../../UI/Icons/Icons";
@@ -62,7 +62,7 @@ const DekstopTable: React.FC<Props> = ({ movies, section, isLoading }) => {
             <Col>{movie.vote_count}</Col>
             <Overview text={movie.overview} />
           </Row>
-          <Detail activeIndex={activeIndex} index={index} />
+          <TableDetail activeIndex={activeIndex} index={index} />
         </Wrapper>
       );
     });

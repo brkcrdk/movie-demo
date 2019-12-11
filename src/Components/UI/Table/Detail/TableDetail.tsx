@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Slayt } from "./DetailStyle";
+import { Container, Slayt } from "./TableDetailStyle";
 import { useSelector } from "react-redux";
 import { IDetail } from "../../../../store/serverTypes";
 import Carousel from "../../Carousel/Carousel";
@@ -21,7 +21,11 @@ interface ToggleProps {
     slaytGrid: number;
   };
 }
-const Detail: React.FC<Props> = ({ activeIndex, index, isMobile = false }) => {
+const TableDetail: React.FC<Props> = ({
+  activeIndex,
+  index,
+  isMobile = false
+}) => {
   const movie = useSelector((state: StoreProps) => state.detailStore.movie);
   const isLoading = useSelector(
     (state: StoreProps) => state.detailStore.isLoading
@@ -55,4 +59,4 @@ const Detail: React.FC<Props> = ({ activeIndex, index, isMobile = false }) => {
   );
 };
 
-export default Detail;
+export default TableDetail;
