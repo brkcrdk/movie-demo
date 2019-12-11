@@ -15,6 +15,7 @@ export interface IDetail {
   overview: string;
   popularity: number;
   poster_path: string | null;
+  runtime: number;
   production_companies: {
     name: string;
     id: number;

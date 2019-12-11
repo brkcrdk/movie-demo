@@ -7,6 +7,8 @@ interface Props {
   movieTitle: string;
   genres: IGenre[];
   adult: boolean;
+  voteAvg: number;
+  runTime: number;
 }
 const Container = styled.div`
   display: flex;
@@ -19,7 +21,14 @@ const Container = styled.div`
     display: grid;
   }
 `;
-const Top: React.FC<Props> = ({ posterPath, genres, movieTitle, adult }) => {
+const Top: React.FC<Props> = ({
+  posterPath,
+  genres,
+  movieTitle,
+  adult,
+  voteAvg,
+  runTime
+}) => {
   return (
     <Container>
       <img src={`${imgUrl}/w300${posterPath}`} />
@@ -27,6 +36,9 @@ const Top: React.FC<Props> = ({ posterPath, genres, movieTitle, adult }) => {
         <p>{movieTitle}</p>
         {genres && genres.map(genre => <span>{genre.name}</span>)}
         <span>{adult ? "18+" : "7+"}</span>
+        <span>{runTime}</span>
+
+        <span>Vote Avg:{voteAvg}</span>
       </div>
     </Container>
   );

@@ -27,6 +27,8 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
       movieTitle={movie.original_title}
       adult={movie.adult}
       posterPath={movie.poster_path}
+      voteAvg={movie.vote_average}
+      runTime={movie.runtime}
     />
   );
   return (
