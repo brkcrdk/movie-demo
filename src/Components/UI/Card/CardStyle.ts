@@ -3,13 +3,12 @@ import { colours, fonts } from "../../../utils";
 
 export const Container = styled.div`
   width: 90%;
-
   box-shadow: ${colours.darkerBoxShadow};
   position: relative;
   font-family: ${fonts.aBeeZee};
   transition: transform 0.5s;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
   > button {
     position: absolute;
@@ -18,6 +17,10 @@ export const Container = styled.div`
   }
   > img {
     width: 100%;
+  }
+  a {
+    text-decoration: none;
+    color: initial;
   }
 `;
 export const InfoContainer = styled.div`
@@ -50,6 +53,7 @@ export const Bottom = styled.div`
       margin: 0;
       margin-bottom: 0.5em;
       padding: 0;
+      border: 0.7px solid ${colours.secondaryText};
     }
   }
   strong {
