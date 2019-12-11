@@ -2,7 +2,7 @@ import React from "react";
 import { imgUrl } from "../../../config";
 import { ToggleIcons } from "../../UI/Icons/Icons";
 import { Container, InfoContainer, Bottom } from "./CardStyle";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 interface Props {
   posterPath: string;
   name: string;
@@ -21,11 +21,12 @@ const Card: React.FC<Props> = ({
   removeFunc,
   movieId
 }) => {
+  const location = useLocation();
   return (
     <Container>
       <ToggleIcons icon="times-circle" onClick={removeFunc} />
       <img src={`${imgUrl}/w500/${posterPath}`} alt={`img-${name}`} />
-      <Link to={`/favourites/${movieId}`}>
+      <Link to={`/${location.pathname}/${movieId}`}>
         <InfoContainer>
           <span>{name}</span>
           <Bottom>
