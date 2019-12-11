@@ -37,6 +37,15 @@ export interface IDetail {
     backdrops: ImageProps[];
     posters: ImageProps[];
   };
+  videos: {
+    results: VideoProps[];
+  };
+  similar: {
+    page: number;
+    results: MovieInfo[];
+    totalPages: number;
+    total_results: number;
+  };
 }
 
 export interface Cast {
@@ -83,16 +92,6 @@ export interface MovieList {
   total_pages: number;
 }
 
-export interface ImageProps {
-  aspect_ratio: number;
-  file_path: string;
-  height: number;
-  iso_639_1: string | null;
-  vote_average: number;
-  vote_count: number;
-  width: number;
-}
-
 export interface ActorBio {
   adult: boolean;
   also_known_as: string[];
@@ -108,4 +107,23 @@ export interface ActorBio {
   place_of_birth: string;
   popularity: number;
   profile_path: string;
+}
+export interface ImageProps {
+  aspect_ratio: number;
+  file_path: string;
+  height: number;
+  iso_639_1: string | null;
+  vote_average: number;
+  vote_count: number;
+  width: number;
+}
+export interface VideoProps {
+  id: string;
+  iso_639_1: string;
+  iso_3166_1: string;
+  key: string;
+  name: string;
+  site: string;
+  size: number;
+  type: string;
 }
