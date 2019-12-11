@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { imgUrl } from "../../../../config";
 import { IGenre } from "../../../../store/serverTypes";
 import { ToggleIcons } from "../../Icons/Icons";
-import { fonts } from "../../../../utils";
+import { fonts, colours } from "../../../../utils";
 interface Props {
   posterPath: string | null;
   movieTitle: string;
@@ -33,6 +33,10 @@ const GenreWrapper = styled.div`
   overflow: hidden;
   > span {
     margin: 0.1em;
+    border-radius: 0.2em;
+    background-color: ${colours.pink};
+    color: white;
+    padding: 0.2em;
   }
 `;
 const RuntimeAdult = styled.div`
