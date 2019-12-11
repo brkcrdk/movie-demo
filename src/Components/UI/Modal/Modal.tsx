@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, ModalContent, Close, Content } from "./ModalStyle";
 import { useHistory } from "react-router-dom";
 import Top from "./Top/Top";
+import Bottom from "./Bottom/Bottom";
 import { IDetail } from "../../../store/serverTypes";
 import { imgUrl } from "../../../config";
 interface Props {
@@ -32,11 +33,15 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
       popularity={movie.popularity}
     />
   );
+  const renderBottom = movie && <Bottom />;
   return (
     <Container toggle={toggle}>
       <ModalContent url={`${imgUrl}/w780${movie.backdrop_path}`}>
         <Close onClick={handleToggle}>&times;</Close>
-        <Content>{renderTop}</Content>
+        <Content>
+          {renderTop}
+          {renderBottom}
+        </Content>
       </ModalContent>
     </Container>
   );
