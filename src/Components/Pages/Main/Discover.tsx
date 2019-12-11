@@ -4,6 +4,7 @@ import { fetchDiscover } from "../../../store/Discover/action";
 import { MovieList } from "../../../store/serverTypes";
 import Table from "../../UI/Table/Table";
 import Filter from "./Filter";
+import { toggleSection } from "../../../store/Toggles/action";
 interface Props {}
 interface DiscoverState {
   discoverStore: {
@@ -33,6 +34,7 @@ const Discover: React.FC<Props> = () => {
   useEffect(() => {
     const ids = filters.map(item => item.id);
     dispatch(fetchDiscover(1, "", ...ids));
+    dispatch(toggleSection("discover"));
   }, [dispatch, filters]);
 
   return (

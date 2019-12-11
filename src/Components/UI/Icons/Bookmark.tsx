@@ -39,6 +39,7 @@ const Bookmark: React.FC<Props> = () => {
   const isEmpty = favMovies.length > 0 ? "fas" : "far";
   const renderCount =
     favMovies.length > 0 ? <span>{favMovies.length}</span> : "";
+
   return (
     <Button to="/favourites">
       <i className={`${isEmpty} fa-bookmark`} />

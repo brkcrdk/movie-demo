@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies } from "../../store/Movies/actions";
+import { toggleSection } from "../../store/Toggles/action";
 import { MovieList } from "../../store/serverTypes";
 import Table from "./Table/Table";
 interface Props {
@@ -16,6 +17,7 @@ const MoviePage: React.FC<Props> = ({ name }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMovies(name));
+    dispatch(toggleSection(name));
   }, [dispatch, name]);
   const movies = useSelector((state: MoviesState) => state.moviesStore.movies);
   const isLoading = useSelector(
