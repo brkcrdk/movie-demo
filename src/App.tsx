@@ -44,7 +44,7 @@ const App: React.FC = () => {
           <Route path="/movies/upcoming" component={Upcoming} />
           <Route path="/movies/now_playing" component={NowPlaying} />
           <Route path="/favourites" component={Favourites} />
-          <Route path="/movie/:id" component={MovieDetail} />
+          <Route path="/favourites/:id" component={MovieDetail} />
         </Dimmer>
       </Router>
     </Container>

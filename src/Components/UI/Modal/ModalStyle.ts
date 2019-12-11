@@ -5,6 +5,12 @@ interface ContainerProps {
 }
 export const Container = styled.div`
   display: ${(p: ContainerProps) => (p.toggle ? "block" : "none")};
+  /* position: "absolute";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: "rgba(0, 0, 0, 0.15)"; */
   position: fixed;
   z-index: 5;
   left: 0;
