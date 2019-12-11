@@ -27,20 +27,34 @@ export const Container = styled.div`
     }
   }
 `;
-
+interface ContentProps {
+  url: string;
+}
 export const ModalContent = styled.div`
-  background-color: #fefefe;
+  background-image: url(${(p: ContentProps) => `${p.url}`});
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 15% auto;
-  padding: 20px;
+  padding: 1em;
   border: 1px solid #888;
   width: 80%;
+  position: relative;
 `;
-
+export const BackgroundImg = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
 export const Close = styled.span`
   color: #aaa;
   float: right;
-  font-size: 28px;
+  font-size: 1.5em;
   font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 0.3em;
   &:hover,
   &:focus {
     color: black;

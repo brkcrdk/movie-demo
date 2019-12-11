@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Container, ModalContent, Close } from "./ModalStyle";
+import { Container, ModalContent, Close, BackgroundImg } from "./ModalStyle";
 import { useHistory } from "react-router-dom";
-interface Props {}
+import { IDetail } from "../../../store/serverTypes";
+import { imgUrl } from "../../../config";
+interface Props {
+  movie: IDetail;
+  isLoading: boolean;
+}
 
-const Modal: React.FC<Props> = () => {
+const Modal: React.FC<Props> = ({ movie, isLoading }) => {
   const [toggle, setToggle] = useState(false);
   const history = useHistory();
 
@@ -14,12 +19,13 @@ const Modal: React.FC<Props> = () => {
   useEffect(() => {
     setToggle(true);
   }, [toggle]);
+
   return (
     <Container toggle={toggle}>
-      <ModalContent>
-        <Close onClick={handleToggle}>&times;</Close>
-        <p>Modal Content</p>
-      </ModalContent>
+      <ModalContent url={`${imgUrl}/w780${movie.backdrop_path}`} />
+      <BackgroundImg>
+        Content goes here<Close>&times;</Close>
+      </BackgroundImg>
     </Container>
   );
 };

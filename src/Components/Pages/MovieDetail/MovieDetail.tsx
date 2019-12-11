@@ -25,7 +25,7 @@ const MovieDetail: React.FC<Props> = () => {
   const isLoading = useSelector(
     (state: DetailProps) => state.detailStore.isLoading
   );
-  return <Modal />;
+  return <Modal movie={movie} isLoading={isLoading} />;
 };
 
 export default MovieDetail;
