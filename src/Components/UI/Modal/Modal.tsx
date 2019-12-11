@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, ModalContent, Close, BackgroundImg } from "./ModalStyle";
+import { Container, ModalContent, Close, Content, Top } from "./ModalStyle";
 import { useHistory } from "react-router-dom";
 import { IDetail } from "../../../store/serverTypes";
 import { imgUrl } from "../../../config";
@@ -20,12 +20,20 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
     setToggle(true);
   }, [toggle]);
 
+  const renderTop = movie && (
+    <Top>
+      <img src={`${imgUrl}/w300${movie.poster_path}`} />
+      <p>{movie.original_title}</p>
+      {movie.genres && movie.genres.map(genre => <span>{genre.name}</span>)}
+      <span>{movie.adult ? "18+" : "7+"}</span>
+    </Top>
+  );
   return (
     <Container toggle={toggle}>
-      <ModalContent url={`${imgUrl}/w780${movie.backdrop_path}`} />
-      <BackgroundImg>
-        Content goes here<Close>&times;</Close>
-      </BackgroundImg>
+      <ModalContent url={`${imgUrl}/w780${movie.backdrop_path}`}>
+        <Close onClick={handleToggle}>&times;</Close>
+        <Content>{renderTop}</Content>
+      </ModalContent>
     </Container>
   );
 };

@@ -11,7 +11,7 @@ export const Container = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
   background-color: transparent;
   backdrop-filter: blur(2px);
   animation-name: modalFadeIn;
@@ -31,22 +31,31 @@ interface ContentProps {
   url: string;
 }
 export const ModalContent = styled.div`
-  background-image: url(${(p: ContentProps) => `${p.url}`});
-  background-attachment: fixed;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.2) 100%
+    ),
+    url(${(p: ContentProps) => `${p.url}`});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 15% auto;
-  padding: 1em;
+  margin: 10% auto;
   border: 1px solid #888;
   width: 80%;
   position: relative;
 `;
-export const BackgroundImg = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+export const Content = styled.div`
+  margin-top: 15em;
+  background-color: white;
 `;
+export const Top = styled.div`
+  > img {
+    width: 6em;
+    border-radius: 0.6em;
+  }
+`;
+
 export const Close = styled.span`
   color: #aaa;
   float: right;
