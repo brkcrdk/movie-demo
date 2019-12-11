@@ -42,7 +42,8 @@ export const ModalContent = styled.div`
   position: relative;
 `;
 export const Content = styled.div`
-  margin-top: 15em;
+  padding-top: 1em;
+  padding-left: 1em;
   background: linear-gradient(to bottom, transparent, white);
   position: relative;
 `;
@@ -55,6 +56,7 @@ export const Close = styled.span`
   position: absolute;
   top: 0;
   right: 0.3em;
+  z-index: 6;
   &:hover,
   &:focus {
     color: black;

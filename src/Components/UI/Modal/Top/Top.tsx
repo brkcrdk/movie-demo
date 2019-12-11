@@ -12,14 +12,19 @@ interface Props {
 }
 const Container = styled.div`
   display: flex;
-
+  text-align: right;
   > img {
-    width: 6em;
+    width: 10em;
     border-radius: 0.6em;
+    margin-right: 1em;
   }
-  > div {
-    display: grid;
-  }
+`;
+const InfoWrapper = styled.div``;
+const GenreWrapper = styled.div`
+  display: flex;
+`;
+const RuntimeAdult = styled.div`
+  display: flex;
 `;
 const Top: React.FC<Props> = ({
   posterPath,
@@ -32,14 +37,17 @@ const Top: React.FC<Props> = ({
   return (
     <Container>
       <img src={`${imgUrl}/w300${posterPath}`} />
-      <div>
+      <InfoWrapper>
         <p>{movieTitle}</p>
-        {genres && genres.map(genre => <span>{genre.name}</span>)}
-        <span>{adult ? "18+" : "7+"}</span>
-        <span>{runTime}</span>
-
+        <GenreWrapper>
+          {genres && genres.map(genre => <span>{genre.name}</span>)}
+        </GenreWrapper>
+        <RuntimeAdult>
+          <span>{adult ? "18+" : "7+"}</span>
+          <span>{runTime}</span>
+        </RuntimeAdult>
         <span>Vote Avg:{voteAvg}</span>
-      </div>
+      </InfoWrapper>
     </Container>
   );
 };

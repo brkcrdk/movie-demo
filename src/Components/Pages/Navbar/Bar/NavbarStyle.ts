@@ -40,7 +40,7 @@ export const Desktop = styled.div`
 
 export const Mobile = styled.div`
   @media ${device.mobileS} {
-    padding: 1em;
+    padding: 0 1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
