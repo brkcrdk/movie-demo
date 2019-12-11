@@ -21,16 +21,13 @@ const Button = styled.button`
 const ToggleIcons: React.FC<Props> = ({
   onClick,
   icon,
-  iconStyle = "solid",
+  iconStyle = "s",
   style,
   disabled = false
 }) => {
   return (
     <Button onClick={onClick} disabled={disabled}>
-      <i
-        style={style}
-        className={`fa${iconStyle === "solid" ? "s" : "r"} fa-${icon}`}
-      />
+      <i style={style} className={`fa${iconStyle} fa-${icon}`} />
     </Button>
   );
 };
