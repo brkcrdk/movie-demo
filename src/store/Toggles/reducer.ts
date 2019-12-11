@@ -29,7 +29,8 @@ const toggleReducer = (state = initialState, action: ToggleActions) => {
     case SLAYT_GRID:
       return { ...state, slaytGrid: action.payload };
     case MOBILE_SECTION:
-      return { ...state, mobileSection: action.payload };
+      const section = action.payload.replace("_", " ");
+      return { ...state, mobileSection: section };
     default:
       return state;
   }

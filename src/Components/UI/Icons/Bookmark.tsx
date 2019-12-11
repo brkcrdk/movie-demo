@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 import { colours, fonts } from "../../../utils";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { MovieInfo } from "../../../store/serverTypes";
 import { Link } from "react-router-dom";
+import { toggleSection } from "../../../store/Toggles/action";
 
 interface Props {}
 
@@ -40,8 +41,12 @@ const Bookmark: React.FC<Props> = () => {
   const renderCount =
     favMovies.length > 0 ? <span>{favMovies.length}</span> : "";
 
+  const dispatch = useDispatch();
+  const handleSection = useCallback(() => {
+    dispatch(toggleSection("favourite"));
+  }, [dispatch]);
   return (
-    <Button to="/favourites">
+    <Button to="/favourites" onClick={handleSection}>
       <i className={`${isEmpty} fa-bookmark`} />
       {renderCount}
     </Button>
