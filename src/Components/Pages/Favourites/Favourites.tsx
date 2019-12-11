@@ -33,6 +33,7 @@ const Favourites: React.FC<Props> = () => {
           name={movie.title}
           voteAvg={movie.vote_average}
           releaseDate={movie.release_date}
+          movieId={movie.id}
           removeFunc={() => {
             handleRemove(movie);
           }}

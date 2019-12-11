@@ -10,6 +10,7 @@ import Navbar from "./Components/Pages/Navbar/Bar/Navbar";
 import Sidebar from "./Components/Pages/Navbar/Sidebar";
 import Dimmer from "./Components/UI/Dimmer";
 import Favourites from "./Components/Pages/Favourites/Favourites";
+import MovieDetail from "./Components/Pages/MovieDetail/MovieDetail";
 import { useDispatch } from "react-redux";
 import { addFav } from "./store/Favourite/action";
 const Container = styled.div`
@@ -43,6 +44,7 @@ const App: React.FC = () => {
           <Route path="/movies/upcoming" component={Upcoming} />
           <Route path="/movies/now_playing" component={NowPlaying} />
           <Route path="/favourites" component={Favourites} />
+          <Route path="/movie/:id" component={MovieDetail} />
         </Dimmer>
       </Router>
     </Container>
