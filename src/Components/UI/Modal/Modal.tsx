@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Container, ModalContent, Close, Content, Top } from "./ModalStyle";
+import { Container, ModalContent, Close, Content } from "./ModalStyle";
 import { useHistory } from "react-router-dom";
+import Top from "./Top/Top";
 import { IDetail } from "../../../store/serverTypes";
 import { imgUrl } from "../../../config";
 interface Props {
@@ -21,12 +22,12 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
   }, [toggle]);
 
   const renderTop = movie && (
-    <Top>
-      <img src={`${imgUrl}/w300${movie.poster_path}`} />
-      <p>{movie.original_title}</p>
-      {movie.genres && movie.genres.map(genre => <span>{genre.name}</span>)}
-      <span>{movie.adult ? "18+" : "7+"}</span>
-    </Top>
+    <Top
+      genres={movie.genres}
+      movieTitle={movie.original_title}
+      adult={movie.adult}
+      posterPath={movie.poster_path}
+    />
   );
   return (
     <Container toggle={toggle}>

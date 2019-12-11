@@ -30,14 +30,9 @@ export const Container = styled.div`
 interface ContentProps {
   url: string;
 }
-// linear-gradient(
-//       to bottom,
-//       rgba(255, 0, 0, 0.45),
-//       rgba(255, 0, 0, 0.45)
-//     ),
+
 export const ModalContent = styled.div`
   background-image: url(${(p: ContentProps) => `${p.url}`});
-
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -48,15 +43,8 @@ export const ModalContent = styled.div`
 `;
 export const Content = styled.div`
   margin-top: 15em;
-`;
-export const Top = styled.div`
-  display: flex;
-  border: 1px solid red;
   background: linear-gradient(to bottom, transparent, white);
-  > img {
-    width: 6em;
-    border-radius: 0.6em;
-  }
+  position: relative;
 `;
 
 export const Close = styled.span`
