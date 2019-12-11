@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import styled from "styled-components";
 import Navbar from "./Components/Pages/Navbar/Bar/Navbar";
 import Sidebar from "./Components/Pages/Navbar/Sidebar";
@@ -32,9 +32,7 @@ const App: React.FC = () => {
         <Sidebar />
         <Dimmer>
           <Navbar />
-          <Switch>
-            <Routes />
-          </Switch>
+          <Routes />
         </Dimmer>
       </Router>
     </Container>
