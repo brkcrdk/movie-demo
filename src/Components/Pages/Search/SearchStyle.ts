@@ -19,7 +19,7 @@ export const Mobile = styled.div`
     p.toggle ? "translateX(0)" : "translateX(150%)"};
   transition: transform 0.5s ease-in-out;
   position: fixed;
-  top: 7.9em;
+  top: 5.9em;
   left: 0;
   width: 100%;
   text-align: center;
@@ -72,12 +72,10 @@ export const ResultWrapper = styled.div`
     width: 99%;
   }
   @media ${device.tablet} {
-    top: 10em;
+    top: 5.9em;
     width: initial;
   }
-  @media ${device.desktopL} {
-    top: 8.8em;
-  }
+
   div {
     width: 100%;
     display: grid;
