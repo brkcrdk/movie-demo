@@ -1,8 +1,12 @@
 import React from "react";
+import { ImageProps, VideoProps } from "../../../../../store/serverTypes";
+interface Props {
+  backdrops: ImageProps[];
+  posters: ImageProps[];
+  videos: VideoProps[];
+}
 
-interface Props {}
-
-const Media: React.FC<Props> = () => {
+const Media: React.FC<Props> = ({ posters, backdrops, videos }) => {
   return <div></div>;
 };
 

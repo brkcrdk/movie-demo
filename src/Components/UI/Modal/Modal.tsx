@@ -33,7 +33,7 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
       popularity={movie.popularity}
     />
   );
-  const renderBottom = movie && (
+  const renderBottom = movie && movie.images && (
     <Bottom
       overview={movie.overview}
       backdrops={movie.images.backdrops}
