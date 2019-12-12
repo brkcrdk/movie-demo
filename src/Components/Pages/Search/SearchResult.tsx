@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { MovieInfo } from "../../../store/serverTypes";
+import { imgUrl } from "../../../config";
 
 interface Props {
   onClick?: () => void;
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const SearchResult: React.FC<Props> = ({ results, onClick }) => {
+  const location = useLocation();
   const renderResults =
     results &&
     results
@@ -21,10 +23,18 @@ const SearchResult: React.FC<Props> = ({ results, onClick }) => {
             state: { background: location }
           }}
         >
-          <li></li>
+          <li>
+            <div>
+              <img
+                src={`${imgUrl}/w300${result.backdrop_path}`}
+                alt={`img-${result.title}`}
+              />
+              <span>{result.title}</span>
+            </div>
+          </li>
         </Link>
       ));
-  return <div></div>;
+  return <>{renderResults}</>;
 };
 
 export default SearchResult;

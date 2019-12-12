@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { MovieInfo } from "../../../store/serverTypes";
-import { apiUrl, apiKey, imgUrl } from "../../../config";
-import { Link, useLocation } from "react-router-dom";
+import { apiUrl, apiKey } from "../../../config";
 import { ResultWrapper } from "./SearchStyle";
+import { useDispatch } from "react-redux";
+import { toggleSearch } from "../../../store/Toggles/action";
 import axios from "axios";
 import SearchResult from "./SearchResult";
 interface Props {}
@@ -32,41 +33,19 @@ const SearchInput: React.FC<Props> = () => {
         });
     }
   }, [input]);
-
-  const location = useLocation();
+  const dispatch = useDispatch();
   const handleLinkClick = () => {
+    dispatch(toggleSearch());
     setInput("");
   };
-  // const renderResults =
-  //   result &&
-  //   result
-  //     .filter(result => {
-  //       return result.backdrop_path !== null;
-  //     })
-  //     .map((result, index) => (
-  //       <Link
-  //         onClick={handleLinkClick}
-  //         to={{
-  //           pathname: `movie/${result.id}`,
-  //           state: { background: location }
-  //         }}
-  //       >
-  //         <li key={index}>
-  //           <div>
-  //             <img
-  //               src={`${imgUrl}/w300${result.backdrop_path}`}
-  //               alt={`img-${result.title}`}
-  //             />
-  //             <span>{result.title}</span>
-  //           </div>
-  //         </li>
-  //       </Link>
-  //     ));
+  const renderResult = result && (
+    <SearchResult onClick={handleLinkClick} results={result} />
+  );
   return (
     <>
       <input value={input} onChange={handleInput} placeholder="Search.." />
       <ResultWrapper isEmpty={input !== ""}>
-        <ul>{renderResults}</ul>
+        <ul>{renderResult}</ul>
       </ResultWrapper>
     </>
   );
