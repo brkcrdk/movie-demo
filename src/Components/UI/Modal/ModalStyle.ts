@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import { device } from "../../../utils";
+import { device } from "../../../utils";
 interface ContainerProps {
   toggle: boolean;
 }
@@ -37,10 +37,18 @@ export const ModalContent = styled.div`
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 8% auto;
   border: 1px solid #888;
   width: 80%;
+  max-width: 80em;
   position: relative;
+  @media ${device.mobileS} {
+    margin: 0 auto;
+    margin-top: 6em;
+    width: 90%;
+  }
+  @media ${device.mobileM} {
+    width: 80%;
+  }
 `;
 export const Content = styled.div`
   padding-top: 1em;
