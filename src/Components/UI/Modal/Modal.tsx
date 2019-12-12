@@ -33,13 +33,8 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
       popularity={movie.popularity}
     />
   );
-  const renderBottom = movie && movie.images && (
-    <Bottom
-      overview={movie.overview}
-      backdrops={movie.images.backdrops}
-      posters={movie.images.posters}
-      videos={movie.videos.results}
-    />
+  const renderBottom = movie && movie.credits && (
+    <Bottom overview={movie.overview} cast={movie.credits.cast} />
   );
   return (
     <Container toggle={toggle}>

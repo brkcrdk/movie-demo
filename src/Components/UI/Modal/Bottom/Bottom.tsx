@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import { Container, Tabs, Tab, Content } from "./BottomStyle";
+import Credits from "./Credits/Credits";
 import Detail from "./Overview/Overview";
-import Media from "./Media/Media";
-import { ImageProps, VideoProps } from "../../../../store/serverTypes";
+import { Cast } from "../../../../store/serverTypes";
 interface Props {
   overview: string;
-  backdrops: ImageProps[];
-  posters: ImageProps[];
-  videos: VideoProps[];
+  cast: Cast[];
 }
 
-const Bottom: React.FC<Props> = ({ overview, backdrops, posters, videos }) => {
+const Bottom: React.FC<Props> = ({ overview, cast }) => {
   const [active, setActive] = useState(0);
 
   const handleTab = (index: number) => {
     if (active !== index) setActive(index);
   };
-  const renderTabs = ["Overview", "Cast", "Media", "Recommendations"].map(
+  const renderTabs = ["Overview", "Cast", "Similar Movies"].map(
     (tab, index) => (
       <Tab
         active={active === index}
@@ -28,6 +26,7 @@ const Bottom: React.FC<Props> = ({ overview, backdrops, posters, videos }) => {
       </Tab>
     )
   );
+
   return (
     <Container>
       <Tabs>{renderTabs}</Tabs>
@@ -35,7 +34,7 @@ const Bottom: React.FC<Props> = ({ overview, backdrops, posters, videos }) => {
         <Detail overview={overview} />
       </Content>
       <Content active={active === 1}>
-        <Media videos={videos} backdrops={backdrops} posters={posters} />
+        <Credits cast={cast} />
       </Content>
     </Container>
   );

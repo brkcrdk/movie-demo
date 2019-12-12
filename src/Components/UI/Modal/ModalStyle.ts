@@ -36,7 +36,7 @@ export const ModalContent = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 10% auto;
+  margin: 8% auto;
   border: 1px solid #888;
   width: 80%;
   position: relative;

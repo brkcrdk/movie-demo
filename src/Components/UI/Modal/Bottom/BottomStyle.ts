@@ -12,7 +12,7 @@ export const Tabs = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  overflow: scroll;
+  overflow: hidden;
 `;
 interface TabProps {
   active: boolean;
