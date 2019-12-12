@@ -6,11 +6,12 @@ interface Store {
     sidebar: boolean;
   };
 }
-interface DimProps {
-  toggle: boolean;
-}
 interface Props {
   children: React.ReactNode;
+}
+
+interface DimProps {
+  toggle: boolean;
 }
 export const DimContainer = styled.div`
   margin-left: ${(p: DimProps) => (p.toggle ? "10em" : "0")};

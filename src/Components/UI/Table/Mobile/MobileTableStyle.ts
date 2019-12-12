@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import { device, colours, fonts } from "../../../../utils";
+
+interface DetailProps {
+  toggle?: boolean;
+}
 export const Container = styled.div`
   @media ${device.mobileS} {
     display: block;
@@ -70,9 +74,7 @@ export const InfoContainer = styled.div`
     padding: 2em 1em;
   }
 `;
-interface DetailProps {
-  toggle?: boolean;
-}
+
 export const DetailContainer = styled.div`
   max-height: ${(p: DetailProps) => (p.toggle ? "100%" : "0")};
 `;

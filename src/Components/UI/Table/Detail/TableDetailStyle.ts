@@ -4,7 +4,9 @@ import { colours, device } from "../../../../utils";
 interface ExpandableProps {
   expand: boolean;
 }
-
+interface SlaytProps {
+  toggle: boolean;
+}
 export const Container = styled.div`
   display: ${(p: ExpandableProps) => (p.expand ? "grid" : "none")};
   overflow: hidden;
@@ -19,9 +21,6 @@ export const Container = styled.div`
     width: 100%;
   }
 `;
-interface SlaytProps {
-  toggle: boolean;
-}
 export const Slayt = styled.div`
   display: grid;
   align-items: center;

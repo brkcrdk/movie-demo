@@ -15,12 +15,11 @@ interface StoreProps {
     movie: IDetail;
     isLoading: boolean;
   };
-}
-interface ToggleProps {
   toggle: {
     slaytGrid: number;
   };
 }
+
 const TableDetail: React.FC<Props> = ({
   activeIndex,
   index,
@@ -30,7 +29,7 @@ const TableDetail: React.FC<Props> = ({
   const isLoading = useSelector(
     (state: StoreProps) => state.detailStore.isLoading
   );
-  const slaytGrid = useSelector((state: ToggleProps) => state.toggle.slaytGrid);
+  const slaytGrid = useSelector((state: StoreProps) => state.toggle.slaytGrid);
   const imgSize = () => {
     if (slaytGrid !== -1) return "big";
     if (isMobile) return "big";
