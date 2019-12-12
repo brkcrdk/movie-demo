@@ -1,38 +1,51 @@
 import styled from "styled-components";
-import { fonts } from "../../../../utils";
+import { fonts, colours } from "../../../../utils";
 
 export const Container = styled.div`
   width: 100%;
   margin-top: 1em;
-`;
-export const Tabs = styled.div`
-  background: transparent;
   font-family: ${fonts.aBeeZee};
+`;
+export const Tabs = styled.ul`
+  background: transparent;
   height: 3em;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   overflow: hidden;
+  margin-left: -1em;
 `;
 interface TabProps {
   active: boolean;
 }
 
-export const Tab = styled.button`
+export const Tab = styled.li`
   width: 100%;
   min-width: 5em;
   border: none;
   outline: none;
   cursor: pointer;
   position: relative;
-  border: ${(p: TabProps) => (p.active ? "1px solid #ccc" : "")};
-  border-bottom: ${(p: TabProps) => (p.active ? "none" : "")};
-  background-color: ${(p: TabProps) => (p.active ? "white" : "lightgray")};
-  height: ${(p: TabProps) => (p.active ? "3em" : "2.6em; top:.4em")};
-  transition: background-color 0.5s ease-in-out;
-  :hover {
-    background-color: white;
+  transition: 0.5s ease-in-out;
+  display: inline-block;
+  color: ${(p: TabProps) => (p.active ? `${colours.pink}` : "black")};
+  /* font-size: ${(p: TabProps) => (p.active ? "1.2em" : "1em")}; */
+  text-decoration: none;
+  &::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: ${colours.pink};
+    transition: width 0.5s;
+  }
+  &:hover {
     outline: none;
+  }
+  &:hover::after {
+    width: 50%;
+    transition: width 0.5s;
   }
   > i {
     padding-left: 1em;

@@ -10,7 +10,8 @@ interface Props {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  overflow-y: scroll;
+  overflow-y: hidden;
+  overflow-x: scroll;
   text-align: center;
   div {
     margin: 0 0.5em;
