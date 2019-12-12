@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { fonts } from "../../../../utils";
 
 export const Container = styled.div`
   width: 100%;
   margin-top: 1em;
 `;
 export const Tabs = styled.div`
-  background: #fff;
-  font-family: Open Sans;
+  background: transparent;
+  font-family: ${fonts.aBeeZee};
   height: 3em;
   width: 100%;
   display: flex;
