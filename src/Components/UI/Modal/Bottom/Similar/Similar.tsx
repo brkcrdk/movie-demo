@@ -41,7 +41,10 @@ const Similar: React.FC<Props> = ({ similar }) => {
       .filter(movie => movie.poster_path !== null)
       .map((movie, index) => (
         <div>
-          <img src={`${imgUrl}/w185/${movie.poster_path}`} />
+          <img
+            src={`${imgUrl}/w185/${movie.poster_path}`}
+            alt={`poster-${movie.title}`}
+          />
           <span>
             <strong>{movie.title}</strong>
           </span>

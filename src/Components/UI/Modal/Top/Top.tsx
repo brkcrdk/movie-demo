@@ -32,7 +32,7 @@ const Top: React.FC<Props> = ({
 }) => {
   return (
     <Container>
-      <img src={`${imgUrl}/w300${posterPath}`} />
+      <img src={`${imgUrl}/w300${posterPath}`} alt={`img-${movieTitle}`} />
       <InfoWrapper>
         <Title>{movieTitle}</Title>
         <RuntimeAdult>

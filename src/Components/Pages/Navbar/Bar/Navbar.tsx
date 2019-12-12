@@ -5,7 +5,6 @@ import { Container, Desktop, Mobile, Icons, Section } from "./NavbarStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar, toggleSearch } from "../../../../store/Toggles/action";
 import { Bookmark, ToggleIcons } from "../../../UI/Icons/Icons";
-import { useLocation } from "react-router-dom";
 interface Props {}
 interface ToggleProps {
   toggle: {
