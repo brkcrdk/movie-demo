@@ -11,16 +11,8 @@ interface Props {}
 const SearchInput: React.FC<Props> = () => {
   const [input, setInput] = useState<string>("");
   const [result, setResult] = useState<Array<MovieInfo>>();
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value === "") {
-      setTimeout(() => {
-        setInput(" ");
-        setInput("");
-      }, 1000);
-    } else {
-      setInput(e.target.value);
-    }
-  };
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (input) {
       axios
@@ -33,7 +25,14 @@ const SearchInput: React.FC<Props> = () => {
         });
     }
   }, [input]);
-  const dispatch = useDispatch();
+
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === "") {
+      setInput("");
+    } else {
+      setInput(e.target.value);
+    }
+  };
   const handleLinkClick = () => {
     dispatch(toggleSearch());
     setInput("");
