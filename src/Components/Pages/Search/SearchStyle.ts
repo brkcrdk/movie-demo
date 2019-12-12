@@ -90,4 +90,8 @@ export const ResultWrapper = styled.div`
   img {
     height: 1.5em;
   }
+  a {
+    text-decoration: none;
+    color: ${colours.primaryText};
+  }
 `;

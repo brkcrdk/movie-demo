@@ -49,7 +49,11 @@ const Similar: React.FC<Props> = ({ similar }) => {
           </span>
         </div>
       ));
-  return <Container>{renderSimilar}</Container>;
+  return (
+    <Container>
+      {similar.length > 0 ? renderSimilar : <p>No similar movie found</p>}
+    </Container>
+  );
 };
 
 export default Similar;

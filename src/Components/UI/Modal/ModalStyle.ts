@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../../utils";
+import { device, fonts } from "../../../utils";
 interface ContainerProps {
   toggle: boolean;
 }
@@ -16,6 +16,7 @@ export const Container = styled.div`
   backdrop-filter: blur(2px);
   animation-name: modalFadeIn;
   animation-duration: 0.5s;
+  font-family: ${fonts.aBeeZee};
   @keyframes modalFadeIn {
     from {
       transform: scale(0);
