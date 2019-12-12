@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { colours } from "../../../../../utils";
+import { MovieInfo } from "../../../../../store/serverTypes";
+import { imgUrl } from "../../../../../config";
 
-interface Props {}
+interface Props {
+  similar: MovieInfo[];
+}
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -25,8 +29,20 @@ const Container = styled.div`
     width: 100%;
   }
 `;
-const Similar: React.FC<Props> = () => {
-  return <div></div>;
+const Similar: React.FC<Props> = ({ similar }) => {
+  const renderSimilar =
+    similar &&
+    similar
+      .filter(movie => movie.poster_path !== null)
+      .map((movie, index) => (
+        <div>
+          <img src={`${imgUrl}/w185/${movie.poster_path}`} />
+          <span>
+            <strong>{movie.title}</strong>
+          </span>
+        </div>
+      ));
+  return <Container>{renderSimilar}</Container>;
 };
 
 export default Similar;

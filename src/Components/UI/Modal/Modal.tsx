@@ -34,11 +34,15 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
     />
   );
   const renderBottom = movie && movie.credits && (
-    <Bottom overview={movie.overview} cast={movie.credits.cast} />
+    <Bottom
+      overview={movie.overview}
+      cast={movie.credits.cast}
+      similar={movie.similar.results}
+    />
   );
   return (
     <Container toggle={toggle}>
-      <ModalContent url={`${imgUrl}/w780${movie.backdrop_path}`}>
+      <ModalContent url={`${imgUrl}/w1280${movie.backdrop_path}`}>
         <Close onClick={handleToggle}>&times;</Close>
         <Content>
           {renderTop}

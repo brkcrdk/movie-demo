@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { Container, Tabs, Tab, Content } from "./BottomStyle";
 import Credits from "./Credits/Credits";
 import Detail from "./Overview/Overview";
-import { Cast } from "../../../../store/serverTypes";
+import Similar from "./Similar/Similar";
+import { Cast, MovieInfo } from "../../../../store/serverTypes";
 interface Props {
   overview: string;
   cast: Cast[];
+  similar: MovieInfo[];
 }
 
-const Bottom: React.FC<Props> = ({ overview, cast }) => {
+const Bottom: React.FC<Props> = ({ overview, cast, similar }) => {
   const [active, setActive] = useState(0);
 
   const handleTab = (index: number) => {
@@ -35,6 +37,9 @@ const Bottom: React.FC<Props> = ({ overview, cast }) => {
       </Content>
       <Content active={active === 1}>
         <Credits cast={cast} />
+      </Content>
+      <Content active={active === 2}>
+        <Similar similar={similar} />
       </Content>
     </Container>
   );

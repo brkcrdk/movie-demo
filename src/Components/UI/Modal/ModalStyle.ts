@@ -34,6 +34,7 @@ interface ContentProps {
 export const ModalContent = styled.div`
   background-image: url(${(p: ContentProps) => `${p.url}`});
   background-position: center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 8% auto;
