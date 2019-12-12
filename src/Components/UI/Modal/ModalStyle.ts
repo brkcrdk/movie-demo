@@ -47,8 +47,12 @@ export const ModalContent = styled.div`
     margin-top: 6em;
     width: 90%;
   }
-  @media ${device.mobileM} {
+  @media ${device.tablet} {
     width: 80%;
+    margin: 10% auto;
+  }
+  @media ${device.widescreen} {
+    margin: 15% auto;
   }
 `;
 export const Content = styled.div`

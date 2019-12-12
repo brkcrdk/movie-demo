@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { fonts, colours } from "../../../../utils";
+import { fonts, colours, device } from "../../../../utils";
 
 export const Container = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ export const Container = styled.div`
 export const Tabs = styled.ul`
   background: transparent;
   height: 3em;
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,8 +30,8 @@ export const Tab = styled.li`
   transition: 0.5s ease-in-out;
   display: inline-block;
   color: ${(p: TabProps) => (p.active ? `${colours.pink}` : "black")};
-  /* font-size: ${(p: TabProps) => (p.active ? "1.2em" : "1em")}; */
   text-decoration: none;
+  font-weight: 800;
   &::after {
     content: "";
     display: block;
@@ -47,8 +47,11 @@ export const Tab = styled.li`
     width: 50%;
     transition: width 0.5s;
   }
-  > i {
-    padding-left: 1em;
+  @media ${device.mobileS} {
+    font-size: ${(p: TabProps) => (p.active ? "1em" : "0.8em")};
+  }
+  @media ${device.mobileTablet} {
+    font-size: ${(p: TabProps) => (p.active ? "1.3em" : "1em")};
   }
 `;
 interface ContentProps {
