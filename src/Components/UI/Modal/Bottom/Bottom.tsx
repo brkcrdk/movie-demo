@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Container, Tabs, Tab, Content } from "./BottomStyle";
 import Detail from "./Overview/Overview";
-
+import { ImageProps, VideoProps } from "../../../../store/serverTypes";
 interface Props {
   overview: string;
+  backdrops: ImageProps[];
+  posters: ImageProps[];
+  videos: VideoProps[];
 }
 
 const Bottom: React.FC<Props> = ({ overview }) => {

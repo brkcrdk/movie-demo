@@ -33,7 +33,14 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
       popularity={movie.popularity}
     />
   );
-  const renderBottom = movie && <Bottom overview={movie.overview} />;
+  const renderBottom = movie && (
+    <Bottom
+      overview={movie.overview}
+      backdrops={movie.images.backdrops}
+      posters={movie.images.posters}
+      videos={movie.videos.results}
+    />
+  );
   return (
     <Container toggle={toggle}>
       <ModalContent url={`${imgUrl}/w780${movie.backdrop_path}`}>
