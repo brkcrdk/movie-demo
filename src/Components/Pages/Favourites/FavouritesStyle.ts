@@ -5,11 +5,10 @@ export const Container = styled.div`
   margin-top: 1.5em;
 `;
 export const Wrapper = styled.div`
-  justify-content: center;
-  margin-bottom: 1em;
   display: grid;
   grid-gap: 1em;
-  margin: 0 1em;
+  justify-content: center;
+  margin-bottom: 1em;
 
   @media ${device.mobileS} {
     margin-left: 2em;

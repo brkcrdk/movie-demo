@@ -7,9 +7,11 @@ export const Container = styled.div`
   position: relative;
   font-family: ${fonts.aBeeZee};
   transition: transform 0.5s;
+
   &:hover {
     transform: scale(1.03);
   }
+
   > button {
     position: absolute;
     top: -0.5em;
