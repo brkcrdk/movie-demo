@@ -40,7 +40,8 @@ const Top: React.FC<Props> = ({
           <span>{runTime}</span>
         </RuntimeAdult>
         <GenreWrapper>
-          {genres && genres.map(genre => <span>{genre.name}</span>)}
+          {genres &&
+            genres.map((genre, index) => <span key={index}>{genre.name}</span>)}
         </GenreWrapper>
         <VotePopularity>
           <span>

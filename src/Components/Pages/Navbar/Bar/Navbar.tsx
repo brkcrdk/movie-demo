@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback } from "react";
 import Search from "../../Search/Search";
 import Pages from "../Pages";
 import { Container, Desktop, Mobile, Icons, Section } from "./NavbarStyle";
@@ -13,23 +13,10 @@ interface ToggleProps {
   };
 }
 const Navbar: React.FC<Props> = () => {
-  const [path, setPath] = useState("discover");
-  const location = useLocation();
   const dispatch = useDispatch();
   const section = useSelector(
     (state: ToggleProps) => state.toggle.mobileSection
   );
-  useEffect(() => {
-    // const pathName = location.pathname;
-    // if (pathName === "/") {
-    //   setPath("discover");
-    // } else if (pathName === "/favourites") {
-    //   setPath("favourite");
-    // } else {
-    //   setPath(pathName.split("/")[2].replace("_", " "));
-    // }
-  }, [location]);
-
   const handleSidebar = useCallback(() => {
     dispatch(toggleSidebar());
   }, [dispatch]);
