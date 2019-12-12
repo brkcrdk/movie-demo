@@ -34,17 +34,20 @@ const Button = styled(Link)`
   }
 `;
 const Bookmark: React.FC<Props> = () => {
+  const dispatch = useDispatch();
+
   const favMovies = useSelector(
     (state: FavStore) => state.favourites.favMovies
   );
   const isEmpty = favMovies.length > 0 ? "fas" : "far";
-  const renderCount =
-    favMovies.length > 0 ? <span>{favMovies.length}</span> : "";
 
-  const dispatch = useDispatch();
   const handleSection = useCallback(() => {
     dispatch(toggleSection("favourite"));
   }, [dispatch]);
+
+  const renderCount =
+    favMovies.length > 0 ? <span>{favMovies.length}</span> : "";
+
   return (
     <Button to="/favourites" onClick={handleSection}>
       <i className={`${isEmpty} fa-bookmark`} />

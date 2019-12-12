@@ -21,11 +21,12 @@ const Button = styled.button`
   cursor: pointer;
 `;
 const Favourite: React.FC<Props> = ({ movie }) => {
+  const [toggle, setToggle] = useState(false);
+  const dispatch = useDispatch();
+
   const favourites = useSelector(
     (state: FavStore) => state.favourites.favMovies
   );
-  const [toggle, setToggle] = useState(false);
-  const dispatch = useDispatch();
   useEffect(() => {
     if (favourites.length > 0) {
       const ids = favourites.map(item => item.movie.id);

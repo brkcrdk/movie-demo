@@ -1,5 +1,12 @@
 import styled from "styled-components";
 import { device, fonts, colours } from "../../../../utils";
+interface WrapperProps {
+  toggle: boolean;
+  id?: string | number;
+}
+interface ContentProps {
+  section: string;
+}
 
 export const Container = styled.div`
   width: 100%;
@@ -11,7 +18,6 @@ export const Container = styled.div`
     display: inline-block;
   }
 `;
-
 export const Header = styled.div`
   width: 100%;
   max-width: 93em;
@@ -28,20 +34,12 @@ export const Header = styled.div`
     margin-top: -3.1em;
   }
 `;
-
-interface ContentProps {
-  section: string;
-}
 export const Content = styled.div`
   width: 100%;
   padding-top: ${(p: ContentProps) =>
     p.section === "discover" ? "7em" : "2em"};
   overflow: hidden;
 `;
-interface WrapperProps {
-  toggle: boolean;
-  id?: string | number;
-}
 export const Wrapper = styled.div`
   position: relative;
   max-height: ${(p: WrapperProps) => (p.toggle ? "100vh" : "5em")};

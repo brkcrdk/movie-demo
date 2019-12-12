@@ -14,13 +14,14 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
   const [toggle, setToggle] = useState(false);
   const history = useHistory();
 
+  useEffect(() => {
+    setToggle(true);
+  }, [toggle]);
+
   const handleToggle = () => {
     setToggle(false);
     history.goBack();
   };
-  useEffect(() => {
-    setToggle(true);
-  }, [toggle]);
 
   const renderTop = movie && (
     <Top

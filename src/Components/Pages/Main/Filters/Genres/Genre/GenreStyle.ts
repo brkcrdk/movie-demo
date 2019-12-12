@@ -3,6 +3,7 @@ import { device, colours, fonts } from "../../../../../../utils";
 interface DropdownContent {
   toggle: boolean;
 }
+
 export const Dropdown = styled.div`
   position: relative;
   font-family: ${fonts.aBeeZee};
@@ -46,12 +47,10 @@ export const DropdownItem = styled.a`
     background-color: dodgerblue;
   }
 `;
-
 export const Label = styled.label`
   margin-bottom: 1em;
   font-weight: 800;
 `;
-
 export const Splitter = styled.hr`
   margin: 0.5em 0;
   width: 95%;

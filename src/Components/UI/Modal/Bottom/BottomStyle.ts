@@ -1,11 +1,18 @@
 import styled from "styled-components";
 import { fonts, colours, device } from "../../../../utils";
 
+interface TabProps {
+  active: boolean;
+}
+interface ContentProps {
+  active: boolean;
+}
 export const Container = styled.div`
   width: 100%;
   margin-top: 1em;
   font-family: ${fonts.aBeeZee};
 `;
+
 export const Tabs = styled.ul`
   background: transparent;
   height: 3em;
@@ -16,9 +23,6 @@ export const Tabs = styled.ul`
   overflow: hidden;
   margin-left: -1em;
 `;
-interface TabProps {
-  active: boolean;
-}
 
 export const Tab = styled.li`
   width: 100%;
@@ -54,9 +58,7 @@ export const Tab = styled.li`
     font-size: ${(p: TabProps) => (p.active ? "1.3em" : "1em")};
   }
 `;
-interface ContentProps {
-  active: boolean;
-}
+
 export const Content = styled.div`
   ${(p: ContentProps) => (p.active ? "" : "display:none")};
   width: 100%;

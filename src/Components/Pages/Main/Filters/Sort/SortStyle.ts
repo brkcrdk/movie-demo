@@ -8,7 +8,6 @@ export const Container = styled.div`
   position: fixed;
   padding-bottom: 1em;
   padding-top: 1.5em;
-
   @media ${device.mobileS} {
     display: grid;
     grid-template-columns: 12fr;
@@ -27,7 +26,6 @@ export const Container = styled.div`
     z-index: 1;
   }
 `;
-
 export const GenreWrap = styled.div`
   @media ${device.mobileS} {
     margin-left: 1em;

@@ -24,6 +24,7 @@ interface ToggleProps {
   };
 }
 const ActorList: React.FC<Props> = ({ credits }) => {
+  const dispatch = useDispatch();
   const slaytGrid = useSelector((state: ToggleProps) => state.toggle.slaytGrid);
   const [active, setActive] = useState(slaytGrid);
   useEffect(() => {
@@ -38,7 +39,6 @@ const ActorList: React.FC<Props> = ({ credits }) => {
       return index < 4;
     });
 
-  const dispatch = useDispatch();
   const handleActor = useCallback(
     (id: number, index: number) => {
       if (active === index) {

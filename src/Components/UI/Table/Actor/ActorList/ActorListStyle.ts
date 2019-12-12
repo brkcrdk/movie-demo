@@ -3,12 +3,13 @@ import { colours, device } from "../../../../../utils";
 interface InfoProps {
   active: boolean;
 }
-export const Container = styled.div`
-  margin: 0;
-`;
 interface ContentProps {
   toggle: boolean;
 }
+export const Container = styled.div`
+  margin: 0;
+`;
+
 export const Content = styled.ul`
   max-height: ${(p: ContentProps) => (p.toggle ? "100vh" : "2em")};
   transition: max-height 0.5s;

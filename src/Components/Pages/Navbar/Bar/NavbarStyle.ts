@@ -21,7 +21,6 @@ export const Container = styled.div`
     width: inherit;
   }
 `;
-
 export const Desktop = styled.div`
   @media ${device.mobileS} {
     display: none;
@@ -37,7 +36,6 @@ export const Desktop = styled.div`
     min-width: 89em;
   }
 `;
-
 export const Mobile = styled.div`
   @media ${device.mobileS} {
     padding: 0 1em;
@@ -49,7 +47,6 @@ export const Mobile = styled.div`
     display: none;
   }
 `;
-
 export const Icons = styled.div`
   display: flex;
   justify-content: center;

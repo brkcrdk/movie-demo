@@ -7,13 +7,13 @@ interface MobileProps {
 interface ResultWrapperProps {
   isEmpty: boolean;
 }
+
 export const Container = styled.div`
   li {
     list-style: none;
     padding: 0.5em;
   }
 `;
-
 export const Mobile = styled.div`
   transform: ${(p: MobileProps) =>
     p.toggle ? "translateX(0)" : "translateX(150%)"};
@@ -55,7 +55,6 @@ export const Desktop = styled.div`
     }
   }
 `;
-
 export const ResultWrapper = styled.div`
   visibility: ${(p: ResultWrapperProps) => (p.isEmpty ? "visible" : "hidden")};
   max-height: 70vh;
@@ -75,7 +74,6 @@ export const ResultWrapper = styled.div`
     top: 5.9em;
     width: initial;
   }
-
   div {
     width: 100%;
     display: grid;
