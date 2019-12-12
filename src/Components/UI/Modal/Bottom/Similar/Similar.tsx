@@ -12,8 +12,6 @@ const Container = styled.div`
   align-items: center;
   overflow-y: scroll;
   text-align: center;
-  cursor: grab;
-
   div {
     margin: 0 0.5em;
     img {

@@ -38,19 +38,13 @@ const MobileTable: React.FC<Props> = ({ movies, isLoading }) => {
     },
     [dispatch, activeIndex, setActiveIndex]
   );
-  const handleClose = () => {
-    setActiveIndex(-1);
-  };
+
   const renderTables =
     movies &&
     movies.map((movie, index) => (
       <Content key={index}>
         <Favourite movie={movie} />
-        <Wrapper
-          onClick={() => {
-            handleActive(index, movie.id);
-          }}
-        >
+        <Wrapper>
           <ImageContainer>
             <img
               src={`${imgUrl}/w500/${movie.poster_path}`}
@@ -89,7 +83,9 @@ const MobileTable: React.FC<Props> = ({ movies, isLoading }) => {
         </DetailContainer>
         <ToggleIcons
           icon={activeIndex !== index ? "chevron-down" : "chevron-up"}
-          onClick={handleClose}
+          onClick={() => {
+            handleActive(index, movie.id);
+          }}
         />
       </Content>
     ));

@@ -27,7 +27,7 @@ export const ImgContainer = styled.div`
 export const InfoContainer = styled.div`
   display: grid !important;
   span {
-    padding: 1em 4em 1em 2em;
+    padding: 1em 1em 1em 0;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
