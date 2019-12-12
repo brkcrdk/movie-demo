@@ -28,6 +28,11 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     width: 100%;
   }
 `;
