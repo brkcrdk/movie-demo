@@ -5,7 +5,6 @@ import { MovieList } from "../../../store/serverTypes";
 import Table from "../../UI/Table/Table";
 import Filter from "./Filter/Filter";
 import { toggleSection } from "../../../store/Toggles/action";
-import GenreTags from "./Filters/Genres/Tags/GenreTags";
 
 interface Props {}
 interface DiscoverState {
