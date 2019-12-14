@@ -10,7 +10,7 @@
 
 # production
 /build
-/firebase
+/.firebase
 
 # misc
 .DS_Store
@@ -25,4 +25,3 @@ yarn-debug.log*
 yarn-error.log*
 firebase-debug.log*
 
-.firebase/hosting.YnVpbGQ.cache
