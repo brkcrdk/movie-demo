@@ -35,14 +35,6 @@ const SearchInput: React.FC<Props> = () => {
     }
   };
   const handleLinkClick = () => {
-    const pathLength = history.location.pathname.split("/").length;
-    const location = history.location.pathname.split("/")[pathLength - 1];
-    if (location.match(/0-9/g)) {
-      history.goBack();
-      setTimeout(() => {
-        dispatch(toggleSearch());
-      }, 300);
-    }
     dispatch(toggleSearch());
     setInput("");
   };
