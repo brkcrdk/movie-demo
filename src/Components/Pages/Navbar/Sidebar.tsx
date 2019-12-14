@@ -14,9 +14,6 @@ interface ContainerProps {
 }
 const Container = styled.div`
   @media ${device.mobileS} {
-    display: none;
-  }
-  @media ${device.tablet} {
     display: block;
     height: 100%;
     width: ${(p: ContainerProps) => (p.toggle ? "10em" : "0")};
@@ -24,6 +21,10 @@ const Container = styled.div`
     position: fixed;
     z-index: 1;
     transition: 0.5s;
+  }
+  @media ${device.tablet} {
+    display: none;
+    width: 0;
   }
 `;
 const Sidebar: React.FC<Props> = () => {
