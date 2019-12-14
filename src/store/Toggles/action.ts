@@ -2,7 +2,8 @@ import {
   SEARCH_TOGGLE,
   SIDEBAR_TOGGLE,
   SLAYT_GRID,
-  MOBILE_SECTION
+  MOBILE_SECTION,
+  MODAL_TOGGLE
 } from "./types";
 
 export const toggleSidebar = () => {
@@ -25,5 +26,10 @@ export const toggleSection = (section: string) => {
   return {
     type: MOBILE_SECTION,
     payload: section
+  };
+};
+export const toggleModal = () => {
+  return {
+    type: MODAL_TOGGLE
   };
 };

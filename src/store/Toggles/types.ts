@@ -3,12 +3,14 @@ export interface ToggleState {
   search: boolean;
   slaytGrid: number;
   mobileSection: string;
+  modal: boolean;
 }
 
 export const SEARCH_TOGGLE = "SEARCH_TOGGLE";
 export const SIDEBAR_TOGGLE = "SIDEBAR_TOGGLE";
 export const SLAYT_GRID = "SLAYT_GRID";
 export const MOBILE_SECTION = "MOBILE_SECTION";
+export const MODAL_TOGGLE = "MODAL_TOGGLE";
 interface SearchToggle {
   type: typeof SEARCH_TOGGLE;
 }
@@ -24,8 +26,12 @@ interface MobileSection {
   type: typeof MOBILE_SECTION;
   payload: string;
 }
+interface ModalToggle {
+  type: typeof MODAL_TOGGLE;
+}
 export type ToggleActions =
   | SearchToggle
   | SidebarToggle
   | SlaytGrid
-  | MobileSection;
+  | MobileSection
+  | ModalToggle;

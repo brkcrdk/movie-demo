@@ -4,14 +4,16 @@ import {
   SEARCH_TOGGLE,
   SIDEBAR_TOGGLE,
   SLAYT_GRID,
-  MOBILE_SECTION
+  MOBILE_SECTION,
+  MODAL_TOGGLE
 } from "./types";
 
 const initialState: ToggleState = {
   search: false,
   sidebar: false,
   slaytGrid: -1,
-  mobileSection: "discover"
+  mobileSection: "discover",
+  modal: false
 };
 
 const toggleReducer = (state = initialState, action: ToggleActions) => {
@@ -31,6 +33,8 @@ const toggleReducer = (state = initialState, action: ToggleActions) => {
     case MOBILE_SECTION:
       const section = action.payload.replace("_", " ");
       return { ...state, mobileSection: section };
+    case MODAL_TOGGLE:
+      return { ...state, modal: !state.modal };
     default:
       return state;
   }
