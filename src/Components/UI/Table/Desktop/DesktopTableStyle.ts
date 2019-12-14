@@ -44,16 +44,22 @@ export const Content = styled.div`
 `;
 export const Wrapper = styled.div`
   position: relative;
-  max-height: ${(p: WrapperProps) => (p.toggle ? "100vh" : "5em")};
   transition: max-height 0.5s;
   overflow: hidden;
+  max-height: ${(p: WrapperProps) => (p.toggle ? "100vh" : "5.5em")};
+
   > button {
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 1.5em;
     left: 0.4em;
+    @media ${device.tablet} {
+      top: 2em;
+    }
+    @media ${device.desktop} {
+      top: 1.5em;
+    }
   }
 `;
 export const Row = styled.ul`
