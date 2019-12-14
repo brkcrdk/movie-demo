@@ -21,7 +21,7 @@ interface DiscoverFilter {
 
 const SortBtn: React.FC<Props> = ({ activePage }) => {
   const [year, setYear] = useState("2019");
-  const [average, setAverage] = useState("4");
+  const [average, setAverage] = useState("0");
   const [sort, setSort] = useState("primary_release_date.asc");
   const tags = useSelector(
     (state: DiscoverFilter) => state.discoverFilter.tags
@@ -49,14 +49,8 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
         <GenreWrap>
           <Genres />
         </GenreWrap>
+        <Selectbox options={years()} label="Year" onChange={handleYear} />
         <Selectbox
-          options={years()}
-          label="Year"
-          onChange={handleYear}
-          defaultValue="2019"
-        />
-        <Selectbox
-          defaultValue="0"
           options={voteAvg()}
           label="IMDB Avg."
           onChange={handleAverage}
@@ -65,7 +59,6 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
           options={sortOptions}
           label="Sort By"
           onChange={handleSort}
-          defaultValue="Release Date(Asc)"
         />
       </SortWrapper>
       <GenreTags />
