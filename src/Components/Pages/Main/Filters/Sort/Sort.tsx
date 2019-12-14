@@ -19,8 +19,8 @@ interface DiscoverFilter {
 }
 
 const SortBtn: React.FC<Props> = ({ activePage }) => {
-  const [year, setYear] = useState("0");
-  const [average, setAverage] = useState("0");
+  const [year, setYear] = useState("2019");
+  const [average, setAverage] = useState("4");
   const [sort, setSort] = useState("primary_release_date.asc");
   const tags = useSelector(
     (state: DiscoverFilter) => state.discoverFilter.tags
@@ -28,7 +28,7 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const ids = tags.map(item => item.id);
+    const ids = tags.map((item) => item.id);
     const sortUrl = `sort_by=${sort}&primary_release_year=${year}&vote_average.gte=${average}`;
     dispatch(fetchDiscover(activePage, sortUrl, ...ids));
   }, [dispatch, activePage, year, average, sort, tags]);
