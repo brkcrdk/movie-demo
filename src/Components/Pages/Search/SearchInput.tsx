@@ -4,8 +4,7 @@ import { apiUrl, apiKey } from "../../../config";
 import { ResultWrapper } from "./SearchStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSearch, toggleModal } from "../../../store/Toggles/action";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
+Buimport axios from "axios";
 import SearchResult from "./SearchResult";
 interface Props {}
 interface ToggleProps {
@@ -17,7 +16,6 @@ const SearchInput: React.FC<Props> = () => {
   const [input, setInput] = useState<string>("");
   const [result, setResult] = useState<Array<MovieInfo>>();
   const dispatch = useDispatch();
-  const history = useHistory();
   const modalToggle = useSelector((state: ToggleProps) => state.toggle.modal);
   useEffect(() => {
     if (input) {
@@ -33,6 +31,9 @@ const SearchInput: React.FC<Props> = () => {
   }, [input]);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if(modalToggle){
+      dispatch(toggleModal());
+    }
     if (e.target.value === "") {
       setInput("");
     } else {
@@ -42,11 +43,7 @@ const SearchInput: React.FC<Props> = () => {
   const handleLinkClick = useCallback(() => {
     dispatch(toggleSearch());
     setInput("");
-    if (modalToggle) {
-      dispatch(toggleModal());
-      history.goBack();
-    }
-  }, [dispatch, modalToggle]);
+  }, [dispatch]);
   const renderResult = result && (
     <SearchResult onClick={handleLinkClick} results={result} />
   );
