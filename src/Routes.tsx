@@ -17,10 +17,10 @@ const Routes: React.FC<Props> = () => {
     <>
       <Switch location={background || location}>
         <Route path="/" exact component={Discover} />
-        <Route path="/movies/popular" component={Popular} />
-        <Route path="/movies/top_rated" component={TopRated} />
-        <Route path="/movies/upcoming" component={Upcoming} />
-        <Route path="/movies/now_playing" component={NowPlaying} />
+        <Route path="/popular" component={Popular} />
+        <Route path="/top_rated" component={TopRated} />
+        <Route path="/upcoming" component={Upcoming} />
+        <Route path="/now_playing" component={NowPlaying} />
         <Route path="/favourites" component={Favourites} />
       </Switch>
       {background && <Route path="/movie/:id" component={MovieDetail} />}

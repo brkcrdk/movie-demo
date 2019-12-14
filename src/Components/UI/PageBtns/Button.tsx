@@ -32,17 +32,11 @@ const PageButton: React.FC<Props> = ({ route, innerText }) => {
     transition: "0.2s",
     transform: "scale(1.05)"
   };
-
-  const renderLink =
-    route === "/" ? (
-      <Button activeStyle={activeLink} exact to="/">
-        {innerText}
-      </Button>
-    ) : (
-      <Button activeStyle={activeLink} exact to={`/movies${route}`}>
-        {innerText}
-      </Button>
-    );
+  const renderLink = (
+    <Button activeStyle={activeLink} exact to={`${route}`}>
+      {innerText}
+    </Button>
+  );
   return renderLink;
 };
 
