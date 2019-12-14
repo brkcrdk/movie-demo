@@ -2,10 +2,15 @@ import styled from "styled-components";
 import { device } from "../../../../../utils";
 
 export const Container = styled.div`
+  display: grid;
   width: 100%;
   max-width: 93em;
   background-color: white;
   position: fixed;
+  z-index: 1;
+`;
+
+export const SortWrapper = styled.div`
   padding-bottom: 1em;
   padding-top: 1.5em;
   border: 1px solid red;
@@ -14,7 +19,6 @@ export const Container = styled.div`
     grid-template-columns: 12fr;
     align-items: flex-start;
     margin-top: -2.6em;
-    z-index: 1;
   }
   @media ${device.mobileTablet} {
     grid-template-columns: repeat(2, 6fr);
@@ -24,7 +28,6 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 1.5em;
-    z-index: 1;
   }
 `;
 export const GenreWrap = styled.div`

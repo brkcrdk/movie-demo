@@ -26,16 +26,16 @@ export const DropdownHeader = styled.button`
 `;
 export const DropdownContent = styled.div`
   visibility: ${(p: DropdownContent) => (p.toggle ? "visible" : "hidden")};
+  max-height: ${(p: DropdownContent) => (p.toggle ? "15em" : "0")};
   display: grid;
   align-items: center;
   position: absolute;
-  max-height: ${(p: DropdownContent) => (p.toggle ? "15em" : "0")};
+  z-index: 2;
   transition: max-height 0.2s ease-in-out;
   background-color: white;
   overflow-y: scroll;
   overflow-x: hidden;
   width: 96%;
-  z-index: 2;
   border: 1px solid dodgerblue;
 `;
 export const DropdownItem = styled.a`

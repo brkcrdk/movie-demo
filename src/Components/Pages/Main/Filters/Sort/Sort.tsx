@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchDiscover } from "../../../../../store/Discover/action";
 import { sortOptions, years, voteAvg } from "./sortOptions";
 import Selectbox from "../../../../UI/Selectbox/Selectbox";
-import { Container, GenreWrap } from "./SortStyle";
+import { SortWrapper, GenreWrap, Container } from "./SortStyle";
 import Genres from "../Genres/Genre/Genre";
+import GenreTags from "../Genres/Tags/GenreTags";
 interface Props {
   activePage: number;
 }
@@ -44,27 +45,30 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
   };
   return (
     <Container>
-      <GenreWrap>
-        <Genres />
-      </GenreWrap>
-      <Selectbox
-        options={years()}
-        label="Year"
-        onChange={handleYear}
-        defaultValue="2019"
-      />
-      <Selectbox
-        defaultValue="0"
-        options={voteAvg()}
-        label="IMDB Avg."
-        onChange={handleAverage}
-      />
-      <Selectbox
-        options={sortOptions}
-        label="Sort By"
-        onChange={handleSort}
-        defaultValue="Release Date(Asc)"
-      />
+      <SortWrapper>
+        <GenreWrap>
+          <Genres />
+        </GenreWrap>
+        <Selectbox
+          options={years()}
+          label="Year"
+          onChange={handleYear}
+          defaultValue="2019"
+        />
+        <Selectbox
+          defaultValue="0"
+          options={voteAvg()}
+          label="IMDB Avg."
+          onChange={handleAverage}
+        />
+        <Selectbox
+          options={sortOptions}
+          label="Sort By"
+          onChange={handleSort}
+          defaultValue="Release Date(Asc)"
+        />
+      </SortWrapper>
+      <GenreTags />
     </Container>
   );
 };
