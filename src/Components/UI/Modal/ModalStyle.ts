@@ -3,6 +3,9 @@ import { device, fonts } from "../../../utils";
 interface ContainerProps {
   toggle: boolean;
 }
+interface ContentProps {
+  url: string;
+}
 export const Container = styled.div`
   display: ${(p: ContainerProps) => (p.toggle ? "block" : "none")};
   position: fixed;
@@ -28,9 +31,6 @@ export const Container = styled.div`
     }
   }
 `;
-interface ContentProps {
-  url: string;
-}
 
 export const ModalContent = styled.div`
   background-image: url(${(p: ContentProps) => `${p.url}`});
@@ -63,7 +63,7 @@ export const Content = styled.div`
 `;
 
 export const Close = styled.span`
-  color: #aaa;
+  color: grey;
   float: right;
   font-size: 1.5em;
   font-weight: bold;
