@@ -28,7 +28,7 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
   const handleToggle = useCallback(() => {
     dispatch(toggleModal());
     history.goBack();
-  }, [dispatch]);
+  }, [dispatch, history]);
 
   const renderTop = movie && (
     <Top

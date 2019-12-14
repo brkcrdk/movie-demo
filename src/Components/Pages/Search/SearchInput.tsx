@@ -4,7 +4,7 @@ import { apiUrl, apiKey } from "../../../config";
 import { ResultWrapper } from "./SearchStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSearch, toggleModal } from "../../../store/Toggles/action";
-Buimport axios from "axios";
+import axios from "axios";
 import SearchResult from "./SearchResult";
 interface Props {}
 interface ToggleProps {
@@ -31,7 +31,7 @@ const SearchInput: React.FC<Props> = () => {
   }, [input]);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if(modalToggle){
+    if (modalToggle) {
       dispatch(toggleModal());
     }
     if (e.target.value === "") {

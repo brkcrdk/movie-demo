@@ -30,14 +30,14 @@ const Navbar: React.FC<Props> = () => {
       dispatch(toggleModal());
       history.goBack();
     }
-  }, [dispatch, modalToggle]);
+  }, [dispatch, modalToggle, history]);
   const handleSearch = useCallback(() => {
     dispatch(toggleSearch());
     if (modalToggle) {
       dispatch(toggleModal());
       history.goBack();
     }
-  }, [dispatch, modalToggle]);
+  }, [dispatch, modalToggle, history]);
   return (
     <Container>
       <Desktop>
