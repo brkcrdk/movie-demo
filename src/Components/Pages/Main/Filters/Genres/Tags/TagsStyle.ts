@@ -2,12 +2,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   overflow: hidden;
   flex-wrap: wrap;
-  position: relative;
-  z-index: 0;
+  z-index: -1;
 `;
 export const TagWrapper = styled.div`
   margin: 0.3em;

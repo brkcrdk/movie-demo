@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const SortWrapper = styled.div`
   padding-bottom: 1em;
   padding-top: 1.5em;
-  border: 1px solid red;
+
   @media ${device.mobileS} {
     display: grid;
     grid-template-columns: 12fr;

@@ -30,7 +30,6 @@ export const DropdownContent = styled.div`
   display: grid;
   align-items: center;
   position: absolute;
-  z-index: 2;
   transition: max-height 0.2s ease-in-out;
   background-color: white;
   overflow-y: scroll;
