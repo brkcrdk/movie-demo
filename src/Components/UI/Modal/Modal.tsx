@@ -1,28 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { Container, ModalContent, Close, Content } from "./ModalStyle";
 import { useHistory } from "react-router-dom";
-import Top from "./Top/Top";
-import Bottom from "./Bottom/Bottom";
+import { useSelector, useDispatch } from "react-redux";
 import { IDetail } from "../../../store/serverTypes";
 import { imgUrl } from "../../../config";
+import { toggleModal } from "../../../store/Toggles/action";
+import Top from "./Top/Top";
+import Bottom from "./Bottom/Bottom";
 import Loader from "../Loader";
 interface Props {
   movie: IDetail;
   isLoading: boolean;
 }
-
-const Modal: React.FC<Props> = ({ movie, isLoading }) => {
-  const [toggle, setToggle] = useState(false);
-  const history = useHistory();
-
-  useEffect(() => {
-    setToggle(true);
-  }, [toggle]);
-
-  const handleToggle = () => {
-    setToggle(false);
-    history.goBack();
+interface StoreProps {
+  toggle: {
+    modal: boolean;
   };
+}
+const Modal: React.FC<Props> = ({ movie, isLoading }) => {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const toggle = useSelector((state: StoreProps) => state.toggle.modal);
+  useEffect(() => {
+    dispatch(toggleModal());
+  }, [dispatch]);
+
+  const handleToggle = useCallback(() => {
+    dispatch(toggleModal());
+    history.goBack();
+  }, [dispatch]);
 
   const renderTop = movie && (
     <Top
