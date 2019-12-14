@@ -12,7 +12,7 @@ const Credits: React.FC<Props> = ({ cast }) => {
     cast
       .filter(person => person.profile_path !== null)
       .map((person, index) => (
-        <div>
+        <div key={index}>
           <img
             src={`${imgUrl}/w185/${person.profile_path}`}
             alt={`poster-${person.name}`}

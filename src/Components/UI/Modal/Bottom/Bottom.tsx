@@ -19,11 +19,11 @@ const Bottom: React.FC<Props> = ({ overview, cast, similar }) => {
   const renderTabs = ["Overview", "Cast", "Similar Movies"].map(
     (tab, index) => (
       <Tab
+        key={index}
         active={active === index}
         onClick={() => {
           handleTab(index);
-        }}
-      >
+        }}>
         {tab}
       </Tab>
     )
