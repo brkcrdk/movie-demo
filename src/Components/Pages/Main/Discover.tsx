@@ -32,7 +32,7 @@ const Discover: React.FC<Props> = () => {
     (state: FilterState) => state.discoverFilter.tags
   );
   useEffect(() => {
-    const ids = filters.map(item => item.id);
+    const ids = filters.map((item) => item.id);
     dispatch(fetchDiscover(1, "", ...ids));
     dispatch(toggleSection("discover"));
   }, [dispatch, filters]);

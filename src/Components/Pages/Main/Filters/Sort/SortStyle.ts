@@ -22,7 +22,7 @@ export const Container = styled.div`
   @media ${device.tablet} {
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     margin-top: 1.5em;
     z-index: 1;
   }

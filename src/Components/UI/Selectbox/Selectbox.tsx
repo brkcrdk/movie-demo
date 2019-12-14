@@ -16,7 +16,7 @@ const Selectbox: React.FC<Props> = ({
     <Container>
       <Label>{label}</Label>
       <Splitter />
-      <Select onChange={onChange} defaultValue=" ">
+      <Select onChange={onChange} >
         <Option value=" ">{defaultValue}</Option>
         {options.map((option, index) => (
           <Option key={index} value={option.value}>

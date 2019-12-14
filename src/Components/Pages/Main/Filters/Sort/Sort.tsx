@@ -47,13 +47,24 @@ const SortBtn: React.FC<Props> = ({ activePage }) => {
       <GenreWrap>
         <Genres />
       </GenreWrap>
-      <Selectbox options={years()} label="Year" onChange={handleYear} />
       <Selectbox
+        options={years()}
+        label="Year"
+        onChange={handleYear}
+        defaultValue="2019"
+      />
+      <Selectbox
+        defaultValue="0"
         options={voteAvg()}
         label="IMDB Avg."
         onChange={handleAverage}
       />
-      <Selectbox options={sortOptions} label="Sort By" onChange={handleSort} />
+      <Selectbox
+        options={sortOptions}
+        label="Sort By"
+        onChange={handleSort}
+        defaultValue="Release Date(Asc)"
+      />
     </Container>
   );
 };
