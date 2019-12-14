@@ -3,6 +3,7 @@ import { device, colours } from "../../../../../utils";
 export const Container = styled.div`
   align-items: center;
   margin: 0 auto;
+  text-align: center;
   @media ${device.mobileS} {
     display: grid;
   }
@@ -29,11 +30,11 @@ export const InfoContainer = styled.div`
   @media ${device.mobileS} {
     width: 100%;
   }
-  @media ${device.mobileTablet} {
-    margin-left: 0;
+  @media ${device.mobileM} {
+    padding-left: -1em;
   }
   @media ${device.tablet} {
-    width: 69%;
+    width: 70%;
     padding: 1em;
   }
   span {
