@@ -24,6 +24,7 @@ export const Header = styled.div`
   position: fixed;
   display: grid;
   grid-gap: 0.5em;
+  padding-top: 1em;
   grid-template-columns: 2fr 2fr 1fr 1fr 1fr 5fr;
   align-items: center;
   background-color: white;

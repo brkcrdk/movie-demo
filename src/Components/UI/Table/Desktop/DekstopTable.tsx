@@ -51,8 +51,7 @@ const DekstopTable: React.FC<Props> = ({ movies, section, isLoading }) => {
           <Row
             onClick={() => {
               handleToggle(index, movie.id);
-            }}
-          >
+            }}>
             <Col>
               <Title imgPath={movie.poster_path} movieName={movie.title} />
             </Col>

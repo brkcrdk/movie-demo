@@ -16,7 +16,6 @@ export const Slayt = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-
   button {
     position: absolute;
     background-color: transparent;
