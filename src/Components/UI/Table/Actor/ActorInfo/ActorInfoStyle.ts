@@ -28,7 +28,7 @@ export const InfoContainer = styled.div`
   display: grid !important;
   padding: 1em;
   @media ${device.mobileS} {
-    width: 97%;
+    width: 95%;
   }
   @media ${device.tablet} {
     width: 69%;
