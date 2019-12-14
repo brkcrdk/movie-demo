@@ -4,6 +4,7 @@ import { apiUrl, apiKey } from "../../../config";
 import { ResultWrapper } from "./SearchStyle";
 import { useDispatch } from "react-redux";
 import { toggleSearch } from "../../../store/Toggles/action";
+import {useHistory} from "react-router-dom"
 import axios from "axios";
 import SearchResult from "./SearchResult";
 interface Props {}
@@ -12,7 +13,7 @@ const SearchInput: React.FC<Props> = () => {
   const [input, setInput] = useState<string>("");
   const [result, setResult] = useState<Array<MovieInfo>>();
   const dispatch = useDispatch();
-
+  const history = useHistory();
   useEffect(() => {
     if (input) {
       axios
@@ -34,6 +35,9 @@ const SearchInput: React.FC<Props> = () => {
     }
   };
   const handleLinkClick = () => {
+    const pathLength = history.location.pathname.split("/").length
+    const location = history.location.pathname.split("/")[pathLength]
+    console.log(location)
     dispatch(toggleSearch());
     setInput("");
   };
