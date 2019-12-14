@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFav, removeFav } from "../../../store/Favourite/action";
 import { MovieInfo } from "../../../store/serverTypes";
 import styled from "styled-components";
-import { colours } from "../../../utils";
+import { colours, device } from "../../../utils";
 interface Props {
   movie: MovieInfo;
 }
@@ -20,6 +20,7 @@ const Button = styled.button`
   font-size: 1.2em;
   cursor: pointer;
 `;
+
 const Favourite: React.FC<Props> = ({ movie }) => {
   const [toggle, setToggle] = useState(false);
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const Favourite: React.FC<Props> = ({ movie }) => {
   );
   useEffect(() => {
     if (favourites.length > 0) {
-      const ids = favourites.map(item => item.movie.id);
+      const ids = favourites.map((item) => item.movie.id);
       if (ids.indexOf(movie.id) !== -1) {
         setToggle(true);
       }
