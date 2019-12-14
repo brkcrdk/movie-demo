@@ -11,6 +11,7 @@ export const Container = styled.div`
   width: 100%;
   margin-top: 1em;
   font-family: ${fonts.aBeeZee};
+  border: 1px solid transparent;
 `;
 
 export const Tabs = styled.ul`
