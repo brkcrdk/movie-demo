@@ -4,7 +4,7 @@ interface ContainerProps {
   toggle: boolean;
 }
 interface ContentProps {
-  url: string;
+  url?: string;
 }
 export const Container = styled.div`
   display: ${(p: ContainerProps) => (p.toggle ? "block" : "none")};
@@ -49,7 +49,7 @@ export const ModalContent = styled.div`
   }
   @media ${device.tablet} {
     width: 80%;
-    margin: 10% auto;
+    margin: 11% auto;
   }
   @media ${device.widescreen} {
     margin: 15% auto;

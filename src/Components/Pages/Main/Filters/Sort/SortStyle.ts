@@ -8,6 +8,12 @@ export const Container = styled.div`
   background-color: white;
   position: fixed;
   z-index: 1;
+  @media ${device.mobileS} {
+    margin-top: -4em;
+  }
+  @media ${device.tablet} {
+    margin-top: 0.5rem;
+  }
 `;
 
 export const SortWrapper = styled.div`
@@ -18,7 +24,6 @@ export const SortWrapper = styled.div`
     display: grid;
     grid-template-columns: 12fr;
     align-items: flex-start;
-    margin-top: -2.6em;
   }
   @media ${device.mobileTablet} {
     grid-template-columns: repeat(2, 6fr);

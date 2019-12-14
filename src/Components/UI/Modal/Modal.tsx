@@ -5,6 +5,7 @@ import Top from "./Top/Top";
 import Bottom from "./Bottom/Bottom";
 import { IDetail } from "../../../store/serverTypes";
 import { imgUrl } from "../../../config";
+import Loader from "../Loader";
 interface Props {
   movie: IDetail;
   isLoading: boolean;
@@ -41,15 +42,24 @@ const Modal: React.FC<Props> = ({ movie, isLoading }) => {
       similar={movie.similar.results}
     />
   );
+  const renderContent = (
+    <ModalContent url={`${imgUrl}/w1280${movie.backdrop_path}`}>
+      <Close onClick={handleToggle}>&times;</Close>
+      <Content>
+        {renderTop}
+        {renderBottom}
+      </Content>
+    </ModalContent>
+  );
   return (
     <Container toggle={toggle}>
-      <ModalContent url={`${imgUrl}/w1280${movie.backdrop_path}`}>
-        <Close onClick={handleToggle}>&times;</Close>
-        <Content>
-          {renderTop}
-          {renderBottom}
-        </Content>
-      </ModalContent>
+      {isLoading ? (
+        <ModalContent>
+          <Loader />
+        </ModalContent>
+      ) : (
+        renderContent
+      )}
     </Container>
   );
 };
