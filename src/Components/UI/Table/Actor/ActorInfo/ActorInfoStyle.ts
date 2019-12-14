@@ -2,13 +2,12 @@ import styled from "styled-components";
 import { device, colours } from "../../../../../utils";
 export const Container = styled.div`
   align-items: center;
+  margin: 0 auto;
   @media ${device.mobileS} {
     display: grid;
-    text-align: center;
   }
   @media ${device.tablet} {
-    display: flex;
-    justify-content: center;
+    grid-template-columns: 2fr 10fr;
   }
 `;
 export const ImgContainer = styled.div`
@@ -26,12 +25,16 @@ export const ImgContainer = styled.div`
 `;
 export const InfoContainer = styled.div`
   display: grid !important;
-  padding: 1em;
+  align-items: center;
   @media ${device.mobileS} {
-    width: 95%;
+    width: 100%;
+  }
+  @media ${device.mobileTablet} {
+    margin-left: 0;
   }
   @media ${device.tablet} {
     width: 69%;
+    padding: 1em;
   }
   span {
     overflow: hidden;
