@@ -10,9 +10,13 @@ export const Container = styled.div`
   overflow: hidden;
   flex-wrap: wrap;
   z-index: -1;
+  font-family: ${fonts.aBeeZee};
+  > div {
+    display: flex;
+    align-items: center;
+  }
 `;
 export const TagWrapper = styled.div`
-  font-family: ${fonts.aBeeZee};
   margin: 0.3em;
   padding: 0.3em;
   border: 1px solid lightgrey;

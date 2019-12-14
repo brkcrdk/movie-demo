@@ -24,17 +24,22 @@ const Filters: React.FC<Props> = () => {
     (state: FiltersProps) => state.discoverFilter.tags
   );
 
-  const renderFilters = filter.map((filter, i) => (
-    <TagWrapper key={i}>
-      <TagName>{filter.name}</TagName>
-      <ToggleIcons
-        icon="times"
-        onClick={() => {
-          handleRemove(filter.name, filter.id);
-        }}
-      />
-    </TagWrapper>
-  ));
+  const renderFilters = (
+    <div>
+      <span>Selected Genres:</span>
+      {filter.map((filter, i) => (
+        <TagWrapper key={i}>
+          <TagName>{filter.name}</TagName>
+          <ToggleIcons
+            icon="times"
+            onClick={() => {
+              handleRemove(filter.name, filter.id);
+            }}
+          />
+        </TagWrapper>
+      ))}
+    </div>
+  );
   return <Container>{filter.length > 0 ? renderFilters : ""}</Container>;
 };
 
