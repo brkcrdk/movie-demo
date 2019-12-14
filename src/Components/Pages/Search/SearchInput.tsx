@@ -4,7 +4,7 @@ import { apiUrl, apiKey } from "../../../config";
 import { ResultWrapper } from "./SearchStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSearch, toggleModal } from "../../../store/Toggles/action";
-import { useHistory } from "reac-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import SearchResult from "./SearchResult";
 interface Props {}
