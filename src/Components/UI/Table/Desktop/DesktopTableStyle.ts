@@ -38,8 +38,8 @@ export const Header = styled.div`
 export const Content = styled.div`
   width: 100%;
   padding-top: ${(p: ContentProps) =>
-    p.section === "discover" ? "7em" : "2em"};
-  overflow: hidden;
+    p.section === "discover" ? "9em" : "2em"};
+  overflow-x: hidden;
 `;
 export const Wrapper = styled.div`
   position: relative;

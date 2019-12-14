@@ -8,6 +8,7 @@ export const Container = styled.div`
   position: fixed;
   padding-bottom: 1em;
   padding-top: 1.5em;
+  border: 1px solid red;
   @media ${device.mobileS} {
     display: grid;
     grid-template-columns: 12fr;
@@ -21,8 +22,8 @@ export const Container = styled.div`
   @media ${device.tablet} {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    margin-top: 0.8em;
+    align-items:center;
+    margin-top: 1.5em;
     z-index: 1;
   }
 `;
