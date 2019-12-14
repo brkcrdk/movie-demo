@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFav, removeFav } from "../../../store/Favourite/action";
 import { MovieInfo } from "../../../store/serverTypes";
 import styled from "styled-components";
-import { colours, device } from "../../../utils";
+import { colours } from "../../../utils";
 interface Props {
   movie: MovieInfo;
 }
