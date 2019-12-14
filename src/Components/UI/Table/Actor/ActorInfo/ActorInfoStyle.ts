@@ -26,8 +26,14 @@ export const ImgContainer = styled.div`
 `;
 export const InfoContainer = styled.div`
   display: grid !important;
+  padding: 1em;
+  @media ${device.mobileS} {
+    width: 97%;
+  }
+  @media ${device.tablet} {
+    width: 69%;
+  }
   span {
-    padding: 1em 1em 1em -2em;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -36,7 +42,6 @@ export const InfoContainer = styled.div`
   }
   p {
     margin-left: 2em;
-    width: 80%;
     display: flex;
     justify-content: flex-end;
     i {
