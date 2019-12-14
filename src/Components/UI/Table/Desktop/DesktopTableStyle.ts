@@ -39,7 +39,7 @@ export const Content = styled.div`
   width: 100%;
   position: relative;
   padding-top: ${(p: ContentProps) =>
-    p.section === "discover" ? "9em" : "2em"};
+    p.section === "discover" ? "12em" : "2em"};
   overflow-x: hidden;
 `;
 export const Wrapper = styled.div`

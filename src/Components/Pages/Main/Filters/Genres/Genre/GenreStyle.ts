@@ -23,6 +23,9 @@ export const DropdownHeader = styled.button`
   background-color: transparent;
   border: 0.3px solid lightgray;
   padding: 0.5em;
+  button{
+    color:black;
+  }
 `;
 export const DropdownContent = styled.div`
   visibility: ${(p: DropdownContent) => (p.toggle ? "visible" : "hidden")};

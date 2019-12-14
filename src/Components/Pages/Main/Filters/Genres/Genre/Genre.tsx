@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchGenres } from "../../../../../../store/Genres/action";
 import { addTag } from "../../../../../../store/DiscoverFilter/action";
 import { IGenre } from "../../../../../../store/serverTypes";
+import {ToggleIcons} from "../../../../../UI/Icons/Icons"
 import {
   Dropdown,
   DropdownContent,
@@ -73,7 +74,9 @@ const Genre: React.FC<Props> = () => {
     <Dropdown ref={btnRef}>
       <Label>Genre:</Label>
       <Splitter />
-      <DropdownHeader onClick={handleToggle}>Choose Genre ></DropdownHeader>
+      <DropdownHeader onClick={handleToggle}>
+        <span>Choose Genre</span> <ToggleIcons icon="sort-down"/>
+      </DropdownHeader>
       <DropdownContent toggle={toggle}>{renderGenres}</DropdownContent>
     </Dropdown>
   );

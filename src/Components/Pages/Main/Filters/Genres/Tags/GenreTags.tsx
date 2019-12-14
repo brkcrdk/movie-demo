@@ -35,9 +35,7 @@ const Filters: React.FC<Props> = () => {
       />
     </TagWrapper>
   ));
-  return (
-    <Container>{filter.length > 0 ? renderFilters : "Choose Genre"}</Container>
-  );
+  return <Container>{filter.length > 0 ? renderFilters : ""}</Container>;
 };
 
 export default Filters;
